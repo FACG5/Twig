@@ -4,16 +4,15 @@
 
 ## Problem Statement
 
-#### Giving or receiving medical information in second language increases the risk of negative healthcare outcomes.
+Giving or receiving medical information in second language increases the risk of negative healthcare outcomes.
 
 
 # Our Solution
-#### Create a platform for volunteers to submit translation and/or verify existing translations in their native languages/dialects.
+Create a platform for volunteers to submit translation and/or verify existing translations in their native languages/dialects.
 
 
 ## User journey
-
-#### As a user I can submit translation and/or verify existing translations of existing medical questions in their native languages/dialects.
+As a user I can submit translation and/or verify existing translations of existing medical questions in their native languages/dialects.
 
 
 ## User stories
