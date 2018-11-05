@@ -2,7 +2,7 @@
 -----
 
 
-# Problem Statement
+## Problem Statement
 
 #### Giving or receiving medical information in second language increases the risk of negative healthcare outcomes.
 
@@ -11,12 +11,12 @@
 #### Create a platform for volunteers to submit translation and/or verify existing translations in their native languages/dialects.
 
 
-# User journey
+## User journey
 
 #### As a user I can submit translation and/or verify existing translations of existing medical questions in their native languages/dialects.
 
 
-# User stories
+## User stories
 1- As a user I can register in the website.
 
 2- As a user I can login to the website.
@@ -35,7 +35,7 @@
 
 
 
-# Our Team 
+## Our Team 
 
 1- Farah Zaqout (Team Manager)
 
