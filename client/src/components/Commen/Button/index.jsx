@@ -1,9 +1,17 @@
 import React from 'react';
- export default  function Button (props){
-   const {className,value}=props;
-    return ( 
-      <button className={className}>{value}</button>
-     );
-}
- 
- 
+import PropTypes from 'prop-types';
+
+const Button = (props) => {
+  const { className, value, onClick } = props;
+  return (
+    <button className={className} type="submit" onClick={onClick}>{value}</button>
+  );
+};
+
+Button.propTypes = {
+  className: React.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+export default Button;
