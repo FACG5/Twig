@@ -1,0 +1,13 @@
+@import "https://fonts.googleapis.com/css?family=Cairo";
+
+.btn {
+  background-color: #bc3636;
+  padding: 8px 5px;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-family: "cairo";
+  cursor: pointer;
+  width: 12rem;
+  text-align: center;
+}
