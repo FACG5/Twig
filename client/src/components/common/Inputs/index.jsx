@@ -19,7 +19,7 @@ const Input = (props) => {
 
 
 Input.propTypes = {
-  className: React.string.isRequired,
+  className: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
