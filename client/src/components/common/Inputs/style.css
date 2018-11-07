@@ -1,5 +1,5 @@
 .loginInput {
-    width: 50%;
+    width: 277px;
     border-radius: 3px;
     border: none;
     outline-style: none;
@@ -11,7 +11,17 @@
     margin: 10px auto;
     height: 20px;
   }
-  .loginInput:focus {
-    width: 80%;
-  }
-  
+
+
+.nameInput{
+  width: 125px;
+  border-radius: 3px;
+  border: none;
+  outline-style: none;
+  margin: 10px 25px;
+  box-shadow: 0 0 2px #00000075;
+  padding: 5px 10px;
+  margin: 10px 5px;
+  height: 20px;
+
+}
