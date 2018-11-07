@@ -19,6 +19,7 @@
   z-index: 0;
   top: 72%;
   position: absolute;
+  width: 100%;
 }
 .home__text {
   font-family: "Cairo";
@@ -38,6 +39,6 @@
     font-size: 1rem;
   }
   .home__section {
-    top: 50%;
+    top: 38%;
   }
 }
