@@ -6,24 +6,20 @@ import Logo from './logo1.png';
 
 class Header extends Component {
   state = {
-  login:false ,
-  join:false
+  model:false 
 };
 
-showLoginModel() {
-  this.setState({ login:!this.state.join});
+showModel() {
+  this.setState({ model:!this.state.model});
 }
 
-showJoinModel() {
-  this.setState({join:!this.state.login });
-}
   render() {
     return (
       <div className="header">
         <img src={Logo} alt="logo" className="header__logo" />
         <div className="header__buttons">
-          <Button value="join" className="join" />
-          <Button value="login" className="login" />
+          <Button value="join" className="join" onClick={()=>this.showModel} join = {true}/>
+          <Button value="login" className="login" onClick={()=>this.showModel} login = {true} />
         </div>
       </div>
     );
