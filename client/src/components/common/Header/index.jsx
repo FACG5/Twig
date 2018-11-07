@@ -3,8 +3,8 @@ import Button from '../Button/index';
 import './style.css';
 import '../Button/style.css';
 import Logo from './logo1.png';
-import LoginModel from '../../HomePage/modal/LoginModel';
-import JoinModel from '../../HomePage/modal/JoinModel';
+import LoginModel from '../../HomePage/modal/LoginModal';
+import JoinModel from '../../HomePage/modal/JoinModal';
 
 class Header extends Component {
   state = {
