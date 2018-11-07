@@ -1,17 +1,21 @@
 .modal {
   position: absolute;
+  z-index: 99;
   top: 40%;
   left: 50%;
   width: 350px;
-  margin-top: -200px;
+  margin-top: -100px;
   margin-left: -200px;
   border-radius: 5px;
   box-shadow: 0 0 5px #00000075;
   padding: 5px 0px;
   animation: fadeInOpacity 0.4s 1;
   text-align: center;
+  background-color: white;
 }
-
+.modelContent {
+  animation: fadeInOpacity 0.4s 1;
+}
 h1 {
   font-family: cairo;
   margin: 10px 20px;
@@ -19,7 +23,6 @@ h1 {
   font-size: 15px;
   color: #00000090;
 }
-
 h3 {
   font-weight: normal;
   font-size: 15px;
@@ -53,5 +56,13 @@ h3 {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes fadeOutOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

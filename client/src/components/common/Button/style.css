@@ -64,6 +64,10 @@
   cursor: pointer;
 }
 
+ .loginButton:hover {
+  background-color: rgba(255, 0, 0);
+}
+
 .loginButton:hover {
   background-color: rgba(255, 0, 0);
 }
@@ -83,11 +87,11 @@
   cursor: pointer;
 }
 
-.LinkedInButton:hover {
+ .LinkedInButton:hover {
   background-color: rgba(0, 0, 255);
 }
 
-.joinButton,
+ .joinButton,
 .backToLogin {
   width: 80px;
   background: white;
@@ -101,9 +105,10 @@
   transition-duration: 0.3s;
 }
 
-.backToLogin {
+ .backToLogin {
   width: 120px;
 }
+
 .joinButton:hover,
 .backToLogin:hover {
   background-color: rgba(255, 0, 0);

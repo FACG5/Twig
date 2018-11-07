@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../common/Header/index';
+import Header from '../common/Header';
 import './style.css';
 
 export default function HomePage() {
