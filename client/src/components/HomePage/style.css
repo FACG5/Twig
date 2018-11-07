@@ -1,0 +1,39 @@
+@import "https://fonts.googleapis.com/css?family=Cairo";
+
+.home__image{
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+	opacity: .6; 
+  background-image: linear-gradient(rgba(188, 54, 54, 0.24) ,
+  rgba(255, 255, 255, 0)),url('home.jpeg')  ;
+  background-size: cover;
+  background-image:no-repeat;
+}
+
+.home__text{
+font-family: 'Cairo';
+bottom: 0;
+right: 0;
+padding: .2rem;
+color: white;
+position: absolute;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+@media (max-width: 1024px) {
+
+  .home__image{
+    height: 30%;
+  }
+
+  .home__text{
+   font-size: 1rem;
+    }
+
+}
