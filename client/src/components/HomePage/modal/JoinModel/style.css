@@ -1,0 +1,66 @@
+.modal {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 350px;
+  margin-top: -100px;
+  margin-left: -200px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #00000075;
+  padding: 5px 0px;
+  animation: fadeInOpacity 0.4s 1;
+  text-align: center;
+}
+.modelContent {
+  animation: fadeInOpacity 0.4s 1;
+}
+h1 {
+  font-family: cairo;
+  margin: 10px 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #00000090;
+}
+h3 {
+  font-weight: normal;
+  font-size: 15px;
+  margin: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modalHead {
+  display: flex;
+  justify-content: space-between;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.closeButton {
+  margin: 10px;
+  color: rgba(255, 0, 0, 0.61);
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.closeButton:hover {
+  color: rgb(255, 0, 0);
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
