@@ -9,6 +9,14 @@ class Header extends Component {
   login:false ,
   join:false
 };
+
+showLoginModel() {
+  this.setState({ login:!this.state.join});
+}
+
+showJoinModel() {
+  this.setState({join:!this.state.login });
+}
   render() {
     return (
       <div className="header">
