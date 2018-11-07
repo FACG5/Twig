@@ -5,7 +5,10 @@ import '../Button/style.css';
 import Logo from './logo1.png';
 
 class Header extends Component {
-  state= {};
+  state = {
+  login:false ,
+  join:false
+};
   render() {
     return (
       <div className="header">
