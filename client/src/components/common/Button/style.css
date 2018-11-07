@@ -48,3 +48,64 @@
   }
 
 }
+
+.loginButton {
+  justify-self: center;
+  width: 300px;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.8);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: rgba(255, 0, 0);
+}
+
+.LinkedInButton {
+  justify-self: center;
+  width: 300px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 255, 0.8);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.LinkedInButton:hover {
+  background-color: rgba(0, 0, 255);
+}
+
+.joinButton,
+.backToLogin {
+  width: 80px;
+  background: white;
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 10px 5px;
+  margin: 10px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.backToLogin {
+  width: 120px;
+}
+.joinButton:hover,
+.backToLogin:hover {
+  background-color: rgba(255, 0, 0);
+  color: white;
+}
