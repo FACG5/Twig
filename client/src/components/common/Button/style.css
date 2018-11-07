@@ -1,15 +1,52 @@
 @import "https://fonts.googleapis.com/css?family=Cairo";
 
-.btn {
+.join {
   background-color: #bc3636;
-  padding: 8px 5px;
-  border: none;
+  padding:  5px;
+  border: 1px solid #bc3636;
   color: white;
   border-radius: 6px;
   font-family: "cairo";
   cursor: pointer;
-  width: 12rem;
+  width: 11rem;
   text-align: center;
+  font-size: 1rem;
+  outline: none;
+}
+
+.login {
+  background-color: white;
+  color: #bc3636;
+  border: 1px solid #bc3636;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  width: 6rem;
+  font-family: "cairo";
+  cursor: pointer;
+  text-align: center;
+  margin: .5rem;
+}
+
+.join:hover{
+  background-color: #a52f2f;
+}
+
+.login:hover{
+  background-color: #faf8f8;
+}
+
+@media (max-width: 1024px) {
+
+  .join{
+    width: 4rem;
+  }
+
+  .login {
+    width: 4rem;
+  }
+
 }
 
 .loginButton {
