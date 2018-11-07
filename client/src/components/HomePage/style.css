@@ -21,11 +21,6 @@ color: white;
 position: absolute;
 }
 
-*{
-  margin: 0px;
-  padding: 0px;
-}
-
 @media (max-width: 1024px) {
 
   .home__image{
