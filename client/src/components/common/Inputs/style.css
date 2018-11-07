@@ -1,18 +1,25 @@
 .loginInput {
-    width: 50%;
-    border-radius: 3px;
-    border: none;
-    outline-style: none;
-    margin: 10px 25px;
-    box-shadow: 0 0 2px #00000075;
-    padding: 5px 10px;
-    transition: ease-in-out width 0.1s ease-in-out;
-    -webkit-transition: width 0.35s ease-in-out;
-    margin: 10px auto;
-    height: 20px;
-  }
-  
-  .loginInput:focus {
-    width: 80%;
-  }
-  
+  width: 277px;
+  border-radius: 3px;
+  border: none;
+  outline-style: none;
+  margin: 10px 25px;
+  box-shadow: 0 0 2px #00000075;
+  padding: 5px 10px;
+  transition: ease-in-out width 0.1s ease-in-out;
+  -webkit-transition: width 0.35s ease-in-out;
+  margin: 10px auto;
+  height: 20px;
+}
+
+.nameInput {
+  width: 125px;
+  border-radius: 3px;
+  border: none;
+  outline-style: none;
+  margin: 10px 25px;
+  box-shadow: 0 0 2px #00000075;
+  padding: 5px 10px;
+  margin: 10px 5px;
+  height: 20px;
+}
