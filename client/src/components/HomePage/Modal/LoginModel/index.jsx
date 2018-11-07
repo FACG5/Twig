@@ -6,7 +6,7 @@ import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 
 class Login extends Component {
-  state = { };
+  state = {};
 
   onChange = (e) => {
     const { name, value } = e.target;
@@ -50,7 +50,7 @@ class Login extends Component {
           />
         </div>
         <hr />
-        <h3> Don't Have an accout ? </h3>
+        <h3>Don't Have an accout ?</h3>
         <Button className="joinButton" value="Join" onClick={switchModel} />
       </div>
     );
