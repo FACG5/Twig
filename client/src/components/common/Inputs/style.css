@@ -11,6 +11,7 @@
     margin: 10px auto;
     height: 20px;
   }
+  
   .loginInput:focus {
     width: 80%;
   }

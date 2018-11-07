@@ -1,0 +1,15 @@
+@import "https://fonts.googleapis.com/css?family=Cairo";
+
+.header {
+  height: 20%;
+  width: 100%;
+  background: #fff;
+  color: #389dbf;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.header__logo {
+  margin-left: 1.5rem;
+}
