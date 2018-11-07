@@ -6,12 +6,13 @@ import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 
 class Login extends Component {
-  state = { email: "", password: "" };
-  onChange = e => {
-    const name = e.target.name;
-    const value = e.target.value;
+  state = { };
+
+  onChange = (e) => {
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
+
   render() {
     const { show, switchModel } = this.props;
     return (
