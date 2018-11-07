@@ -12,11 +12,11 @@
   text-align: center;
 }
 
-.loginButton{
+.loginButton {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
-  background-color: rgba(255, 0, 0, 0.80);
+  background-color: rgba(255, 0, 0, 0.8);
   border: none;
   color: white;
   padding: 5px 10px;
@@ -27,15 +27,15 @@
   cursor: pointer;
 }
 
-.loginButton:hover{
+.loginButton:hover {
   background-color: rgba(255, 0, 0);
 }
 
-.LinkedInButton{
+.LinkedInButton {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
-  background-color: rgba(0, 0, 255, 0.80);
+  background-color: rgba(0, 0, 255, 0.8);
   border: none;
   color: white;
   padding: 5px 10px;
@@ -44,19 +44,17 @@
   margin-bottom: 10px;
   transition-duration: 0.3s;
   cursor: pointer;
-
 }
 
-.LinkedInButton:hover{
+.LinkedInButton:hover {
   background-color: rgba(0, 0, 255);
 }
 
-
-
-.joinButton, .backToLogin {
+.joinButton,
+.backToLogin {
   width: 80px;
   background: white;
-  border: 1px solid rgba(255, 0, 0, 0.50);
+  border: 1px solid rgba(255, 0, 0, 0.5);
   border-radius: 5px;
   padding: 10px 5px;
   margin: 10px;
@@ -66,10 +64,11 @@
   transition-duration: 0.3s;
 }
 
-.backToLogin{
+.backToLogin {
   width: 120px;
 }
-.joinButton:hover, .backToLogin:hover {
+.joinButton:hover,
+.backToLogin:hover {
   background-color: rgba(255, 0, 0);
   color: white;
 }
