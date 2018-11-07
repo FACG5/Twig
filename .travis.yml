@@ -1,3 +1,8 @@
 language: node_js
 node_js:
 - "node"
+env:
+  - BUILD_DIR=client
+
+script:  
+  - if [ "$BUILD_DIR" = "client" ]; then cd $BUILD_DIR && npm install && npm run build; fi
