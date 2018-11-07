@@ -1,3 +1,53 @@
-.about__text{
-  color: #BC3636
+.about__tittel {
+  color: #bc3636;
+  text-align: center;
+}
+
+.about__text {
+  color: rgba(0, 0, 0, 0.62);
+  text-align: justify;
+  padding-left: 9rem;
+  padding-right: 9rem;
+  padding-top: 2rem;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 47px;
+}
+
+.about {
+  margin: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about_line {
+  color: #bc3636;
+  width: 32%;
+  height: 2px;
+  border: 0;
+  background: #bc3636;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.about__image {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin: 1%;
+}
+@media (max-width: 1023px) {
+  .about {
+    margin: 0rem;
+    display: block;
+  }
+
+  .about__text {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .about__image {
+    margin: 0 auto
+  }
 }
