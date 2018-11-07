@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import HomePage from './components/HomePage/index';
 
 class App extends Component {
   render() {
     return (
-      <h1>Ali</h1>
+      <HomePage />
     );
   }
 }
