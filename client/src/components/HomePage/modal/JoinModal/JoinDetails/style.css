@@ -1,6 +1,16 @@
 .contentOfDetails{
     padding: 20px;
+    animation: fadeInOpacity 0.4s 1;
 }
+@keyframes fadeInOpacity {
+  
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .Boxes{
     margin-top: 20px;
