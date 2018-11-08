@@ -11,10 +11,20 @@ class Join extends Component {
 
   onChange = (event) => {
     const { target } = event;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { value, parentNode } = target;
+    let valutToSave = '';
+    if (target.type === 'checkbox') {
+      valutToSave = target.checked;
+    } else if (target.type === 'radio') {
+      const { innerText } = parentNode;
+      valutToSave = innerText;
+    } else {
+      valutToSave = value;
+    }
+
     const { name } = target;
     this.setState({
-      [name]: value,
+      [name]: valutToSave,
     });
   };
 
@@ -27,7 +37,13 @@ class Join extends Component {
     }
   };
 
-  logState = () => {}
+  backFromDetails = () => {
+    this.setState({ completeJoin: false });
+  }
+
+  logState = () => {
+    console.log(this.state);
+  }
 
   render() {
     const { closeModel, switchModel } = this.props;
@@ -96,7 +112,7 @@ class Join extends Component {
               onClick={switchModel}
             />
           </div>
-        ) : <JoinDetails onChange={this.onChange} logState = {this.logState} />}
+        ) : <JoinDetails onChange={this.onChange} logState={this.logState} backFromDetails={this.backFromDetails} />}
       </div>
     );
   }
