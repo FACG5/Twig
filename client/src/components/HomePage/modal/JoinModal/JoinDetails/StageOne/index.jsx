@@ -10,7 +10,7 @@ export default function StageOne(props) {
   } = props;
   return (
     <div className="contentOfDetails">
-      <h4 className="title"> Tell us About Your skills in English </h4>
+      <h4 className="title"> Tell us some details about your language skills </h4>
       <hr />
       <div className="boxes">
         <label className="container__checkbox">
@@ -21,7 +21,6 @@ export default function StageOne(props) {
             id="native"
             onChange={onChange}
             type="checkbox"
-            checked="checked"
             name="native"
           />
           <span className="checkBox" />
