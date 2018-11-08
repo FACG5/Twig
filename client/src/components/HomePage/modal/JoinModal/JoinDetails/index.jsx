@@ -12,16 +12,16 @@ class JoinDetails extends Component {
   };
 
   render() {
-    const { onChange, logState } = this.props;
+    const { onChange, logState, backFromDetails } = this.props;
     const { firstStage } = this.state;
     return (
-      <div className="contentOfDetails">
+      <Fragment>
         {firstStage ? (
-          <StageOne onChange={onChange} logState={logState} changeStage={this.changeStage} />
+          <StageOne onChange={onChange} logState={logState} changeStage={this.changeStage} backFromDetails={backFromDetails} />
         ) : (
-          <StegeTwo onChange={onChange} logState={logState} />
+          <StegeTwo onChange={onChange} logState={logState} changeStage={this.changeStage} />
         )}
-      </div>
+      </Fragment>
     );
   }
 }
@@ -29,6 +29,7 @@ class JoinDetails extends Component {
 JoinDetails.propTypes = {
   onChange: PropTypes.func.isRequired,
   logState: PropTypes.func.isRequired,
+  backFromDetails: PropTypes.func.isRequired,
 };
 
 export default JoinDetails;
