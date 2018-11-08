@@ -15,13 +15,13 @@ class JoinDetails extends Component {
     const { onChange, logState, backFromDetails } = this.props;
     const { firstStage } = this.state;
     return (
-      <Fragment>
+      <div className="modelContent">
         {firstStage ? (
           <StageOne onChange={onChange} logState={logState} changeStage={this.changeStage} backFromDetails={backFromDetails} />
         ) : (
           <StegeTwo onChange={onChange} logState={logState} changeStage={this.changeStage} />
         )}
-      </Fragment>
+      </div>
     );
   }
 }

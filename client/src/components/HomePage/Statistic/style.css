@@ -1,0 +1,122 @@
+.satistic__tittel {
+  color: #bc3636;
+  text-align: center;
+  font-size: 35px;
+}
+
+.satistic_line {
+  color: #bc3636;
+  width: 19%;
+  height: 2px;
+  border: 0;
+  background: #bc3636;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.satistic {
+  margin-top: 1rem;
+  margin-left: 9rem;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 4rem
+}
+
+.satistic__Volunteers {
+  margin-left: 2rem;
+  display: flex;
+  margin-bottom: -3rem;
+  justify-content: flex-start;
+}
+
+.satistic__Questions {
+  margin-left: 6rem;
+  display: flex;
+  margin-bottom: -2rem;
+  justify-content: flex-start;
+}
+
+.satistic__Translations {
+  margin-left: 9.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.number {
+  font-weight: bold;
+  font-size: 3.7rem;
+  color: #ff9111;
+}
+
+.satistic__image {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+.satistic__text {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-left: 5rem;
+  color: rgba(0, 0, 0, 0.53);
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .satistic__Volunteers {
+    margin-left: 0rem;
+  }
+
+  .satistic__Questions {
+    margin-left: 2rem;
+  }
+
+  .satistic__Translations {
+    margin-left: 3rem;
+  }
+
+  .satistic {
+    margin-top: 1rem;
+    margin-left: 0rem;
+    display: block;
+  }
+
+  .satistic__image {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  .satistic__text {
+    padding-left: 1rem;
+  }
+}
+@media (width: 768px) {
+  .satistic__Volunteers {
+    margin-left: 3rem;
+  }
+
+  .satistic__Questions {
+    margin-left: 8rem;
+  }
+
+  .satistic__Translations {
+    margin-left: 12rem;
+  }
+
+  .satistic {
+    margin-top: 1rem;
+    margin-left: 0rem;
+    display: block;
+    margin-bottom: 0px;
+  }
+
+  .satistic__image {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+  }
+}

@@ -1,34 +1,86 @@
 @import "https://fonts.googleapis.com/css?family=Cairo";
 
-.home__image{
+.home__image {
   width: 100%;
-  height: 70%;
+  height: 72%;
   position: absolute;
-  background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-	opacity: .6; 
-  background-image: linear-gradient(rgba(188, 54, 54, 0.24) ,
-  rgba(255, 255, 255, 0)),url('home.jpeg')  ;
+  opacity: 0.6;
+  background-image: linear-gradient(
+      rgba(188, 54, 54, 0.24),
+      rgba(255, 255, 255, 0)
+    ),
+    url("home.jpeg");
   background-size: cover;
-  background-image:no-repeat;
+  background-image: no-repeat;
 }
 
-.home__text{
-font-family: 'Cairo';
-bottom: 0;
-right: 0;
-padding: .2rem;
-color: white;
-position: absolute;
+.home__main {
+  display: block;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  height: 100%;
+  padding-bottom: 2rem;
 }
 
-@media (max-width: 1024px) {
+.home__text {
+  font-family: "Cairo";
+  bottom: 0;
+  right: 0;
+  font-size: 30px;
+  padding: 0.2rem;
+  color: white;
+  position: absolute;
+}
 
-  .home__image{
-    height: 30%;
+.home__section {
+  top: 72%;
+  width: 100%;
+  height: 55rem;
+  position: relative;
+}
+
+.home__section .contents {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+}
+
+.home__section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-image: linear-gradient(
+      rgba(188, 54, 54, 0.2),
+      rgba(255, 255, 255, 0.1633)
+    ),
+    url("background.jpeg");
+  background-size: cover;
+  opacity: 0.2;
+}
+
+@media (max-width: 767px) {
+  .home__image {
+    height: 38%;
   }
 
-  .home__text{
-   font-size: 1rem;
-    }
+  .home__text {
+    font-size: 1rem;
+  }
 
+  .home__section {
+    top: 38%;
+  }
+
+  .home__section {
+    height: 100rem;
+  }
+}
+
+@media (width: 768px) {
+  .home__section {
+    height: 80rem;
+  }
 }
