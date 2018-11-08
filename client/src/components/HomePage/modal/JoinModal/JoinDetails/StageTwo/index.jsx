@@ -15,7 +15,6 @@ export default class StageTwo extends Component {
 
   render() {
     const { onChange, logState, changeStage } = this.props;
-    const { other } = this.state;
     return (
       <div className="contentOfDetails">
         <h4 className="completeTitle"> Tell us About Your skills in English </h4>

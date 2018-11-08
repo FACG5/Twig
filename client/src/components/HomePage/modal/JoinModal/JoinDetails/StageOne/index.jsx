@@ -6,7 +6,7 @@ import './style.css';
 
 export default function StageOne(props) {
   const {
-    onChange, logState, changeStage, backFromDetails,
+    onChange, changeStage, backFromDetails,
   } = props;
   return (
     <div className="contentOfDetails">
