@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './style.css';
 import PropTypes from 'prop-types';
 import StageOne from './StageOne/index';
