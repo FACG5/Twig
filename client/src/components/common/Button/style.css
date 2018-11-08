@@ -52,7 +52,7 @@
 
 }
 
-.loginButton {
+.button__join,.button__login {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
@@ -69,15 +69,11 @@
 
 }
 
- .loginButton:hover {
+ .button__login:hover,button__login:hover {
   background-color: rgba(255, 0, 0);
 }
 
-.loginButton:hover {
-  background-color: rgba(255, 0, 0);
-}
-
-.LinkedInButton {
+.button__linkedin {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
@@ -93,12 +89,12 @@
   font-family: cairo;
 }
 
- .LinkedInButton:hover {
+ .button__linkedin:hover {
   background-color: rgba(0, 0, 255);
 }
 
  .joinButton,
-.backToLogin {
+.join__backtologin,button__login {
   width: 80px;
   background: white;
   border: 1px solid rgba(255, 0, 0, 0.5);
@@ -111,24 +107,24 @@
   transition-duration: 0.3s;
 }
 
- .backToLogin {
+ .join__backtologin {
   width: 120px;
 }
 
 .joinButton:hover,
-.backToLogin:hover {
+.join__backtologin:hover {
   background-color: rgba(255, 0, 0);
   color: white;
 }
-.nextButton:hover{
+.button__next:hover{
   background-color: #bc3636ec;
 
 }
 
-.backButton:hover{
+.button__back:hover{
   background-color: #bc3636b6;
 }
-.nextButton
+.button__next
 {
   background-color: #bc3636;
   color: #ffffff;
@@ -144,7 +140,7 @@
   transition-duration: 0.3s;
   float: right;
 }
-.backButton{
+.button__back{
   background-color: #bc36365e;
   color: #000000;
   border: none;

@@ -10,10 +10,10 @@ export default function StageOne(props) {
   } = props;
   return (
     <div className="contentOfDetails">
-      <h4 className="completeTitle"> Tell us About Your skills in English </h4>
+      <h4 className="title"> Tell us About Your skills in English </h4>
       <hr />
-      <div className="Boxes">
-        <label className="containerCheckBox">
+      <div className="boxes">
+        <label className="container__checkbox">
           I’m a native speaker / mothertongue.
           <Inputs
             className=""
@@ -26,7 +26,7 @@ export default function StageOne(props) {
           />
           <span className="checkBox" />
         </label>
-        <label className="containerCheckBox">
+        <label className="container__checkbox">
           I have tested at upper intermediate or advanced level.
           <Inputs
             className=""
@@ -38,7 +38,7 @@ export default function StageOne(props) {
           />
           <span className="checkBox" />
         </label>
-        <label className="containerCheckBox">
+        <label className="container__checkbox">
           I have completed University or professional training this language.
           <Inputs
             className=""
@@ -49,7 +49,7 @@ export default function StageOne(props) {
           />
           <span className="checkBox" />
         </label>
-        <label className="containerCheckBox">
+        <label className="container__checkbox">
           I’m self-taught.
           <Inputs
             className=""
@@ -62,13 +62,13 @@ export default function StageOne(props) {
         </label>
       </div>
       <Button
-        className="nextButton"
+        className="button__next"
         id="nextDetails"
         onClick={changeStage}
         value="Next"
       />
       <Button
-        className="backButton"
+        className="button__back"
         id="nextDetails"
         onClick={backFromDetails}
         value="Back"

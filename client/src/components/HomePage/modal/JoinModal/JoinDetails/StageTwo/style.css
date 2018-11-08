@@ -20,7 +20,7 @@
     width: 0;
   }
   
-  .checkmark {
+  .mark__checkbox {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,25 +30,25 @@
     border-radius: 50%;
   }
   
-  .container:hover input ~ .checkmark {
+  .container:hover input ~ .mark__checkbox {
     background-color: #ccc;
   }
   
-  .container input:checked ~ .checkmark {
+  .container input:checked ~ .mark__checkbox {
     background-color: rgb(243, 33, 33);
   }
   
-  .checkmark:after {
+  .mark__checkbox:after {
     content: "";
     position: absolute;
     display: none;
   }
   
-  .container input:checked ~ .checkmark:after {
+  .container input:checked ~ .mark__checkbox:after {
     display: block;
   }
   
-  .container .checkmark:after {
+  .container .mark__checkbox:after {
     top: 8px;
     left: 8px;
     width: 5px;

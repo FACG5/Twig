@@ -1,4 +1,4 @@
-.loginInput {
+.input__email, .input__password {
   width: 277px;
   border-radius: 3px;
   border: none;
@@ -12,7 +12,7 @@
   height: 20px;
 }
 
-.nameInput {
+.join__name {
   width: 125px;
   border-radius: 3px;
   border: none;

@@ -62,14 +62,14 @@ class Join extends Component {
                 <Input
                   name="first"
                   type="text"
-                  className="nameInput"
+                  className="join__name"
                   placeholder="First Name"
                   onChange={this.onChange}
                 />
                 <Input
                   name="last"
                   type="text"
-                  className="nameInput"
+                  className="join__name"
                   placeholder="Last Name"
                   onChange={this.onChange}
                 />
@@ -77,33 +77,33 @@ class Join extends Component {
               <Input
                 name="email"
                 type="email"
-                className="loginInput"
+                className="input__email"
                 placeholder="Enter your email"
                 onChange={this.onChange}
               />
               <Input
                 name="password"
                 type="password"
-                className="loginInput"
+                className="input__password"
                 placeholder="Enter your password"
                 onChange={this.onChange}
               />
               <Button
-                className="loginButton"
+                className="button__join"
                 value="Join"
                 onClick={() => this.completeJoinCheck()}
                 id="completeJoin"
               />
               <h3>Or</h3>
               <Button
-                className="LinkedInButton"
+                className="button__linkedin"
                 value="Join with LinkedIn"
                 onClick={null}
               />
             </div>
             <hr />
             <Button
-              className="backToLogin"
+              className="join__backtologin"
               value="Back To Login"
               onClick={switchModel}
             />
