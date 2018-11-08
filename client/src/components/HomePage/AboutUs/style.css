@@ -33,10 +33,11 @@
 
 .about__image {
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
   margin: 1%;
 }
+
 @media (max-width: 1023px) {
   .about {
     margin: 0rem;
@@ -53,11 +54,11 @@
     justify-content: center;
     align-self: center;
     margin: 0 auto;
+    width: 250px;
+    height: 250px;
   }
 
   .about__text {
     line-height: 40px;
   }
-  
-
 }
