@@ -23,3 +23,10 @@
   margin: 10px 5px;
   height: 20px;
 }
+
+.jobTitleOther{
+  outline-style: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 2px #00000075;
+}
