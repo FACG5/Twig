@@ -125,16 +125,33 @@
 
 }
 
+.backButton:hover{
+  background-color: #bc3636b6;
+}
 .nextButton
 {
   background-color: #bc3636;
   color: #ffffff;
   border: none;
-  padding: 2px;
+  padding: 1px;
   font-size: 1rem;
   border-radius: 4px;
   outline: none;
   width: 6rem;
+  cursor: pointer;
+  text-align: center;
+  margin: .5rem;
+  transition-duration: 0.3s;
+  float: right;
+}
+.backButton{
+  background-color: #bc36365e;
+  color: #000000;
+  border: none;
+  padding: 1px;
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 4rem;
   cursor: pointer;
   text-align: center;
   margin: .5rem;
