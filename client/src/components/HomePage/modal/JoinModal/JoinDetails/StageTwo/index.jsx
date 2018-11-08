@@ -14,7 +14,7 @@ export default class StageTwo extends Component {
   }
 
   render() {
-    const { onChange, logState, changeStage } = this.props;
+    const { onChange, changeStage } = this.props;
     return (
       <div className="contentOfDetails">
         <h4 className="completeTitle"> Tell us About Your skills in English </h4>
@@ -78,7 +78,7 @@ export default class StageTwo extends Component {
         <Button
           className="nextButton"
           id="nextDetails"
-          onClick={logState}
+          onClick={null}
           value="Next"
         />
         <Button
@@ -94,6 +94,5 @@ export default class StageTwo extends Component {
 
 StageTwo.propTypes = {
   onChange: PropTypes.func.isRequired,
-  logState: PropTypes.func.isRequired,
   changeStage: PropTypes.func.isRequired,
 };

@@ -12,14 +12,14 @@ class JoinDetails extends Component {
   };
 
   render() {
-    const { onChange, logState, backFromDetails } = this.props;
+    const { onChange, backFromDetails } = this.props;
     const { firstStage } = this.state;
     return (
       <div className="modelContent">
         {firstStage ? (
-          <StageOne onChange={onChange} logState={logState} changeStage={this.changeStage} backFromDetails={backFromDetails} />
+          <StageOne onChange={onChange} changeStage={this.changeStage} backFromDetails={backFromDetails} />
         ) : (
-          <StegeTwo onChange={onChange} logState={logState} changeStage={this.changeStage} />
+          <StegeTwo onChange={onChange} changeStage={this.changeStage} />
         )}
       </div>
     );
@@ -28,7 +28,6 @@ class JoinDetails extends Component {
 
 JoinDetails.propTypes = {
   onChange: PropTypes.func.isRequired,
-  logState: PropTypes.func.isRequired,
   backFromDetails: PropTypes.func.isRequired,
 };
 

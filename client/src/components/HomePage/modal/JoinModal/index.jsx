@@ -39,9 +39,7 @@ class Join extends Component {
 
   backFromDetails = () => {
     this.setState({ completeJoin: false });
-  }
-
-  logState = () => {}
+  };
 
   render() {
     const { closeModel, switchModel } = this.props;
@@ -110,7 +108,12 @@ class Join extends Component {
               onClick={switchModel}
             />
           </div>
-        ) : <JoinDetails onChange={this.onChange} logState={this.logState} backFromDetails={this.backFromDetails} />}
+        ) : (
+          <JoinDetails
+            onChange={this.onChange}
+            backFromDetails={this.backFromDetails}
+          />
+        )}
       </div>
     );
   }
