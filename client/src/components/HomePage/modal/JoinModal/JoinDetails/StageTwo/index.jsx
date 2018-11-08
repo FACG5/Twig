@@ -13,8 +13,17 @@ export default class StageTwo extends Component {
     ));
   }
 
+  onChange = (event) => {
+    const { setJobTitle } = this.props;
+    const { target } = event;
+    const { parentNode } = target;
+    const { innerText } = parentNode;
+    const valutToSave = innerText;
+    setJobTitle(valutToSave);
+  }
+
   render() {
-    const { onChange, changeStage } = this.props;
+    const { changeStage } = this.props;
     return (
       <div className="contentOfDetails">
         <h4 className="title"> Tell us About Your skills in English </h4>
@@ -23,49 +32,49 @@ export default class StageTwo extends Component {
           <div className="boxes">
             <label className="container">
             Doctor (or medical student)
-              <Inputs type="radio" checked="checked" name="jobTitle" onChange={onChange} value="Doctor" />
+              <Inputs type="radio" checked name="jobTitle" onChange={this.onChange} value="Doctor" />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             Nurse (or nursing student)
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             Psychologist
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
              Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             Medical Administrator
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
           </div>
           <div className="boxes">
             <label className="container">
             Dentist (or dental student)
-              <Inputs type="radio" checked="checked" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" checked="checked" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             midwife, or specialist in Family Medicine
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             Academic: Porfessor, Lecturer, etc.
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
             I am a cultural mediator or proffessional traslator
-              <Inputs type="radio" name="jobTitle" onChange={onChange} />
+              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
               <span className="mark__checkbox" />
             </label>
             <label className="container">
@@ -93,6 +102,6 @@ export default class StageTwo extends Component {
 }
 
 StageTwo.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  setJobTitle: PropTypes.func.isRequired,
   changeStage: PropTypes.func.isRequired,
 };
