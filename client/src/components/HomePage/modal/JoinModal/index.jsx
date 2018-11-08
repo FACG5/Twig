@@ -41,9 +41,7 @@ class Join extends Component {
     this.setState({ completeJoin: false });
   }
 
-  logState = () => {
-    console.log(this.state);
-  }
+  logState = () => {}
 
   render() {
     const { closeModel, switchModel } = this.props;
