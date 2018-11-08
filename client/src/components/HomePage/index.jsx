@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from '../common/Header/index';
 import AboutUs from './AboutUs/index';
 import Statistic from './Statistic/index';
@@ -6,7 +6,7 @@ import './style.css';
 
 export default function HomePage() {
   return (
-    <div>
+    <Fragment>
       <Header />
       <div className="home__image">
         <h1 className="home__text">Medical Translation</h1>
@@ -19,6 +19,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
