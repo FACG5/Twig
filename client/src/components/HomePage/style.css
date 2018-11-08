@@ -2,7 +2,7 @@
 
 .home__image {
   width: 100%;
-  height: 60%;
+  height: 72%;
   position: absolute;
   opacity: 0.6;
   background-image: linear-gradient(
@@ -12,15 +12,17 @@
     url("home.jpeg");
   background-size: cover;
   background-image: no-repeat;
-  z-index: 0;
 }
 
-.home__section {
-  z-index: 0;
-  top: 72%;
+.home__main {
+  display: block;
   position: absolute;
   width: 100%;
+  z-index: 0;
+  height: 100%;
+  padding-bottom: 2rem;
 }
+
 .home__text {
   font-family: "Cairo";
   bottom: 0;
@@ -31,15 +33,54 @@
   position: absolute;
 }
 
-@media (max-width: 1024px) {
+.home__section {
+  top: 72%;
+  width: 100%;
+  height: 55rem;
+  position: relative;
+}
+
+.home__section .contents {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+}
+
+.home__section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-image: linear-gradient(
+      rgba(188, 54, 54, 0.2),
+      rgba(255, 255, 255, 0.1633)
+    ),
+    url("background.jpeg");
+  background-size: cover;
+  opacity: 0.2;
+}
+
+@media (max-width: 767px) {
   .home__image {
-    height: 30%;
+    height: 38%;
   }
 
   .home__text {
     font-size: 1rem;
   }
+
   .home__section {
     top: 38%;
+  }
+
+  .home__section {
+    height: 100rem;
+  }
+}
+
+@media (width: 768px) {
+  .home__section {
+    height: 80rem;
   }
 }
