@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Header from '../common/Header/index';
 import AboutUs from './AboutUs/index';
 import Statistic from './Statistic/index';
+import Footer from '../common/Footer/index';
 import './style.css';
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
           <div className="contents">
             <AboutUs />
             <Statistic />
+            <Footer />
           </div>
         </div>
       </div>
