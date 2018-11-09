@@ -76,7 +76,7 @@ class Join extends Component {
       <React.Fragment>
         <div className="modal">
           {!completeJoin ? (
-            <div className="modelContent">
+            <div className="modal__content">
               <div className="modalHead">
                 <h1>Join TWIG</h1>
                 <FontAwesomeIcon

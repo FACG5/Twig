@@ -17,7 +17,7 @@ class Login extends Component {
      const { switchModel, closeModel } = this.props;
      return (
        <div className="modal">
-         <div className="modelContent">
+         <div className="modal__content">
            <div className="modalHead">
              <h1>Login To TWIG</h1>
              <FontAwesomeIcon

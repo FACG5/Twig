@@ -9,7 +9,7 @@ export default function StageOne(props) {
     onChange, changeStage, backFromDetails,
   } = props;
   return (
-    <div className="contentOfDetails">
+    <div className="modal__details">
       <h4 className="title"> Tell us some details about your language skills </h4>
       <hr />
       <div className="checkbox__container">

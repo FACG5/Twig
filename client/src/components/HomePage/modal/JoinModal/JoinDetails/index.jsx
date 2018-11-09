@@ -15,7 +15,7 @@ class JoinDetails extends Component {
     const { onChange, backFromDetails, setJobTitle } = this.props;
     const { firstStage } = this.state;
     return (
-      <div className="modelContent">
+      <div className="modal__content">
         {firstStage ? (
           <StageOne onChange={onChange} changeStage={this.changeStage} backFromDetails={backFromDetails} />
         ) : (

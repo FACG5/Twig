@@ -6,7 +6,7 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.modelContent {
+.modal__content {
   position:fixed;
   background: white;
   width: 30rem;
