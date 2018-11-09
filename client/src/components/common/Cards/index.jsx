@@ -5,11 +5,11 @@ import './style.css';
 const Card = (props) => {
   const { values } = props;
   return (
-    <ul>
+    <ul className="box">
       {values.map((element) => {
         const { value, id } = element;
         return (
-          <li index={id} className="card">{value}</li>
+          <li index={id} className="box__card">{value}</li>
         );
       })}
     </ul>
@@ -17,7 +17,7 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  values: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Card;
