@@ -6,7 +6,7 @@
   box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.75);
 }
 
-.progress__tittel {
+.progress__titel {
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.3rem;
@@ -25,7 +25,6 @@
   color: #287fb8;
   font-weight: bold;
   font-size: 1.1rem;
-  padding-top: 10px;
   cursor: pointer;
 }
 
