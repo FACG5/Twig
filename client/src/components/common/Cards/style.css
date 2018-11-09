@@ -1,9 +1,14 @@
-.card {
-  width: 35rem;
-  height: 2rem;
+.box {
+  list-style-type: none;
+}
+
+.box__card {
+  width: 30rem;
+  height: 1.8rem;
   margin: 0.5rem;
   background-color: white;
   float: right;
   padding: 2rem;
   box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.75);
 }
+
