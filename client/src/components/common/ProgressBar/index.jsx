@@ -7,7 +7,7 @@ class ProgressBar extends Component {
   render() {
     return (
       <div className="progress">
-        <h2 className="progress__tittel">MY PROFILE</h2>
+        <h2 className="progress__titel">MY PROFILE</h2>
         <hr className="progress__line" />
         <div className="progress__bar">
           <span className="progress__bar--meter">10% Completed</span>
