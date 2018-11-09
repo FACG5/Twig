@@ -39,8 +39,8 @@ class Join extends Component {
   validation = (event) => {
     const { target } = event;
     const { value } = target;
-    if (!value.trim()) return event.target.classList.add('input__success');
-    return event.target.classList.remove('input__success');
+    if (!value.trim()) return event.target.classList.add('input__failed');
+    return event.target.classList.remove('input__failed');
   };
 
   joinCheck = () => {

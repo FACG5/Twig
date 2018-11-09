@@ -1,4 +1,4 @@
-.contentOfDetails {
+.modal__details {
   padding: 20px;
   animation: fadeInOpacity 0.4s 1;
 }
@@ -11,8 +11,8 @@
   }
 }
 
-.boxes {
-  margin-top: 20px;
+.checkbox__container {
+  margin: 20px;
 }
 
 .title {

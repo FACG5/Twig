@@ -33,6 +33,10 @@
   height: 20px;
 }
 
+.input__failed {
+  box-shadow: 0 0 2px 2px #ff0000;
+}
+
 .jobTitleOther {
   outline-style: none;
   border-radius: 5px;

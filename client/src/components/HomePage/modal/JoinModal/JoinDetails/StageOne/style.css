@@ -22,7 +22,7 @@
     width: 0;
 }
 
-.checkBox {
+.span__checkbox {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,25 +31,25 @@
     background-color: #eee;
 }
 
-.container__checkbox:hover input ~ .checkBox {
+.container__checkbox:hover input ~ .span__checkbox {
     background-color: rgb(255, 0, 0, 0.30);
 }
 
-.container__checkbox input:checked ~ .checkBox {
+.container__checkbox input:checked ~ .span__checkbox {
     background-color: rgb(243, 33, 33);
 }
 
-.checkBox:after {
+.span__checkbox:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.container__checkbox input:checked ~ .checkBox:after {
+.container__checkbox input:checked ~ .span__checkbox:after {
     display: block;
 }
 
-.container__checkbox .checkBox:after {
+.container__checkbox .span__checkbox:after {
     left: 7px;
     top: 3px;
     width: 4px;

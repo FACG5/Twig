@@ -8,8 +8,8 @@ export default function PopUp(props) {
   const { closePopUp } = props;
   return (
     <div className="mainPopUp">
-      <div className="validationPopUp">
-        <h4>Wrong !</h4>
+      <div className="popup__validation">
+        <h4>Invalid user info !</h4>
         <hr />
         <div className="popContent">
           <h3>Please Fill all of the fields ! </h3>

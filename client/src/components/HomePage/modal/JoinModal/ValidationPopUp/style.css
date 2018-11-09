@@ -1,4 +1,4 @@
-.validationPopUp {
+.popup__validation {
   position: fixed;
   background: white;
   height: auto;
@@ -12,7 +12,7 @@
   text-align: left;
 }
 
-.validationPopUp h4 {
+.popup__validation h4 {
   margin: 5px 10px 1px 5px;
   color: brown;
 }

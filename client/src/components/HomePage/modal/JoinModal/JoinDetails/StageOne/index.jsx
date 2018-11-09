@@ -12,7 +12,7 @@ export default function StageOne(props) {
     <div className="contentOfDetails">
       <h4 className="title"> Tell us some details about your language skills </h4>
       <hr />
-      <div className="boxes">
+      <div className="checkbox__container">
         <label className="container__checkbox">
           I’m a native speaker / mothertongue.
           <Inputs
@@ -23,7 +23,7 @@ export default function StageOne(props) {
             type="checkbox"
             name="native"
           />
-          <span className="checkBox" />
+          <span className="span__checkbox" />
         </label>
         <label className="container__checkbox">
           I have tested at upper intermediate or advanced level.
@@ -35,7 +35,7 @@ export default function StageOne(props) {
             name="intemediate"
             id="intemediate"
           />
-          <span className="checkBox" />
+          <span className="span__checkbox" />
         </label>
         <label className="container__checkbox">
           I have completed University or professional training this language.
@@ -46,7 +46,7 @@ export default function StageOne(props) {
             type="checkbox"
             name="university"
           />
-          <span className="checkBox" />
+          <span className="span__checkbox" />
         </label>
         <label className="container__checkbox">
           I’m self-taught.
@@ -57,7 +57,7 @@ export default function StageOne(props) {
             type="checkbox"
             name="self"
           />
-          <span className="checkBox" />
+          <span className="span__checkbox" />
         </label>
       </div>
       <Button

@@ -25,11 +25,11 @@ export default class StageTwo extends Component {
   render() {
     const { changeStage } = this.props;
     return (
-      <div className="contentOfDetails">
+      <div className="modal__details">
         <h4 className="title"> Tell us About Your skills in English </h4>
         <hr />
         <div className="radioButtonsGroup">
-          <div className="boxes">
+          <div className="checkbox__container">
             <label className="container">
             Doctor (or medical student)
               <Inputs type="radio" checked name="jobTitle" onChange={this.onChange} value="Doctor" />
@@ -56,7 +56,7 @@ export default class StageTwo extends Component {
               <span className="mark__checkbox" />
             </label>
           </div>
-          <div className="boxes">
+          <div className="checkbox__container">
             <label className="container">
             Dentist (or dental student)
               <Inputs type="radio" checked="checked" name="jobTitle" onChange={this.onChange} />
