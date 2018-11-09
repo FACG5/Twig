@@ -1,0 +1,22 @@
+.modal__details {
+  padding: 20px;
+  animation: fadeInOpacity 0.4s 1;
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.checkbox__container {
+  margin: 20px;
+}
+
+.title {
+  margin: 10px 10px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.6);
+}

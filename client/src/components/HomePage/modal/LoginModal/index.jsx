@@ -17,7 +17,7 @@ class Login extends Component {
      const { switchModel, closeModel } = this.props;
      return (
        <div className="modal">
-         <div className="modelContent">
+         <div className="modal__content">
            <div className="modalHead">
              <h1>Login To TWIG</h1>
              <FontAwesomeIcon
@@ -31,21 +31,21 @@ class Login extends Component {
              <Input
                name="email"
                type="email"
-               className="loginInput"
+               className="input__email"
                placeholder="Enter your email"
                onChange={this.onChange}
              />
              <Input
                name="password"
                type="password"
-               className="loginInput"
+               className="input__password"
                placeholder="Enter your password"
                onChange={this.onChange}
              />
-             <Button className="loginButton" value="Join" onClick={null} />
+             <Button className="button__login" value="Join" onClick={null} />
              <h3>Or</h3>
              <Button
-               className="LinkedInButton"
+               className="button__linkedin"
                value="Continue with LinkedIn"
                onClick={null}
              />
