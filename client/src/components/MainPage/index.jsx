@@ -1,13 +1,15 @@
-import React, { Fragment } from 'react';
-import Header from '../common/Header/index';
-import Footer from '../common/Footer/index';
+import React from 'react';
+import Header from '../common/Header';
+import Footer from '../common/Footer';
+import ProgressBar from '../common/ProgressBar';
 import './style.css';
 
 export default function MainPage() {
   return (
-    <Fragment>
+    <div className="main">
       <Header />
+      <ProgressBar />
       <Footer />
-    </Fragment>
+    </div>
   );
 }
