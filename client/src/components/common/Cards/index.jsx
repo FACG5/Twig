@@ -9,7 +9,7 @@ const Card = (props) => {
       {values.map((element) => {
         const { value, id } = element;
         return (
-          <li index={id} className="box__card">{value}</li>
+          <li key={id} className="box__card">{value}</li>
         );
       })}
     </ul>
