@@ -6,10 +6,10 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.modelContent {
+.modal__content {
   position:fixed;
   background: white;
-  width: 20rem;
+  width: 30rem;
   height: auto;
   top:50%;
   left:50%;

@@ -6,12 +6,13 @@
   border: 1px solid #bc3636;
   color: white;
   border-radius: 6px;
-  font-family: "cairo";
+  font-family: cairo;
   cursor: pointer;
   width: 11rem;
   text-align: center;
   font-size: 1rem;
   outline: none;
+  transition-duration: 0.4s;
 }
 
 .login {
@@ -23,10 +24,12 @@
   border-radius: 6px;
   outline: none;
   width: 6rem;
-  font-family: "cairo";
+  font-family: cairo;
   cursor: pointer;
   text-align: center;
   margin: .5rem;
+  transition-duration: 0.4s;
+
 }
 
 .join:hover{
@@ -49,7 +52,7 @@
 
 }
 
-.loginButton {
+.button__join,.button__login {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
@@ -62,17 +65,15 @@
   margin-bottom: 10px;
   transition-duration: 0.3s;
   cursor: pointer;
+  font-family: cairo;
+
 }
 
- .loginButton:hover {
+ .button__login:hover,button__login:hover {
   background-color: rgba(255, 0, 0);
 }
 
-.loginButton:hover {
-  background-color: rgba(255, 0, 0);
-}
-
-.LinkedInButton {
+.button__linkedin {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
@@ -85,14 +86,15 @@
   margin-bottom: 10px;
   transition-duration: 0.3s;
   cursor: pointer;
+  font-family: cairo;
 }
 
- .LinkedInButton:hover {
+ .button__linkedin:hover {
   background-color: rgba(0, 0, 255);
 }
 
  .joinButton,
-.backToLogin {
+.join__backtologin,button__login {
   width: 80px;
   background: white;
   border: 1px solid rgba(255, 0, 0, 0.5);
@@ -105,12 +107,50 @@
   transition-duration: 0.3s;
 }
 
- .backToLogin {
+ .join__backtologin {
   width: 120px;
 }
 
 .joinButton:hover,
-.backToLogin:hover {
+.join__backtologin:hover {
   background-color: rgba(255, 0, 0);
   color: white;
+}
+.button__next:hover{
+  background-color: #bc3636ec;
+
+}
+
+.button__back:hover{
+  background-color: #bc3636b6;
+}
+.button__next
+{
+  background-color: #bc3636;
+  color: #ffffff;
+  border: none;
+  padding: 1px;
+  font-size: 1rem;
+  border-radius: 4px;
+  outline: none;
+  width: 6rem;
+  cursor: pointer;
+  text-align: center;
+  margin: .5rem;
+  transition-duration: 0.3s;
+  float: right;
+}
+.button__back{
+  background-color: #bc36365e;
+  color: #000000;
+  border: none;
+  padding: 1px;
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 4rem;
+  cursor: pointer;
+  text-align: center;
+  margin: .5rem;
+  transition-duration: 0.3s;
+  float: right;
 }
