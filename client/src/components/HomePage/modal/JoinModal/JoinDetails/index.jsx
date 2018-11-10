@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
 import PropTypes from 'prop-types';
-import StageOne from './StageOne/index';
-import StegeTwo from './StageTwo/index';
+import StageOne from './StageOne';
+import StegeTwo from './StageTwo';
 
 class JoinDetails extends Component {
   state = { firstStage: true };
