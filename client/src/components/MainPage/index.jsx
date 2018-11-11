@@ -10,8 +10,15 @@ export default function MainPage() {
     <Fragment>
       <Header />
       <div className="main">
-        <ProfileCard />
-        <ProgressBar />
+        <div>
+          <ProfileCard
+            name="Ali ALI"
+            location="Gaza - Palestine"
+            language="Arabic"
+            dialect="Palestinian"
+          />
+          <ProgressBar />
+        </div>
       </div>
       <Footer />
     </Fragment>
