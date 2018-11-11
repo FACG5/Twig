@@ -154,3 +154,22 @@
   transition-duration: 0.3s;
   float: right;
 }
+
+.button__profile-card {
+  width: 7rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #bc3636;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  margin-left: 4rem;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  font-family: cairo;
+}
