@@ -1,0 +1,26 @@
+.aboutme__box {
+  margin-top: 40px;
+  width: 100%;
+  border: 2px solid #00000015;
+  background: #ffffff;
+}
+
+.aboutme__title {
+  margin: 10px 20px;
+  color: #BC3636;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+hr {
+  border: 1px solid #00000033;
+}
+
+.aboutme__content {
+  margin: 10px 20px;
+}
+.aboutme__content p {
+  text-align: justify;
+  color: #000000a3;
+  font-size: 15px;
+}
