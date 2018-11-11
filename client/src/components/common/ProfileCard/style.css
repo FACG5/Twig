@@ -1,7 +1,8 @@
 .profileCard__main {
-  width: 20rem;
-  height: auto;
-  margin: 1rem;
+  width: 15rem;
+  height: 21rem;
+  margin: 1rem 1rem 0.2rem 1rem;
+  padding-top: 0.2rem;
   background-color: white;
   box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.75);
 }
@@ -10,7 +11,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 10rem;
   border-radius: 50%;
 }
@@ -19,16 +20,19 @@
   font-weight: bold;
   font-size: 1.3rem;
   text-align: center;
+  margin: 0;
 }
 
 .profileCard__location {
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
+  margin: 0;
 }
 
 .profileCard__lang {
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
+  margin: 0;
 }
