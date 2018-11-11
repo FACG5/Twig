@@ -1,7 +1,8 @@
 .progress {
-  width: 20rem;
-  height: 14rem;
+  width: 15rem;
+  height: auto;
   margin: 1rem;
+  padding-bottom: 0.5rem;
   background-color: white;
   box-shadow: 0px 0px 23px -5px rgba(0, 0, 0, 0.75);
 }
@@ -9,9 +10,10 @@
 .progress__title {
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 0.3rem;
-  padding: 2rem;
+  padding: 1.3rem;
+  text-align: center;
 }
 
 .progress__line {
@@ -21,6 +23,7 @@
 }
 
 .progress__text {
+  margin-bottom: 0.5rem;
   text-align: center;
   color: #287fb8;
   font-weight: bold;
