@@ -1,0 +1,21 @@
+.search__text {
+  width: 15rem;
+  height: 1.5rem;
+  border-radius: 3px;
+  border: none;
+  outline-style: none;
+  box-shadow: 0 0 2px #00000075;
+  padding: 5px 10px;
+  margin: 1rem auto;
+}
+
+.search__button {
+  padding: 6px 10px;
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.search__button:hover{
+  background: #ccc;
+}
