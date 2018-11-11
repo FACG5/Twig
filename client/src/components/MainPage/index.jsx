@@ -1,17 +1,22 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
 import './style.css';
 
-export default function MainPage() {
-  return (
-    <Fragment>
-      <Header />
-      <div className="main">
+class MainPage extends Component {
+  state = {};
+
+  render() {
+    return (
+      <Fragment>
+        <Header />
+        <div className="main" />
         <ProgressBar />
-      </div>
-      <Footer />
-    </Fragment>
-  );
+        <Footer />
+      </Fragment>
+    );
+  }
 }
+
+export default MainPage;
