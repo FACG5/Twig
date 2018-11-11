@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
+import SearchBar from '../common/SearchBar';
 import Card from './CardsQuestion';
 import ProfileCard from '../common/ProfileCard';
 import Select from './Select';
@@ -42,9 +43,8 @@ class QuesionsPage extends Component {
     ],
   };
 
-  onChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+  search=(e) => {
+    e.preventdefault();
   }
 
   render() {
@@ -66,6 +66,7 @@ class QuesionsPage extends Component {
             <div className="main__content--header">
               <img src={image} alt="img" />
               <h2 className="main__content--header--text">Cardiac Section</h2>
+              <SearchBar className="main__content--header--search" submitHandler={this.search} />
             </div>
             <Select />
             <Card values={values} />
