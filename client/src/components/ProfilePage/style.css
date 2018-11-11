@@ -1,13 +1,18 @@
-.content {
-  width: 500px;
+
+.profile__main {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 50px;
+  
 }
-.profile__tabs {
-  width: 100%;
+.tabs__section {
   box-shadow: 0 2px 4px #00000025;
   display: flex;
   justify-content: start;
   padding: 10px 20px;
   background: #ffffff;
+  animation: fadeInOpacity 0.4s 1;
 }
 
 .tab__button {
@@ -21,4 +26,13 @@
 
 .tab__button--clicked {
   color: rgb(255, 136, 0);
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
