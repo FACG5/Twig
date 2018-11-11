@@ -1,6 +1,4 @@
 import React, { Fragment, Component } from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
 import ProfileCard from '../common/ProfileCard';
 import './style.css';
@@ -11,7 +9,6 @@ class MainPage extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <div className="main">
           <div>
             <ProfileCard
@@ -23,7 +20,6 @@ class MainPage extends Component {
             <ProgressBar />
           </div>
         </div>
-        <Footer />
       </Fragment>
     );
   }
