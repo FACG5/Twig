@@ -38,6 +38,10 @@ justify-content: space-between;
   color:#bc3636;
 }
 
+.main__content--header--search{
+  margin: 10px auto;
+}
+
 @media (max-width: 1024px) {
   .main {
     display: grid;
