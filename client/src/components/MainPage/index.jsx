@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
+import ProfileCard from '../common/ProfileCard';
 import './style.css';
 
 class MainPage extends Component {
@@ -11,8 +12,17 @@ class MainPage extends Component {
     return (
       <Fragment>
         <Header />
-        <div className="main" />
-        <ProgressBar />
+        <div className="main">
+          <div>
+            <ProfileCard
+              name="Ali ALI"
+              location="Gaza - Palestine"
+              language="Arabic"
+              dialect="Palestinian"
+            />
+            <ProgressBar />
+          </div>
+        </div>
         <Footer />
       </Fragment>
     );
