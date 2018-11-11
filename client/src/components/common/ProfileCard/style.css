@@ -1,4 +1,4 @@
-.profileCard__main {
+.profile-card__main {
   width: 15rem;
   height: 21rem;
   margin: 1rem 1rem 0.2rem 1rem;
@@ -16,21 +16,21 @@
   border-radius: 50%;
 }
 
-.profileCard__name {
+.profile-card__name {
   font-weight: bold;
   font-size: 1.3rem;
   text-align: center;
   margin: 0;
 }
 
-.profileCard__location {
+.profile-card__location {
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
   margin: 0;
 }
 
-.profileCard__lang {
+.profile-card__lang {
   font-weight: bold;
   font-size: 0.8rem;
   text-align: center;
