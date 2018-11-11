@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import MainPage from './components/MainPage';
+import Profile from './components/ProfilePage';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/landing" component={HomePage} />
-          <Route exact path="/" component={MainPage} />
-        </Switch>
-      </Router>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/landing" component={HomePage} />
+        <Route path="/profile" component={Profile} />
+        <Route render={() => <h1>Error Page</h1>} />
+      </Switch>
+    </Router>
+  );
 }
-
-export default App;
