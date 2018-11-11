@@ -1,0 +1,24 @@
+.content {
+  width: 500px;
+}
+.profile__tabs {
+  width: 100%;
+  box-shadow: 0 2px 4px #00000025;
+  display: flex;
+  justify-content: start;
+  padding: 10px 20px;
+  background: #ffffff;
+}
+
+.tab__button {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1px 10px;
+}
+
+.tab__button--clicked {
+  color: rgb(255, 136, 0);
+}
