@@ -3,7 +3,7 @@ import Header from '../common/Header';
 import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
 import Card from './CardsQuestion';
-import Input from '../common/Inputs';
+import ProfileCard from '../common/ProfileCard';
 import Select from './Select';
 import './style.css';
 import image from './image.png';
@@ -53,19 +53,19 @@ class QuesionsPage extends Component {
       <Fragment>
         <Header />
         <div className="main">
-          <ProgressBar />
+          <div>
+            <ProfileCard
+              name="Ali ALI"
+              location="Gaza - Palestine"
+              language="Arabic"
+              dialect="Palestinian"
+            />
+            <ProgressBar />
+          </div>
           <div className="main__content">
             <div className="main__content--header">
               <img src={image} alt="img" />
               <h2 className="main__content--header--text">Cardiac Section</h2>
-              <Input
-                name="search"
-                type="text"
-                className="input__search"
-                placeholder="search"
-                onChange={this.onChange}
-                disabled={null}
-              />
             </div>
             <Select />
             <Card values={values} />
