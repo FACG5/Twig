@@ -3,6 +3,7 @@
   width: 100%;
   border: 2px solid #00000015;
   background: #ffffff;
+  animation: fadeInOpacity 0.4s 1;
 }
 
 .overview__title {
