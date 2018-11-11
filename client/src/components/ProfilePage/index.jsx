@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import {
-  Link,
-} from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 import About from './About';
 import LanguageLevel from './About/LanguageLevel';
+import ProfileCard from './ProfileCard';
 
 class Profile extends Component {
   state = {
@@ -13,24 +12,50 @@ class Profile extends Component {
   };
 
   shiftTab = () => {
-    this.setState(prev => (
-      { overView: !prev.overView, languages: !prev.languages }
-    ));
-  }
+    this.setState(prev => ({
+      overView: !prev.overView,
+      languages: !prev.languages,
+    }));
+  };
 
   render() {
     const { pathname } = this.props.history.location;
     const { overView, languages } = this.state;
     return (
-      <div className="content">
-        <div className="profile__tabs">
-          <Link onClick={() => this.shiftTab()} to="/profile" className={`tab__button ${overView ? 'tab__button--clicked' : null}`}> about </Link>
-          <Link onClick={() => this.shiftTab()} to="/profile/languages" className={`tab__button ${languages ? 'tab__button--clicked' : null}`}> Translations </Link>
+      <Fragment>
+        <div className="profile__main">
+          <div className="card__section">
+            <ProfileCard />
+          </div>
+          <div>
+            <div className="tabs__section">
+              <Link
+                onClick={() => this.shiftTab()}
+                to="/profile"
+                className={`tab__button ${
+                  overView ? 'tab__button--clicked' : null
+                }`}
+              >
+                about
+              </Link>
+              <Link
+                onClick={() => this.shiftTab()}
+                to="/profile/languages"
+                className={`tab__button ${
+                  languages ? 'tab__button--clicked' : null
+                }`}
+              >
+                Translations
+              </Link>
+            </div>
+            {pathname.match('/profile/languages') ? (
+              <LanguageLevel />
+            ) : (
+              <About />
+            )}
+          </div>
         </div>
-        {
-          pathname.match('/profile/languages') ? <LanguageLevel /> : <About />
-        }
-      </div>
+      </Fragment>
     );
   }
 }
