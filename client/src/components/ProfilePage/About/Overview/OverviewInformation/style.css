@@ -1,0 +1,11 @@
+.overview__information {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  color: #000000a3;
+  font-size: 13px;
+}
+
+.information__icon {
+  justify-self: center;
+}
