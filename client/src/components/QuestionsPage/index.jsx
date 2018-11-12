@@ -1,6 +1,4 @@
 import React, { Fragment, Component } from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
 import ProgressBar from '../common/ProgressBar';
 import SearchBar from '../common/SearchBar';
 import Card from './CardsQuestion';
