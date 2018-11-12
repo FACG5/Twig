@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import ProgressBar from '../common/ProgressBar';
 import SearchBar from '../common/SearchBar';
-import Card from './CardsQuestion';
+import Card from './QuestionCard';
 import ProfileCard from '../common/ProfileCard';
 import Select from './Select';
 import './style.css';
