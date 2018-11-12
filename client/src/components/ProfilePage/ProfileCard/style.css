@@ -1,32 +1,30 @@
 .profile__card {
-    width: 100%;
-    box-shadow: 0 2px 4px #00000025;
-    background: #ffffff;
-    padding: 10px 5px;
-    height: 25rem;
-    animation: fadeInOpacity 0.4s 1;
-  
-  }
-  
-  .avatar__img {
-    display: block;
-    margin: 0 auto;
-    margin-top: 1rem;
-    width: 10rem;
-    border-radius: 50%;
-  }
-  
-  .card__name {
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 1.3rem;
-    text-align: center;
-  
-  }
-  
-  .card__jobtitle {
-    font-weight: bold;
-    font-size: 1rem;
-    text-align: center;
-    margin: 0;
-  }
+  width: 100%;
+  box-shadow: 0 2px 4px #00000025;
+  background: #ffffff;
+  padding: 10px 5px;
+  height: 25rem;
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.avatar__img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.card__name {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.card__jobtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+}
