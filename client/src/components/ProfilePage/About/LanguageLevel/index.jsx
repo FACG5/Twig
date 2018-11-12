@@ -10,7 +10,7 @@ export default function LanguageLevel() {
         <ul>
           <li> I’m a native speaker / mothertongue. </li>
           <li> I have tested at upper intermediate or advanced level. </li>
-          <li> I have completed University or professional training this language. </li>
+          <li> I have completed University or professional training this language.  </li>
           <li> I’m self-taught. </li>
         </ul>
       </div>
