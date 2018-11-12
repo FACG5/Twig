@@ -1,0 +1,69 @@
+.box {
+  list-style-type: none;
+}
+
+.box__card--translation {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr 1fr;
+  grid-gap: 4rem;
+}
+
+.box__card--content--date {
+  display: flex;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.box__card--content--box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.box__img {
+  display: block;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.box__card--translation p {
+  text-align: center;
+}
+
+.box__card--translation--div {
+  width: auto;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  padding: 2rem 2rem 2.5rem 2rem;
+  box-shadow: 0px 3px 3px #ccc;
+}
+
+.box__card--content--verify {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box__card--content--verify div {
+  text-align: center;
+}
+
+.fa__check--circle {
+  color: #6db65b;
+  cursor: pointer;
+}
+
+.fa__check--circle :hover{
+  color: #559246;
+  cursor: pointer;
+}
+
+.fa__times--circle {
+  color: #bc3636;
+  cursor: pointer;
+}
+
+.fa__times--circle :hover{
+  color: #a02e2e;
+  cursor: pointer;
+}
