@@ -51,7 +51,6 @@ class QuesionsPage extends Component {
     const { values } = this.state;
     return (
       <Fragment>
-        <Header />
         <div className="main">
           <div>
             <ProfileCard
@@ -64,8 +63,11 @@ class QuesionsPage extends Component {
           </div>
           <div className="main__content">
             <div className="main__content--header">
-              <img src={image} alt="img" />
-              <h2 className="main__content--header--text">Cardiac Section</h2>
+              <div className="main__content--header">
+                <img src={image} alt="img" />
+                <h2 className="main__content--header--text">Cardiac Section</h2>
+              </div>
+
               <SearchBar className="main__content--header--search" submitHandler={this.search} />
             </div>
             <Select />
@@ -73,7 +75,6 @@ class QuesionsPage extends Component {
             <p className="main__content--text">Show All 100 Question </p>
           </div>
         </div>
-        <Footer />
       </Fragment>
     );
   }
