@@ -9,9 +9,10 @@ const HomePage = () => (
       <h1 className="home__text">Medical Translation</h1>
     </div>
     <div className="home__main">
-      <div className="home__section">
+      <div className="rgba">
         <div className="contents">
           <AboutUs />
+          <hr className="content-line" />
           <Statistic />
         </div>
       </div>
