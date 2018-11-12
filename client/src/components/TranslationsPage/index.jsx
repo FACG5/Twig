@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import ProgressBar from '../common/ProgressBar';
-import Card from './CardsTranslation';
+import Card from './TranslationCard';
 import ProfileCard from '../common/ProfileCard';
 import image from '../../assets/img_avatar.png';
 import './style.css';
