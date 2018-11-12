@@ -1,9 +1,8 @@
 @import "https://fonts.googleapis.com/css?family=Cairo";
-
 .home__image {
   width: 100%;
-  height: 72%;
-  position: absolute;
+  height: 500px;
+  position: relative;
   opacity: 0.6;
   background-image: linear-gradient(
       rgba(188, 54, 54, 0.24),
@@ -12,15 +11,6 @@
     url("home.jpeg");
   background-size: cover;
   background-image: no-repeat;
-}
-
-.home__main {
-  display: block;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  height: 100%;
-  padding-bottom: 2rem;
 }
 
 .home__text {
@@ -33,32 +23,36 @@
   position: absolute;
 }
 
-.home__section {
-  top: 72%;
+.home__main {
+  display: block;
   width: 100%;
-  height: 55rem;
-  position: relative;
-}
-
-.home__section .contents {
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-}
-
-.home__section::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
+  z-index: -1;
+  min-height: 900px;
+  max-height: 900px;
   background-image: linear-gradient(
       rgba(188, 54, 54, 0.2),
       rgba(255, 255, 255, 0.1633)
     ),
     url("background.jpeg");
   background-size: cover;
-  opacity: 0.2;
+}
+
+.rgba {
+  background: rgba(255, 255, 255, 0.78);
+  width: 100%;
+  min-height: 900px;
+  max-height: 900px;
+}
+
+.contents {
+  padding-top: 5%;
+  z-index: 1000;
+}
+
+.content-line {
+  color: #000;
+  width: 80%;
+  margin: 0 auto;
 }
 
 @media (max-width: 767px) {
