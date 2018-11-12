@@ -5,11 +5,8 @@ import MainPage from './components/MainPage';
 import QuestionsPage from './components/QuestionsPage';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-<<<<<<< HEAD
 import ProfilePage from './components/ProfilePage';
-=======
 import TranslationsPage from './components/TranslationsPage';
->>>>>>> d2c296701dcba9c68220467c501bc457f848a0f1
 
 export default function App() {
   return (
