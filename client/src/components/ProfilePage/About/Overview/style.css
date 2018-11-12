@@ -1,0 +1,25 @@
+.overview__box {
+  margin-top: 30px;
+  width: 100%;
+  border: 2px solid #00000015;
+  background: #ffffff;
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.overview__title {
+  margin: 10px 20px;
+  color: #bc3636;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+hr {
+  border: 1px solid #00000033;
+}
+
+.overview__content {
+  margin: 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
