@@ -1,7 +1,7 @@
 .search__text {
   width: 15rem;
   height: 1.5rem;
-  border-radius: 3px;
+  border-radius: 3px 0 0 3px;
   border: none;
   outline-style: none;
   box-shadow: 0 0 2px #00000075;
@@ -10,10 +10,10 @@
 }
 
 .search__button {
-  padding: 6px 10px;
+  padding: 5.9px 10px;
   background: #ddd;
   border: none;
-  border-radius: 3px;
+  border-radius: 0 3px 3px 0;
   cursor: pointer;
 }
 .search__button:hover{
