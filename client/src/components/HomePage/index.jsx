@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react';
-import Header from '../common/Header';
 import AboutUs from './AboutUs';
 import Statistic from './Statistic';
-import Footer from '../common/Footer';
 import './style.css';
 
 const HomePage = () => (
   <Fragment>
-    <Header />
     <div className="home__image">
       <h1 className="home__text">Medical Translation</h1>
     </div>
@@ -16,7 +13,6 @@ const HomePage = () => (
         <div className="contents">
           <AboutUs />
           <Statistic />
-          <Footer />
         </div>
       </div>
     </div>
