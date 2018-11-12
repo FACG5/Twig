@@ -1,0 +1,30 @@
+.language__box {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid #00000015;
+    background: #ffffff;
+    animation: fadeInOpacity 0.4s 1;
+
+  }
+  
+  .language__title {
+    margin: 10px 20px;
+    color: #BC3636;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  hr {
+    border: 1px solid #00000033;
+  }
+  
+  .language__content {
+    margin: 10px 40px;
+  }
+
+  .language__content ul {
+      list-style: decimal;
+      color: #000000a3;
+      font-size: 15px;
+      font-weight: normal;
+  }
