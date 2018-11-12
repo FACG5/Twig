@@ -30,7 +30,7 @@ class Profile extends Component {
           <div>
             <div className="tabs__section">
               <Link
-                onClick={() => this.shiftTab()}
+                onClick={this.shiftTab}
                 to="/profile"
                 className={`tab__button ${
                   overView ? 'tab__button--clicked' : null
@@ -39,7 +39,7 @@ class Profile extends Component {
                 about
               </Link>
               <Link
-                onClick={() => this.shiftTab()}
+                onClick={this.shiftTab}
                 to="/profile/languages"
                 className={`tab__button ${
                   languages ? 'tab__button--clicked' : null
