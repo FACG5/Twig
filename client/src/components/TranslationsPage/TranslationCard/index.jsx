@@ -10,7 +10,7 @@ const Card = (props) => {
 
   return (
     <ul className="box">
-      {values.map((element) => {
+      {values && values.map((element) => {
         const {
           value, id, img, date, verified, user,
         } = element;
