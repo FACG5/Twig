@@ -5,6 +5,7 @@ import MainPage from './components/MainPage';
 import QuestionsPage from './components/QuestionsPage';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
+import ProfilePage from './components/ProfilePage';
 import TranslationsPage from './components/TranslationsPage';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Switch>
           <Route exact path="/landing" component={HomePage} />
           <Route exact path="/" component={MainPage} />
+          <Route path="/profile" component={ProfilePage} />
           <Route exact path="/specialization/questions/id" component={TranslationsPage} />
           <Route exact path="/specialization/id" component={QuestionsPage} />
         </Switch>
