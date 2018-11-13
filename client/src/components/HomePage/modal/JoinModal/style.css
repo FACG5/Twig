@@ -32,15 +32,6 @@ h3 {
   justify-items: center;
 }
 
-.closeButton {
-  margin: 10px;
-  color: rgba(255, 0, 0, 0.61);
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-.closeButton:hover {
-  color: rgb(255, 0, 0);
-}
 
 @keyframes fadeInOpacity {
   0% {
