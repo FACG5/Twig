@@ -9,7 +9,7 @@ const HomePage = () => (
       <h1 className="home__text">Medical Translation</h1>
     </div>
     <div className="home__main">
-      <div className="rgba">
+      <div className="home__main--background">
         <div className="contents">
           <AboutUs />
           <hr className="content-line" />
