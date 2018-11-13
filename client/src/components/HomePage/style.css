@@ -37,7 +37,7 @@
   background-size: cover;
 }
 
-.rgba {
+.home__main--background {
   background: rgba(255, 255, 255, 0.78);
   width: 100%;
   min-height: 900px;
