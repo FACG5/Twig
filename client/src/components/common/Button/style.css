@@ -76,7 +76,7 @@
   font-family: cairo;
 }
 
-.button_donate {
+.button_donate, .donate__submit {
   background-color: #bc3636;
   color: white;
   border: 1px solid #bc3636;
@@ -90,6 +90,10 @@
   text-align: center;
   margin: 0.5rem;
   transition-duration: 0.4s;
+  float: right;
+}
+.button_donate:hover, .donate__submit:hover {
+background: #a52f2f;
 }
 
 .button__login:hover,
