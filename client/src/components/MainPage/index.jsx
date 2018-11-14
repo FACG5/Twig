@@ -39,10 +39,6 @@ class MainPage extends Component {
     ],
   };
 
-  search=(e) => {
-    e.preventdefault();
-  }
-
   render() {
     const { values } = this.state;
     return (
@@ -58,12 +54,12 @@ class MainPage extends Component {
             <ProgressBar />
           </div>
           <div className="mainpage__content">
-            <div className="mainpage__content--header">
-              <div className="mainpage__content--header">
-                <h2 className="mainpage__content--header--text">Translation Categories</h2>
+            <div className="mainpage__content-header">
+              <div className="mainpage__content-header">
+                <h2 className="mainpage__content-header--text">Translation Categories</h2>
               </div>
 
-              <SearchBar className="mainpage__content--header--search" submitHandler={this.search} />
+              <SearchBar className="mainpage__content-header--search" submitHandler={this.search} />
             </div>
             <SpecializationCard values={values} />
             <p className="mainpage__content--text">Show All Sections </p>
