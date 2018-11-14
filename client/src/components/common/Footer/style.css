@@ -5,7 +5,6 @@
   width: 100%;
   text-align: center;
   bottom: 0;
-  margin-top: 10rem;
 }
 
 .footer__text{
@@ -14,6 +13,7 @@
   font-weight: bold;
   font-size: 1rem;
   display: block;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
 }
