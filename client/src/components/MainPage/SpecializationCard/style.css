@@ -1,0 +1,35 @@
+.category__box {
+  list-style-type: none;
+}
+
+.category__card {
+  width: auto;
+  height: 1.5rem;
+  margin-right: 0.7rem;
+  margin-bottom: 1rem;  background-color: white;
+  padding: 2rem 2rem 3rem 2rem;
+  box-shadow: 0px 3px 3px #ccc;
+}
+
+.category__card--content{
+  display: flex;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.category__card--section {
+  margin-top: .7rem;
+  margin-left: 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.category__card--content--box{
+  font-weight: bold;
+  margin-top: .7rem;
+  margin-left: auto;
+}
+
+.category__card--img {
+  width: 60px;
+  height: 60px;
+}
