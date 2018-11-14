@@ -13,6 +13,10 @@ class Login extends Component {
      this.setState({ [name]: value });
    };
 
+   onClick=() => {
+     window.location = '/';
+   }
+
    render() {
      const { switchModel, closeModel } = this.props;
      return (
@@ -42,7 +46,7 @@ class Login extends Component {
                placeholder="Enter your password"
                onChange={this.onChange}
              />
-             <Button className="button__login" value="Join" onClick={null} />
+             <Button className="button__login" value="Login" onClick={this.onClick} />
              <h3>Or</h3>
              <Button
                className="button__linkedin"
@@ -51,7 +55,7 @@ class Login extends Component {
              />
            </div>
            <hr />
-           <h3>Don't Have an accout ?</h3>
+           <h3>Don&apos;t Have an accout ?</h3>
            <Button className="joinButton" value="Join" onClick={switchModel} />
          </div>
        </div>
