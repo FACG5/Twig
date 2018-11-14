@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../common/Button';
+import TextTranslation from './TextTranslation';
+import AudioTranslation from './AudioTranslation';
 
 class DonateModal extends Component {
   state = {
@@ -11,16 +13,28 @@ class DonateModal extends Component {
   };
 
   switchTab = (e) => {
-    const { textContent } = e.target;
+    const { target } = e;
+    const { textContent } = target;
     const textContentLower = textContent.toLowerCase();
     this.setState({ text: false, audio: false, video: false }, () => {
       this.setState({ [textContentLower]: true });
     });
   };
 
+  showTab = () => {
+    const { text, audio } = this.state;
+    if (text) {
+      return <TextTranslation />;
+    }
+    if (audio) {
+      return <AudioTranslation />;
+    }
+    return null;
+  };
+
   render() {
-    const { text, audio, video } = this.state;
     const { showModal } = this.props;
+    const { text, audio, video } = this.state;
     return (
       <div className="donate__modal">
         <div className="donate__content">
@@ -50,8 +64,10 @@ class DonateModal extends Component {
               value="Video"
             />
           </div>
-          <hr/>
-          <h1>Work In Progress</h1>
+          <hr />
+          <div className="translation__box">
+            {this.showTab()}
+          </div>
         </div>
       </div>
     );
