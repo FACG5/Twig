@@ -7,7 +7,9 @@
     "client": "cd client && npm start",
     "start": "nodemon server/index.js",
     "dev": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\"",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "cd client && npm run build"
+
   },
   "repository": {
     "type": "git",
