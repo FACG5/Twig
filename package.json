@@ -9,7 +9,7 @@
     "start": "node server/index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "--only=dev && cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
 
 
 
