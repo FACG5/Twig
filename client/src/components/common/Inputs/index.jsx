@@ -29,7 +29,6 @@ const Input = (props) => {
 
 Input.defaultProps = {
   disabled: false,
-  value: '',
 };
 Input.propTypes = {
   className: PropTypes.string.isRequired,
@@ -39,7 +38,6 @@ Input.propTypes = {
   disabled: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
-  value: PropTypes.string,
 };
 
 export default Input;
