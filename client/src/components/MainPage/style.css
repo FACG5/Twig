@@ -29,16 +29,16 @@
   color: #f59036;
 }
 
-.mainpage__content--header{
+.mainpage__content-header{
 display: flex;
 }
 
-.mainpage__content--header--text {
+.mainpage__content-header--text {
   margin-top: 0.5rem;
   color:#bc3636;
 }
 
-.mainpage__content--header--search{
+.mainpage__content-header--search{
   margin-left: auto;
   margin-bottom: 1rem;
 }
