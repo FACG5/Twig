@@ -3,6 +3,7 @@ import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../common/Button';
 import TextTranslation from './TextTranslation';
+import AudioTranslation from './AudioTranslation';
 
 class DonateModal extends Component {
   state = {
@@ -21,9 +22,12 @@ class DonateModal extends Component {
   };
 
   showTab = () => {
-    const { text } = this.state;
+    const { text, audio } = this.state;
     if (text) {
       return <TextTranslation />;
+    }
+    if (audio) {
+      return <AudioTranslation />;
     }
     return null;
   };

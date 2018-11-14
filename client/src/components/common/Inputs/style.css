@@ -21,6 +21,11 @@
     transform: rotate(0deg);
   }
 }
+
+.file__input {
+  display: none;
+}
+
 .join__name {
   width: 125px;
   border-radius: 3px;
