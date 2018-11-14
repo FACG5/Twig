@@ -1,0 +1,13 @@
+.textarea__box {
+  box-shadow: 0 0 2px #00000075;
+  outline: none;
+}
+.donate__text {
+  -webkit-animation: fadeInOpacity 0.4s 1;
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.textarea__titel {
+  font-size: 20px;
+  font-weight: bold;
+}
