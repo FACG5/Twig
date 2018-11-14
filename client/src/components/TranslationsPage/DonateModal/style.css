@@ -1,0 +1,37 @@
+.donate__modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 99;
+  -webkit-animation: fadeInOpacity 0.4s 1;
+  animation: fadeInOpacity 0.4s 1;
+  text-align: center;
+}
+
+.donate__content {
+  position: fixed;
+  background: white;
+  width: 30rem;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.donate__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.donate__tabs {
+  margin-top: 30px;
+}
+
+.donate__title {
+  margin: 5px 5px 1px 5px;
+  color: rgba(0, 0, 0, 0.5);
+}

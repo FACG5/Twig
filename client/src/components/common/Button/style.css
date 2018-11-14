@@ -2,7 +2,7 @@
 
 .join {
   background-color: #bc3636;
-  padding:  5px;
+  padding: 5px;
   border: 1px solid #bc3636;
   color: white;
   border-radius: 6px;
@@ -27,32 +27,40 @@
   font-family: cairo;
   cursor: pointer;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   transition-duration: 0.4s;
-
 }
 
-.join:hover{
+.join:hover {
   background-color: #a52f2f;
 }
 
-.login:hover{
+.login:hover {
   background-color: #faf8f8;
 }
 
 @media (max-width: 1024px) {
-
-  .join{
+  .join {
     width: 4rem;
   }
 
   .login {
     width: 4rem;
   }
-
 }
 
-.button__join,.button__login {
+.closeButton {
+  margin: 10px;
+  color: rgba(255, 0, 0, 0.61);
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.closeButton:hover {
+  color: rgb(255, 0, 0);
+}
+
+.button__join,
+.button__login {
   justify-self: center;
   width: 300px;
   border-radius: 5px;
@@ -66,12 +74,11 @@
   transition-duration: 0.3s;
   cursor: pointer;
   font-family: cairo;
-
 }
 
-.button_donate{
+.button_donate {
   background-color: #bc3636;
-  color:white ;
+  color: white;
   border: 1px solid #bc3636;
   padding: 3px;
   font-size: 1rem;
@@ -81,12 +88,12 @@
   font-family: cairo;
   cursor: pointer;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   transition-duration: 0.4s;
-
 }
 
- .button__login:hover,button__login:hover {
+.button__login:hover,
+button__login:hover {
   background-color: rgba(255, 0, 0);
 }
 
@@ -106,12 +113,13 @@
   font-family: cairo;
 }
 
- .button__linkedin:hover {
+.button__linkedin:hover {
   background-color: rgba(0, 0, 255);
 }
 
- .joinButton,
-.join__backtologin,button__login {
+.joinButton,
+.join__backtologin,
+button__login {
   width: 80px;
   background: white;
   border: 1px solid rgba(255, 0, 0, 0.5);
@@ -124,7 +132,7 @@
   transition-duration: 0.3s;
 }
 
- .join__backtologin {
+.join__backtologin {
   width: 120px;
 }
 
@@ -133,16 +141,14 @@
   background-color: rgba(255, 0, 0);
   color: white;
 }
-.button__next:hover{
+.button__next:hover {
   background-color: #bc3636ec;
-
 }
 
-.button__back:hover{
+.button__back:hover {
   background-color: #bc3636b6;
 }
-.button__next
-{
+.button__next {
   background-color: #bc3636;
   color: #ffffff;
   border: none;
@@ -153,11 +159,11 @@
   width: 6rem;
   cursor: pointer;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   transition-duration: 0.3s;
   float: right;
 }
-.button__back{
+.button__back {
   background-color: #bc36365e;
   color: #000000;
   border: none;
@@ -167,7 +173,7 @@
   width: 4rem;
   cursor: pointer;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   transition-duration: 0.3s;
   float: right;
 }
@@ -189,4 +195,42 @@
   transition-duration: 0.3s;
   cursor: pointer;
   font-family: cairo;
+}
+
+.donate__tab {
+  width: 7rem;
+  border: none;
+  padding: 5px 10px;
+  background-color: #bc3636c7;
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  outline: none;
+}
+.donate__tab:hover {
+  background-color: #bc3636;
+}
+
+.donate__tab--clicked {
+  width: 7rem;
+  border: none;
+  padding: 5px 10px;
+  background-color: #bc3636;
+  color: white;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-weight: bold;
+  outline: none;
+}
+
+
+.closeButton {
+  margin: 10px;
+  color: rgba(255, 0, 0, 0.61);
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.closeButton:hover {
+  color: rgb(255, 0, 0);
 }

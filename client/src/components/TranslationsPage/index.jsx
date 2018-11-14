@@ -4,10 +4,12 @@ import Card from './TranslationCard';
 import ProfileCard from '../common/ProfileCard';
 import image from '../../assets/img_avatar.png';
 import './style.css';
+import DonateModal from './DonateModal';
 import Button from '../common/Button';
 
 class TranslationsPage extends Component {
   state = {
+    showModal: false,
     question: {
       value: 'Have you ever had a heart attack before ?',
       user: 'Admin',
@@ -54,11 +56,13 @@ class TranslationsPage extends Component {
   }
 
   showModal=() => {
-
+    this.setState(prevState => (
+      { showModal: !prevState.showModal }
+    ));
   }
 
   render() {
-    const { values, question } = this.state;
+    const { values, question, showModal } = this.state;
     return (
       <Fragment>
         <div className="main">
@@ -94,6 +98,7 @@ class TranslationsPage extends Component {
             <Card values={values} />
           </div>
         </div>
+        {showModal ? <DonateModal showModal={this.showModal} /> : null}
       </Fragment>
     );
   }
