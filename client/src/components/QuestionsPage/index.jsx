@@ -39,6 +39,7 @@ class QuesionsPage extends Component {
         verified: '5 verified',
       },
     ],
+    section: 'Cardiac Section',
   };
 
   search=(e) => {
@@ -46,7 +47,7 @@ class QuesionsPage extends Component {
   }
 
   render() {
-    const { values } = this.state;
+    const { values, section } = this.state;
     return (
       <Fragment>
         <div className="main">
@@ -69,7 +70,7 @@ class QuesionsPage extends Component {
               <SearchBar className="main__content--header--search" submitHandler={this.search} />
             </div>
             <Select />
-            <Card values={values} />
+            <Card values={values} section={section} />
             <p className="main__content--text">Show All 100 Question </p>
           </div>
         </div>
