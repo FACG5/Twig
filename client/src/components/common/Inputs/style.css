@@ -13,6 +13,10 @@
   height: 20px;
 }
 
+.file__input {
+display: none;
+}
+
 @keyframes spin {
   from {
     transform: rotate(360deg);
