@@ -11,8 +11,7 @@ class DonateModal extends Component {
   };
 
   switchTab = (e) => {
-    const { target } = e;
-    const { textContent } = target;
+    const { textContent } = e.target;
     const textContentLower = textContent.toLowerCase();
     this.setState({ text: false, audio: false, video: false }, () => {
       this.setState({ [textContentLower]: true });
