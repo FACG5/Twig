@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "client": "cd client && npm start",
-    "start": "nodemon server/index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\"",
+    "server": "nodemon server/indes.jx",
+    "start": "node server/index.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm run build"
 
