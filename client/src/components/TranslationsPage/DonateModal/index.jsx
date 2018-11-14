@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../common/Button';
 import TextTranslation from './TextTranslation';
 import AudioTranslation from './AudioTranslation';
+import VideoTranslation from './VideoTranslation';
 
 class DonateModal extends Component {
   state = {
@@ -22,12 +23,15 @@ class DonateModal extends Component {
   };
 
   showTab = () => {
-    const { text, audio } = this.state;
+    const { text, audio, video } = this.state;
     if (text) {
       return <TextTranslation />;
     }
     if (audio) {
       return <AudioTranslation />;
+    }
+    if (video) {
+      return <VideoTranslation />;
     }
     return null;
   };
@@ -65,9 +69,7 @@ class DonateModal extends Component {
             />
           </div>
           <hr />
-          <div className="translation__box">
-            {this.showTab()}
-          </div>
+          <div className="translation__box">{this.showTab()}</div>
         </div>
       </div>
     );
