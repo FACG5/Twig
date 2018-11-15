@@ -19,7 +19,6 @@ class Profile extends Component {
   };
 
   render() {
-    const { pathname } = this.props.history.location;
     const { overView, languages } = this.state;
     return (
       <Fragment>
