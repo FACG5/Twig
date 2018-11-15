@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
-import Button from '../../../common/Button';
-import Input from '../../../common/Inputs';
+import Button from '../../../../common/Button';
+import Input from '../../../../common/Inputs';
 
 class TextTranslation extends Component {
   state = {};

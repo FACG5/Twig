@@ -1,8 +1,6 @@
-import React, { Fragment, Component } from 'react';
-import ProgressBar from '../common/ProgressBar';
-import SearchBar from '../common/SearchBar';
+import React, { Component } from 'react';
+import SearchBar from '../../common/SearchBar';
 import Card from './QuestionCard';
-import ProfileCard from '../common/ProfileCard';
 import Select from './Select';
 import './style.css';
 import image from './image.png';
@@ -41,39 +39,28 @@ class QuesionsPage extends Component {
     ],
   };
 
-  search=(e) => {
+  search = (e) => {
     e.preventdefault();
-  }
+  };
 
   render() {
     const { values } = this.state;
     return (
-      <Fragment>
-        <div className="main">
-          <div>
-            <ProfileCard
-              name="Ali ALI"
-              location="Gaza - Palestine"
-              language="Arabic"
-              dialect="Palestinian"
-            />
-            <ProgressBar />
+      <div className="questions__box">
+        <div className="questions__header">
+          <div className="questions__header__logo">
+            <img src={image} alt="img" />
+            <h2 className="questions__title">Cardiac Section</h2>
           </div>
-          <div className="main__content">
-            <div className="main__content--header">
-              <div className="main__content--header">
-                <img src={image} alt="img" />
-                <h2 className="main__content--header--text">Cardiac Section</h2>
-              </div>
-
-              <SearchBar className="main__content--header--search" submitHandler={this.search} />
-            </div>
-            <Select />
-            <Card values={values} />
-            <p className="main__content--text">Show All 100 Question </p>
-          </div>
+          <SearchBar
+            className="questions__search"
+            submitHandler={this.search}
+          />
         </div>
-      </Fragment>
+        <Select />
+        <Card values={values} />
+        <p className="questions__showmore">Show All 100 Question </p>
+      </div>
     );
   }
 }
