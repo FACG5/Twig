@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 const Card = (props) => {
@@ -11,22 +12,18 @@ const Card = (props) => {
           value, id, user, translations, verified,
         } = element;
         return (
-          <li key={id} className="box__card">
-            <div>{value}</div>
-            <div className="box__card--content">
-              <div>
-                {user}
-              </div>
-              <div className="box__card--content--box">
-                <div>
-                  {translations}
-                </div>
-                <div>
-                  {verified}
+          <Link to="/spName/questions/15">
+            <li key={id} className="box__card">
+              <div>{value}</div>
+              <div className="box__card--content">
+                <div>{user}</div>
+                <div className="box__card--content--box">
+                  <div>{translations}</div>
+                  <div>{verified}</div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </Link>
         );
       })}
     </ul>

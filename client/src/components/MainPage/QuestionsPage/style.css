@@ -1,0 +1,30 @@
+
+.questions__box {
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.questions__showmore {
+  text-align: center;
+  color: #287fb8;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.questions__showmore:hover {
+  color: #f59036;
+}
+
+.questions__header, .questions__header__logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.questions__title {
+  color: #bc3636;
+}
+
+.questions__search {
+  margin: 10px 20px;
+}
