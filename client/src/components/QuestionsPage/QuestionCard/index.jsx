@@ -12,8 +12,8 @@ const Card = (props) => {
           value, id, user, translations, verified,
         } = element;
         return (
-          <Link to={`/${section}/questions/${id}`}>
-            <li key={id} className="box__card">
+          <li key={id} className="box__card">
+            <Link to={`/${section}/questions/${id}`}>
               <div>{value}</div>
               <div className="box__card--content">
                 <div>
@@ -28,8 +28,8 @@ const Card = (props) => {
                   </div>
                 </div>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         );
       })}
     </ul>
