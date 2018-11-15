@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../common/Button';
 import './style.css';
 import About from './About';
 import LanguageLevel from './About/LanguageLevel';
@@ -19,7 +19,6 @@ class Profile extends Component {
   };
 
   render() {
-    const { pathname } = this.props.history.location;
     const { overView, languages } = this.state;
     return (
       <Fragment>
@@ -29,30 +28,22 @@ class Profile extends Component {
           </div>
           <div>
             <div className="tabs__section">
-              <Link
+              <Button
                 onClick={this.shiftTab}
-                to="/profile"
                 className={`tab__button ${
                   overView ? 'tab__button--clicked' : null
                 }`}
-              >
-                about
-              </Link>
-              <Link
+                value="About"
+              />
+              <Button
                 onClick={this.shiftTab}
-                to="/profile/languages"
                 className={`tab__button ${
                   languages ? 'tab__button--clicked' : null
                 }`}
-              >
-                Translations
-              </Link>
+                value="Translations"
+              />
             </div>
-            {pathname.match('/profile/languages') ? (
-              <LanguageLevel />
-            ) : (
-              <About />
-            )}
+            {languages ? <LanguageLevel /> : <About />}
           </div>
         </div>
       </Fragment>

@@ -239,3 +239,20 @@ button__login {
 .closeButton:hover {
   color: rgb(255, 0, 0);
 }
+
+.tab__button {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1px 10px;
+  border: none;
+  background: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+.tab__button--clicked {
+  color: rgb(255, 136, 0);
+}
