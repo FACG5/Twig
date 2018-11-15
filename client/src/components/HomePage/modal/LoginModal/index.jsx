@@ -8,58 +8,70 @@ import Button from '../../../common/Button';
 class Login extends Component {
   state = {};
 
-   onChange = (e) => {
-     const { name, value } = e.target;
-     this.setState({ [name]: value });
-   };
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
 
-   render() {
-     const { switchModel, closeModel } = this.props;
-     return (
-       <div className="modal">
-         <div className="modal__content">
-           <div className="modalHead">
-             <h1>Login To TWIG</h1>
-             <FontAwesomeIcon
-               icon="times-circle"
-               className="closeButton"
-               onClick={closeModel}
-             />
-           </div>
-           <hr />
-           <div className="content">
-             <Input
-               name="email"
-               type="email"
-               className="input__email"
-               placeholder="Enter your email"
-               onChange={this.onChange}
-             />
-             <Input
-               name="password"
-               type="password"
-               className="input__password"
-               placeholder="Enter your password"
-               onChange={this.onChange}
-             />
-             <Button className="button__login" value="Join" onClick={null} />
-             <h3>Or</h3>
-             <Button
-               className="button__linkedin"
-               value="Continue with LinkedIn"
-               onClick={null}
-             />
-           </div>
-           <hr />
-           <h3>Don't Have an accout ?</h3>
-           <Button className="joinButton" value="Join" onClick={switchModel} />
-         </div>
-       </div>
-     );
-   }
+  onClick = () => {
+    const { history, closeModel } = this.props;
+    history.push('/');
+    closeModel();
+  };
+
+  render() {
+    const { switchModel, closeModel } = this.props;
+
+    return (
+      <div className="modal">
+        <div className="modal__content">
+          <div className="modalHead">
+            <h1>Login To TWIG</h1>
+            <FontAwesomeIcon
+              icon="times-circle"
+              className="closeButton"
+              onClick={closeModel}
+            />
+          </div>
+          <hr />
+          <div className="content">
+            <Input
+              name="email"
+              type="email"
+              className="input__email"
+              placeholder="Enter your email"
+              onChange={this.onChange}
+            />
+            <Input
+              name="password"
+              type="password"
+              className="input__password"
+              placeholder="Enter your password"
+              onChange={this.onChange}
+            />
+            <Button
+              className="button__login"
+              value="Login"
+              onClick={this.onClick}
+            />
+            <h3>Or</h3>
+            <Button
+              className="button__linkedin"
+              value="Continue with LinkedIn"
+              onClick={null}
+            />
+          </div>
+          <hr />
+          <h3>Don&apos;t Have an accout ?</h3>
+          <Button className="joinButton" value="Join" onClick={switchModel} />
+        </div>
+      </div>
+    );
+  }
 }
 Login.propTypes = {
   closeModel: PropTypes.func.isRequired,
   switchModel: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 export default Login;

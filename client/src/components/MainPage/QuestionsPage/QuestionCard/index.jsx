@@ -4,26 +4,32 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 const Card = (props) => {
-  const { values } = props;
+  const { values, section } = props;
   return (
     <ul className="box">
-      {values.map((element) => {
+      {values && values.map((element) => {
         const {
           value, id, user, translations, verified,
         } = element;
         return (
-          <Link to="/spName/questions/15">
-            <li key={id} className="box__card">
+          <li key={id} className="box__card">
+            <Link to={`/${section}/questions/${id}`}>
               <div>{value}</div>
               <div className="box__card--content">
-                <div>{user}</div>
+                <div>
+                  {user}
+                </div>
                 <div className="box__card--content--box">
-                  <div>{translations}</div>
-                  <div>{verified}</div>
+                  <div>
+                    {translations}
+                  </div>
+                  <div>
+                    {verified}
+                  </div>
                 </div>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         );
       })}
     </ul>
@@ -32,6 +38,8 @@ const Card = (props) => {
 
 Card.propTypes = {
   values: PropTypes.instanceOf(Array).isRequired,
+  section: PropTypes.string.isRequired,
+
 };
 
 export default Card;

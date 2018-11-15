@@ -7,13 +7,13 @@ const Card = (props) => {
   const { values } = props;
   return (
     <ul className="category__box">
-      {values.map((element) => {
+      {values && values.map((element) => {
         const {
           section, id, questions, imagePath,
         } = element;
         return (
-          <Link to="/spName">
-            <li key={id} className="category__card">
+          <li key={id} className="category__card">
+            <Link to={`/${section}`}>
               <div className="category__card--content">
                 <img
                   src={imagePath}
@@ -23,8 +23,8 @@ const Card = (props) => {
                 <div className="category__card--section">{section}</div>
                 <div className="category__card--content--box">{questions}</div>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         );
       })}
     </ul>
