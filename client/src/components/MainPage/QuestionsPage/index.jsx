@@ -37,6 +37,7 @@ class QuesionsPage extends Component {
         verified: '5 verified',
       },
     ],
+    section: 'Cardiac Section',
   };
 
   search = (e) => {
@@ -44,7 +45,7 @@ class QuesionsPage extends Component {
   };
 
   render() {
-    const { values } = this.state;
+    const { values, section } = this.state;
     return (
       <div className="questions__box">
         <div className="questions__header">
@@ -58,7 +59,7 @@ class QuesionsPage extends Component {
           />
         </div>
         <Select />
-        <Card values={values} />
+        <Card values={values} section={section} />
         <p className="questions__showmore">Show All 100 Question </p>
       </div>
     );

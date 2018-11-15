@@ -17,6 +17,11 @@ a {
   box-shadow: 0px 3px 3px #ccc;
 }
 
+.box li a {
+  color: black;
+  text-decoration: none;
+}
+
 .box__card--content {
   display: flex;
   justify-content: space-between;

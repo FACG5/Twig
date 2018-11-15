@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Button from '../Button';
 import './style.css';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Button from '../Button';
 import '../Button/style.css';
 import Logo from './logo1.png';
 import LoginModel from '../../HomePage/modal/LoginModal';
@@ -37,6 +39,7 @@ class Header extends Component {
 
   render() {
     const { joinModel, loginModel } = this.state;
+    const { history } = this.props;
     return (
       <React.Fragment>
         <div className="header">
@@ -60,6 +63,7 @@ class Header extends Component {
           <LoginModel
             closeModel={this.closeModel}
             switchModel={this.switchModel}
+            history={history}
           />
         ) : null}
         {joinModel ? (
@@ -72,5 +76,8 @@ class Header extends Component {
     );
   }
 }
+Header.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
 
-export default Header;
+export default withRouter(Header);
