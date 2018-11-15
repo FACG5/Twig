@@ -1,4 +1,4 @@
-.mainpage {
+.main {
   width: 100%;
   height: 100%;
   display: grid;
@@ -7,7 +7,7 @@
 
 }
 
-.mainpage__content{
+.main__content{
   margin: 1rem;
   align-items: center;
   background-color: white;
@@ -16,7 +16,7 @@
 
 }
 
-.mainpage__content--text {
+.main__content--text {
   text-align: center;
   color: #287fb8;
   font-weight: bold;
@@ -25,29 +25,29 @@
   cursor: pointer;
 }
 
-.mainpage__content--text:hover {
+.main__content--text:hover {
   color: #f59036;
 }
 
-.mainpage__content-header{
+.main__content--header{
 display: flex;
+justify-content: space-between;
 }
 
-.mainpage__content-header--text {
-  margin-top: 0.5rem;
+.main__content--header--text {
   color:#bc3636;
 }
 
-.mainpage__content-header--search{
-  margin-left: auto;
-  margin-bottom: 1rem;
+.main__content--header--search{
+  margin: 10px 20px;
 }
 
 @media (max-width: 1024px) {
-  .mainpage {
+  .main {
     display: grid;
     grid-template-columns:  1fr;
     grid-gap: 5px;
   
   }
+
 }

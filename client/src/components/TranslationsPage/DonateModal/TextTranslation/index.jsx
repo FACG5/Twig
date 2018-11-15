@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import Button from '../../../../common/Button';
+import Button from '../../../common/Button';
 
 export default function TextTranslation() {
   return (

@@ -1,20 +1,20 @@
-.traslations__list {
+.box {
   list-style-type: none;
 }
 
-.traslation__item {
+.box__card--translation {
   display: grid;
   grid-template-columns: 0.2fr 2fr 1fr;
   grid-gap: 4rem;
 }
 
-.traslation__date {
+.box__card--content--date {
   display: flex;
   justify-content: flex-end;
   color: rgba(0, 0, 0, 0.38);
 }
 
-.box__container {
+.box__card--content--box {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -26,11 +26,11 @@
   border-radius: 50%;
 }
 
-.traslation__item p {
+.box__card--translation p {
   text-align: center;
 }
 
-.traslation__container {
+.box__card--translation--div {
   width: auto;
   height: 1.5rem;
   margin-bottom: 1rem;
@@ -39,12 +39,12 @@
   box-shadow: 0px 3px 3px #ccc;
 }
 
-.traslation__verify {
+.box__card--content--verify {
   display: flex;
   justify-content: space-around;
 }
 
-.traslation__verify div {
+.box__card--content--verify div {
   text-align: center;
 }
 

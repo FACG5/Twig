@@ -1,29 +1,23 @@
-a {
-  text-decoration: none;
-}
-
 .box {
   list-style-type: none;
 }
 
 .box__card {
-  color: black;
   width: auto;
   height: 1.5rem;
   margin-right: 0.7rem;
-  margin-bottom: 1rem;
-  background-color: white;
+  margin-bottom: 1rem;  background-color: white;
   padding: 2rem 2rem 3rem 2rem;
   box-shadow: 0px 3px 3px #ccc;
 }
 
-.box__card--content {
+.box__card--content{
   display: flex;
   justify-content: space-between;
   color: rgba(0, 0, 0, 0.38);
 }
 
-.box__card--content--box {
+.box__card--content--box{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
