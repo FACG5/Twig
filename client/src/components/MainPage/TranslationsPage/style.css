@@ -1,0 +1,45 @@
+.translation__box {
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.main__content--text {
+  text-align: center;
+  color: #287fb8;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.translations__list {
+  margin: 2px;
+}
+
+.translations__line {
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+  height: 2px;
+  margin-bottom: 1rem;
+}
+
+.translation__question {
+  width: auto;
+  height: 1.5rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  padding: 2rem 2rem 3rem 2rem;
+  box-shadow: 0px 3px 3px #ccc;
+}
+
+.translation__user {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.translation__button {
+  display: flex;
+  justify-content: flex-end;
+}

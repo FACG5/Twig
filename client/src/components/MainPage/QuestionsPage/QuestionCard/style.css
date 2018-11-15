@@ -1,8 +1,13 @@
+a {
+  text-decoration: none;
+}
+
 .box {
   list-style-type: none;
 }
 
 .box__card {
+  color: black;
   width: auto;
   height: 1.5rem;
   margin-right: 0.7rem;
