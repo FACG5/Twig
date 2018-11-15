@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '../../common/Button';
+import Button from '../../../common/Button';
 import TextTranslation from './TextTranslation';
 import AudioTranslation from './AudioTranslation';
 import VideoTranslation from './VideoTranslation';

@@ -9,26 +9,26 @@ const Card = (props) => {
   const { values } = props;
 
   return (
-    <ul className="box">
+    <ul className="traslations__list">
       {values && values.map((element) => {
         const {
           value, id, img, date, verified, user,
         } = element;
         return (
-          <li key={id} className="box__card--translation">
+          <li key={id} className="traslation__item">
             <div>
               <img src={img} className="box__img" alt="" />
               <p>{user}</p>
             </div>
-            <div className="box__card--translation--div">
+            <div className="traslation__container">
               <div>
                 {value}
               </div>
-              <div className="box__card--content--date">
+              <div className="traslation__date">
                 {date}
               </div>
             </div>
-            <div className="box__card--content--verify">
+            <div className="traslation__verify">
               <div>
                 <div><FontAwesomeIcon icon={faCheckCircle} size="lg" className="fa__check--circle" /></div>
                 <div>{verified}</div>

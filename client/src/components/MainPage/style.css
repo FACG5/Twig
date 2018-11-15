@@ -16,33 +16,6 @@
 
 }
 
-.mainpage__content--text {
-  text-align: center;
-  color: #287fb8;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding-top: 10px;
-  cursor: pointer;
-}
-
-.mainpage__content--text:hover {
-  color: #f59036;
-}
-
-.mainpage__content-header{
-display: flex;
-}
-
-.mainpage__content-header--text {
-  margin-top: 0.5rem;
-  color:#bc3636;
-}
-
-.mainpage__content-header--search{
-  margin-left: auto;
-  margin-bottom: 1rem;
-}
-
 @media (max-width: 1024px) {
   .mainpage {
     display: grid;

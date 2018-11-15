@@ -1,0 +1,30 @@
+.specialization__box {
+  animation: fadeInOpacity 0.4s 1;
+}
+
+.specialization__header {
+  display: flex;
+}
+
+.specialization__header--text {
+  margin-top: 0.5rem;
+  color: #bc3636;
+}
+
+.specialization__search {
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+
+.specialization__showmore {
+  text-align: center;
+  color: #287fb8;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.specialization__showmore:hover {
+  color: #f59036;
+}
