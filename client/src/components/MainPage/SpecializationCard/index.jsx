@@ -12,8 +12,8 @@ const Card = (props) => {
           section, id, questions, imagePath,
         } = element;
         return (
-          <Link to={`/${section}`}>
-            <li key={id} className="category__card">
+          <li key={id} className="category__card">
+            <Link to={`/${section}`}>
               <div className="category__card--content">
                 <img src={imagePath} alt="img" className="category__card--img" />
                 <div className="category__card--section">{section}</div>
@@ -21,8 +21,8 @@ const Card = (props) => {
                   {questions}
                 </div>
               </div>
-            </li>
-          </Link>
+            </Link>
+          </li>
         );
       })}
     </ul>
