@@ -10,18 +10,22 @@ import TranslationsPage from './components/TranslationsPage';
 
 export default function App() {
   return (
-    <Fragment>
-      <Header />
-      <Router>
+    <Router>
+      <Fragment>
+        <Header />
         <Switch>
           <Route exact path="/landing" component={HomePage} />
           <Route exact path="/" component={MainPage} />
           <Route path="/profile" component={ProfilePage} />
-          <Route exact path="/:specialization/questions/:id" component={TranslationsPage} />
+          <Route
+            exact
+            path="/:specialization/questions/:id"
+            component={TranslationsPage}
+          />
           <Route exact path="/:specialization" component={QuestionsPage} />
         </Switch>
-      </Router>
-      <Footer />
-    </Fragment>
+        <Footer />
+      </Fragment>
+    </Router>
   );
 }
