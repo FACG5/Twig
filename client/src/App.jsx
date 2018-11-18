@@ -9,18 +9,18 @@ import { ModalProvider } from './components/HomePage/modal/ModalContext';
 
 export default function App() {
   return (
-    <Router>
-      <ModalProvider>
+    <ModalProvider>
+      <Router>
         <Fragment>
           <Header />
           <Switch>
-            <Route path="/landing" component={HomePage} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route path="/" component={MainPage} />
+            <Route exact path="/landing" component={HomePage} />
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/" component={MainPage} />
           </Switch>
           <Footer />
         </Fragment>
-      </ModalProvider>
-    </Router>
+      </Router>
+    </ModalProvider>
   );
 }
