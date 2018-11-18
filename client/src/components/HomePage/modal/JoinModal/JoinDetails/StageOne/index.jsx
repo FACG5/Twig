@@ -4,6 +4,8 @@ import Button from '../../../../../common/Button';
 import Inputs from '../../../../../common/Inputs';
 import './style.css';
 import { ModalConsumer } from '../../../ModalContext';
+import Select from './Select';
+import PopUp from '../../ValidationPopUp';
 
 export default function StageOne() {
   return (
@@ -22,6 +24,10 @@ export default function StageOne() {
           </div>
           <hr />
           <div className="checkbox__container">
+            <div className="select__container">
+              <Select data={context.languages} name="language" />
+              <Select data={context.dialects} name="dialect" />
+            </div>
             <label className="container__checkbox">
               I’m a native speaker / mothertongue.
               <Inputs
@@ -80,7 +86,7 @@ export default function StageOne() {
           <Button
             className="button__next"
             id="nextDetails"
-            onClick={context.changeStage}
+            onClick={context.checkLanuageAndDialect}
             value="Next"
           />
           <Button
@@ -89,6 +95,12 @@ export default function StageOne() {
             onClick={context.backFromDetails}
             value="Back"
           />
+          {context.validPopUp ? (
+            <PopUp
+              title="Wrong"
+              message="please choose Your Language / dialect"
+            />
+          ) : null}
         </div>
       )}
     </ModalConsumer>
