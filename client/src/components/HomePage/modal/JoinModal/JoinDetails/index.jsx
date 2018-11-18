@@ -1,35 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './style.css';
-import PropTypes from 'prop-types';
 import StageOne from './StageOne';
 import StegeTwo from './StageTwo';
+import { ModalConsumer } from '../../ModalContext';
 
-class JoinDetails extends Component {
-  state = { firstStage: true };
-
-  changeStage = () => {
-    this.setState(prevStat => ({ firstStage: !prevStat.firstStage }));
-  };
-
-  render() {
-    const { onChange, backFromDetails, setJobTitle } = this.props;
-    const { firstStage } = this.state;
-    return (
-      <div className="modal__content">
-        {firstStage ? (
-          <StageOne onChange={onChange} changeStage={this.changeStage} backFromDetails={backFromDetails} />
-        ) : (
-          <StegeTwo onChange={onChange} changeStage={this.changeStage} setJobTitle={setJobTitle} />
-        )}
-      </div>
-    );
-  }
+export default function JoinDetails() {
+  return (
+    <ModalConsumer>
+      {context => (
+        <div className="modal__content">
+          {context.firstStage ? <StageOne /> : <StegeTwo />}
+        </div>
+      )}
+    </ModalConsumer>
+  );
 }
-
-JoinDetails.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  backFromDetails: PropTypes.func.isRequired,
-  setJobTitle: PropTypes.func.isRequired,
-};
-
-export default JoinDetails;
