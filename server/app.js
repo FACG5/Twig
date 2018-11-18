@@ -5,7 +5,6 @@ const controller = require('./controller');
 const app = express();
 
 app.disable('x-powered-by');
-console.log(process.env.PORT);
 
 app.set('port', process.env.PORT || 5000);
 
