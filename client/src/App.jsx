@@ -16,7 +16,7 @@ export default function App() {
           <Switch>
             <Route exact path="/landing" component={HomePage} />
             <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/" component={MainPage} />
+            <Route path="/" component={MainPage} />
           </Switch>
           <Footer />
         </Fragment>
