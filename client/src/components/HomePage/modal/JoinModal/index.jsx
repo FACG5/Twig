@@ -92,7 +92,6 @@ export default function Join() {
           )}
           {context.validPopUp ? (
             <PopUp
-              closePopUp={context.closePopUp}
               title="wrong user info !"
               message="please fill All of the field"
             />
