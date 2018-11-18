@@ -6,6 +6,8 @@ class Provider extends Component {
   state = {
     joinModel: false,
     loginModel: false,
+    languages: ['arabic', 'french'],
+    dialects: ['dialect1', 'dialect2'],
     data: {
       first: '',
       last: '',
@@ -91,6 +93,16 @@ class Provider extends Component {
         joinModel: !prevState.joinModel,
         loginModel: !prevState.loginModel,
       }));
+    },
+
+    checkLanuageAndDialect: () => {
+      const { data } = this.state;
+      const { language, dialect } = data;
+      if (!language || !dialect) {
+        this.setState({ validPopUp: true });
+      } else {
+        this.setState(prevStat => ({ firstStage: !prevStat.firstStage }));
+      }
     },
   };
 
