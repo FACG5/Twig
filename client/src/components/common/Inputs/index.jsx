@@ -12,6 +12,7 @@ const Input = (props) => {
     disabled,
     onBlur,
     value,
+    checked,
   } = props;
   return (
     <input
@@ -23,6 +24,7 @@ const Input = (props) => {
       disabled={disabled}
       onBlur={onBlur}
       value={value}
+      checked={checked}
     />
   );
 };
@@ -38,6 +40,8 @@ Input.propTypes = {
   disabled: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
 };
 
 export default Input;

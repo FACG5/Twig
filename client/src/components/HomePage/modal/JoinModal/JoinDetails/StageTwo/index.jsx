@@ -1,107 +1,153 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../../../common/Button';
 import Inputs from '../../../../../common/Inputs';
 import './style.css';
+import { ModalConsumer } from '../../../ModalContext';
 
 export default class StageTwo extends Component {
-  state = { other: false }
+  state = { other: false, wrong: false };
 
   switchOther = () => {
-    this.setState(prevState => (
-      { other: !prevState.other }
-    ));
-  }
-
-  onChange = (event) => {
-    const { setJobTitle } = this.props;
-    const { target } = event;
-    const { parentNode } = target;
-    const { innerText } = parentNode;
-    const valutToSave = innerText;
-    setJobTitle(valutToSave);
-  }
+    this.setState(prevState => ({ other: !prevState.other }));
+  };
 
   render() {
-    const { changeStage } = this.props;
     return (
-      <div className="modal__details">
-        <h4 className="title"> Tell us About Your skills in English </h4>
-        <hr />
-        <div className="radioButtonsGroup">
-          <div className="checkbox__container">
-            <label className="container">
-            Doctor (or medical student)
-              <Inputs type="radio" checked name="jobTitle" onChange={this.onChange} value="Doctor" />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            Nurse (or nursing student)
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            Psychologist
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-             Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            Medical Administrator
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
+      <ModalConsumer>
+        {context => (
+          <div className="modal__details">
+            <div className="modalHead">
+              <h4 className="title">
+                Tell us some details about your language skills
+              </h4>
+              <FontAwesomeIcon
+                icon="times-circle"
+                className="closeButton"
+                onClick={context.closeModel}
+              />
+            </div>
+            <hr />
+            <div className="radioButtonsGroup">
+              <div className="checkbox__container">
+                <label className="container">
+                  Doctor (or medical student)
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Doctor"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  Nurse (or nursing student)
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Nurse (or nursing student)"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  Psychologist
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Psychologist"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  Medical paraprofessional (or studentexamples include
+                  paramedics, physical therapists, nursing, assistants,
+                  radiology technicians, etc.
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Medical paraprofessional (or studentexamples include
+                      paramedics, physical therapists, nursing, assistants,
+                      radiology technicians, etc."
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  Medical Administrator
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Medical Administrator"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+              </div>
+              <div className="checkbox__container">
+                <label className="container">
+                  Dentist (or dental student)
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value=" Dentist (or dental student)"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  midwife, or specialist in Family Medicine
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="midwife, or specialist in Family Medicine"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  Academic: Porfessor, Lecturer, etc.
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="Academic: Porfessor, Lecturer, etc."
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  I am a cultural mediator or proffessional traslator
+                  <Inputs
+                    type="radio"
+                    name="jobTitle"
+                    onChange={context.storeValue}
+                    value="I am a cultural mediator or proffessional traslator"
+                  />
+                  <span className="mark__checkbox" />
+                </label>
+                <label className="container">
+                  other
+                  <Inputs type="radio" name="jobTitle" />
+                  <span className="mark__checkbox" />
+                </label>
+              </div>
+            </div>
+            <Button
+              className="button__next"
+              id="nextDetails"
+              onClick={context.logState}
+              value="Next"
+            />
+            <Button
+              className="button__back"
+              id="nextDetails"
+              onClick={context.changeStage}
+              value="Back"
+            />
           </div>
-          <div className="checkbox__container">
-            <label className="container">
-            Dentist (or dental student)
-              <Inputs type="radio" checked="checked" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            midwife, or specialist in Family Medicine
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            Academic: Porfessor, Lecturer, etc.
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-            I am a cultural mediator or proffessional traslator
-              <Inputs type="radio" name="jobTitle" onChange={this.onChange} />
-              <span className="mark__checkbox" />
-            </label>
-            <label className="container">
-              other
-              <Inputs type="radio" name="jobTitle" />
-              <span className="mark__checkbox" />
-            </label>
-          </div>
-        </div>
-        <Button
-          className="button__next"
-          id="nextDetails"
-          onClick={null}
-          value="Next"
-        />
-        <Button
-          className="button__back"
-          id="nextDetails"
-          onClick={changeStage}
-          value="Back"
-        />
-      </div>
+        )}
+      </ModalConsumer>
     );
   }
 }
-
-StageTwo.propTypes = {
-  setJobTitle: PropTypes.func.isRequired,
-  changeStage: PropTypes.func.isRequired,
-};
