@@ -7,72 +7,52 @@ import '../Button/style.css';
 import Logo from './logo1.png';
 import LoginModel from '../../HomePage/modal/LoginModal';
 import JoinModel from '../../HomePage/modal/JoinModal';
+import {
+  ModalConsumer,
+} from '../../HomePage/modal/ModalContext';
 
 class Header extends Component {
-  state = {
-    joinModel: false,
-    loginModel: false,
-  };
-
-  showModel = (event) => {
-    const { id } = event.target;
-    this.setState(
-      {
-        joinModel: false,
-        loginModel: false,
-      },
-      () => {
-        this.setState({ [id]: true });
-      },
-    );
-  };
-
-  closeModel = () => {
-    this.setState({ joinModel: false, loginModel: false });
-  };
-
-  switchModel = () => {
-    this.setState(prevState => (
-      { joinModel: !prevState.joinModel, loginModel: !prevState.loginModel }
-    ));
-  }
+  state = {};
 
   render() {
-    const { joinModel, loginModel } = this.state;
     const { history } = this.props;
     return (
-      <React.Fragment>
-        <div className="header">
-          <img src={Logo} alt="logo" className="header__logo" />
-          <div className="header__buttons">
-            <Button
-              value="join"
-              className="join"
-              onClick={this.showModel}
-              id="joinModel"
-            />
-            <Button
-              value="login"
-              className="login"
-              onClick={this.showModel}
-              id="loginModel"
-            />
-          </div>
-        </div>
-        {loginModel ? (
-          <LoginModel
-            closeModel={this.closeModel}
-            switchModel={this.switchModel}
-            history={history}
-          />
-        ) : null}
-        {joinModel ? (
-          <JoinModel
-            closeModel={this.closeModel}
-            switchModel={this.switchModel}
-          />
-        ) : null}
-      </React.Fragment>
+      <ModalConsumer>
+        {context => (
+          <React.Fragment>
+            <div className="header">
+              <img src={Logo} alt="logo" className="header__logo" />
+              <div className="header__buttons">
+                <Button
+                  value="join"
+                  className="join"
+                  onClick={context.showModel}
+                  id="joinModel"
+                />
+                <Button
+                  value="login"
+                  className="login"
+                  onClick={context.showModel}
+                  id="loginModel"
+                />
+              </div>
+            </div>
+            {context.loginModel ? (
+              <LoginModel
+                closeModel={context.closeModel}
+                switchModel={context.switchModel}
+                history={history}
+              />
+            ) : null}
+            {context.joinModel ? (
+              <JoinModel
+                closeModel={context.closeModel}
+                switchModel={context.switchModel}
+              />
+            ) : null}
+          </React.Fragment>
+        )}
+      </ModalConsumer>
     );
   }
 }
