@@ -14,6 +14,10 @@ const users = connection.define('user', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  password: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
   job_title: {
     type: Sequelize.TEXT,
     allowNull: false,
