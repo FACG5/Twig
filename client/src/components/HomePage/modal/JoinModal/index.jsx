@@ -1,88 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 import JoinDetails from './JoinDetails';
 import PopUp from './ValidationPopUp';
+import { ModalConsumer } from '../ModalContext';
 
-class Join extends Component {
-  state = {
-    completeJoin: false,
-    validPopUp: false,
-  };
-
-  onChange = (event) => {
-    this.storeValue(event);
-  };
-
-  storeValue = (event) => {
-    const { target } = event;
-    const { value } = target;
-    let valutToSave = '';
-    if (target.type === 'checkbox') {
-      valutToSave = target.checked;
-    } else {
-      valutToSave = value;
-    }
-    const { name } = target;
-    this.setState({
-      [name]: valutToSave,
-    });
-  };
-
-  setJobTitle = (value) => {
-    this.setState({ jobTitle: value });
-  }
-
-  validation = (event) => {
-    const { target } = event;
-    const { value } = target;
-    if (!value.trim()) return event.target.classList.add('input__failed');
-    return event.target.classList.remove('input__failed');
-  };
-
-  joinCheck = () => {
-    const {
-      first, last, email, password,
-    } = this.state;
-    if (first && last && email && password) {
-      this.setState({ completeJoin: true });
-    } else {
-      this.setState({ validPopUp: true });
-    }
-  };
-
-  closePopUp = () => {
-    this.setState({ validPopUp: false });
-  };
-
-  backFromDetails = () => {
-    this.setState({ completeJoin: false });
-  };
-
-  render() {
-    const { closeModel, switchModel } = this.props;
-    const {
-      completeJoin,
-      validPopUp,
-      first,
-      last,
-      email,
-      password,
-    } = this.state;
-    return (
-      <React.Fragment>
+export default function Join() {
+  return (
+    <ModalConsumer>
+      {context => (
         <div className="modal">
-          {!completeJoin ? (
+          {!context.completeJoin ? (
             <div className="modal__content">
               <div className="modalHead">
                 <h1>Join TWIG</h1>
                 <FontAwesomeIcon
                   icon="times-circle"
                   className="closeButton"
-                  onClick={closeModel}
+                  onClick={context.closeModel}
                 />
               </div>
               <hr />
@@ -93,18 +31,18 @@ class Join extends Component {
                     type="text"
                     className="join__name"
                     placeholder="First Name"
-                    onChange={this.onChange}
-                    onBlur={this.validation}
-                    value={first}
+                    onChange={context.storeValue}
+                    onBlur={context.validation}
+                    value={context.data.first}
                   />
                   <Input
                     name="last"
                     type="text"
                     className="join__name"
                     placeholder="Last Name"
-                    onChange={this.onChange}
-                    onBlur={this.validation}
-                    value={last}
+                    onChange={context.storeValue}
+                    onBlur={context.validation}
+                    value={context.data.last}
                   />
                 </div>
                 <Input
@@ -112,23 +50,23 @@ class Join extends Component {
                   type="email"
                   className="input__email"
                   placeholder="Enter your email"
-                  onChange={this.onChange}
-                  onBlur={this.validation}
-                  value={email}
+                  onChange={context.storeValue}
+                  onBlur={context.validation}
+                  value={context.data.email}
                 />
                 <Input
                   name="password"
                   type="password"
                   className="input__password"
                   placeholder="Enter your password"
-                  onChange={this.onChange}
-                  onBlur={this.validation}
-                  value={password}
+                  onChange={context.storeValue}
+                  onBlur={context.validation}
+                  value={context.data.password}
                 />
                 <Button
                   className="button__join"
                   value="Join"
-                  onClick={() => this.joinCheck()}
+                  onClick={context.joinCheck}
                   id="completeJoin"
                 />
                 <h3>Or</h3>
@@ -142,26 +80,30 @@ class Join extends Component {
               <Button
                 className="join__backtologin"
                 value="Back To Login"
-                onClick={switchModel}
+                onClick={context.switchModel}
               />
             </div>
           ) : (
             <JoinDetails
-              onChange={this.onChange}
-              backFromDetails={this.backFromDetails}
-              setJobTitle={this.setJobTitle}
+              onChange={context.storeValue}
+              backFromDetails={context.backFromDetails}
+              setJobTitle={context.setJobTitle}
             />
           )}
+          {context.validPopUp ? (
+            <PopUp
+              closePopUp={context.closePopUp}
+              title="wrong user info !"
+              message="please fill All of the field"
+            />
+          ) : null}
         </div>
-        {validPopUp ? <PopUp closePopUp={this.closePopUp} /> : null}
-      </React.Fragment>
-    );
-  }
+      )}
+    </ModalConsumer>
+  );
 }
 
 Join.propTypes = {
   closeModel: PropTypes.func.isRequired,
   switchModel: PropTypes.func.isRequired,
 };
-
-export default Join;
