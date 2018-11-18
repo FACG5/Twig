@@ -1,0 +1,24 @@
+.select__list {
+    height: 1.5rem;
+    padding-right:3rem;
+    padding-left: .7rem;
+    background: linear-gradient(45deg, transparent 50%, #aaa 40%),
+      linear-gradient(135deg, #aaa 50%, transparent 50%),
+      linear-gradient(to top, #ddd, #fff);
+    background-position: calc(100% - 15px) calc(50%), calc(100% - 10px) calc(50%),
+      100% 0;
+    background-size: 5px 5px, 5px 5px, 30px 100%;
+    background-repeat: no-repeat;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    appearance: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .select__option {
+    padding-left: 5px;
+    border: 1px solid #fff;
+    background: #ffffff;
+  }
+  
