@@ -30,7 +30,6 @@ class Login extends Component {
         .post('/login', loginData)
         .then((loginResult) => {
           if (loginResult.status === 200) {
-            localStorage.setItem('login', true);
             history.push('/');
             context.closeModel();
           }

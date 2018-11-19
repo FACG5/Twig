@@ -1,10 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import Cookie from 'js-cookie';
 
 class PrivateRoute extends React.Component {
   componentWillMount() {
-    const login = localStorage.getItem('login');
-    if (login) {
+    const jwt = Cookie.get('jwt');
+    if (jwt) {
       this.setState({ login: true });
     } else {
       this.setState({ login: false });
