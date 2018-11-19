@@ -16,7 +16,7 @@ module.exports = new Sequelize(dbname, username, password, {
   operatorsAliases: false,
   logging: false,
   define: {
-    timestamps: true,
+    timestamps: false,
   },
   pool: {
     max: 10,
