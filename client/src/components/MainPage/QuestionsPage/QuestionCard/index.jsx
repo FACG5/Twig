@@ -9,22 +9,22 @@ const Card = (props) => {
     <ul className="box">
       {values && values.map((element) => {
         const {
-          value, id, user, translations, verified,
+          questions, id, username, translations, date,
         } = element;
         return (
           <li key={id} className="box__card">
             <Link to={`/${section}/questions/${id}`}>
-              <div>{value}</div>
+              <div>{questions}</div>
               <div className="box__card--content">
                 <div>
-                  {user}
+                  {username}
                 </div>
                 <div className="box__card--content--box">
                   <div>
-                    {translations}
+                    { `${translations} translations`}
                   </div>
                   <div>
-                    {verified}
+                    {date.slice(0, 10)}
                   </div>
                 </div>
               </div>
