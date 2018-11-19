@@ -6,6 +6,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ProfilePage from './components/ProfilePage';
 import { ModalProvider } from './components/HomePage/modal/ModalContext';
+import PrivateRoute from './components/PrivateRoutes';
 
 export default function App() {
   return (
@@ -15,8 +16,8 @@ export default function App() {
           <Header />
           <Switch>
             <Route exact path="/landing" component={HomePage} />
-            <Route exact path="/profile" component={ProfilePage} />
-            <Route path="/" component={MainPage} />
+            <PrivateRoute exact path="/profile" component={ProfilePage} />
+            <PrivateRoute path="/" component={MainPage} />
           </Switch>
           <Footer />
         </Fragment>
