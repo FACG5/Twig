@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 
 const Context = React.createContext();
-
 class Provider extends Component {
   state = {
     joinModel: false,
     loginModel: false,
+    languages: ['arabic', 'french'],
+    dialects: ['dialect1', 'dialect2'],
     data: {
       first: '',
       last: '',
       email: '',
       password: '',
+      loginEmail: '',
+      loginPassword: '',
     },
-
+    updateState: (newState) => {
+      this.setState(newState);
+    },
     firstStage: true,
-    completeJoin: '',
-    validPopUp: '',
-
     setJobTitle: (value) => {
       this.setState(prevState => ({
         data: { jobTitle: value, ...prevState.data },
@@ -28,12 +30,13 @@ class Provider extends Component {
     },
 
     closePopUp: () => {
-      this.setState({ validPopUp: false });
+      this.setState({ popUpMessage: null });
     },
 
-    backFromDetails: () => {
-      this.setState({ completeJoin: false });
+    setPopUpMessage: (popUpMessage) => {
+      this.setState({ popUpMessage });
     },
+
 
     storeValue: (event) => {
       const { target } = event;
@@ -55,18 +58,6 @@ class Provider extends Component {
       const { value } = target;
       if (!value.trim()) return event.target.classList.add('input__failed');
       return event.target.classList.remove('input__failed');
-    },
-
-    joinCheck: () => {
-      const { data } = this.state;
-      const {
-        first, last, email, password,
-      } = data;
-      if (first && last && email && password) {
-        this.setState({ completeJoin: true });
-      } else {
-        this.setState({ validPopUp: true });
-      }
     },
 
     showModel: (event) => {

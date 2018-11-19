@@ -3,6 +3,8 @@ node_js:
 - "node"
 env:
   - BUILD_DIR=client
+  - BUILD_DIR=server
 
 script:  
-  - if [ "$BUILD_DIR" = "client" ]; then cd $BUILD_DIR && npm install && npm run build; fi
+  - if [ "$BUILD_DIR" = "client" ]; then cd $BUILD_DIR && npm install && npm run build; fi 
+  - if [ "$BUILD_DIR" = "server" ]; then cd $BUILD_DIR && npm install; fi
