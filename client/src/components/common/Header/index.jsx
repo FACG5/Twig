@@ -39,16 +39,11 @@ class Header extends Component {
             </div>
             {context.loginModel ? (
               <LoginModel
-                closeModel={context.closeModel}
-                switchModel={context.switchModel}
                 history={history}
               />
             ) : null}
             {context.joinModel ? (
-              <JoinModel
-                closeModel={context.closeModel}
-                switchModel={context.switchModel}
-              />
+              <JoinModel />
             ) : null}
           </React.Fragment>
         )}
