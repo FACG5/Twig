@@ -4,7 +4,6 @@ import './style.css';
 
 export default function Select(props) {
   const { data, name } = props;
-
   return (
     <ModalConsumer>
       {context => (

@@ -7,8 +7,6 @@ const typesOfTranslations = require('./typesOTranslations');
 const questions = require('./question');
 const speclalizations = require('./speclalizations');
 
-
-
 languages.hasMany(users, { foreignKey: 'language_id' });
 languages.hasMany(dialect, { foreignKey: 'language_id' });
 dialect.hasMany(users, { foreignKey: 'dialect_id' });
@@ -20,5 +18,12 @@ questions.hasMany(translations, { foreignKey: 'question_id' });
 users.hasMany(questions, { foreignKey: 'owner' });
 speclalizations.hasMany(questions, { foreignKey: 'speclalization_id' });
 
-
-module.exports = { connection, users };
+module.exports = {
+  connection,
+  users,
+  languages,
+  questions,
+  speclalizations,
+  dialect,
+  typesOfTranslations,
+};
