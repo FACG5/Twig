@@ -25,17 +25,20 @@ class Login extends Component {
         title: 'Error !',
       });
     } else {
-      try {
-        const loginData = { loginEmail, loginPassword };
-        const loginResult = await axios.post('/login', loginData);
-        if (loginResult.status === 200) {
-          history.push('/');
-          context.closeModel();
-        }
-      } catch (error) {
-        const { data } = error.response;
-        context.setPopUpMessage({ message: data, title: 'Error !' });
-      }
+      const loginData = { loginEmail, loginPassword };
+      axios
+        .post('/login', loginData)
+        .then((loginResult) => {
+          if (loginResult.status === 200) {
+            localStorage.setItem('login', true);
+            history.push('/');
+            context.closeModel();
+          }
+        })
+        .catch((error) => {
+          const { data } = error.response;
+          context.setPopUpMessage({ message: data, title: 'Error !' });
+        });
     }
   };
 
