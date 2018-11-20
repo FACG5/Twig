@@ -16,18 +16,25 @@ insert into dialects (name,language_id)
  ('Palestinian',1),
  ('Egypt',1);
 
-insert into users(first_name,last_name,email,job_title,job_description,bio,location,gender,        date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id)
-  values
-  ('lubna','abd','lubna@hotmail.com','job_title','job_description','bio','Gaza','Femal','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
+insert into users(first_name,last_name,email,password,job_title,job_description,bio,location,gender,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id) values ('a','a','a@a.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','job_title','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
 
 
-  
   insert into questions(questions,date,owner,speclalization_id)
   values
   ('Have you ever had a heart attack before ?','2018-11-8','1','1'),
   ('Have you ever been in a hospital  ?','2018-10-8','1','1'),
   ('Where is the pain exactly  ?','2018-1-8','1','1'),
   ('Where is the pain exactly  ?','2018-3-8','1','1');
+  ('Where is the pain exactly  ?','2018-3-8','1','1');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','3');
+  ('Where is the pain exactly  ?','2018-3-8','1','3');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','5');
 
   insert into "typesOfTranslations"  (type) values ('text'),('video'),('audio');
 
