@@ -42,7 +42,7 @@ sortDate = () => {
 
   onChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, input: event.target.value }, () => {});
+    this.setState({ [name]: value, input: value });
   };
 
 
