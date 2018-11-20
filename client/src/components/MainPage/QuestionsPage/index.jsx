@@ -33,6 +33,13 @@ class QuesionsPage extends Component {
     });
   }
 
+
+sortDate = () => {
+  const { items } = this.state;
+  const sorteListByDate = items.sort((a, b) => a.date > b.date);
+  this.setState({ items: sorteListByDate, found: true });
+}
+
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value, input: event.target.value }, () => {});
@@ -78,7 +85,7 @@ class QuesionsPage extends Component {
           />
         </div>
         <Select onChange={this.sortDate} />
-        {!found && <h1 className="questions__notFound">Sorry Not Found Searching</h1>}
+        {!found && <h1 className="questions__notFound">Sorry, no result was found!</h1>}
         <Card values={items} section={section} />
         {found && <p className="questions__showmore">Show All 100 Question </p>}
       </div>
