@@ -1,4 +1,4 @@
-const getSpeclalizations = require('../database/query/getSpeclalizations');
+const getSpeclalizations = require('../database/query/speclalizations');
 
 exports.get = async (request, response) => {
   try {
