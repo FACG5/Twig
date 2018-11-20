@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 const Context = React.createContext();
 class Provider extends Component {
   state = {
+    firstStage: true,
     joinModel: false,
     loginModel: false,
     languages: ['arabic', 'french'],
     dialects: ['dialect1', 'dialect2'],
     data: {
+      skills: [],
       first: '',
       last: '',
       email: '',
       password: '',
-      loginEmail: '',
-      loginPassword: '',
     },
+
     updateState: (newState) => {
       this.setState(newState);
     },
-    firstStage: true,
+
     setJobTitle: (value) => {
       this.setState(prevState => ({
         data: { jobTitle: value, ...prevState.data },
@@ -37,20 +39,30 @@ class Provider extends Component {
       this.setState({ popUpMessage });
     },
 
-
     storeValue: (event) => {
       const { target } = event;
-      const { value } = target;
+      const {
+        value,
+        name,
+        checked,
+        parentNode,
+      } = target;
       let valutToSave = '';
+      const { data } = this.state;
+      const { skills } = data;
       if (target.type === 'checkbox') {
-        valutToSave = target.checked;
+        if (checked) {
+          skills.push({ [name]: parentNode.innerText });
+        } else {
+          skills.pop({ [name]: parentNode.innerText });
+        }
       } else {
         valutToSave = value;
+
+        this.setState(prevState => ({
+          data: { ...prevState.data, [name]: valutToSave },
+        }));
       }
-      const { name } = target;
-      this.setState(prevState => ({
-        data: { ...prevState.data, [name]: valutToSave },
-      }));
     },
 
     validation: (event) => {
@@ -82,6 +94,20 @@ class Provider extends Component {
         joinModel: !prevState.joinModel,
         loginModel: !prevState.loginModel,
       }));
+    },
+
+    signUp: () => {
+      const { data } = this.state;
+      if (data.jobTitle) {
+        axios.post('/api/v1/signup', data);
+      } else {
+        this.setState({
+          popUpMessage: {
+            message: 'please choose your Job title',
+            title: ' Error !',
+          },
+        });
+      }
     },
   };
 
