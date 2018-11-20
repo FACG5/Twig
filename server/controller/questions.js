@@ -1,4 +1,4 @@
-const getQuestions = require('../database/query/getQuestions');
+const getQuestions = require('../database/query/questions');
 
 exports.get = async (request, response) => {
   try {
