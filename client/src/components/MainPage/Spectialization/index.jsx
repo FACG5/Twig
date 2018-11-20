@@ -10,8 +10,8 @@ class Specialization extends Component {
   };
 
   componentWillMount() {
-    axios.get('/api/v1/specialization').then((result) => {
-      const results = result.data;
+    axios.get('/api/v1/specialization').then((res) => {
+      const results = res.data;
       this.setState({ values: results });
     }).catch((error) => {
       const { status } = error.response;
