@@ -16,9 +16,9 @@ insert into dialects (name,language_id)
  ('Palestinian',1),
  ('Egypt',1);
 
-insert into users(first_name,last_name,email,job_title,job_description,bio,location,gender,        date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id)
+insert into users(first_name,password,last_name,email,job_title,job_description,bio,location,gender,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id)
   values
-  ('lubna','abd','lubna@hotmail.com','job_title','job_description','bio','Gaza','Femal','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
+  ('lubna','$2y$12$KgCahI42EN9MBPoQ3qVnK.mrWHrbuXuBXTyNuCwAN8SQ9oNUxsOk6','abd','lubna@hotmail.com','job_title','job_description','bio','Gaza','Femal','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
 
 
   
