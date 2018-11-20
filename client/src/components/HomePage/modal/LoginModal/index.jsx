@@ -27,7 +27,7 @@ class Login extends Component {
     } else {
       const loginData = { loginEmail, loginPassword };
       axios
-        .post('/login', loginData)
+        .post('/api/v1/login', loginData)
         .then((loginResult) => {
           if (loginResult.status === 200) {
             history.push('/');
