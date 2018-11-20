@@ -21,13 +21,22 @@ insert into users(first_name,password,last_name,email,job_title,job_description,
   ('lubna','$2y$12$KgCahI42EN9MBPoQ3qVnK.mrWHrbuXuBXTyNuCwAN8SQ9oNUxsOk6','abd','lubna@hotmail.com','job_title','job_description','bio','Gaza','Femal','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
 
 
-  
   insert into questions(questions,date,owner,speclalization_id)
   values
   ('Have you ever had a heart attack before ?','2018-11-8','1','1'),
   ('Have you ever been in a hospital  ?','2018-10-8','1','1'),
   ('Where is the pain exactly  ?','2018-1-8','1','1'),
   ('Where is the pain exactly  ?','2018-3-8','1','1');
+  ('Where is the pain exactly  ?','2018-3-8','1','1');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','2');
+  ('Where is the pain exactly  ?','2018-3-8','1','3');
+  ('Where is the pain exactly  ?','2018-3-8','1','3');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','4');
+  ('Where is the pain exactly  ?','2018-3-8','1','5');
 
   insert into "typesOfTranslations"  (type) values ('text'),('video'),('audio');
 
