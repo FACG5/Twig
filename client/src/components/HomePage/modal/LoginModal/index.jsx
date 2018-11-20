@@ -13,7 +13,7 @@ class Login extends Component {
 
   onChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value }, () => {});
+    this.setState({ [name]: value });
   };
 
   onClick = async (context) => {
