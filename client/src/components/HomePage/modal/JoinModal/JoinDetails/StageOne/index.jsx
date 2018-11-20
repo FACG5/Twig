@@ -6,6 +6,7 @@ import './style.css';
 import Select from './Select';
 import PopUp from '../../../../../common/PopUp';
 import { ModalConsumer } from '../../../ModalContext';
+import CheckBox from './CheckBox';
 
 class StageOne extends Component {
   state = {};
@@ -14,7 +15,7 @@ class StageOne extends Component {
     const { language, dialect } = context.data;
     if (!language || !dialect) {
       context.setPopUpMessage({
-        message: 'please fill all of the fileds !',
+        message: 'please choose Your Language / dialect',
         title: ' Error !',
       });
     } else {
@@ -47,53 +48,30 @@ class StageOne extends Component {
                 <Select data={context.languages} name="language" />
                 <Select data={context.dialects} name="dialect" />
               </div>
-              <label className="container__checkbox">
-                I’m a native speaker / mothertongue.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  id="native"
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="native"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I have tested at upper intermediate or advanced level.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="intemediate"
-                  id="intemediate"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I have completed University or professional training this
-                language.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="university"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I’m self-taught.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="self"
-                />
-                <span className="span__checkbox" />
-              </label>
+              <CheckBox
+                value="I’m a native speaker / mothertongue."
+                name="native"
+                id="native"
+                onChange={context.storeValue}
+              />
+              <CheckBox
+                value="I have tested at upper intermediate or advanced level."
+                name="intemediate"
+                id="intemediate"
+                onChange={context.storeValue}
+              />
+              <CheckBox
+                value="I have completed University or professional training this language."
+                name="university"
+                id="university"
+                onChange={context.storeValue}
+              />
+              <CheckBox
+                value="I’m self-taught."
+                name="self"
+                id="self"
+                onChange={context.storeValue}
+              />
               <Inputs
                 className="input__other"
                 placeholder="Write here if you have other details .."
@@ -114,10 +92,10 @@ class StageOne extends Component {
               onClick={() => this.backFromDetails(context)}
               value="Back"
             />
-            {context.err ? (
+            {context.popUpMessage ? (
               <PopUp
-                title="Wrong"
-                message="please choose Your Language / dialect"
+                title={context.popUpMessage.title}
+                message={context.popUpMessage.message}
                 closePopUp={context.closePopUp}
               />
             ) : null}
