@@ -62,7 +62,7 @@ class StageOne extends Component {
               <CheckBoxes skills={skills} onChange={context.storeValue} />
               <Inputs
                 className="input__other"
-                placeholder="Write here if you have other details .."
+                placeholder="Please specify here..."
                 onChange={context.storeValue}
                 type="text"
                 name="otherSkills"
