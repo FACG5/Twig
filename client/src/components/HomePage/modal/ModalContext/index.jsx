@@ -8,8 +8,6 @@ class Provider extends Component {
     firstStage: true,
     joinModel: false,
     loginModel: false,
-    languages: ['arabic', 'french'],
-    dialects: ['dialect1', 'dialect2'],
     data: {
       skills: [],
       first: '',
