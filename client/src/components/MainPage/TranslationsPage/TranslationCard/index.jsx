@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleUp, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 
@@ -33,14 +33,14 @@ const Card = (props) => {
             </div>
             <div className="traslation__verify">
               <div>
-                <div><FontAwesomeIcon icon={faCheckCircle} size="lg" className="fa__check--circle" /></div>
+                <div><FontAwesomeIcon icon={faChevronCircleUp} size="lg" className="fa__check--circle" /></div>
                 <div>
                   {`${voteUp} vote Up`}
                 </div>
               </div>
               <div>
                 <div>
-                  <FontAwesomeIcon icon={faTimesCircle} size="lg" className="fa__times--circle" />
+                  <FontAwesomeIcon icon={faChevronCircleDown} size="lg" className="fa__times--circle" />
                 </div>
                 <div>{`${voteDown} vote Down`}</div>
               </div>
