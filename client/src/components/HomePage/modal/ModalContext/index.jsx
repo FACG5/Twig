@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Context = React.createContext();
 class Provider extends Component {
   state = {
+    firstStage: true,
     joinModel: false,
     loginModel: false,
     languages: ['arabic', 'french'],
     dialects: ['dialect1', 'dialect2'],
     data: {
-      first: '',
-      last: '',
+      skills: [],
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
-      loginEmail: '',
-      loginPassword: '',
     },
+
     updateState: (newState) => {
       this.setState(newState);
     },
-    firstStage: true,
+
     setJobTitle: (value) => {
       this.setState(prevState => ({
         data: { jobTitle: value, ...prevState.data },
@@ -26,7 +29,10 @@ class Provider extends Component {
     },
 
     changeStage: () => {
-      this.setState(prevStat => ({ firstStage: !prevStat.firstStage }));
+      this.setState(prevStat => ({
+        firstStage: !prevStat.firstStage,
+        data: { ...prevStat.data, skills: [] },
+      }));
     },
 
     closePopUp: () => {
@@ -37,20 +43,26 @@ class Provider extends Component {
       this.setState({ popUpMessage });
     },
 
-
     storeValue: (event) => {
       const { target } = event;
-      const { value } = target;
+      const {
+        value, name, checked, id,
+      } = target;
       let valutToSave = '';
+      const { data } = this.state;
+      const { skills } = data;
       if (target.type === 'checkbox') {
-        valutToSave = target.checked;
+        if (checked) {
+          skills.push({ id });
+        } else {
+          skills.pop({ id });
+        }
       } else {
         valutToSave = value;
+        this.setState(prevState => ({
+          data: { ...prevState.data, [name]: valutToSave },
+        }));
       }
-      const { name } = target;
-      this.setState(prevState => ({
-        data: { ...prevState.data, [name]: valutToSave },
-      }));
     },
 
     validation: (event) => {
@@ -83,6 +95,27 @@ class Provider extends Component {
         loginModel: !prevState.loginModel,
       }));
     },
+
+    signUp: () => {
+      const { data } = this.state;
+      const { setPopUpMessage } = this.state;
+      if (data.jobTitle) {
+        axios.post('/api/v1/signup', data).then((result) => {
+          const { data: message } = result;
+          setPopUpMessage({ title: 'success', message });
+        }).catch((error) => {
+          const { data: message } = error.response;
+          setPopUpMessage({ title: 'error', message });
+        });
+      } else {
+        this.setState({
+          popUpMessage: {
+            message: 'please choose your Job title',
+            title: ' Error !',
+          },
+        });
+      }
+    },
   };
 
   render() {
@@ -90,6 +123,10 @@ class Provider extends Component {
     return <Context.Provider value={this.state}>{children}</Context.Provider>;
   }
 }
+
+Provider.PropTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export const ModalProvider = Provider;
 export const ModalConsumer = Context.Consumer;
