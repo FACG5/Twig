@@ -20,7 +20,6 @@ const users = connection.define('user', {
   },
   other_skills: {
     type: Sequelize.TEXT,
-    allowNull: false,
   },
   job_description: {
     type: Sequelize.TEXT,
