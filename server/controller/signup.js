@@ -39,6 +39,8 @@ exports.post = async (request, response) => {
               gender: 'Not Specified',
               DateOfRegiste: new Date(),
               jobId: jobTitle,
+              languageId: language,
+              dialectId: dialect,
             };
             userData = snakeCase(userData);
             const userResult = await users.create(userData);
