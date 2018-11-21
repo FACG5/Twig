@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const Context = React.createContext();
@@ -116,6 +117,10 @@ class Provider extends Component {
     return <Context.Provider value={this.state}>{children}</Context.Provider>;
   }
 }
+
+Provider.PropTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export const ModalProvider = Provider;
 export const ModalConsumer = Context.Consumer;
