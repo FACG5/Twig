@@ -41,7 +41,7 @@ class StageTwo extends Component {
             <Button
               className="button__next"
               id="nextDetails"
-              onClick={context.logState}
+              onClick={context.signup}
               value="Next"
             />
             <Button
