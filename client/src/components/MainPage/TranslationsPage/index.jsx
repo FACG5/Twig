@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 import Card from './TranslationCard';
-import image from '../../../assets/img_avatar.png';
 import './style.css';
 import DonateModal from './DonateModal';
 import Button from '../../common/Button';
@@ -8,50 +9,26 @@ import Button from '../../common/Button';
 class TranslationsPage extends Component {
   state = {
     showModal: false,
-    question: {
-      value: 'Have you ever had a heart attack before ?',
-      user: 'Admin',
-      date: '9-10-2018',
-    },
-    values: [
-      {
-        id: 1,
-        value: ' هل أصبت من قبل بنوبة قلبية ',
-        user: 'Admin',
-        img: image,
-        verified: '5 verified',
-        date: '9-10-2018',
-      },
-      {
-        id: 2,
-        value: ' هل أصبت من قبل بجلطة قلبية ',
-        user: 'User2',
-        img: image,
-        verified: '4 verified',
-        date: '9-10-2018',
-      },
-      {
-        id: 3,
-        value: ' هل أصبت من قبل بذبحة قلبية ',
-        user: 'User1',
-        img: image,
-        verified: '2 verified',
-        date: '9-10-2018',
-      },
-      {
-        id: 4,
-        value: 'هل حدث وقد أصبت بأوجاع الصدر من قبل',
-        user: 'User2',
-        img: image,
-        verified: '0 verified',
-        date: '9-10-2018',
-      },
-    ],
+    question: { },
+    values: [],
   };
 
-  search = (e) => {
-    e.preventdefault();
-  };
+  componentWillMount() {
+    const { match } = this.props;
+    const { params } = match;
+    const { questionid } = params;
+
+    axios.get(`/api/v1/questions/${questionid}`).then((data) => {
+      const results = data.data;
+      const { resultquestions, resulttranslation } = results;
+      this.setState({ question: resultquestions[0], values: resulttranslation });
+    }).catch((error) => {
+      const { status } = error.response;
+      if (status === 404) {
+        this.setState({ message: 'Not found page' });
+      }
+    });
+  }
 
   showModal = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
@@ -59,13 +36,16 @@ class TranslationsPage extends Component {
 
   render() {
     const { values, question, showModal } = this.state;
+    const { questions, username, date } = question;
     return (
       <div className="translation__box">
         <div className="translation__question">
-          <h4>{question.value}</h4>
+          <h4>{questions}</h4>
           <div className="translation__user">
-            <div>{question.user}</div>
-            {question.date}
+            <div>{username}</div>
+            <div>
+              {date && date.slice(0, 10)}
+            </div>
           </div>
         </div>
         <div className="translation__button">
@@ -84,4 +64,8 @@ class TranslationsPage extends Component {
     );
   }
 }
+TranslationsPage.propTypes = {
+  match: PropTypes.isRequired,
+
+};
 export default TranslationsPage;
