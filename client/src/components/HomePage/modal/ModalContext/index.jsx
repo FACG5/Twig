@@ -28,7 +28,10 @@ class Provider extends Component {
     },
 
     changeStage: () => {
-      this.setState(prevStat => ({ firstStage: !prevStat.firstStage }));
+      this.setState(prevStat => ({
+        firstStage: !prevStat.firstStage,
+        data: { ...prevStat.data, skills: [] },
+      }));
     },
 
     closePopUp: () => {
@@ -42,19 +45,16 @@ class Provider extends Component {
     storeValue: (event) => {
       const { target } = event;
       const {
-        value,
-        name,
-        checked,
-        parentNode,
+        value, name, checked, id,
       } = target;
       let valutToSave = '';
       const { data } = this.state;
       const { skills } = data;
       if (target.type === 'checkbox') {
         if (checked) {
-          skills.push({ [name]: parentNode.innerText });
+          skills.push({ id });
         } else {
-          skills.pop({ [name]: parentNode.innerText });
+          skills.pop({ id });
         }
       } else {
         valutToSave = value;
