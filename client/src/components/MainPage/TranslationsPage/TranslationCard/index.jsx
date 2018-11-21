@@ -7,37 +7,44 @@ import './style.css';
 
 const Card = (props) => {
   const { values } = props;
+  console.log(values);
 
   return (
     <ul className="traslations__list">
+      {!values.length && <h2>No Translation this Question</h2>}
       {values && values.map((element) => {
         const {
-          value, id, img, date, verified, user,
+          translation, id, username, date,
+          vote_down: voteDown,
+          vote_up: voteUp,
+          avatar_url: avatarUrl,
         } = element;
         return (
           <li key={id} className="traslation__item">
             <div>
-              <img src={img} className="box__img" alt="" />
-              <p>{user}</p>
+              <img src={avatarUrl} className="box__img" alt="" />
+              <p>{username}</p>
             </div>
             <div className="traslation__container">
               <div>
-                {value}
+                {translation}
               </div>
               <div className="traslation__date">
-                {date}
+                {date.slice(0, 10)}
               </div>
             </div>
             <div className="traslation__verify">
               <div>
                 <div><FontAwesomeIcon icon={faCheckCircle} size="lg" className="fa__check--circle" /></div>
-                <div>{verified}</div>
+                <div>
+                  {`${voteUp} vote Up`}
+                </div>
               </div>
               <div>
                 <div>
                   <FontAwesomeIcon icon={faTimesCircle} size="lg" className="fa__times--circle" />
                 </div>
-                <div>{verified}</div>
+                <div>{`${voteDown} vote Down`}</div>
               </div>
             </div>
           </li>
