@@ -28,7 +28,7 @@ class MainPage extends Component {
             <Route exact path="/:name" component={QuestionPage} />
             <Route
               exact
-              path="/:name/questions/:questionid"
+              path="/:name/questions/:questionId"
               component={TranslationsPage}
             />
           </Switch>
