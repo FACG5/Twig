@@ -5,10 +5,13 @@ exports.get = async (request, response) => {
     const { questionId } = request.params;
     const userId = request.id;
     const result = await getTranslations(questionId, userId);
-    if (result[0] === []) {
+    const { translationsData, questionsData } = result;
+    const resulttranslation = translationsData[0];
+    const resultquestions = questionsData[0];
+    if (!resulttranslation.length && !resultquestions.length) {
       response.send('There\'s No Data!');
     } else {
-      response.send(result[0]);
+      response.send({ resultquestions, resulttranslation });
     }
   } catch (error) {
     response.status(500).send('Server Error');
