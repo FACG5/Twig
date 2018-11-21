@@ -3,7 +3,7 @@ const login = require('./login');
 const questions = require('./questions');
 const specialization = require('./speclalization');
 const translation = require('./translations');
-const checkToken = require('./authentication/index');
+const checkToken = require('./authentication');
 
 const router = express.Router();
 
