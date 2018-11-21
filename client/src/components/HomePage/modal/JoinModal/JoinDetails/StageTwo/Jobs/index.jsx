@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Inputs from '../../../../../../common/Inputs';
 
 export default function Jobs(props) {
@@ -12,3 +13,8 @@ export default function Jobs(props) {
     </label>
   ));
 }
+
+Jobs.PropTypes = {
+  onChange: PropTypes.func.isRequired,
+  jobs: PropTypes.instanceOf(Array),
+};
