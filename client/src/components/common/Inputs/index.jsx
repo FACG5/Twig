@@ -13,9 +13,11 @@ const Input = (props) => {
     onBlur,
     value,
     checked,
+    id,
   } = props;
   return (
     <input
+      id={id}
       type={type}
       name={name}
       className={className}
@@ -42,6 +44,7 @@ Input.propTypes = {
   onBlur: PropTypes.func.isRequired,
   value: PropTypes.string,
   checked: PropTypes.bool,
+  id: PropTypes.number,
 };
 
 export default Input;

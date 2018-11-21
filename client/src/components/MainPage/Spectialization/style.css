@@ -28,3 +28,11 @@
 .specialization__showmore:hover {
   color: #f59036;
 }
+
+.specialization__notFound {
+  text-align: center;
+  color: #287fb8;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding-top: 10px;
+}

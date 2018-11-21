@@ -7,12 +7,14 @@ import './style.css';
 class Specialization extends Component {
   state = {
     values: [],
+    found: true,
+    items: [],
   };
 
   componentWillMount() {
     axios.get('/api/v1/specialization').then((res) => {
       const results = res.data;
-      this.setState({ values: results });
+      this.setState({ values: results, items: results });
     }).catch((error) => {
       const { status } = error.response;
       if (status === 404) {
@@ -21,8 +23,28 @@ class Specialization extends Component {
     });
   }
 
+  onChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value, input: value });
+  };
+
+  search = (event) => {
+    event.preventDefault();
+    const { values, input } = this.state;
+    let list = values;
+    list = list.filter(item => item.name.toLowerCase().indexOf(
+      input.toLowerCase(),
+    ) !== -1);
+    if (list.length !== 0) {
+      this.setState({ items: list, found: true });
+    } else {
+      this.setState({ items: null, found: false });
+    }
+  }
+
+
   render() {
-    const { values } = this.state;
+    const { input, found, items } = this.state;
     return (
       <div className="specialization__box">
         <div className="specialization__header">
@@ -34,11 +56,14 @@ class Specialization extends Component {
           <SearchBar
             className="specialization__search"
             submitHandler={this.search}
+            onChange={this.onChange}
+            value={input}
+
           />
         </div>
-
-        <SpecializationCard values={values} />
-        <p className="specialization__showmore">Show All Sections </p>
+        {!found && <h1 className="specialization__notFound">Sorry, No Result Was Found!</h1>}
+        <SpecializationCard values={items} />
+        {found && <p className="specialization__showmore">Show All </p>}
       </div>
     );
   }
