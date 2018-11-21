@@ -16,9 +16,9 @@ class TranslationsPage extends Component {
   componentWillMount() {
     const { match } = this.props;
     const { params } = match;
-    const { questionid } = params;
+    const { questionId } = params;
 
-    axios.get(`/api/v1/questions/${questionid}`).then((data) => {
+    axios.get(`/api/v1/questions/${questionId}`).then((data) => {
       const results = data.data;
       const { resultquestions, resulttranslation } = results;
       this.setState({ question: resultquestions[0], values: resulttranslation });
