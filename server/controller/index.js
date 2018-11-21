@@ -4,6 +4,7 @@ const questions = require('./questions');
 const specialization = require('./speclalization');
 const translation = require('./translations');
 const checkToken = require('./authentication');
+const userDetails = require('./user');
 
 const router = express.Router();
 
@@ -13,6 +14,6 @@ router.use(checkToken);
 router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
 router.get('/questions/:questionId', translation.get);
-router.get('/:id/details');
+router.get('/:id/details', userDetails.get);
 
 module.exports = router;
