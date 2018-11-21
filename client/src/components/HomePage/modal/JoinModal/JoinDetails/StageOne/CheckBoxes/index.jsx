@@ -6,7 +6,7 @@ export default function CheckBoxes(props) {
   return skills.map(skill => (
     <label className="container__checkbox" key={skill.id}>
       {skill.description}
-      <Inputs id={skill.id} onChange={onChange} type="checkbox" name={skill.id} />
+      <Inputs id={skill.id} onChange={onChange} type="checkbox" />
       <span className="span__checkbox" />
     </label>
   ));
