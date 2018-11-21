@@ -13,5 +13,6 @@ router.use(checkToken);
 router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
 router.get('/questions/:questionId', translation.get);
+router.get('/:id/details');
 
 module.exports = router;
