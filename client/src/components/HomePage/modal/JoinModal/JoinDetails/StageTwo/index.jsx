@@ -12,7 +12,7 @@ class StageTwo extends Component {
   }
 
   componentWillMount() {
-    axios.get('/api/v1/getJobs').then((result) => {
+    axios.get('/api/v1/get-jobs').then((result) => {
       const { data } = result;
       this.setState({ jobs: data });
     });

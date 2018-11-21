@@ -15,7 +15,7 @@ class StageOne extends Component {
   };
 
   componentWillMount() {
-    axios.get('/api/v1/getSkills').then((result) => {
+    axios.get('/api/v1/get-skills').then((result) => {
       const { data } = result;
       this.setState({ skills: data });
     });
