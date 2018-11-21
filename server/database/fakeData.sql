@@ -20,12 +20,12 @@ values
 ('Doctor (or medical student'),
 ('Nurse (or nursing student)'),
 ('Psychologist'),
-('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.'),
 ('Medical Administrator'),
 ('Dentist (or dental student'),
 ('midwife, or specialist in Family Medicine'),
 ('Academic: Porfessor, Lecturer, etc.'),
-('I am a cultural mediator or proffessional traslator');
+('I am a cultural mediator or proffessional traslator'),
+('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.');
 
 
 insert into languages (name) 
