@@ -7,8 +7,6 @@ import './style.css';
 
 const Card = (props) => {
   const { values } = props;
-  console.log(values);
-
   return (
     <ul className="traslations__list">
       {!values.length && <h2>No Translation this Question</h2>}
