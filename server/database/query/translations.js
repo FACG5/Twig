@@ -1,5 +1,9 @@
 const sequelize = require('../config');
 
+// getTranslations contain two query :
+// first query (questionsData) returns all questions and  username
+// second query (translationsData) returns all translations by questions.id
+
 const getTranslations = async (questionId, userId) => {
   const questionsData = await sequelize.query(
     'select questions.* ,users.first_name As username from questions join users on questions.owner = users.id  where questions.id = :questionId GROUP BY questions.id ,users.id', { replacements: { questionId } },
