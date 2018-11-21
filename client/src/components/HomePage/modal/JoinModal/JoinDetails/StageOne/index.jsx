@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../../../common/Button';
 import Inputs from '../../../../../common/Inputs';
@@ -6,10 +7,19 @@ import './style.css';
 import Select from './Select';
 import PopUp from '../../../../../common/PopUp';
 import { ModalConsumer } from '../../../ModalContext';
-import CheckBox from './CheckBox';
+import CheckBoxes from './CheckBoxes';
 
 class StageOne extends Component {
-  state = {};
+  state = {
+    skills: [],
+  };
+
+  componentWillMount() {
+    axios.get('/api/v1/getSkills').then((result) => {
+      const { data } = result;
+      this.setState({ skills: data });
+    });
+  }
 
   checkLanuageAndDialect = (context) => {
     const { language, dialect } = context.data;
@@ -28,6 +38,7 @@ class StageOne extends Component {
   };
 
   render() {
+    const { skills } = this.state;
     return (
       <ModalConsumer>
         {context => (
@@ -48,30 +59,7 @@ class StageOne extends Component {
                 <Select data={context.languages} name="language" />
                 <Select data={context.dialects} name="dialect" />
               </div>
-              <CheckBox
-                value="I’m a native speaker / mothertongue."
-                name="native"
-                id="native"
-                onChange={context.storeValue}
-              />
-              <CheckBox
-                value="I have tested at upper intermediate or advanced level."
-                name="intemediate"
-                id="intemediate"
-                onChange={context.storeValue}
-              />
-              <CheckBox
-                value="I have completed University or professional training this language."
-                name="university"
-                id="university"
-                onChange={context.storeValue}
-              />
-              <CheckBox
-                value="I’m self-taught."
-                name="self"
-                id="self"
-                onChange={context.storeValue}
-              />
+              <CheckBoxes skills={skills} onChange={context.storeValue} />
               <Inputs
                 className="input__other"
                 placeholder="Write here if you have other details .."
