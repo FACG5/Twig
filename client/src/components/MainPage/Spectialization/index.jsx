@@ -14,8 +14,6 @@ class Specialization extends Component {
   componentWillMount() {
     axios.get('/api/v1/specialization').then((res) => {
       const results = res.data;
-      console.log(results);
-      
       this.setState({ values: results, items: results });
     }).catch((error) => {
       const { status } = error.response;
