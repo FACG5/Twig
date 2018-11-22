@@ -37,4 +37,8 @@ module.exports = {
   speclalizations,
   dialect,
   typesOfTranslations,
+  skills,
+  jobs,
+  votes,
+  employeeSkills,
 };
