@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../../../common/Button';
 import Inputs from '../../../../../common/Inputs';
@@ -6,15 +7,43 @@ import './style.css';
 import Select from './Select';
 import PopUp from '../../../../../common/PopUp';
 import { ModalConsumer } from '../../../ModalContext';
+import CheckBoxes from './CheckBoxes';
 
 class StageOne extends Component {
-  state = {};
+  state = {
+    skills: [],
+    languages: [],
+    dialects: [],
+  };
+
+  componentWillMount() {
+    axios
+      .get('/api/v1/get-skills')
+      .then((result) => {
+        const { data } = result;
+        this.setState({ skills: data });
+      })
+      .then(() => {
+        axios.get('/api/v1/get-languages').then((result) => {
+          const { data } = result;
+          this.setState({ languages: data });
+        });
+      });
+  }
+
+  getDialects = (event) => {
+    const { value: languageId } = event.target;
+    axios.get(`/api/v1/get-dialcets/${languageId}`).then((result) => {
+      const { data } = result;
+      this.setState({ dialects: data });
+    });
+  };
 
   checkLanuageAndDialect = (context) => {
     const { language, dialect } = context.data;
     if (!language || !dialect) {
       context.setPopUpMessage({
-        message: 'please fill all of the fileds !',
+        message: 'please choose Your Language / dialect',
         title: ' Error !',
       });
     } else {
@@ -27,6 +56,7 @@ class StageOne extends Component {
   };
 
   render() {
+    const { skills, languages, dialects } = this.state;
     return (
       <ModalConsumer>
         {context => (
@@ -44,59 +74,17 @@ class StageOne extends Component {
             <hr />
             <div className="checkbox__container">
               <div className="select__container">
-                <Select data={context.languages} name="language" />
-                <Select data={context.dialects} name="dialect" />
+                <Select
+                  data={languages}
+                  name="language"
+                  getDialects={this.getDialects}
+                />
+                <Select data={dialects} name="dialect" />
               </div>
-              <label className="container__checkbox">
-                I’m a native speaker / mothertongue.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  id="native"
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="native"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I have tested at upper intermediate or advanced level.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="intemediate"
-                  id="intemediate"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I have completed University or professional training this
-                language.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="university"
-                />
-                <span className="span__checkbox" />
-              </label>
-              <label className="container__checkbox">
-                I’m self-taught.
-                <Inputs
-                  className=""
-                  placeholder=""
-                  onChange={context.storeValue}
-                  type="checkbox"
-                  name="self"
-                />
-                <span className="span__checkbox" />
-              </label>
+              <CheckBoxes skills={skills} onChange={context.storeValue} />
               <Inputs
                 className="input__other"
-                placeholder="Write here if you have other details .."
+                placeholder="Please specify here..."
                 onChange={context.storeValue}
                 type="text"
                 name="otherSkills"
@@ -114,10 +102,10 @@ class StageOne extends Component {
               onClick={() => this.backFromDetails(context)}
               value="Back"
             />
-            {context.err ? (
+            {context.popUpMessage ? (
               <PopUp
-                title="Wrong"
-                message="please choose Your Language / dialect"
+                title={context.popUpMessage.title}
+                message={context.popUpMessage.message}
                 closePopUp={context.closePopUp}
               />
             ) : null}

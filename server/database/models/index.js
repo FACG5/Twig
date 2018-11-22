@@ -9,6 +9,8 @@ const speclalizations = require('./speclalizations');
 const employeeSkills = require('./employeeSkills');
 const skills = require('./skills');
 const jobs = require('./jobs');
+const votes = require('./vote');
+
 
 languages.hasMany(users, { foreignKey: 'language_id' });
 languages.hasMany(dialect, { foreignKey: 'language_id' });
@@ -23,6 +25,9 @@ speclalizations.hasMany(questions, { foreignKey: 'speclalization_id' });
 jobs.hasMany(users, { foreignKey: 'job_id' });
 users.hasMany(employeeSkills, { foreignKey: 'user_id' });
 skills.hasMany(employeeSkills, { foreignKey: 'skill_id' });
+users.hasMany(votes, { foreignKey: 'user_id' });
+translations.hasMany(votes, { foreignKey: 'translations_id' });
+
 
 module.exports = {
   connection,
@@ -32,4 +37,8 @@ module.exports = {
   speclalizations,
   dialect,
   typesOfTranslations,
+  skills,
+  jobs,
+  votes,
+  employeeSkills,
 };

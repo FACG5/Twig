@@ -1,43 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleUp, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 import './style.css';
 
 const Card = (props) => {
   const { values } = props;
-
+  
   return (
     <ul className="traslations__list">
+      {!values.length && <h2>There are no available translations for this question"</h2>}
       {values && values.map((element) => {
         const {
-          value, id, img, date, verified, user,
+          translation, id, username, date,
+          voteDown,
+          voteUp,
+          avatar_url: avatarUrl,
         } = element;
         return (
           <li key={id} className="traslation__item">
             <div>
-              <img src={img} className="box__img" alt="" />
-              <p>{user}</p>
+              <img src={avatarUrl} className="box__img" alt="" />
+              <p>{username}</p>
             </div>
             <div className="traslation__container">
               <div>
-                {value}
+                {translation}
               </div>
               <div className="traslation__date">
-                {date}
+                {date.slice(0, 10)}
               </div>
             </div>
             <div className="traslation__verify">
               <div>
-                <div><FontAwesomeIcon icon={faCheckCircle} size="lg" className="fa__check--circle" /></div>
-                <div>{verified}</div>
+                <div><FontAwesomeIcon icon={faChevronCircleUp} size="lg" className="fa__check--circle" /></div>
+                <div>
+                  {`${voteUp} vote Up`}
+                </div>
               </div>
               <div>
                 <div>
-                  <FontAwesomeIcon icon={faTimesCircle} size="lg" className="fa__times--circle" />
+                  <FontAwesomeIcon icon={faChevronCircleDown} size="lg" className="fa__times--circle" />
                 </div>
-                <div>{verified}</div>
+                <div>{`${voteDown} vote Down`}</div>
               </div>
             </div>
           </li>
