@@ -6,12 +6,6 @@ const translations = connection.define('translations', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
-  vote_up: {
-    type: Sequelize.INTEGER,
-  },
-  vote_down: {
-    type: Sequelize.INTEGER,
-  },
   date: {
     type: Sequelize.DATE,
   },
