@@ -7,6 +7,7 @@ const jobs = require('./jobs');
 const signup = require('./signup');
 const translation = require('./translations');
 const checkToken = require('./authentication');
+const userDetails = require('./user');
 const languages = require('./languages');
 const dialects = require('./dialects');
 
@@ -23,6 +24,7 @@ router.use(checkToken);
 router.get('/questions/:questionId', translation.get);
 router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
-
+router.get('/questions/:questionId', translation.get);
+router.get('/details', userDetails.get);
 
 module.exports = router;
