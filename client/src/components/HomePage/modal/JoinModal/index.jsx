@@ -12,9 +12,9 @@ class Join extends Component {
 
   joinCheck = (context) => {
     const {
-      first, last, email, password,
+      firstName, lastName, email, password,
     } = context.data;
-    if (first && last && email && password) {
+    if (firstName && lastName && email && password) {
       context.updateState({ completeJoin: true });
     } else {
       context.setPopUpMessage({ message: 'please fill all of the fileds !', title: ' Error !' });
@@ -40,22 +40,22 @@ class Join extends Component {
                 <div className="content">
                   <div>
                     <Input
-                      name="first"
+                      name="firstName"
                       type="text"
                       className="join__name"
                       placeholder="First Name"
                       onChange={context.storeValue}
                       onBlur={context.validation}
-                      value={context.data.first}
+                      value={context.data.firstName}
                     />
                     <Input
-                      name="last"
+                      name="lastName"
                       type="text"
                       className="join__name"
                       placeholder="Last Name"
                       onChange={context.storeValue}
                       onBlur={context.validation}
-                      value={context.data.last}
+                      value={context.data.lastName}
                     />
                   </div>
                   <Input

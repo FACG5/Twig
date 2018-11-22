@@ -14,8 +14,8 @@ export default function Select(props) {
         >
           <option disabled selected value={name}>{`select Your ${name}`}</option>
           {data
-            && data.map(item => (
-              <option className="select_option" value={item} key={item}>
+            && data.map((item, index) => (
+              <option className="select_option" value={index} key={item}>
                 {item}
               </option>
             ))}

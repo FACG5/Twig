@@ -40,9 +40,9 @@ class StageTwo extends Component {
             </div>
             <Button
               className="button__next"
-              id="nextDetails"
-              onClick={context.signup}
-              value="Next"
+              id="fisishSignUp"
+              onClick={context.signUp}
+              value="Finish"
             />
             <Button
               className="button__back"
