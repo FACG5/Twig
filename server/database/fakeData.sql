@@ -38,7 +38,9 @@ insert into dialects (name,language_id)
  ('Palestinian',1),
  ('Egypt',1);
 
-insert into users(first_name,last_name,email,password,other_skills,job_description,bio,location,gender,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id) values ('a','a','a@a.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1);
+insert into users(first_name,last_name,email,password,other_skills,job_description,bio,location,gender,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id) values ('a','a','a@a.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1),
+('b','b','b@b.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/vKAC/img_avatar.png',null,null,1,1)
+;
 
 
   insert into questions(questions,date,owner,speclalization_id)
@@ -60,13 +62,21 @@ insert into users(first_name,last_name,email,password,other_skills,job_descripti
 
   insert into "typesOfTranslations"  (type) values ('text'),('video'),('audio');
 
-  insert into translations(translation,vote_up,vote_down,date,type_id,language_id,dialect_id,owner,question_id)
+  insert into translations(translation,date,type_id,language_id,dialect_id,owner,question_id)
   values
-  ('هل أصبت من قبل بنوبة قلبية',10,5,'2018-10-8',1,1,1,1,1),
-  ('هل أصبت من قبل بجلطة قلبية',8,5,'2018-10-8',1,1,1,1,1),
-  ('هل أصبت من قبل بذبحة قلبية',7,4,'2018-10-8',1,1,1,1,1),
-  ('هل حدث وقد أصبت بأوجاع الصدر من قبل',1,8,'2018-10-8',1,1,1,1,1),
-  ('هل أصبت من قبل بنوبة قلبية',10,5,'2018-10-8',1,1,1,1,2),
-  ('هل أصبت من قبل بجلطة قلبية',8,5,'2018-10-8',1,1,1,1,2),
-  ('هل أصبت من قبل بذبحة قلبية',7,4,'2018-10-8',1,1,1,1,2),
-  ('هل حدث وقد أصبت بأوجاع الصدر من قبل',1,8,'2018-10-8',1,1,1,1,2);
+  ('هل أصبت من قبل بنوبة قلبية','2018-10-8',1,1,1,1,1),
+  ('هل أصبت من قبل بجلطة قلبية','2018-10-8',1,1,1,2,1),
+  ('هل أصبت من قبل بذبحة قلبية','2018-10-8',1,1,1,2,1),
+  ('هل حدث وقد أصبت بأوجاع الصدر من قبل','2018-10-8',1,1,1,1,1),
+  ('هل أصبت من قبل بنوبة قلبية','2018-10-8',1,1,1,1,2),
+  ('هل أصبت من قبل بجلطة قلبية','2018-10-8',1,1,1,2,2),
+  ('هل أصبت من قبل بذبحة قلبية','2018-10-8',1,1,1,2,2),
+  ('هل حدث وقد أصبت بأوجاع الصدر من قبل','2018-10-8',1,1,1,1,2);
+
+  insert into votes(vote_up,vote_down,user_id ,translations_id )
+  values
+  (1,0,1,1),
+  (0,1,1,2),
+  (0,0,1,3),
+  (1,0,2,1);
+
