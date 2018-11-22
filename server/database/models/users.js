@@ -41,6 +41,7 @@ const users = connection.define('user', {
   },
   avatar_url: {
     type: Sequelize.TEXT,
+    defaultValue: 'https://files.gitter.im/lubnaabd/vKAC/img_avatar.png',
   },
   linked_in: {
     type: Sequelize.TEXT,
