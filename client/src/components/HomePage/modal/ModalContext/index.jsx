@@ -10,8 +10,8 @@ class Provider extends Component {
     loginModel: false,
     data: {
       skills: [],
-      first: '',
-      last: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
     },
@@ -57,7 +57,6 @@ class Provider extends Component {
         }
       } else {
         valutToSave = value;
-
         this.setState(prevState => ({
           data: { ...prevState.data, [name]: valutToSave },
         }));
@@ -97,8 +96,15 @@ class Provider extends Component {
 
     signUp: () => {
       const { data } = this.state;
+      const { setPopUpMessage } = this.state;
       if (data.jobTitle) {
-        axios.post('/api/v1/signup', data);
+        axios.post('/api/v1/signup', data).then((result) => {
+          const { data: message } = result;
+          setPopUpMessage({ title: 'success', message });
+        }).catch((error) => {
+          const { data: message } = error.response;
+          setPopUpMessage({ title: 'error', message });
+        });
       } else {
         this.setState({
           popUpMessage: {
