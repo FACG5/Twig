@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import avatarImg from '../../../assets/img_avatar.png';
+import axios from 'axios';
 import Button from '../Button';
 import './style.css';
 
 class ProfileCard extends Component {
   state = {
+    values: [],
     redirect: false,
   };
+
+  componentWillMount() {
+    axios.get('/api/v1/details').then((res) => {
+      const results = res.data;
+      this.setState({ values: results });
+    }).catch((error) => {
+      const { status } = error.response;
+      if (status === 404) {
+        this.setState({ message: 'Page Not Found' });
+      }
+    });
+  }
 
   clickHandler = (e) => {
     e.preventDefault();
@@ -23,30 +35,28 @@ class ProfileCard extends Component {
       return <Redirect to="/profile" />;
     }
 
+    const { values } = this.state;
     const {
-      name, location, language, dialect,
-    } = this.props;
+      firstName, lastName, location, languageName, dialectName, avatarUrl,
+    } = values;
     return (
       <div className="profile-card__main">
-        <img src={avatarImg} alt="avatarImg" className="avatar__img" />
-        <h1 className="profile-card__name">{ name }</h1>
+        <img src={avatarUrl} alt="avatarImg" className="avatar__img" />
+        <h1 className="profile-card__name">
+          { firstName }
+          {'  '}
+          {lastName}
+        </h1>
         <h1 className="profile-card__location">{ location }</h1>
         <h1 className="profile-card__lang">
-          { language }
-        -
-          { dialect }
+          { languageName }
+          {'  -  '}
+          { dialectName }
         </h1>
         <Button className="button__profile-card" value="Show Profile" onClick={this.clickHandler} />
       </div>
     );
   }
 }
-
-ProfileCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
-  dialect: PropTypes.string.isRequired,
-};
 
 export default ProfileCard;

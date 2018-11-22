@@ -14,12 +14,7 @@ class MainPage extends Component {
     return (
       <div className="mainpage">
         <div>
-          <ProfileCard
-            name="Ali ALI"
-            location="Gaza - Palestine"
-            language="Arabic"
-            dialect="Palestinian"
-          />
+          <ProfileCard />
           <ProgressBar />
         </div>
         <div className="mainpage__content">
