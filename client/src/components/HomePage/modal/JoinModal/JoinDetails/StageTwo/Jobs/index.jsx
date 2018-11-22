@@ -6,7 +6,7 @@ export default function Jobs(props) {
   const { jobs, onChange } = props;
 
   return jobs.map(job => (
-    <label className="container">
+    <label className="container" key={job.id}>
       {job.title}
       <Inputs type="radio" name="jobTitle" onChange={onChange} value={job.id} />
       <span className="mark__checkbox" />
