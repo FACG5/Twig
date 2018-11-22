@@ -12,14 +12,32 @@ import CheckBoxes from './CheckBoxes';
 class StageOne extends Component {
   state = {
     skills: [],
+    languages: [],
+    dialects: [],
   };
 
   componentWillMount() {
-    axios.get('/api/v1/get-skills').then((result) => {
-      const { data } = result;
-      this.setState({ skills: data });
-    });
+    axios
+      .get('/api/v1/get-skills')
+      .then((result) => {
+        const { data } = result;
+        this.setState({ skills: data });
+      })
+      .then(() => {
+        axios.get('/api/v1/get-languages').then((result) => {
+          const { data } = result;
+          this.setState({ languages: data });
+        });
+      });
   }
+
+  getDialects = (event) => {
+    const { value: languageId } = event.target;
+    axios.get(`/api/v1/get-dialcets/${languageId}`).then((result) => {
+      const { data } = result;
+      this.setState({ dialects: data });
+    });
+  };
 
   checkLanuageAndDialect = (context) => {
     const { language, dialect } = context.data;
@@ -38,7 +56,7 @@ class StageOne extends Component {
   };
 
   render() {
-    const { skills } = this.state;
+    const { skills, languages, dialects } = this.state;
     return (
       <ModalConsumer>
         {context => (
@@ -56,8 +74,12 @@ class StageOne extends Component {
             <hr />
             <div className="checkbox__container">
               <div className="select__container">
-                <Select data={context.languages} name="language" />
-                <Select data={context.dialects} name="dialect" />
+                <Select
+                  data={languages}
+                  name="language"
+                  getDialects={this.getDialects}
+                />
+                <Select data={dialects} name="dialect" />
               </div>
               <CheckBoxes skills={skills} onChange={context.storeValue} />
               <Inputs
