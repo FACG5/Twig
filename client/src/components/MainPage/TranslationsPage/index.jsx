@@ -30,6 +30,27 @@ class TranslationsPage extends Component {
     });
   }
 
+  voteUpClick = (translationsId) => {
+    const { match } = this.props;
+    const { params } = match;
+    const { questionId } = params;
+    const voteUp = 1;
+    const voteDown = 0;
+    const dataVote = { voteUp, voteDown, translationsId };
+    axios
+      .post(`/api/v1/questions/${questionId}/voteUp`, dataVote)
+      .then((result) => {
+        const { message, resulttranslation } = result.data;
+        this.setState({ values: resulttranslation, message });
+      })
+      .catch((error) => {
+        const { data: message, status } = error.response;
+        if (status === 500) {
+          this.setState({ message });
+        }
+      });
+  };
+
   showModal = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
   };
@@ -58,7 +79,8 @@ class TranslationsPage extends Component {
         </div>
         <h2 className="translations__list">Translations</h2>
         <hr className="translations__line" />
-        <Card values={values} />
+        {values.length ? <Card values={values} voteUpClick={this.voteUpClick} />
+          : <h2>There are no available translations for this question</h2>}
         {showModal ? <DonateModal showModal={this.showModal} /> : null}
       </div>
     );
