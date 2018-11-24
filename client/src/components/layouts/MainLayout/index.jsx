@@ -4,7 +4,7 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 import ProgressBar from '../../common/ProgressBar';
 import ProfileCard from '../../common/ProfileCard';
-
+import './style.css';
 
 export default function MainLayout(props) {
   const { component: Component, ...rest } = props;
