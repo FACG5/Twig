@@ -10,12 +10,12 @@ exports.get = async (request, response) => {
       const resulttranslation = translationsData[0];
       const resultquestions = questionsData[0];
       if (!resultquestions.length) {
-        response.status(404).send('Wrong Question Page ! ');
+        response.status(404).send('Oops! Question not found ! ');
       } else {
         response.send({ resultquestions, resulttranslation });
       }
     } else {
-      response.status(404).send('Wrong Question Page ! ');
+      response.status(404).send('Oops! Question not found ! ');
     }
   } catch (error) {
     response.status(500).send('Server Error');
