@@ -30,10 +30,10 @@ class TranslationsPage extends Component {
       })
       .catch((error) => {
         const { status, data } = error.response;
-        if (status === 404) {
-          this.setState({ error: data });
-        } else if (status === 401) {
+        if (status === 401) {
           history.push('/');
+        } else {
+          this.setState({ error: data });
         }
       });
   }
