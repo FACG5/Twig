@@ -31,11 +31,11 @@ const users = connection.define('user', {
   },
   location: {
     type: Sequelize.STRING,
-    allowNull: false,
+    defaultValue: 'Location: Not Specified',
   },
   gender: {
     type: Sequelize.STRING,
-    allowNull: false,
+    defaultValue: 'Gender: Not Specified',
   },
   date_of_registe: {
     type: Sequelize.DATE,
