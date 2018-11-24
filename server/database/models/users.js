@@ -49,6 +49,9 @@ const users = connection.define('user', {
   facebook: {
     type: Sequelize.TEXT,
   },
+  age: {
+    type: Sequelize.INTEGER,
+  },
 });
 
 module.exports = users;
