@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import { ModalProvider } from './components/HomePage/modal/ModalContext';
-import DefaultLayout from './components/layouts/DefaultLayout';
+import HomeLayout from './components/layouts/HomeLayout';
 import MainLayout from './components/layouts/MainLayout';
 import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
@@ -23,7 +23,7 @@ export default function App() {
               component={TranslationsPage}
             />
             <MainLayout exact path="/main/:name" component={QuestionsPage} />
-            <DefaultLayout exact path="/" component={HomePage} />
+            <HomeLayout exact path="/" component={HomePage} />
           </Switch>
         </Fragment>
       </Router>
