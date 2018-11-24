@@ -23,9 +23,11 @@ const users = connection.define('user', {
   },
   job_description: {
     type: Sequelize.TEXT,
+    defaultValue: 'Job Description',
   },
   bio: {
     type: Sequelize.TEXT,
+    defaultValue: 'Enter you BIO here ...',
   },
   location: {
     type: Sequelize.STRING,
