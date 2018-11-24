@@ -15,15 +15,15 @@ export default function App() {
       <Router>
         <Fragment>
           <Switch>
-            <DefaultLayout exact path="/" component={HomePage} />
+            <MainLayout exact path="/main" component={Specialization} />
             <MainLayout exact path="/profile" component={ProfilePage} />
-            <MainLayout exact path="/main/:name" component={QuestionsPage} />
             <MainLayout
               exact
               path="/main/:name/questions/:questionId"
               component={TranslationsPage}
             />
-            <MainLayout exact path="/main" component={Specialization} />
+            <MainLayout exact path="/main/:name" component={QuestionsPage} />
+            <DefaultLayout exact path="/" component={HomePage} />
           </Switch>
         </Fragment>
       </Router>
