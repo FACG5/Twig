@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import './style.css';
 
-export default function OverviewInformation(props) {
+const OverviewInformation = (props) => {
   const { icon, text, join } = props;
   return (
     <div className="overview__information">
@@ -15,10 +15,12 @@ export default function OverviewInformation(props) {
       </h4>
     </div>
   );
-}
+};
 
 OverviewInformation.propTypes = {
   icon: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   join: PropTypes.string.isRequired,
 };
+
+export default OverviewInformation;
