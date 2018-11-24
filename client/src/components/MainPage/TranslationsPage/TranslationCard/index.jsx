@@ -7,10 +7,8 @@ import './style.css';
 
 const Card = (props) => {
   const { values } = props;
-  
   return (
     <ul className="traslations__list">
-      {!values.length && <h2>There are no available translations for this question"</h2>}
       {values && values.map((element) => {
         const {
           translation, id, username, date,
