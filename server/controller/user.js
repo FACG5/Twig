@@ -1,4 +1,4 @@
-const getUserDetails = require('../database/query/userDetails');
+const getUserDetails = require('../database/query/users');
 
 exports.get = async (request, response) => {
   try {
