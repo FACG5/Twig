@@ -53,6 +53,7 @@ const users = connection.define('user', {
   },
   age: {
     type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
 });
 
