@@ -10,7 +10,8 @@ class ProfileCard extends Component {
   componentWillMount() {
     axios.get('/api/v1/profile').then((res) => {
       const results = res.data;
-      this.setState({ values: results });
+      const { profileResult } = results;
+      this.setState({ values: profileResult });
     }).catch((error) => {
       const { status } = error.response;
       if (status === 404) {
