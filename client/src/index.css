@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: cairo;
+  animation: fadeInOpacity 0.4s 1;
 }
 
 body {
@@ -18,5 +19,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
