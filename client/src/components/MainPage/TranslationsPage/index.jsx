@@ -36,12 +36,12 @@ class TranslationsPage extends Component {
     const { questionId } = params;
     const voteUp = 0;
     const voteDown = 1;
-    const dataVote = { voteUp, voteDown, translationsId };
+    const VoteData = { voteUp, voteDown, translationsId };
     axios
-      .post(`/api/v1/questions/${questionId}/voteDown`, dataVote)
+      .post(`/api/v1/questions/${questionId}/voteDown`, VoteData)
       .then((result) => {
-        const { message, resulttranslation } = result.data;
-        this.setState({ values: resulttranslation, message });
+        const { message, translationResult } = result.data;
+        this.setState({ values: translationResult, message });
       })
       .catch((error) => {
         const { data: message, status } = error.response;
