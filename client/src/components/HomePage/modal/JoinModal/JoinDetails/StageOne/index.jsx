@@ -42,10 +42,10 @@ class StageOne extends Component {
   };
 
   checkLanuageAndDialect = (context) => {
-    const { language } = context.data;
-    if (!language) {
+    const { language, dialect } = context.data;
+    if (!language || !dialect) {
       context.setPopUpMessage({
-        message: 'please choose Your Language',
+        message: 'please choose Your Language / dialect',
         title: ' Error !',
       });
     } else {
