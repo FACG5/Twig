@@ -10,6 +10,8 @@ import {
   faMapMarkedAlt,
   faClipboardList,
   faIdCard,
+  faLanguage,
+  faBirthdayCake,
 } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -22,6 +24,8 @@ library.add(
   faMapMarkedAlt,
   faClipboardList,
   faIdCard,
+  faLanguage,
+  faBirthdayCake,
 );
 /* eslint-disable */
 ReactDOM.render(<App />, document.getElementById("root"));

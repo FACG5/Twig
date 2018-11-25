@@ -35,8 +35,6 @@ exports.post = async (request, response) => {
               password: hash,
               email,
               otherSkills,
-              location: 'Not Specified',
-              gender: 'Not Specified',
               DateOfRegiste: new Date(),
               jobId: jobTitle,
               languageId: language,

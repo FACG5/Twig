@@ -6,6 +6,12 @@
   display: flex;
 }
 
+.error__message{
+text-align: center;
+margin-top: 100px;
+font-size: 50px;
+color: rgba(0, 0, 0, 0.445);
+}
 .specialization__header--text {
   margin-top: 0.5rem;
   color: #bc3636;

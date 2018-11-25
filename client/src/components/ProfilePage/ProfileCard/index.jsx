@@ -1,15 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import './style.css';
-import avatarImg from '../../../assets/img_avatar.png';
 
-export default function ProfileCard() {
-  const name = 'Ali ALI';
-  const jobTitle = 'MD, PhD, Cardiac Electrophysiology';
-  return (
-    <div className="profile__card">
-      <img src={avatarImg} alt="avatarImg" className="avatar__img" />
-      <h1 className="card__name">{name}</h1>
-      <h1 className="card__jobtitle">{jobTitle}</h1>
-    </div>
-  );
+class ProfileCard extends Component {
+  state = {
+    values: [],
+  };
+
+  componentWillMount() {
+    axios.get('/api/v1/profile').then((res) => {
+      const results = res.data;
+      this.setState({ values: results });
+    }).catch((error) => {
+      const { status } = error.response;
+      if (status === 404) {
+        this.setState({ message: 'Page Not Found' });
+      }
+    });
+  }
+
+  render() {
+    const { values } = this.state;
+    const {
+      firstName, lastName, jobDescription, avatarUrl, email,
+    } = values;
+
+    return (
+      <div className="profile__card">
+        <img src={avatarUrl} alt="avatarImg" className="avatar__img" />
+        <h1 className="card__name">
+          { firstName }
+          {'  '}
+          {lastName}
+        </h1>
+        <h1 className="card__jobtitle">{jobDescription}</h1>
+        <h1 className="card__jobtitle">{email}</h1>
+      </div>
+    );
+  }
 }
+
+export default ProfileCard;

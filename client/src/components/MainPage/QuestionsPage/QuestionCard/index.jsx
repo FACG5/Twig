@@ -13,7 +13,7 @@ const Card = (props) => {
         } = element;
         return (
           <li key={id} className="box__card">
-            <Link to={`/${section}/questions/${id}`}>
+            <Link to={`/main/${section}/questions/${id}`}>
               <div>{questions}</div>
               <div className="box__card--content">
                 <div>

@@ -23,17 +23,19 @@ const users = connection.define('user', {
   },
   job_description: {
     type: Sequelize.TEXT,
+    defaultValue: 'Job Description',
   },
   bio: {
     type: Sequelize.TEXT,
+    defaultValue: 'Enter you BIO here ...',
   },
   location: {
     type: Sequelize.STRING,
-    allowNull: false,
+    defaultValue: 'Location: Not Specified',
   },
   gender: {
     type: Sequelize.STRING,
-    allowNull: false,
+    defaultValue: 'Gender: Not Specified',
   },
   date_of_registe: {
     type: Sequelize.DATE,
@@ -48,6 +50,10 @@ const users = connection.define('user', {
   },
   facebook: {
     type: Sequelize.TEXT,
+  },
+  age: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
   },
 });
 

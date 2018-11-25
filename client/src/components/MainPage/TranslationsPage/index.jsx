@@ -9,25 +9,33 @@ import Button from '../../common/Button';
 class TranslationsPage extends Component {
   state = {
     showModal: false,
-    question: { },
+    question: {},
     values: [],
   };
 
   componentWillMount() {
-    const { match } = this.props;
+    const { match, history } = this.props;
     const { params } = match;
     const { questionId } = params;
 
-    axios.get(`/api/v1/questions/${questionId}`).then((data) => {
-      const results = data.data;
-      const { resultquestions, resulttranslation } = results;
-      this.setState({ question: resultquestions[0], values: resulttranslation });
-    }).catch((error) => {
-      const { status } = error.response;
-      if (status === 404) {
-        this.setState({ message: 'Not found page' });
-      }
-    });
+    axios
+      .get(`/api/v1/questions/${questionId}`)
+      .then((data) => {
+        const results = data.data;
+        const { resultquestions, resulttranslation } = results;
+        this.setState({
+          question: resultquestions[0],
+          values: resulttranslation,
+        });
+      })
+      .catch((error) => {
+        const { status, data } = error.response;
+        if (status === 401) {
+          history.push('/');
+        } else {
+          this.setState({ error: data });
+        }
+      });
   }
 
   voteDownClick = (translationsId) => {
@@ -56,38 +64,47 @@ class TranslationsPage extends Component {
   };
 
   render() {
-    const { values, question, showModal } = this.state;
+    const {
+ values, question, showModal, error 
+} = this.state;
     const { questions, username, date } = question;
     return (
       <div className="translation__box">
-        <div className="translation__question">
-          <h4>{questions}</h4>
-          <div className="translation__user">
-            <div>{username}</div>
-            <div>
-              {date && date.slice(0, 10)}
+        {error ? (
+          <h4 className="error__message">{error}</h4>
+        ) : (
+          <div>
+            {' '}
+            <div className="translation__question">
+              <h4>{questions}</h4>
+              <div className="translation__user">
+                <div>{username}</div>
+                <div>{date && date.slice(0, 10)}</div>
+              </div>
             </div>
+            <div className="translation__button">
+              <Button
+                value="Donate Translations"
+                className="button__donate"
+                onClick={this.showModal}
+                id="Donate"
+              />
+            </div>
+            <h2 className="translations__list">Translations</h2>
+            <hr className="translations__line" />
+            {values.length ? (
+              <Card values={values} voteDownClick={this.voteDownClick} />
+            ) : (
+              <h4> There are no available translations for this question </h4>
+            )}
+            {showModal ? <DonateModal showModal={this.showModal} /> : null}
           </div>
-        </div>
-        <div className="translation__button">
-          <Button
-            value="Donate Translations"
-            className="button_donate"
-            onClick={this.showModal}
-            id="Donate"
-          />
-        </div>
-        <h2 className="translations__list">Translations</h2>
-        <hr className="translations__line" />
-        {values.length ? <Card values={values} voteDownClick={this.voteDownClick} />
-          : <h2>There are no available translations for this question</h2>}
-        {showModal ? <DonateModal showModal={this.showModal} /> : null}
+        )}
       </div>
     );
   }
 }
 TranslationsPage.propTypes = {
   match: PropTypes.isRequired,
-
 };
 export default TranslationsPage;
