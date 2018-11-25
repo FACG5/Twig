@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.342);
+  background: rgba(255, 255, 255, 0.849);
   height: 100%;
 }
 
@@ -19,14 +19,14 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: #e91313;
   opacity: 0.6;
   position: absolute;
   top: 0;
   left: 0;
   
   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 3.0s infinite ease-in-out;
 }
 
 .double-bounce2 {

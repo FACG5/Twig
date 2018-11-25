@@ -5,11 +5,11 @@ import Card from './TranslationCard';
 import './style.css';
 import DonateModal from './DonateModal';
 import Button from '../../common/Button';
+import Loading from '../../common/Loading';
 
 class TranslationsPage extends Component {
   state = {
     showModal: false,
-    question: {},
     values: [],
   };
 
@@ -18,24 +18,26 @@ class TranslationsPage extends Component {
     const { params } = match;
     const { questionId } = params;
 
-    axios
-      .get(`/api/v1/questions/${questionId}`)
-      .then((data) => {
-        const results = data.data;
-        const { resultquestions, resulttranslation } = results;
-        this.setState({
-          question: resultquestions[0],
-          values: resulttranslation,
+    setTimeout(() => {
+      axios
+        .get(`/api/v1/questions/${questionId}`)
+        .then((data) => {
+          const results = data.data;
+          const { resultquestions, resulttranslation } = results;
+          this.setState({
+            question: resultquestions[0],
+            values: resulttranslation,
+          });
+        })
+        .catch((error) => {
+          const { status, data } = error.response;
+          if (status === 401) {
+            history.push('/');
+          } else {
+            this.setState({ error: data });
+          }
         });
-      })
-      .catch((error) => {
-        const { status, data } = error.response;
-        if (status === 401) {
-          history.push('/');
-        } else {
-          this.setState({ error: data });
-        }
-      });
+    }, 1000);
   }
 
   voteDownClick = (translationsId) => {
@@ -88,19 +90,18 @@ class TranslationsPage extends Component {
     const {
       values, question, showModal, error,
     } = this.state;
-    const { questions, username, date } = question;
-    return (
-      <div className="translation__box">
-        {error ? (
-          <h4 className="error__message">{error}</h4>
-        ) : (
+    if (!question && !error) {
+      return <Loading />;
+    }
+    if (question) {
+      return (
+        <div className="translation__box">
           <div>
-            {' '}
             <div className="translation__question">
-              <h4>{questions}</h4>
+              <h4>{question.questions}</h4>
               <div className="translation__user">
-                <div>{username}</div>
-                <div>{date && date.slice(0, 10)}</div>
+                <div>{question.username}</div>
+                <div>{question.date && question.date.slice(0, 10)}</div>
               </div>
             </div>
             <div className="translation__button">
@@ -124,7 +125,12 @@ class TranslationsPage extends Component {
             )}
             {showModal ? <DonateModal showModal={this.showModal} /> : null}
           </div>
-        )}
+        </div>
+      );
+    }
+    return (
+      <div className="translation__box">
+        <h4 className="error__message">{error}</h4>
       </div>
     );
   }
