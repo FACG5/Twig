@@ -27,6 +27,7 @@ router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
 router.get('/questions/:questionId', translation.get);
 router.get('/details', userDetails.get);
+router.get('/profile', userDetails.getProfile);
 router.post('/questions/:questionId/voteUp', voteUp.post);
 
 module.exports = router;
