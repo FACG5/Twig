@@ -13,7 +13,7 @@ const Card = (props) => {
         } = element;
         return (
           <li key={id} className="category__card">
-            <Link to={`/${section}`}>
+            <Link to={`/main/${section}`}>
               <div className="category__card--content">
                 <img
                   src={imageUrl}

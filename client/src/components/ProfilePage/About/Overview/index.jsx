@@ -1,20 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import OverviewInformation from './OverviewInformation';
 import './style.css';
 
-export default function Overview() {
-  return (
-    <div className="overview__box">
-      <h3 className="overview__title">Overview</h3>
-      <hr />
-      <div className="overview__content">
-        <OverviewInformation icon="globe" text="Arabic - Palestine" />
-        <OverviewInformation icon="transgender" text="20, Female" />
-        <OverviewInformation icon="graduation-cap" text="MD, PhD, Cardiac Electrophysiology" />
-        <OverviewInformation icon="map-marked-alt" text="Gaza - Palestine" />
-        <OverviewInformation icon="clipboard-list" text="Member since Obtober, 2018" />
-        <OverviewInformation icon="id-card" text="Profile 10% complete" />
+class Overview extends Component {
+  state = {
+    values: [],
+  };
+
+  componentWillMount() {
+    axios.get('/api/v1/profile').then((res) => {
+      const results = res.data;
+      this.setState({ values: results });
+    }).catch((error) => {
+      const { status } = error.response;
+      if (status === 404) {
+        this.setState({ message: 'Page Not Found' });
+      }
+    });
+  }
+
+  render() {
+    const { values } = this.state;
+    const {
+      location, gender, age, registerDate, dialectName, languageName, jobTitle,
+    } = values;
+
+    return (
+      <div className="overview__box">
+        <h3 className="overview__title">Overview</h3>
+        <hr />
+        <div className="overview__content">
+          <OverviewInformation icon="language" join="Language :" text={languageName} />
+          <OverviewInformation icon="language" join="Dialect :" text={dialectName} />
+          <OverviewInformation icon="birthday-cake" text={age} />
+          <OverviewInformation icon="transgender" text={gender} />
+          <OverviewInformation icon="graduation-cap" text={jobTitle} />
+          <OverviewInformation icon="map-marked-alt" text={location} />
+          <OverviewInformation icon="clipboard-list" join="Member since" text={registerDate && registerDate.slice(0, 7)} />
+          <OverviewInformation icon="id-card" text="Profile 10% complete" />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+export default Overview;

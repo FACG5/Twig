@@ -38,8 +38,8 @@ insert into dialects (name,language_id)
  ('Palestinian',1),
  ('Egypt',1);
 
-insert into users(first_name,last_name,email,password,other_skills,job_description,bio,location,gender,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id) values ('a','a','a@a.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1),
-('b','b','b@b.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','M','2018-11-8','https://files.gitter.im/lubnaabd/vKAC/img_avatar.png',null,null,1,1)
+insert into users(first_name,last_name,email,password,other_skills,job_description,bio,location,gender,age,date_of_registe,avatar_url,linked_in,facebook,language_id,dialect_id,job_id) values ('first','user','a@a.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','Male',33,'2018-11-8','https://files.gitter.im/lubnaabd/meLi/image.png',null,null,1,1,3),
+('second','user','b@b.com','$2y$12$xzsPmkM63LGMvguFh6JyG.CFTROHk9RAKz2wFdKB.EO8DvZok1oGK','other_Skills','job_description','bio','Gaza','Male',28,'2018-11-8','https://files.gitter.im/lubnaabd/vKAC/img_avatar.png',null,null,1,1,2)
 ;
 
 
@@ -75,8 +75,6 @@ insert into users(first_name,last_name,email,password,other_skills,job_descripti
 
   insert into votes(vote_up,vote_down,user_id ,translations_id )
   values
-  (1,0,1,1),
-  (0,1,1,2),
-  (0,0,1,3),
-  (1,0,2,1);
+  (1,0,1,1);
+
 
