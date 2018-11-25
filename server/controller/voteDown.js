@@ -14,11 +14,11 @@ exports.post = async (request, response) => {
     await votes.create(voteData);
     const result = await getTranslations(questionId, userId);
     const { translationsData } = result;
-    const resulttranslation = translationsData[0];
-    if (!resulttranslation.length) {
+    const translationResult = translationsData[0];
+    if (!translationResult.length) {
       response.send('There\'s No Data!');
     } else {
-      response.status(200).send({ message: 'vote Up', resulttranslation });
+      response.status(200).send({ message: 'vote down', translationResult });
     }
   } catch (error) {
     response.status(500).send('Internal Server Error !');
