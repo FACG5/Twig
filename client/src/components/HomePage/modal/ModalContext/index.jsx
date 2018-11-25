@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import PopUp from '../../../common/PopUp';
 
 const Context = React.createContext();
 class Provider extends Component {
@@ -33,8 +35,14 @@ class Provider extends Component {
       }));
     },
 
-    closePopUp: () => {
-      this.setState({ popUpMessage: null });
+    closePopUp: (redirect) => {
+      if (redirect) {
+        this.setState({ popUpMessage: null }, () => {
+          this.setState({ joinModel: false, loginModel: true });
+        });
+      } else {
+        this.setState({ popUpMessage: null });
+      }
     },
 
     setPopUpMessage: (popUpMessage) => {
@@ -95,36 +103,57 @@ class Provider extends Component {
     },
 
     signUp: () => {
-      const { data } = this.state;
-      const { setPopUpMessage } = this.state;
-      if (data.jobTitle) {
-        axios.post('/api/v1/signup', data).then((result) => {
-          const { data: message } = result;
-          setPopUpMessage({ title: 'success', message });
-        }).catch((error) => {
-          const { data: message } = error.response;
-          setPopUpMessage({ title: 'error', message });
-        });
-      } else {
-        this.setState({
-          popUpMessage: {
-            message: 'please choose your Job title',
-            title: ' Error !',
-          },
-        });
-      }
+      this.setState({ signingUp: true });
+      setTimeout(() => {
+        const { data } = this.state;
+        const { setPopUpMessage } = this.state;
+        if (data.jobTitle) {
+          axios
+            .post('/api/v1/signup', data)
+            .then((result) => {
+              this.setState({ signingUp: false });
+              const { data: message } = result;
+              setPopUpMessage({ title: 'success', message, redirect: true });
+            })
+            .catch((error) => {
+              this.setState({ signingUp: false });
+              const { data: message } = error.response;
+              setPopUpMessage({ title: 'error', message });
+            });
+        } else {
+          this.setState({
+            popUpMessage: {
+              message: 'please choose your Job title',
+              title: ' Error !',
+            },
+          });
+        }
+      }, 1000);
     },
   };
 
   render() {
     const { children } = this.props;
-    return <Context.Provider value={this.state}>{children}</Context.Provider>;
+    const { popUpMessage, closePopUp } = this.state;
+    return (
+      <Context.Provider value={this.state}>
+        {popUpMessage ? (
+          <PopUp
+            title={popUpMessage.title}
+            message={popUpMessage.message}
+            closePopUp={closePopUp}
+            redirect={popUpMessage.redirect}
+          />
+        ) : null}
+        {children}
+      </Context.Provider>
+    );
   }
 }
 
-Provider.PropTypes = {
+Provider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export const ModalProvider = Provider;
+export const ModalProvider = withRouter(Provider);
 export const ModalConsumer = Context.Consumer;
