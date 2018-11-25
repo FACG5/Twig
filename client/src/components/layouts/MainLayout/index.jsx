@@ -26,7 +26,7 @@ class MainLayout extends Component {
     const { login } = this.state;
     return login ? (
       <Fragment>
-        <Header />
+        <Header login />
         <div className="mainpage">
           <div>
             <ProfileCard />

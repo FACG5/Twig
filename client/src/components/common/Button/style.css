@@ -31,19 +31,19 @@
   transition-duration: 0.4s;
 }
 
-.profile__button {
-  color: #000000c5;
-}
+.profile__button,
+.specializations__button,
 .logout__button {
   color: #d11c1c;
 }
+.specializations__button,
 .profile__button,
 .logout__button {
   outline: none;
   cursor: pointer;
   text-align: center;
   padding: 5px;
-  margin: 0.5rem;
+  margin: 0.6rem 1rem;
   border: none;
   background: none;
   font-size: 15px;
@@ -52,12 +52,10 @@
   transition-duration: 0.4s;
 }
 
-.profile__button:hover {
-  color: #000000;
-}
-
+.specializations__button:hover,
+.profile__button:hover,
 .logout__button:hover {
-  color: #a52f2fd5;
+  color: #682121;
 }
 .join:hover {
   background-color: #a52f2f;
@@ -121,6 +119,7 @@
   transition-duration: 0.4s;
   float: right;
 }
+
 
 .button__donate:hover,
 .donate__submit:hover {
