@@ -16,7 +16,7 @@ const getProfileDetails = async (userId) => {
 
 const getLanguageLevel = async (userId) => {
   const LanguageLevel = await sequelize.query(
-    'SELECT skills.description AS "skillsDescription" FROM users JOIN employee_skills ON employee_skills.user_id = users.id JOIN skills ON skills.id = employee_skills.skill_id WHERE users.id = :userId', { replacements: { userId } },
+    'SELECT skills.description AS "skillsDescription", skills.id AS "skillsId" FROM users JOIN employee_skills ON employee_skills.user_id = users.id JOIN skills ON skills.id = employee_skills.skill_id WHERE users.id = :userId', { replacements: { userId } },
   );
   return LanguageLevel;
 };
