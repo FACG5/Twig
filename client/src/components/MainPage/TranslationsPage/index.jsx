@@ -38,6 +38,27 @@ class TranslationsPage extends Component {
       });
   }
 
+  voteDownClick = (translationsId) => {
+    const { match } = this.props;
+    const { params } = match;
+    const { questionId } = params;
+    const voteUp = 0;
+    const voteDown = 1;
+    const VoteData = { voteUp, voteDown, translationsId };
+    axios
+      .post(`/api/v1/questions/${questionId}/voteDown`, VoteData)
+      .then((result) => {
+        const { message, translationResult } = result.data;
+        this.setState({ values: translationResult, message });
+      })
+      .catch((error) => {
+        const { data: message, status } = error.response;
+        if (status === 500) {
+          this.setState({ message });
+        }
+      });
+  };
+
   voteUpClick = (translationsId) => {
     const { match } = this.props;
     const { params } = match;
@@ -93,7 +114,11 @@ class TranslationsPage extends Component {
             <h2 className="translations__list">Translations</h2>
             <hr className="translations__line" />
             {values.length ? (
-              <Card values={values} voteUpClick={this.voteUpClick} />
+              <Card
+                values={values}
+                voteDownClick={this.voteDownClick}
+                voteUpClick={this.voteUpClick}
+              />
             ) : (
               <h4> There are no available translations for this question </h4>
             )}

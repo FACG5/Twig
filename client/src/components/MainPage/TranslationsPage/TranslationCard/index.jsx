@@ -6,7 +6,7 @@ import { faChevronCircleUp, faChevronCircleDown } from '@fortawesome/free-solid-
 import './style.css';
 
 const Card = (props) => {
-  const { values, voteUpClick } = props;
+  const { values, voteUpClick ,voteDownClick} = props;
   return (
     <ul className="traslations__list">
       {values && values.map((element) => {
@@ -39,7 +39,7 @@ const Card = (props) => {
               </div>
               <div>
                 <div>
-                  <FontAwesomeIcon icon={faChevronCircleDown} size="lg" className="fa__times--circle" />
+                  <FontAwesomeIcon icon={faChevronCircleDown} size="lg" className="fa__times--circle" onClick={() => { voteDownClick(id); }} />
                 </div>
                 <div>{`${voteDown} vote Down`}</div>
               </div>
@@ -53,6 +53,7 @@ const Card = (props) => {
 
 Card.propTypes = {
   values: PropTypes.instanceOf(Array).isRequired,
+  voteDownClick: PropTypes.func.isRequired,
   voteUpClick: PropTypes.func.isRequired,
 };
 
