@@ -16,85 +16,103 @@ class QuesionsPage extends Component {
   };
 
   componentWillMount() {
-    const { match } = this.props;
+    const { match, history } = this.props;
     const { params } = match;
     const { name } = params;
 
-    axios.get(`/api/v1/specialization/${name}`).then((data) => {
-      const results = data.data;
-      this.setState({
-        values: results, items: results, section: name, avatarUrl: results[0].avatar_url,
+    axios
+      .get(`/api/v1/specialization/${name}`)
+      .then((data) => {
+        const results = data.data;
+        this.setState({
+          values: results,
+          items: results,
+          section: name,
+          avatarUrl: results[0].avatar_url,
+        });
+      })
+      .catch((error) => {
+        const { status, data } = error.response;
+        if (status === 401) {
+          history.push('/');
+        } else {
+          this.setState({ error: data });
+        }
       });
-    }).catch((error) => {
-      const { status } = error.response;
-      if (status === 404) {
-        this.setState({ message: 'Not found page' });
-      }
-    });
-  }
-
-
-sortDate = () => {
-  const { items } = this.state;
-  const sorteListByDate = items.sort((a, b) => a.date > b.date);
-  this.setState({ items: sorteListByDate, found: true });
-}
-
-  onChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value, input: value });
-  };
-
-
-  search = (event) => {
-    event.preventDefault();
-    const { values, input } = this.state;
-    let list = values;
-    list = list.filter(item => item.questions.toLowerCase().indexOf(
-      input.toLowerCase(),
-    ) !== -1);
-    if (list.length !== 0) {
-      this.setState({ items: list, found: true });
-    } else {
-      this.setState({ items: null, found: false });
-    }
   }
 
   sortDate = () => {
     const { items } = this.state;
     const sorteListByDate = items.sort((a, b) => a.date > b.date);
     this.setState({ items: sorteListByDate, found: true });
-  }
+  };
+
+  onChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value, input: value });
+  };
+
+  search = (event) => {
+    event.preventDefault();
+    const { values, input } = this.state;
+    let list = values;
+    list = list.filter(
+      item => item.questions.toLowerCase().indexOf(input.toLowerCase()) !== -1,
+    );
+    if (list.length !== 0) {
+      this.setState({ items: list, found: true });
+    } else {
+      this.setState({ items: null, found: false });
+    }
+  };
+
+  sortDate = () => {
+    const { items } = this.state;
+    const sorteListByDate = items.sort((a, b) => a.date > b.date);
+    this.setState({ items: sorteListByDate, found: true });
+  };
 
   render() {
     const {
-      items, section, avatarUrl, found, input,
+      items, section, avatarUrl, found, input, error,
     } = this.state;
     return (
       <div className="questions__box">
-        <div className="questions__header">
-          <div className="questions__header__logo">
-            <img src={avatarUrl} alt="img" />
-            <h2 className="questions__title">{section}</h2>
+        {error ? (
+          <h4 className="error__message">{error}</h4>
+        ) : (
+          <div>
+            {' '}
+            <div className="questions__header">
+              <div className="questions__header__logo">
+                <img src={avatarUrl} alt="img" />
+                <h2 className="questions__title">{section}</h2>
+              </div>
+              <SearchBar
+                className="questions__search"
+                submitHandler={this.search}
+                onChange={this.onChange}
+                value={input}
+              />
+            </div>
+            <Select onChange={this.sortDate} />
+            {!found && (
+              <h1 className="questions__notFound">
+                Sorry, no result was found!
+              </h1>
+            )}
+            <Card values={items} section={section} />
+            {found && (
+              <p className="questions__showmore">Show All 100 Question </p>
+            )}
           </div>
-          <SearchBar
-            className="questions__search"
-            submitHandler={this.search}
-            onChange={this.onChange}
-            value={input}
-          />
-        </div>
-        <Select onChange={this.sortDate} />
-        {!found && <h1 className="questions__notFound">Sorry, no result was found!</h1>}
-        <Card values={items} section={section} />
-        {found && <p className="questions__showmore">Show All 100 Question </p>}
+        )}
       </div>
     );
   }
 }
 QuesionsPage.propTypes = {
   match: PropTypes.isRequired,
-
 };
 
 export default QuesionsPage;
