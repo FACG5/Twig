@@ -9,19 +9,30 @@ import JoinModel from '../../HomePage/modal/JoinModal';
 import { ModalConsumer } from '../../HomePage/modal/ModalContext';
 import LoggedinButtons from './LoggedinButtons';
 import NotLoginButtons from './NotLoginButtons';
+import Loading from '../Loading';
 
 class Header extends Component {
   state = {};
 
   logout = () => {
     const { history } = this.props;
-    axios.get('/api/v1/logout').then(() => {
-      history.push('/');
-    });
+    this.setState({ loggingOut: true });
+    setTimeout(() => {
+      axios.get('/api/v1/logout').then(() => {
+        this.setState({ loggingOut: true }, () => {
+          history.push('/');
+        });
+      });
+    }, 1000);
   };
 
   render() {
     const { history, login } = this.props;
+    const { loggingOut } = this.state;
+
+    if (loggingOut) {
+      return <Loading />;
+    }
     return (
       <ModalConsumer>
         {context => (
