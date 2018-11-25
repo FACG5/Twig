@@ -38,14 +38,35 @@ class TranslationsPage extends Component {
       });
   }
 
+  voteUpClick = (translationsId) => {
+    const { match } = this.props;
+    const { params } = match;
+    const { questionId } = params;
+    const voteUp = 1;
+    const voteDown = 0;
+    const dataVote = { voteUp, voteDown, translationsId };
+    axios
+      .post(`/api/v1/questions/${questionId}/voteUp`, dataVote)
+      .then((result) => {
+        const { message, translationResult } = result.data;
+        this.setState({ values: translationResult, message });
+      })
+      .catch((error) => {
+        const { data: message, status } = error.response;
+        if (status === 500) {
+          this.setState({ message });
+        }
+      });
+  };
+
   showModal = () => {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
   };
 
   render() {
     const {
- values, question, showModal, error 
-} = this.state;
+      values, question, showModal, error,
+    } = this.state;
     const { questions, username, date } = question;
     return (
       <div className="translation__box">
@@ -72,7 +93,7 @@ class TranslationsPage extends Component {
             <h2 className="translations__list">Translations</h2>
             <hr className="translations__line" />
             {values.length ? (
-              <Card values={values} />
+              <Card values={values} voteUpClick={this.voteUpClick} />
             ) : (
               <h4> There are no available translations for this question </h4>
             )}
