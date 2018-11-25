@@ -27,6 +27,7 @@ class LanguageLevel extends Component {
         <div className="language__box">
           <h3 className="language__title">Language Level</h3>
           <div className="language__content-notfound">
+            <hr />
             <ul>
               <li>No Language Level Specified !</li>
             </ul>
