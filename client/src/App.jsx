@@ -9,6 +9,7 @@ import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
 import TranslationsPage from './components/MainPage/TranslationsPage';
 import ErrorPage from './components/ErrorPage';
+import ProfileLayout from './components/layouts/ProfileLayout';
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
         <Fragment>
           <Switch>
             <MainLayout exact path="/main" component={Specialization} />
-            <MainLayout exact path="/profile" component={ProfilePage} />
+            <ProfileLayout exact path="/profile" component={ProfilePage} />
             <MainLayout
               exact
               path="/main/:name/questions/:questionId"
