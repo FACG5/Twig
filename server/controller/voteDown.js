@@ -10,15 +10,46 @@ exports.post = async (request, response) => {
     let voteData = {
       voteUp, voteDown, translationsId, userId,
     };
-    voteData = snakeCase(voteData);
-    await votes.create(voteData);
-    const result = await getTranslations(questionId, userId);
-    const { translationsData } = result;
-    const translationResult = translationsData[0];
-    if (!translationResult.length) {
-      response.send('There\'s No Data!');
+    const CheckVote = await votes.findAll({ raw: true, where: { translations_id: translationsId, user_id: userId, vote_up: 1 } });
+    const CheckVoteDown = await votes.findAll({ raw: true, where: { translations_id: translationsId, user_id: userId, vote_down: 1 } });
+
+    if (!CheckVote.length) {
+      if (!CheckVoteDown.length) {
+        voteData = snakeCase(voteData);
+        await votes.create(voteData);
+        const result = await getTranslations(questionId, userId);
+        const { translationsData } = result;
+        const translationResult = translationsData[0];
+        if (!translationResult.length) {
+          response.send('There\'s No Data!');
+        } else {
+          response.status(200).send({ message: 'vote down', translationResult });
+        }
+      } else {
+        const { translations_id: translationsIds, user_id: userIds } = CheckVoteDown[0];
+        await votes.destroy({ raw: true, where: { translations_id: translationsIds, user_id: userIds } });
+        const result = await getTranslations(questionId, userId);
+        const { translationsData } = result;
+        const translationResult = translationsData[0];
+        if (!translationResult.length) {
+          response.send('There\'s No Data!');
+        } else {
+          response.status(200).send({ message: 'vote Up', translationResult });
+        }
+      }
     } else {
-      response.status(200).send({ message: 'vote down', translationResult });
+      const { translations_id: translationsIds, user_id: userIds } = CheckVote[0];
+      await votes.destroy({ raw: true, where: { translations_id: translationsIds, user_id: userIds } });
+      voteData = snakeCase(voteData);
+      await votes.create(voteData);
+      const result = await getTranslations(questionId, userId);
+      const { translationsData } = result;
+      const translationResult = translationsData[0];
+      if (!translationResult.length) {
+        response.send('There\'s No Data!');
+      } else {
+        response.status(200).send({ message: 'vote down', translationResult });
+      }
     }
   } catch (error) {
     response.status(500).send('Internal Server Error !');
