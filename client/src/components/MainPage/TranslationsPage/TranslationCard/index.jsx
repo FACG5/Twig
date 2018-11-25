@@ -6,7 +6,7 @@ import { faChevronCircleUp, faChevronCircleDown } from '@fortawesome/free-solid-
 import './style.css';
 
 const Card = (props) => {
-  const { values, voteUpClick ,voteDownClick} = props;
+  const { values, voteUpClick, voteDownClick } = props;
   return (
     <ul className="traslations__list">
       {values && values.map((element) => {
