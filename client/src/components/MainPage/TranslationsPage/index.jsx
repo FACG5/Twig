@@ -40,8 +40,8 @@ class TranslationsPage extends Component {
     axios
       .post(`/api/v1/questions/${questionId}/voteUp`, dataVote)
       .then((result) => {
-        const { message, resulttranslation } = result.data;
-        this.setState({ values: resulttranslation, message });
+        const { message, translationResult } = result.data;
+        this.setState({ values: translationResult, message });
       })
       .catch((error) => {
         const { data: message, status } = error.response;
