@@ -18,11 +18,16 @@ class Header extends Component {
     const { history } = this.props;
     this.setState({ loggingOut: true });
     setTimeout(() => {
-      axios.get('/api/v1/logout').then(() => {
-        this.setState({ loggingOut: true }, () => {
+      axios
+        .get('/api/v1/logout')
+        .then(() => {
+          this.setState({ loggingOut: true }, () => {
+            history.push('/');
+          });
+        })
+        .catch(() => {
           history.push('/');
         });
-      });
     }, 1000);
   };
 
