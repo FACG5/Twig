@@ -52,15 +52,11 @@ class QuesionsPage extends Component {
 
   onChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, input: value });
-  };
-
-  search = (event) => {
-    event.preventDefault();
-    const { values, input } = this.state;
+    this.setState({ [name]: value });
+    const { values } = this.state;
     let list = values;
     list = list.filter(
-      item => item.questions.toLowerCase().indexOf(input.toLowerCase()) !== -1,
+      item => item.questions.toLowerCase().indexOf(value.toLowerCase()) !== -1,
     );
     if (list.length !== 0) {
       this.setState({ items: list, found: true });
@@ -69,20 +65,24 @@ class QuesionsPage extends Component {
     }
   };
 
+  search = (event) => {
+    event.preventDefault();
+  };
+
   sortDate = () => {
     const { items } = this.state;
-    const sorteListByDate = items.sort((a, b) => a.date > b.date);
+    const sorteListByDate = items.sort((a, b) => a.date < b.date);
     this.setState({ items: sorteListByDate, found: true });
   };
 
   render() {
     const {
-      items, section, avatarUrl, found, input, error,
+      items, section, avatarUrl, found, input, error, values,
     } = this.state;
-    if (!items.length && !error) {
+    if (!values.length && !error) {
       return <Loading />;
     }
-    if (items.length) {
+    if (values.length) {
       return (
         <div className="questions__box">
           <div>
