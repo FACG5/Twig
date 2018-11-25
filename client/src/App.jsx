@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import { ModalProvider } from './components/HomePage/modal/ModalContext';
@@ -8,6 +8,7 @@ import MainLayout from './components/layouts/MainLayout';
 import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
 import TranslationsPage from './components/MainPage/TranslationsPage';
+import ErrorPage from './components/ErrorPage';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             />
             <MainLayout exact path="/main/:name" component={QuestionsPage} />
             <HomeLayout exact path="/" component={HomePage} />
+            <Route to="*" component={ErrorPage} />
           </Switch>
         </Fragment>
       </Router>

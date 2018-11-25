@@ -5,6 +5,7 @@ import SearchBar from '../../common/SearchBar';
 import Card from './QuestionCard';
 import Select from './Select';
 import './style.css';
+import Loading from '../../common/Loading';
 
 class QuesionsPage extends Component {
   state = {
@@ -20,25 +21,27 @@ class QuesionsPage extends Component {
     const { params } = match;
     const { name } = params;
 
-    axios
-      .get(`/api/v1/specialization/${name}`)
-      .then((data) => {
-        const results = data.data;
-        this.setState({
-          values: results,
-          items: results,
-          section: name,
-          avatarUrl: results[0].avatar_url,
+    setTimeout(() => {
+      axios
+        .get(`/api/v1/specialization/${name}`)
+        .then((data) => {
+          const results = data.data;
+          this.setState({
+            values: results,
+            items: results,
+            section: name,
+            avatarUrl: results[0].avatar_url,
+          });
+        })
+        .catch((error) => {
+          const { status, data } = error.response;
+          if (status === 401) {
+            history.push('/');
+          } else {
+            this.setState({ error: data });
+          }
         });
-      })
-      .catch((error) => {
-        const { status, data } = error.response;
-        if (status === 401) {
-          history.push('/');
-        } else {
-          this.setState({ error: data });
-        }
-      });
+    }, 1000);
   }
 
   sortDate = () => {
@@ -76,13 +79,13 @@ class QuesionsPage extends Component {
     const {
       items, section, avatarUrl, found, input, error,
     } = this.state;
-    return (
-      <div className="questions__box">
-        {error ? (
-          <h4 className="error__message">{error}</h4>
-        ) : (
+    if (!items.length && !error) {
+      return <Loading />;
+    }
+    if (items.length) {
+      return (
+        <div className="questions__box">
           <div>
-            {' '}
             <div className="questions__header">
               <div className="questions__header__logo">
                 <img src={avatarUrl} alt="img" />
@@ -106,7 +109,12 @@ class QuesionsPage extends Component {
               <p className="questions__showmore">Show All 100 Question </p>
             )}
           </div>
-        )}
+        </div>
+      );
+    }
+    return (
+      <div className="questions__box">
+        <h4 className="error__message">{error}</h4>
       </div>
     );
   }
