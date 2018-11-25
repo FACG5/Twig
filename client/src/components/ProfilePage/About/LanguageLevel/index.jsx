@@ -22,6 +22,18 @@ class LanguageLevel extends Component {
 
   render() {
     const { values } = this.state;
+    if (values.length === 0) {
+      return (
+        <div className="language__box">
+          <h3 className="language__title">Language Level</h3>
+          <div className="language__content-notfound">
+            <ul>
+              <li>No Language Level Specified !</li>
+            </ul>
+          </div>
+        </div>
+      );
+    }
     const result = values.map((element) => {
       const description = element.skillsDescription;
       const id = element.skillsId;
