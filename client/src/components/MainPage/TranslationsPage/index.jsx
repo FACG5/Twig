@@ -64,7 +64,7 @@ class TranslationsPage extends Component {
             <div className="translation__button">
               <Button
                 value="Donate Translations"
-                className="button_donate"
+                className="button__donate"
                 onClick={this.showModal}
                 id="Donate"
               />
