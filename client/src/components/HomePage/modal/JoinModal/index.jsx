@@ -4,30 +4,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 import JoinDetails from './JoinDetails';
-import PopUp from '../../../common/PopUp';
 import { ModalConsumer } from '../ModalContext';
+import LoadingModal from '../LoadingModal';
 
 class Join extends Component {
-  state = {}
+  state = {};
 
   joinCheck = (context) => {
-    const {
-      firstName, lastName, email, password,
-    } = context.data;
-    if (firstName && lastName && email && password) {
-      context.updateState({ completeJoin: true });
-    } else {
-      context.setPopUpMessage({ message: 'please fill all of the fileds !', title: ' Error !' });
-    }
-  }
+    this.setState({ signingUp: true });
+    setTimeout(() => {
+      const {
+        firstName, lastName, email, password,
+      } = context.data;
+      if (firstName && lastName && email && password) {
+        this.setState({ signingUp: false });
+        context.updateState({ completeJoin: true });
+      } else {
+        this.setState({ signingUp: false });
+        context.setPopUpMessage({
+          message: 'please fill all of the fileds !',
+          title: ' Error !',
+        });
+      }
+    }, 1000);
+  };
 
   render() {
+    const { signingUp } = this.state;
     return (
       <ModalConsumer>
         {context => (
           <div className="modal">
             {!context.completeJoin ? (
               <div className="modal__content">
+                {signingUp ? <LoadingModal /> : null}
                 <div className="modalHead">
                   <h1>Join TWIG</h1>
                   <FontAwesomeIcon
@@ -103,13 +113,6 @@ class Join extends Component {
                 setJobTitle={context.setJobTitle}
               />
             )}
-            {context.popUpMessage ? (
-              <PopUp
-                title="wrong user info !"
-                message={context.popUpMessage.message}
-                closePopUp={context.closePopUp}
-              />
-            ) : null}
           </div>
         )}
       </ModalConsumer>

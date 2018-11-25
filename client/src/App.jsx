@@ -12,8 +12,8 @@ import ErrorPage from './components/ErrorPage';
 
 export default function App() {
   return (
-    <ModalProvider>
-      <Router>
+    <Router>
+      <ModalProvider>
         <Fragment>
           <Switch>
             <MainLayout exact path="/main" component={Specialization} />
@@ -28,7 +28,7 @@ export default function App() {
             <Route to="*" component={ErrorPage} />
           </Switch>
         </Fragment>
-      </Router>
-    </ModalProvider>
+      </ModalProvider>
+    </Router>
   );
 }
