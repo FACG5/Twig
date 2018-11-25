@@ -40,14 +40,10 @@ class Specialization extends Component {
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value, input: value });
-  };
-
-  search = (event) => {
-    event.preventDefault();
-    const { values, input } = this.state;
+    const { values } = this.state;
     let list = values;
     list = list.filter(
-      item => item.name.toLowerCase().indexOf(input.toLowerCase()) !== -1,
+      item => item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1,
     );
     if (list.length !== 0) {
       this.setState({ items: list, found: true });
@@ -56,14 +52,19 @@ class Specialization extends Component {
     }
   };
 
+  search = (event) => {
+    event.preventDefault();
+  };
+
   render() {
     const {
       input,
       found,
       items,
       error,
+      values,
     } = this.state;
-    if (!error && !items.length) {
+    if (!error && !values.length) {
       return <Loading />;
     }
     if (error) {
