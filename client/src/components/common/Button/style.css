@@ -31,6 +31,34 @@
   transition-duration: 0.4s;
 }
 
+.profile__button {
+  color: #000000c5;
+}
+.logout__button {
+  color: #d11c1c;
+}
+.profile__button,
+.logout__button {
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  margin: 0.5rem;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition-duration: 0.4s;
+}
+
+.profile__button:hover {
+  color: #000000;
+}
+
+.logout__button:hover {
+  color: #a52f2fd5;
+}
 .join:hover {
   background-color: #a52f2f;
 }
@@ -76,7 +104,8 @@
   font-family: cairo;
 }
 
-.button_donate, .donate__submit {
+.button__donate,
+.donate__submit {
   background-color: #bc3636;
   color: white;
   border: 1px solid #bc3636;
@@ -93,8 +122,9 @@
   float: right;
 }
 
-.button_donate:hover, .donate__submit:hover {
-background: #a52f2f;
+.button__donate:hover,
+.donate__submit:hover {
+  background: #a52f2f;
 }
 
 .button__login:hover,
@@ -228,7 +258,6 @@ button__login {
   font-weight: bold;
   outline: none;
 }
-
 
 .closeButton {
   margin: 10px;
