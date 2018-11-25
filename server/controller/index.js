@@ -19,6 +19,7 @@ router.get('/get-languages', languages.get);
 router.get('/get-skills', skills.get);
 router.get('/get-dialcets/:languageId', dialects.get);
 router.get('/get-jobs', jobs.get);
+const voteUp = require('./voteUp');
 
 router.use(checkToken);
 router.get('/questions/:questionId', translation.get);
@@ -27,5 +28,6 @@ router.get('/specialization', specialization.get);
 router.get('/questions/:questionId', translation.get);
 router.get('/details', userDetails.get);
 router.get('/profile', userDetails.getProfile);
+router.post('/questions/:questionId/voteUp', voteUp.post);
 
 module.exports = router;
