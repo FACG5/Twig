@@ -41,7 +41,7 @@ class TranslationsPage extends Component {
     }, 1000);
   }
 
-  updateValues =(element) => {
+  updateValues = (element) => {
     this.setState(
       { values: element },
     );
