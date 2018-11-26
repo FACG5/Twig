@@ -12,6 +12,7 @@ const languages = require('./languages');
 const dialects = require('./dialects');
 const voteDown = require('./voteDown');
 const logout = require('./logout');
+const voteUp = require('./voteUp');
 
 const router = express.Router();
 
@@ -21,19 +22,17 @@ router.get('/get-languages', languages.get);
 router.get('/get-skills', skills.get);
 router.get('/get-dialcets/:languageId', dialects.get);
 router.get('/get-jobs', jobs.get);
-const voteUp = require('./voteUp');
 
 router.use(checkToken);
-router.get('/questions/:questionId', translation.get);
-router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
+router.get('/specialization/:section', questions.get);
 router.post('/specialization/question/:speclalizationsId', questions.post);
 router.get('/questions/:questionId', translation.get);
 router.post('/questions/:questionId', translation.post);
-router.get('/details', userDetails.get);
 router.post('/questions/:questionId/voteDown', voteDown.post);
-router.get('/profile', userDetails.getProfile);
 router.post('/questions/:questionId/voteUp', voteUp.post);
+router.get('/details', userDetails.get);
+router.get('/profile', userDetails.getProfile);
 router.get('/logout', logout.get);
 
 module.exports = router;
