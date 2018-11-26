@@ -32,7 +32,7 @@ class DonateModal extends Component {
     this.setState({ [name]: value, translations: value });
   };
 
-  onClick=(typeId) => {
+  onClick = (typeId) => {
     const { translation } = this.state;
     const { match, showModal, updateValues } = this.props;
     const { params } = match;
