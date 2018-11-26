@@ -132,6 +132,7 @@ class QuesionsPage extends Component {
                 showModal={this.showModal}
                 speclalizationsId={values[0].speclalizationsId}
                 updateValues={this.updateValues}
+                section={section}
               />
             ) : null}
           </div>
