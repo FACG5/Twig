@@ -73,6 +73,7 @@ class AddQuestionModal extends Component {
 AddQuestionModal.propTypes = {
   showModal: PropTypes.isRequired,
   speclalizationsId: PropTypes.isRequired,
+  updateValues: PropTypes.func.isRequired,
 };
 
 export default AddQuestionModal;
