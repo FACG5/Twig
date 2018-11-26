@@ -135,6 +135,7 @@ class QuesionsPage extends Component {
 }
 QuesionsPage.propTypes = {
   match: PropTypes.isRequired,
+  history: PropTypes.isRequired,
 };
 
 export default QuesionsPage;
