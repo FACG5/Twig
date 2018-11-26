@@ -18,7 +18,6 @@ exports.get = async (request, response) => {
 exports.post = async (request, response) => {
   try {
     const owner = request.id;
-    console.log(request.body);
     const { speclalizationsId, question, section } = request.body;
     const data = { owner, question, speclalization_id: speclalizationsId };
     await questions.create(data);
