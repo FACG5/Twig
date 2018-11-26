@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../common/Button';
 
 class AddQuestionModal extends Component {
-  state = {};
+  state = {
+    validation: false,
+  };
 
   onChange = (event) => {
     const { value } = event.target;
@@ -16,10 +18,10 @@ class AddQuestionModal extends Component {
   addQuestion = () => {
     const { speclalizationsId, showModal } = this.props;
     const { question } = this.state;
-    console.log(question);
+    // console.log(question);
     if (question && question.trim()) {
       const data = { speclalizationsId, question };
-      console.log(data);
+      // console.log(data);
       axios
         .post(`/api/v1/speclalization/question/${speclalizationsId}`, data)
         .then(() => {
@@ -31,11 +33,16 @@ class AddQuestionModal extends Component {
             this.setState({ message });
           }
         });
+    } else {
+      this.setState(prevState => ({
+        validation: !prevState.validation,
+      }));
     }
   }
 
   render() {
     const { showModal } = this.props;
+    const { validation } = this.state;
     return (
       <div className="question__modal">
         <div className="question__content">
@@ -56,6 +63,7 @@ class AddQuestionModal extends Component {
             rows="4"
             onChange={this.onChange}
           />
+          {validation ? <h1 className="question__validation">Please Add A Question ...</h1> : null}
           <Button onClick={this.addQuestion} value="Submit" className="question__submit" />
         </div>
       </div>
