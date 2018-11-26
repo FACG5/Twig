@@ -16,10 +16,12 @@ class AddQuestionModal extends Component {
   }
 
   addQuestion = () => {
-    const { speclalizationsId, showModal, updateValues } = this.props;
+    const {
+      speclalizationsId, showModal, updateValues, section,
+    } = this.props;
     const { question } = this.state;
     if (question && question.trim()) {
-      const data = { speclalizationsId, question };
+      const data = { speclalizationsId, question, section };
       axios
         .post(`/api/v1/speclalization/question/${speclalizationsId}`, data)
         .then((results) => {
