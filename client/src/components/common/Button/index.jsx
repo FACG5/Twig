@@ -7,7 +7,9 @@ const Button = (props) => {
     className, value, onClick, id,
   } = props;
   return (
-    <button className={className} type="submit" onClick={onClick} id={id}>{value}</button>
+    <button className={className} type="submit" onClick={onClick} id={id}>
+      {value}
+    </button>
   );
 };
 
@@ -16,7 +18,6 @@ Button.propTypes = {
   value: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-
 };
 
 export default Button;
