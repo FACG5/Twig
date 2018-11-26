@@ -36,6 +36,7 @@
     "cookie-parser": "^1.4.3",
     "env2": "^2.2.2",
     "express": "^4.16.4",
+    "express-fileupload": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
     "path": "^0.12.7",
     "pg": "^7.6.1",
