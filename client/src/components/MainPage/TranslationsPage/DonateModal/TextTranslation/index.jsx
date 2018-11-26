@@ -18,7 +18,7 @@ export default function TextTranslation(props) {
         rows="4"
         onChange={onChange}
       />
-      {validation ? <h1 className="donate__validation">Please write Translations</h1> : null}
+      {validation ? <h1 className="donate__validation">Please add a translations</h1> : null}
       <Button onClick={() => onClick(typeId)} value="Submit Translation" className="donate__submit" />
     </div>
   );
