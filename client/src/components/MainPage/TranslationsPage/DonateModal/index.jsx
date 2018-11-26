@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './style.css';
 import PropTypes from 'prop-types';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../common/Button';
 import TextTranslation from './TextTranslation';
@@ -14,7 +14,7 @@ class DonateModal extends Component {
     text: true,
     audio: false,
     video: false,
-    redirect: false,
+    validation: false,
 
   };
 
@@ -37,26 +37,34 @@ class DonateModal extends Component {
     const { match, showModal, updateValues } = this.props;
     const { params } = match;
     const { questionId } = params;
-    const data = { typeId, translation, questionId };
-    axios
-      .post(`/api/v1/questions/${questionId}`, data)
-      .then((results) => {
-        showModal();
-        updateValues(results.data);
-      })
-      .catch((error) => {
-        const { data: message, status } = error.response;
-        if (status === 500) {
-          this.setState({ message });
-        }
-      });
+    if (translation && translation.trim()) {
+      const data = { typeId, translation, questionId };
+      axios
+        .post(`/api/v1/questions/${questionId}`, data)
+        .then((results) => {
+          showModal();
+          updateValues(results.data);
+        })
+        .catch((error) => {
+          const { data: message, status } = error.response;
+          if (status === 500) {
+            this.setState({ message });
+          }
+        });
+    } else {
+      this.setState(prevState => ({
+        validation: !prevState.validation,
+      }));
+    }
   }
 
   showTab = () => {
-    const { text, audio, video } = this.state;
+    const {
+      text, audio, video, validation,
+    } = this.state;
     if (text) {
       return (
-        <TextTranslation onChange={this.onChange} onClick={this.onClick} />
+        <TextTranslation onChange={this.onChange} onClick={this.onClick} validation={validation} />
       );
     }
     if (audio) {
@@ -70,17 +78,12 @@ class DonateModal extends Component {
 
 
   render() {
-    const { showModal, match } = this.props;
+    const { showModal } = this.props;
     const { text, audio, video } = this.state;
-    const { redirect } = this.state;
-    const { params } = match;
-    const { questionId, name } = params;
+
     return (
 
       <div className="donate__modal">
-        {redirect
-          ? <Redirect exact to={`/main/${name}/questions/${questionId}`} /> : null
-      }
         <div className="donate__content">
           <div className="donate__header">
             <h2 className="donate__title"> Donate Translation</h2>
