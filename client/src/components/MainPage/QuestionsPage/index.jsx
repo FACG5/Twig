@@ -6,6 +6,7 @@ import Card from './QuestionCard';
 import Select from './Select';
 import './style.css';
 import Loading from '../../common/Loading';
+import Button from '../../common/Button';
 
 class QuesionsPage extends Component {
   state = {
@@ -104,6 +105,11 @@ class QuesionsPage extends Component {
                 Sorry, no result was found!
               </h1>
             )}
+            <Button
+              value="Add Question"
+              className="button__add-question"
+              id="add-question"
+            />
             <Card values={items} section={section} />
             {found && (
               <p className="questions__showmore">Show All 100 Question </p>
