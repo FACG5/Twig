@@ -4,7 +4,7 @@ import './style.css';
 import Button from '../../../../common/Button';
 
 export default function TextTranslation(props) {
-  const { onChange, onClick } = props;
+  const { onChange, onClick, validation } = props;
   const typeId = 1;
 
   return (
@@ -18,6 +18,7 @@ export default function TextTranslation(props) {
         rows="4"
         onChange={onChange}
       />
+      {validation ? <h1 className="donate__validation">Please write Translations</h1> : null}
       <Button onClick={() => onClick(typeId)} value="Submit Translation" className="donate__submit" />
     </div>
   );
@@ -25,4 +26,5 @@ export default function TextTranslation(props) {
 TextTranslation.propTypes = {
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
+  validation: PropTypes.bool,
 };
