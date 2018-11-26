@@ -37,3 +37,8 @@
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
 }
+
+.question__textarea {
+  margin: 1rem 1rem 0.1rem 1rem;
+  box-shadow: 0 0 2px #00000075;
+}
