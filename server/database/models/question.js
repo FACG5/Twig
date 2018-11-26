@@ -8,7 +8,7 @@ const questions = connection.define('question', {
   },
   date: {
     type: Sequelize.DATE,
-    allowNull: false,
+    defaultValue: Sequelize.fn('NOW'),
   },
 });
 
