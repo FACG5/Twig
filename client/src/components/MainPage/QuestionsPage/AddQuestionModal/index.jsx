@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../common/Button';
@@ -33,5 +34,9 @@ class AddQuestionModal extends Component {
     );
   }
 }
+
+AddQuestionModal.propTypes = {
+  showModal: PropTypes.isRequired,
+};
 
 export default AddQuestionModal;
