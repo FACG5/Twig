@@ -82,6 +82,12 @@ class QuesionsPage extends Component {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
   };
 
+  updateValues = (element) => {
+    this.setState(
+      { values: element },
+    );
+  }
+
   render() {
     const {
       items, section, avatarUrl, found, input, error, values, showModal,
@@ -125,6 +131,7 @@ class QuesionsPage extends Component {
               <AddQuestionModal
                 showModal={this.showModal}
                 speclalizationsId={values[0].speclalizationsId}
+                updateValues={this.updateValues}
               />
             ) : null}
           </div>
