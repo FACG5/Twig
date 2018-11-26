@@ -149,5 +149,6 @@ class TranslationsPage extends Component {
 }
 TranslationsPage.propTypes = {
   match: PropTypes.isRequired,
+  history: PropTypes.isRequired,
 };
 export default TranslationsPage;
