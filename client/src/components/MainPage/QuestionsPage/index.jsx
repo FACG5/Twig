@@ -121,7 +121,12 @@ class QuesionsPage extends Component {
             {found && (
               <p className="questions__showmore">Show All 100 Question </p>
             )}
-            {showModal ? <AddQuestionModal showModal={this.showModal} /> : null}
+            {showModal ? (
+              <AddQuestionModal
+                showModal={this.showModal}
+                speclalizationsId={values[0].speclalizationsId}
+              />
+            ) : null}
           </div>
         </div>
       );
