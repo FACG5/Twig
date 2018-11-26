@@ -1,44 +1,29 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 
-class ProfileCard extends Component {
-  state = {
-    values: [],
-  };
+const ProfileCard = (props) => {
+  const { values } = props;
+  const {
+    firstName, lastName, jobDescription, avatarUrl, email,
+  } = values;
 
-  componentWillMount() {
-    axios.get('/api/v1/profile').then((res) => {
-      const results = res.data;
-      const { profileResult } = results;
-      this.setState({ values: profileResult });
-    }).catch((error) => {
-      const { status } = error.response;
-      if (status === 404) {
-        this.setState({ message: 'Page Not Found' });
-      }
-    });
-  }
+  return (
+    <div className="profile__card">
+      <img src={avatarUrl} alt="avatarImg" className="avatar__img" />
+      <h1 className="card__name">
+        {firstName}
+        {'  '}
+        {lastName}
+      </h1>
+      <h1 className="card__jobtitle">{jobDescription}</h1>
+      <h1 className="card__jobtitle">{email}</h1>
+    </div>
+  );
+};
 
-  render() {
-    const { values } = this.state;
-    const {
-      firstName, lastName, jobDescription, avatarUrl, email,
-    } = values;
-
-    return (
-      <div className="profile__card">
-        <img src={avatarUrl} alt="avatarImg" className="avatar__img" />
-        <h1 className="card__name">
-          { firstName }
-          {'  '}
-          {lastName}
-        </h1>
-        <h1 className="card__jobtitle">{jobDescription}</h1>
-        <h1 className="card__jobtitle">{email}</h1>
-      </div>
-    );
-  }
-}
+ProfileCard.propTypes = {
+  values: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default ProfileCard;
