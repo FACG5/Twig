@@ -13,6 +13,7 @@ const dialects = require('./dialects');
 const voteDown = require('./voteDown');
 const logout = require('./logout');
 const upload = require('./upload');
+const voteUp = require('./voteUp');
 
 const router = express.Router();
 
@@ -22,7 +23,6 @@ router.get('/get-languages', languages.get);
 router.get('/get-skills', skills.get);
 router.get('/get-dialcets/:languageId', dialects.get);
 router.get('/get-jobs', jobs.get);
-const voteUp = require('./voteUp');
 
 router.use(checkToken);
 router.get('/questions/:questionId', translation.get);
