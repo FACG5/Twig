@@ -6,6 +6,8 @@ import Card from './QuestionCard';
 import Select from './Select';
 import './style.css';
 import Loading from '../../common/Loading';
+import Button from '../../common/Button';
+import AddQuestionModal from './AddQuestionModal';
 
 class QuesionsPage extends Component {
   state = {
@@ -14,6 +16,7 @@ class QuesionsPage extends Component {
     message: '',
     found: true,
     items: [],
+    showModal: false,
   };
 
   componentWillMount() {
@@ -75,9 +78,13 @@ class QuesionsPage extends Component {
     this.setState({ items: sorteListByDate, found: true });
   };
 
+  showModal = () => {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  };
+
   render() {
     const {
-      items, section, avatarUrl, found, input, error, values,
+      items, section, avatarUrl, found, input, error, values, showModal,
     } = this.state;
     if (!values.length && !error) {
       return <Loading />;
@@ -104,10 +111,17 @@ class QuesionsPage extends Component {
                 Sorry, no result was found!
               </h1>
             )}
+            <Button
+              value="Add Question"
+              className="button__add-question"
+              onClick={this.showModal}
+              id="add-question"
+            />
             <Card values={items} section={section} />
             {found && (
               <p className="questions__showmore">Show All 100 Question </p>
             )}
+            {showModal ? <AddQuestionModal showModal={this.showModal} /> : null}
           </div>
         </div>
       );
