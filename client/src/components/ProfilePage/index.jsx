@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import Button from '../common/Button';
 import './style.css';
@@ -14,6 +14,7 @@ class Profile extends Component {
   };
 
   componentWillMount() {
+    const { history } = this.props;
     setTimeout(() => {
       axios
         .get('/api/v1/profile')
@@ -23,9 +24,11 @@ class Profile extends Component {
           this.setState({ values: profileResult, languageResult });
         })
         .catch((error) => {
-          const { status } = error.response;
-          if (status === 404) {
-            this.setState({ message: 'Page Not Found' });
+          const { status, data } = error.response;
+          if (status === 401) {
+            history.push('/');
+          } else {
+            this.setState({ error: data });
           }
         });
     }, 1000);
@@ -40,35 +43,46 @@ class Profile extends Component {
 
   render() {
     const {
-      overView, languages, values, languageResult,
+      overView, languages, values, languageResult, error,
     } = this.state;
-    return values ? (
+    if (!values && !error) {
+      return <Loading />;
+    }
+    return (
       <div className="profile__main">
-        <div className="card__section">
-          <ProfileCard values={values} />
-        </div>
-        <div>
-          <div className="tabs__section">
-            <Button
-              onClick={this.shiftTab}
-              className={`tab__button ${
-                overView ? 'tab__button--clicked' : null
-              }`}
-              value="About"
-            />
-            <Button
-              onClick={this.shiftTab}
-              className={`tab__button ${
-                languages ? 'tab__button--clicked' : null
-              }`}
-              value="Translations"
-            />
-          </div>
-          {languages ? <LanguageLevel values={values} /> : <About values={values} languageResult={languageResult} />}
-        </div>
+        {error ? (
+          <h4>{error}</h4>
+        ) : (
+          <Fragment>
+            <div className="card__section">
+              <ProfileCard values={values} />
+            </div>
+            <div>
+              <div className="tabs__section">
+                <Button
+                  onClick={this.shiftTab}
+                  className={`tab__button ${
+                    overView ? 'tab__button--clicked' : null
+                  }`}
+                  value="About"
+                />
+                <Button
+                  onClick={this.shiftTab}
+                  className={`tab__button ${
+                    languages ? 'tab__button--clicked' : null
+                  }`}
+                  value="Translations"
+                />
+              </div>
+              {languages ? (
+                <LanguageLevel values={values} />
+              ) : (
+                <About values={values} languageResult={languageResult} />
+              )}
+            </div>
+          </Fragment>
+        )}
       </div>
-    ) : (
-      <Loading />
     );
   }
 }
