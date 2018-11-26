@@ -27,3 +27,11 @@ hr {
   font-size: 15px;
   font-weight: normal;
 }
+
+.language__content-notfound ul {
+  margin: 10px 20px;
+  list-style: none;
+  color: #000000a3;
+  font-size: 15px;
+  font-weight: normal;
+}

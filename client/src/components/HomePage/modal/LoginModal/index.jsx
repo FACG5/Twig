@@ -6,7 +6,7 @@ import axios from 'axios';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 import { ModalConsumer } from '../ModalContext';
-import PopUp from '../../../common/PopUp';
+import LoadinModal from '../LoadingModal';
 
 class Login extends Component {
   state = {};
@@ -25,23 +25,30 @@ class Login extends Component {
         title: 'Error !',
       });
     } else {
+      this.setState({ loggingIn: true });
       const loginData = { loginEmail, loginPassword };
-      axios
-        .post('/api/v1/login', loginData)
-        .then((loginResult) => {
-          if (loginResult.status === 200) {
-            history.push('/');
-            context.closeModel();
-          }
-        })
-        .catch((error) => {
-          const { data } = error.response;
-          context.setPopUpMessage({ message: data, title: 'Error !' });
-        });
+      setTimeout(() => {
+        axios
+          .post('/api/v1/login', loginData)
+          .then((loginResult) => {
+            if (loginResult.status === 200) {
+              this.setState({ loggingIn: false }, () => {
+                history.push('/main');
+                context.closeModel();
+              });
+            }
+          })
+          .catch((error) => {
+            this.setState({ loggingIn: false });
+            const { data } = error.response;
+            context.setPopUpMessage({ message: data, title: 'Error !' });
+          });
+      }, 1000);
     }
   };
 
   render() {
+    const { loggingIn } = this.state;
     return (
       <ModalConsumer>
         {context => (
@@ -92,14 +99,8 @@ class Login extends Component {
                 value="Join"
                 onClick={context.switchModel}
               />
+              {loggingIn ? <LoadinModal /> : null }
             </div>
-            {context.popUpMessage ? (
-              <PopUp
-                title={context.popUpMessage.title}
-                message={context.popUpMessage.message}
-                closePopUp={context.closePopUp}
-              />
-            ) : null}
           </div>
         )}
       </ModalConsumer>

@@ -284,3 +284,24 @@ button__login {
 .tab__button--clicked {
   color: rgb(255, 136, 0);
 }
+
+.button__add-question, .question__submit {
+  background-color: #bc3636;
+  color: white;
+  border: 1px solid #bc3636;
+  font-weight: bold;
+  padding: 3px;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  width: 10rem;
+  font-family: cairo;
+  cursor: pointer;
+  text-align: center;
+  margin: 0.5rem 0.5rem 0.5rem 5rem;
+  float: right;
+}
+
+.button__add-question:hover {
+  background: #a52f2f;
+}

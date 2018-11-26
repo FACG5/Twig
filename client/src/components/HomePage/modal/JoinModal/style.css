@@ -3,10 +3,18 @@
   z-index: 99;
   animation: fadeInOpacity 0.4s 1;
   text-align: center;
-  
 }
 .modal__content {
   animation: fadeInOpacity 0.4s 1;
+  position: absolute;
+  background: white;
+  width: 30rem;
+  height: auto;
+  min-height: 20rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
 }
 h1 {
   font-family: cairo;
@@ -31,7 +39,6 @@ h3 {
   grid-template-columns: 1fr;
   justify-items: center;
 }
-
 
 @keyframes fadeInOpacity {
   0% {

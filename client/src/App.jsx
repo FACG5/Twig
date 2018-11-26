@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import ProfilePage from './components/ProfilePage';
 import { ModalProvider } from './components/HomePage/modal/ModalContext';
-import HomeLayout from './components/layouts/HomeLayout';
+import DefaultLayout from './components/layouts/DefaultLayout';
 import MainLayout from './components/layouts/MainLayout';
 import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
@@ -12,23 +12,23 @@ import ErrorPage from './components/ErrorPage';
 
 export default function App() {
   return (
-    <ModalProvider>
-      <Router>
+    <Router>
+      <ModalProvider>
         <Fragment>
           <Switch>
             <MainLayout exact path="/main" component={Specialization} />
-            <MainLayout exact path="/profile" component={ProfilePage} />
+            <DefaultLayout login exact path="/profile" component={ProfilePage} />
             <MainLayout
               exact
               path="/main/:name/questions/:questionId"
               component={TranslationsPage}
             />
             <MainLayout exact path="/main/:name" component={QuestionsPage} />
-            <HomeLayout exact path="/" component={HomePage} />
+            <DefaultLayout exact path="/" component={HomePage} />
             <Route to="*" component={ErrorPage} />
           </Switch>
         </Fragment>
-      </Router>
-    </ModalProvider>
+      </ModalProvider>
+    </Router>
   );
 }

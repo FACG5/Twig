@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Logo from './logo1.png';
@@ -21,9 +21,7 @@ class Header extends Component {
       axios
         .get('/api/v1/logout')
         .then(() => {
-          this.setState({ loggingOut: true }, () => {
-            history.push('/');
-          });
+          this.setState({ loggingOut: false, loggedOut: true });
         })
         .catch(() => {
           history.push('/');
@@ -33,8 +31,7 @@ class Header extends Component {
 
   render() {
     const { history, login } = this.props;
-    const { loggingOut } = this.state;
-
+    const { loggingOut, loggedOut } = this.state;
     if (loggingOut) {
       return <Loading />;
     }
@@ -56,6 +53,7 @@ class Header extends Component {
             </div>
             {context.loginModel ? <LoginModel history={history} /> : null}
             {context.joinModel ? <JoinModel /> : null}
+            {loggedOut ? <Redirect to="/" /> : null}
           </React.Fragment>
         )}
       </ModalConsumer>
@@ -64,7 +62,7 @@ class Header extends Component {
 }
 Header.propTypes = {
   history: PropTypes.instanceOf(Object).isRequired,
-  login: PropTypes.string,
+  login: PropTypes.bool,
 };
 
 export default withRouter(Header);

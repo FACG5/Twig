@@ -4,13 +4,12 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 
 
-export default function HomeLayout(props) {
-  const { component: Component, ...rest } = props;
-
+export default function DefaultLayout(props) {
+  const { component, login, ...rest } = props;
   return (
     <Fragment>
-      <Header />
-      <Route {...rest} component={Component} />
+      <Header login={login ? true : null} />
+      <Route {...rest} component={component} />
       <Footer />
     </Fragment>
   );

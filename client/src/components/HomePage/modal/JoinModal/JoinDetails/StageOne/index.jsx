@@ -5,9 +5,9 @@ import Button from '../../../../../common/Button';
 import Inputs from '../../../../../common/Inputs';
 import './style.css';
 import Select from './Select';
-import PopUp from '../../../../../common/PopUp';
 import { ModalConsumer } from '../../../ModalContext';
 import CheckBoxes from './CheckBoxes';
+import LoadingModal from '../../../LoadingModal';
 
 class StageOne extends Component {
   state = {
@@ -17,18 +17,20 @@ class StageOne extends Component {
   };
 
   componentWillMount() {
-    axios
-      .get('/api/v1/get-skills')
-      .then((result) => {
-        const { data } = result;
-        this.setState({ skills: data });
-      })
-      .then(() => {
-        axios.get('/api/v1/get-languages').then((result) => {
+    setTimeout(() => {
+      axios
+        .get('/api/v1/get-skills')
+        .then((result) => {
           const { data } = result;
-          this.setState({ languages: data });
+          this.setState({ skills: data });
+        })
+        .then(() => {
+          axios.get('/api/v1/get-languages').then((result) => {
+            const { data } = result;
+            this.setState({ languages: data });
+          });
         });
-      });
+    }, 1000);
   }
 
   getDialects = (event) => {
@@ -57,6 +59,9 @@ class StageOne extends Component {
 
   render() {
     const { skills, languages, dialects } = this.state;
+    if (!skills.length && !languages.length) {
+      return <LoadingModal />;
+    }
     return (
       <ModalConsumer>
         {context => (
@@ -102,13 +107,6 @@ class StageOne extends Component {
               onClick={() => this.backFromDetails(context)}
               value="Back"
             />
-            {context.popUpMessage ? (
-              <PopUp
-                title={context.popUpMessage.title}
-                message={context.popUpMessage.message}
-                closePopUp={context.closePopUp}
-              />
-            ) : null}
           </div>
         )}
       </ModalConsumer>
