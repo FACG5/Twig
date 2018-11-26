@@ -33,6 +33,7 @@ module.exports = {
   connection,
   users,
   languages,
+  translations,
   questions,
   speclalizations,
   dialect,

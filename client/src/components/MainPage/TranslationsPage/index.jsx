@@ -13,6 +13,7 @@ class TranslationsPage extends Component {
     values: [],
   };
 
+
   componentWillMount() {
     const { match, history } = this.props;
     const { params } = match;
@@ -38,6 +39,12 @@ class TranslationsPage extends Component {
           }
         });
     }, 1000);
+  }
+
+  updateValues = (element) => {
+    this.setState(
+      { values: element },
+    );
   }
 
   voteDownClick = (translationsId) => {
@@ -123,7 +130,12 @@ class TranslationsPage extends Component {
             ) : (
               <h4> There are no available translations for this question </h4>
             )}
-            {showModal ? <DonateModal showModal={this.showModal} /> : null}
+            {showModal ? (
+              <DonateModal
+                showModal={this.showModal}
+                updateValues={this.updateValues}
+              />
+            ) : null}
           </div>
         </div>
       );
