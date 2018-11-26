@@ -76,6 +76,7 @@ AddQuestionModal.propTypes = {
   showModal: PropTypes.isRequired,
   speclalizationsId: PropTypes.isRequired,
   updateValues: PropTypes.func.isRequired,
+  section: PropTypes.isRequired,
 };
 
 export default AddQuestionModal;
