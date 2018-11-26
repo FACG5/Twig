@@ -42,3 +42,7 @@
   margin: 1rem 1rem 0.1rem 1rem;
   box-shadow: 0 0 2px #00000075;
 }
+
+.question__validation {
+  color: red;
+}
