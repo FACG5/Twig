@@ -27,6 +27,7 @@ router.use(checkToken);
 router.get('/questions/:questionId', translation.get);
 router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
+router.post('/specialization/question/:speclalizationsId');
 router.get('/questions/:questionId', translation.get);
 router.post('/questions/:questionId', translation.post);
 router.get('/details', userDetails.get);
