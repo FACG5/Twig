@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../../common/Button';
@@ -10,6 +11,27 @@ class AddQuestionModal extends Component {
   onChange = (event) => {
     const { value } = event.target;
     this.setState({ question: value });
+  }
+
+  addQuestion = () => {
+    const { speclalizationsId, showModal } = this.props;
+    const { question } = this.state;
+    console.log(question);
+    if (question && question.trim()) {
+      const data = { speclalizationsId, question };
+      console.log(data);
+      axios
+        .post(`/api/v1/speclalization/question/${speclalizationsId}`, data)
+        .then(() => {
+          showModal();
+        })
+        .catch((error) => {
+          const { data: message, status } = error.response;
+          if (status === 500) {
+            this.setState({ message });
+          }
+        });
+    }
   }
 
   render() {
@@ -34,7 +56,7 @@ class AddQuestionModal extends Component {
             rows="4"
             onChange={this.onChange}
           />
-          <Button onClick={null} value="Submit" className="question__submit" />
+          <Button onClick={this.addQuestion} value="Submit" className="question__submit" />
         </div>
       </div>
     );
