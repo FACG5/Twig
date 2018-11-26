@@ -1,4 +1,6 @@
+const snakeCase = require('snakecase-keys');
 const getTranslations = require('../database/query/translations');
+const { users, translations } = require('../database/models');
 
 exports.get = async (request, response) => {
   try {
@@ -17,6 +19,26 @@ exports.get = async (request, response) => {
     } else {
       response.status(404).send('Oops! Question not found ! ');
     }
+  } catch (error) {
+    response.status(500).send('Server Error');
+  }
+};
+
+exports.post = async (request, response) => {
+  try {
+    const owner = request.id;
+    const user = await users.findAll({ raw: true, where: { id: owner } });
+    const { dialect_id: dialectId, language_id: languageId } = user[0];
+    const { typeId, translation, questionId } = request.body;
+    let data = {
+      translation, typeId, languageId, dialectId, owner, questionId,
+    };
+    data = snakeCase(data);
+    await translations.create(data, { raw: true });
+    const results = await getTranslations(questionId, owner);
+    const { translationsData } = results;
+    const translationsResults = translationsData[0];
+    response.status(200).send(translationsResults);
   } catch (error) {
     response.status(500).send('Server Error');
   }

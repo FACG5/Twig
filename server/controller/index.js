@@ -28,6 +28,7 @@ router.get('/questions/:questionId', translation.get);
 router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
 router.get('/questions/:questionId', translation.get);
+router.post('/questions/:questionId', translation.post);
 router.get('/details', userDetails.get);
 router.post('/questions/:questionId/voteDown', voteDown.post);
 router.get('/profile', userDetails.getProfile);
