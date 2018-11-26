@@ -7,6 +7,11 @@ import Button from '../../../common/Button';
 class AddQuestionModal extends Component {
   state = {};
 
+  onChange = (event) => {
+    const { value } = event.target;
+    this.setState({ question: value });
+  }
+
   render() {
     const { showModal } = this.props;
     return (
@@ -27,6 +32,7 @@ class AddQuestionModal extends Component {
             placeholder="   Enter your question here..."
             cols="50"
             rows="4"
+            onChange={this.onChange}
           />
           <Button onClick={null} value="Submit" className="question__submit" />
         </div>
