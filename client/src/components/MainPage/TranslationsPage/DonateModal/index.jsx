@@ -15,7 +15,6 @@ class DonateModal extends Component {
     audio: false,
     video: false,
     validation: false,
-
   };
 
   switchTab = (e) => {
@@ -32,31 +31,54 @@ class DonateModal extends Component {
     this.setState({ [name]: value, translations: value });
   };
 
-  onClick = (typeId) => {
-    const { translation } = this.state;
+  sendTranslation = (translationData) => {
     const { match, showModal, updateValues } = this.props;
     const { params } = match;
     const { questionId } = params;
+    axios
+      .post(`/api/v1/questions/${questionId}`, translationData)
+      .then((results) => {
+        showModal();
+        updateValues(results.data);
+      })
+      .catch((error) => {
+        const { data: message, status } = error.response;
+        if (status === 500) {
+          this.setState({ message });
+        }
+      });
+  };
+
+  onClick = (typeId, file) => {
+    const { match } = this.props;
+    const { params } = match;
+    const { questionId } = params;
+    const { translation } = this.state;
+    let translationData;
     if (translation && translation.trim()) {
-      const data = { typeId, translation, questionId };
-      axios
-        .post(`/api/v1/questions/${questionId}`, data)
-        .then((results) => {
-          showModal();
-          updateValues(results.data);
-        })
-        .catch((error) => {
-          const { data: message, status } = error.response;
-          if (status === 500) {
-            this.setState({ message });
-          }
+      if (typeId === 1) {
+        translationData = { typeId, translation, questionId };
+        this.sendTranslation(translationData);
+      }
+      if (typeId === 2) {
+        axios.post('/api/v1/upload', file).then((result) => {
+          const { data: fileName } = result;
+
+          translationData = {
+            fileName,
+            typeId,
+            translation,
+            questionId,
+          };
+          this.sendTranslation(translationData);
         });
+      }
     } else {
       this.setState(prevState => ({
         validation: !prevState.validation,
       }));
     }
-  }
+  };
 
   showTab = () => {
     const {
@@ -64,11 +86,21 @@ class DonateModal extends Component {
     } = this.state;
     if (text) {
       return (
-        <TextTranslation onChange={this.onChange} onClick={this.onClick} validation={validation} />
+        <TextTranslation
+          onChange={this.onChange}
+          onClick={this.onClick}
+          validation={validation}
+        />
       );
     }
     if (audio) {
-      return <AudioTranslation />;
+      return (
+        <AudioTranslation
+          onChange={this.onChange}
+          onClick={this.onClick}
+          validation={validation}
+        />
+      );
     }
     if (video) {
       return <VideoTranslation />;
@@ -76,13 +108,11 @@ class DonateModal extends Component {
     return null;
   };
 
-
   render() {
     const { showModal } = this.props;
     const { text, audio, video } = this.state;
 
     return (
-
       <div className="donate__modal">
         <div className="donate__content">
           <div className="donate__header">
