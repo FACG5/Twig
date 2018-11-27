@@ -14,7 +14,15 @@
   justify-content: flex-end;
   color: rgba(0, 0, 0, 0.38);
 }
+video, audio {
+  display: block;
+  margin: 2rem auto;
+}
+video {
+  border: 3px solid #ff00000d;
+  border-radius: 2px;
 
+}
 .box__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
