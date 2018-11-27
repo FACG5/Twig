@@ -14,7 +14,6 @@ class DonateModal extends Component {
     text: true,
     audio: false,
     video: false,
-    validation: false,
   };
 
   switchTab = (e) => {
@@ -26,9 +25,13 @@ class DonateModal extends Component {
     });
   };
 
+  setError = (error) => {
+    this.setState({ error });
+  }
+
   onChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, translations: value });
+    this.setState({ [name]: value, translations: value, error: null });
   };
 
   sendTranslation = (translationData) => {
@@ -50,6 +53,7 @@ class DonateModal extends Component {
   };
 
   onClick = (typeId, file) => {
+    this.setError(null);
     const { match } = this.props;
     const { params } = match;
     const { questionId } = params;
@@ -74,22 +78,21 @@ class DonateModal extends Component {
         });
       }
     } else {
-      this.setState(prevState => ({
-        validation: !prevState.validation,
-      }));
+      this.setError('Please add your translation !');
     }
   };
 
   showTab = () => {
     const {
-      text, audio, video, validation,
+      text, audio, video, error,
     } = this.state;
     if (text) {
       return (
         <TextTranslation
           onChange={this.onChange}
           onClick={this.onClick}
-          validation={validation}
+          setError={this.setError}
+          error={error}
         />
       );
     }
@@ -98,7 +101,8 @@ class DonateModal extends Component {
         <AudioTranslation
           onChange={this.onChange}
           onClick={this.onClick}
-          validation={validation}
+          setError={this.setError}
+          error={error}
         />
       );
     }
