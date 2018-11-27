@@ -100,25 +100,18 @@ class DonateModal extends Component {
         this.sendTranslation(translationData);
       }
       if (typeId === 2 || typeId === 3) {
-        axios
-          .post('/api/v1/upload', file, {
-            onDownloadProgress: (ProgressEvent) => {
-              this.setState({
-                loaded: `${(ProgressEvent.loaded / ProgressEvent.total) * 100} %`,
-              });
-            },
-          })
-          .then((result) => {
-            const { data: fileName } = result;
-
-            translationData = {
-              fileName,
-              typeId,
-              translation,
-              questionId,
-            };
-            this.sendTranslation(translationData);
-          });
+        this.setState({ uploading: true });
+        axios.post('/api/v1/upload', file).then((result) => {
+          this.setState({ uploading: false });
+          const { data: fileName } = result;
+          translationData = {
+            fileName,
+            typeId,
+            translation,
+            questionId,
+          };
+          this.sendTranslation(translationData);
+        });
       }
     } else {
       this.setError('Please add your translation !');
@@ -127,7 +120,7 @@ class DonateModal extends Component {
 
   showTab = () => {
     const {
-      text, audio, video, error, loaded,
+      text, audio, video, error,
     } = this.state;
     if (text) {
       return (
@@ -146,7 +139,6 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
-          loaded={loaded}
         />
       );
     }
@@ -157,7 +149,6 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
-          loaded={loaded}
         />
       );
     }
@@ -166,11 +157,19 @@ class DonateModal extends Component {
 
   render() {
     const { showModal } = this.props;
-    const { text, audio, video } = this.state;
+    const {
+      text, audio, video, uploading,
+    } = this.state;
 
     return (
       <div className="donate__modal">
         <div className="donate__content">
+          {uploading ? (
+            <div className="uploading__loading">
+              <div className="double-bounce1__uploading" />
+              <div className="double-bounce2__uploading" />
+            </div>
+          ) : null}
           <div className="donate__header">
             <h2 className="donate__title"> Donate Translation</h2>
             <FontAwesomeIcon
