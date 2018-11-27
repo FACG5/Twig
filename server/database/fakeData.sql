@@ -43,7 +43,7 @@ insert into users(first_name,last_name,email,password,other_skills,job_descripti
 ;
 
 
-  insert into questions(questions,date,owner,speclalization_id)
+  insert into questions(question,date,owner,speclalization_id)
   values
   ('Have you ever had a heart attack before ?','2018-11-8','1','1'),
   ('Have you ever been in a hospital  ?','2018-10-8','1','1'),
@@ -76,5 +76,3 @@ insert into users(first_name,last_name,email,password,other_skills,job_descripti
   insert into votes(vote_up,vote_down,user_id ,translations_id )
   values
   (1,0,1,1);
-
-

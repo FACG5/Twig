@@ -82,6 +82,12 @@ class QuesionsPage extends Component {
     this.setState(prevState => ({ showModal: !prevState.showModal }));
   };
 
+  updateValues = (element) => {
+    this.setState(
+      { values: element },
+    );
+  }
+
   render() {
     const {
       items, section, avatarUrl, found, input, error, values, showModal,
@@ -121,7 +127,14 @@ class QuesionsPage extends Component {
             {found && (
               <p className="questions__showmore">Show All 100 Question </p>
             )}
-            {showModal ? <AddQuestionModal showModal={this.showModal} /> : null}
+            {showModal ? (
+              <AddQuestionModal
+                showModal={this.showModal}
+                speclalizationsId={values[0].speclalizationsId}
+                updateValues={this.updateValues}
+                section={section}
+              />
+            ) : null}
           </div>
         </div>
       );
@@ -135,6 +148,7 @@ class QuesionsPage extends Component {
 }
 QuesionsPage.propTypes = {
   match: PropTypes.isRequired,
+  history: PropTypes.isRequired,
 };
 
 export default QuesionsPage;
