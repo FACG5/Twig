@@ -59,7 +59,7 @@ class QuesionsPage extends Component {
     const { values } = this.state;
     let list = values;
     list = list.filter(
-      item => item.questions.toLowerCase().indexOf(value.toLowerCase()) !== -1,
+      item => item.question.toLowerCase().indexOf(value.toLowerCase()) !== -1,
     );
     if (list.length !== 0) {
       this.setState({ items: list, found: true });
