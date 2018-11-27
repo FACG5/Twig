@@ -8,10 +8,7 @@ export default function Translations() {
       <hr />
       <div className="translations__content">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
-          officiis. Aliquid incidunt, perspiciatis eius cum voluptatibus culpa
-          ut corporis temporibus saepe odit tempora sed dolores quo sit fuga
-          deleniti ex?
+          <h4>Under development</h4>
         </p>
       </div>
     </div>

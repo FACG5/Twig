@@ -3,14 +3,14 @@ import axios from 'axios';
 import Button from '../common/Button';
 import './style.css';
 import About from './About';
-import LanguageLevel from './About/LanguageLevel';
+import Translations from './Translations';
 import ProfileCard from './ProfileCard';
 import Loading from '../common/Loading';
 
 class Profile extends Component {
   state = {
     overView: true,
-    languages: false,
+    translations: false,
   };
 
   componentWillMount() {
@@ -37,13 +37,13 @@ class Profile extends Component {
   shiftTab = () => {
     this.setState(prev => ({
       overView: !prev.overView,
-      languages: !prev.languages,
+      translations: !prev.translations,
     }));
   };
 
   render() {
     const {
-      overView, languages, values, languageResult, error,
+      overView, translations, values, languageResult, error,
     } = this.state;
     if (!values && !error) {
       return <Loading />;
@@ -69,13 +69,13 @@ class Profile extends Component {
                 <Button
                   onClick={this.shiftTab}
                   className={`tab__button ${
-                    languages ? 'tab__button--clicked' : null
+                    translations ? 'tab__button--clicked' : null
                   }`}
                   value="Translations"
                 />
               </div>
-              {languages ? (
-                <LanguageLevel values={values} />
+              {translations ? (
+                <Translations />
               ) : (
                 <About values={values} languageResult={languageResult} />
               )}
