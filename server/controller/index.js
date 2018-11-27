@@ -25,15 +25,15 @@ router.get('/get-dialcets/:languageId', dialects.get);
 router.get('/get-jobs', jobs.get);
 
 router.use(checkToken);
-router.get('/questions/:questionId', translation.get);
-router.get('/specialization/:section', questions.get);
 router.get('/specialization', specialization.get);
+router.get('/specialization/:section', questions.get);
+router.post('/specialization/question/:speclalizationsId', questions.post);
 router.get('/questions/:questionId', translation.get);
 router.post('/questions/:questionId', translation.post);
-router.get('/details', userDetails.get);
 router.post('/questions/:questionId/voteDown', voteDown.post);
-router.get('/profile', userDetails.getProfile);
 router.post('/questions/:questionId/voteUp', voteUp.post);
+router.get('/details', userDetails.get);
+router.get('/profile', userDetails.getProfile);
 router.post('/upload', upload.post);
 router.get('/logout', logout.get);
 

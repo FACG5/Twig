@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 const connection = require('../config');
 
 const questions = connection.define('question', {
-  questions: {
+  question: {
     type: Sequelize.STRING,
     allowNull: false,
   },
   date: {
     type: Sequelize.DATE,
-    allowNull: false,
+    defaultValue: Sequelize.fn('NOW'),
   },
 });
 
