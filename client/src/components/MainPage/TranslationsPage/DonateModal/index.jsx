@@ -119,8 +119,8 @@ class DonateModal extends Component {
 
   showTab = () => {
     const {
- text, audio, video, error 
-} = this.state;
+      text, audio, video, error,
+    } = this.state;
     if (text) {
       return (
         <TextTranslation
