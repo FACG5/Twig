@@ -20,7 +20,7 @@ class AudioTranslation extends Component {
 
   render() {
     const {
-      error, onChange, generateFormData, loaded,
+      error, onChange, generateFormData,
     } = this.props;
     const { selectedFile } = this.state;
     return (
@@ -36,7 +36,6 @@ class AudioTranslation extends Component {
         <h3 className="file__name" ref="fileName">
           No file Choosen
         </h3>
-        <h4>{loaded}</h4>
         <h3 className="textarea__titel"> Describe Your Translation </h3>
         <textarea
           className="textarea__box"
@@ -62,7 +61,6 @@ AudioTranslation.propTypes = {
   error: PropTypes.string,
   generateFormData: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
-  loaded: PropTypes.string,
 };
 
 export default AudioTranslation;
