@@ -119,7 +119,7 @@ class QuesionsPage extends Component {
             />
             <Card values={items} section={section} />
             {found && (
-              <p className="questions__showmore">Show All 100 Question </p>
+              <p className="questions__showmore">Show All</p>
             )}
             {showModal ? (
               <AddQuestionModal
