@@ -29,9 +29,11 @@ exports.post = async (request, response) => {
     const owner = request.id;
     const user = await users.findAll({ raw: true, where: { id: owner } });
     const { dialect_id: dialectId, language_id: languageId } = user[0];
-    const { typeId, translation, questionId } = request.body;
+    const {
+      typeId, translation, questionId, fileName,
+    } = request.body;
     let data = {
-      translation, typeId, languageId, dialectId, owner, questionId,
+      translation, typeId, languageId, dialectId, owner, questionId, link: fileName,
     };
     data = snakeCase(data);
     await translations.create(data, { raw: true });

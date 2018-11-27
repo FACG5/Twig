@@ -12,6 +12,7 @@ const languages = require('./languages');
 const dialects = require('./dialects');
 const voteDown = require('./voteDown');
 const logout = require('./logout');
+const upload = require('./upload');
 const voteUp = require('./voteUp');
 
 const router = express.Router();
@@ -33,6 +34,7 @@ router.post('/questions/:questionId/voteDown', voteDown.post);
 router.post('/questions/:questionId/voteUp', voteUp.post);
 router.get('/details', userDetails.get);
 router.get('/profile', userDetails.getProfile);
+router.post('/upload', upload.post);
 router.get('/logout', logout.get);
 
 module.exports = router;
