@@ -47,19 +47,13 @@ class QuesionsPage extends Component {
     }, 1000);
   }
 
-  sortDate = () => {
-    const { items } = this.state;
-    const sorteListByDate = items.sort((a, b) => a.date > b.date);
-    this.setState({ items: sorteListByDate, found: true });
-  };
-
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
     const { values } = this.state;
     let list = values;
     list = list.filter(
-      item => item.questions.toLowerCase().indexOf(value.toLowerCase()) !== -1,
+      item => item.question.toLowerCase().indexOf(value.toLowerCase()) !== -1,
     );
     if (list.length !== 0) {
       this.setState({ items: list, found: true });
@@ -84,7 +78,7 @@ class QuesionsPage extends Component {
 
   updateValues = (element) => {
     this.setState(
-      { values: element },
+      { items: element, values: element },
     );
   }
 
