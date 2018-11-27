@@ -23,7 +23,7 @@ class AddQuestionModal extends Component {
     if (question && question.trim()) {
       const data = { speclalizationsId, question, section };
       axios
-        .post(`/api/v1/speclalization/question/${speclalizationsId}`, data)
+        .post(`/api/v1/specialization/question/${speclalizationsId}`, data)
         .then((results) => {
           showModal();
           updateValues(results.data);
