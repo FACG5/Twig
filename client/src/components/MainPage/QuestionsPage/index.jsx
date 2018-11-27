@@ -84,7 +84,7 @@ class QuesionsPage extends Component {
 
   updateValues = (element) => {
     this.setState(
-      { values: element },
+      { items: element, values: element },
     );
   }
 
