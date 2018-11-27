@@ -5,7 +5,8 @@
 .traslation__item {
   display: grid;
   grid-template-columns: 0.2fr 2fr 1fr;
-  grid-gap: 4rem;
+  grid-gap: 2rem;
+  margin-top: 5rem;
 }
 
 .traslation__date {
@@ -34,12 +35,10 @@
   width: auto;
   margin-bottom: 1rem;
   background-color: white;
-  padding: 2rem 2rem 2.5rem 2rem;
+  padding: 2rem 2rem 0.1rem 2rem;
   box-shadow: 0px 3px 3px #ccc;
 }
-.traslation__container div {
-  width: 20rem;
-}
+
 .traslation__verify {
   display: flex;
   justify-content: space-around;
