@@ -4,26 +4,8 @@ import './style.css';
 import Button from '../../../../common/Button';
 import Input from '../../../../common/Inputs';
 
-class TextTranslation extends Component {
-  state = { selectedFile: null };
-
-  uploadAudio = () => {
-    const { onClick, setError } = this.props;
-    const { selectedFile } = this.state;
-    if (selectedFile) {
-      const { type } = selectedFile;
-      const fileType = type.split('/')[0];
-      if (fileType === 'audio') {
-        const data = new FormData();
-        data.append('file', selectedFile);
-        onClick(2, data);
-      } else {
-        setError('Please choose an audio file !');
-      }
-    } else {
-      setError('Please choose file !');
-    }
-  };
+class AudioTranslation extends Component {
+   state = { selectedFile: null }
 
   chooseFile = (e) => {
     const { setError } = this.props;
@@ -37,7 +19,10 @@ class TextTranslation extends Component {
   };
 
   render() {
-    const { error, onChange } = this.props;
+    const {
+      error, onChange, generateFormData,
+    } = this.props;
+    const { selectedFile } = this.state;
     return (
       <div className="donate__audio">
         <label className="file__label">
@@ -62,7 +47,7 @@ class TextTranslation extends Component {
         />
         {error ? <h4 className="donate__validation">{error}</h4> : null}
         <Button
-          onClick={this.uploadAudio}
+          onClick={() => generateFormData('audio', selectedFile)}
           value="Submit Translation"
           className="donate__submit"
         />
@@ -71,11 +56,11 @@ class TextTranslation extends Component {
   }
 }
 
-TextTranslation.propTypes = {
+AudioTranslation.propTypes = {
   onChange: PropTypes.func.isRequired,
-  setError: PropTypes.func.isRequired,
   error: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  generateFormData: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 
-export default TextTranslation;
+export default AudioTranslation;
