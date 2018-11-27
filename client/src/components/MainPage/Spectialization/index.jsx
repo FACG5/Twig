@@ -75,7 +75,7 @@ class Specialization extends Component {
         <div className="specialization__header">
           <div className="specialization__header">
             <h2 className="specialization__header--text">
-              Specializations Categories
+              Translation Categories
             </h2>
           </div>
           <SearchBar
