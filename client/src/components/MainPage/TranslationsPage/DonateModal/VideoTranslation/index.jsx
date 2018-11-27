@@ -19,7 +19,9 @@ class VideoTranslation extends Component {
   };
 
   render() {
-    const { error, onChange, generateFormData } = this.props;
+    const {
+      error, onChange, generateFormData, loaded,
+    } = this.props;
     const { selectedFile } = this.state;
     return (
       <div className="donate__video">
@@ -34,6 +36,7 @@ class VideoTranslation extends Component {
         <h3 className="file__name" ref="fileName">
           No file Choosen
         </h3>
+        <h4>{loaded}</h4>
         <h3 className="textarea__titel"> Describe Your video </h3>
         <textarea
           className="textarea__box"
@@ -59,5 +62,6 @@ VideoTranslation.propTypes = {
   error: PropTypes.string,
   generateFormData: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
+  loaded: PropTypes.string,
 };
 export default VideoTranslation;
