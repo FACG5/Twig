@@ -4,28 +4,12 @@ import './style.css';
 import Button from '../../../../common/Button';
 import Input from '../../../../common/Inputs';
 
-class TextTranslation extends Component {
-  state = { selectedFile: null };
-
-  uploadAudio = () => {
-    const { onClick } = this.props;
-    const { selectedFile } = this.state;
-    if (selectedFile) {
-      const { type } = selectedFile;
-      const fileType = type.split('/')[0];
-      if (fileType === 'audio') {
-        const data = new FormData();
-        data.append('file', selectedFile);
-        onClick(2, data);
-      } else {
-        this.setState({ error: 'Please choose an audio file !' });
-      }
-    } else {
-      this.setState({ error: 'Please choose file !' });
-    }
-  };
+class AudioTranslation extends Component {
+   state = { selectedFile: null }
 
   chooseFile = (e) => {
+    const { setError } = this.props;
+    setError(null);
     const { fileName } = this.refs;
     const { value, files } = e.target;
     const splitValue = value.split('\\');
@@ -35,8 +19,10 @@ class TextTranslation extends Component {
   };
 
   render() {
-    const { error } = this.state;
-    const { onChange, validation } = this.props;
+    const {
+      error, onChange, generateFormData,
+    } = this.props;
+    const { selectedFile } = this.state;
     return (
       <div className="donate__audio">
         <label className="file__label">
@@ -59,10 +45,9 @@ class TextTranslation extends Component {
           rows="2"
           onChange={onChange}
         />
-        {validation ? <h1 className="donate__validation">Please add a translations</h1> : null}
-        {error ? <h4>{error}</h4> : null}
+        {error ? <h4 className="donate__validation">{error}</h4> : null}
         <Button
-          onClick={this.uploadAudio}
+          onClick={() => generateFormData('audio', selectedFile)}
           value="Submit Translation"
           className="donate__submit"
         />
@@ -71,9 +56,11 @@ class TextTranslation extends Component {
   }
 }
 
-TextTranslation.propTypes = {
+AudioTranslation.propTypes = {
   onChange: PropTypes.func.isRequired,
-  validation: PropTypes.func.isRequired,
+  error: PropTypes.string,
+  generateFormData: PropTypes.func.isRequired,
+  setError: PropTypes.func.isRequired,
 };
 
-export default TextTranslation;
+export default AudioTranslation;

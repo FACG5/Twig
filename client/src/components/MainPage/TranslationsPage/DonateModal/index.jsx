@@ -14,21 +14,59 @@ class DonateModal extends Component {
     text: true,
     audio: false,
     video: false,
-    validation: false,
+  };
+
+  generateFormData = (typeOfFile, selectedFile) => {
+    if (selectedFile) {
+      const { type } = selectedFile;
+      const fileType = type.split('/')[0];
+      if (typeOfFile === 'audio') {
+        if (fileType === 'audio') {
+          const data = new FormData();
+          data.append('file', selectedFile);
+          this.onClick(2, data);
+        } else {
+          this.setError('Please choose an audio file !');
+        }
+      } else if (typeOfFile === 'video') {
+        if (fileType === 'video') {
+          const data = new FormData();
+          data.append('file', selectedFile);
+          this.onClick(3, data);
+        } else {
+          this.setError('Please choose an video file !');
+        }
+      }
+    } else {
+      this.setError('Please choose file !');
+    }
   };
 
   switchTab = (e) => {
     const { target } = e;
     const { textContent } = target;
     const textContentLower = textContent.toLowerCase();
-    this.setState({ text: false, audio: false, video: false }, () => {
-      this.setState({ [textContentLower]: true });
-    });
+    this.setState(
+      {
+        text: false,
+        audio: false,
+        video: false,
+        error: null,
+        translation: null,
+      },
+      () => {
+        this.setState({ [textContentLower]: true });
+      },
+    );
+  };
+
+  setError = (error) => {
+    this.setState({ error });
   };
 
   onChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, translations: value });
+    this.setState({ [name]: value, translations: value, error: null });
   };
 
   sendTranslation = (translationData) => {
@@ -50,6 +88,7 @@ class DonateModal extends Component {
   };
 
   onClick = (typeId, file) => {
+    this.setError(null);
     const { match } = this.props;
     const { params } = match;
     const { questionId } = params;
@@ -60,7 +99,7 @@ class DonateModal extends Component {
         translationData = { typeId, translation, questionId };
         this.sendTranslation(translationData);
       }
-      if (typeId === 2) {
+      if (typeId === 2 || typeId === 3) {
         axios.post('/api/v1/upload', file).then((result) => {
           const { data: fileName } = result;
 
@@ -74,22 +113,21 @@ class DonateModal extends Component {
         });
       }
     } else {
-      this.setState(prevState => ({
-        validation: !prevState.validation,
-      }));
+      this.setError('Please add your translation !');
     }
   };
 
   showTab = () => {
     const {
-      text, audio, video, validation,
+      text, audio, video, error,
     } = this.state;
     if (text) {
       return (
         <TextTranslation
           onChange={this.onChange}
           onClick={this.onClick}
-          validation={validation}
+          setError={this.setError}
+          error={error}
         />
       );
     }
@@ -97,13 +135,21 @@ class DonateModal extends Component {
       return (
         <AudioTranslation
           onChange={this.onChange}
-          onClick={this.onClick}
-          validation={validation}
+          generateFormData={this.generateFormData}
+          setError={this.setError}
+          error={error}
         />
       );
     }
     if (video) {
-      return <VideoTranslation />;
+      return (
+        <VideoTranslation
+          onChange={this.onChange}
+          generateFormData={this.generateFormData}
+          setError={this.setError}
+          error={error}
+        />
+      );
     }
     return null;
   };
