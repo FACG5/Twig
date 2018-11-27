@@ -100,17 +100,25 @@ class DonateModal extends Component {
         this.sendTranslation(translationData);
       }
       if (typeId === 2 || typeId === 3) {
-        axios.post('/api/v1/upload', file).then((result) => {
-          const { data: fileName } = result;
+        axios
+          .post('/api/v1/upload', file, {
+            onDownloadProgress: (ProgressEvent) => {
+              this.setState({
+                loaded: `${(ProgressEvent.loaded / ProgressEvent.total) * 100} %`,
+              });
+            },
+          })
+          .then((result) => {
+            const { data: fileName } = result;
 
-          translationData = {
-            fileName,
-            typeId,
-            translation,
-            questionId,
-          };
-          this.sendTranslation(translationData);
-        });
+            translationData = {
+              fileName,
+              typeId,
+              translation,
+              questionId,
+            };
+            this.sendTranslation(translationData);
+          });
       }
     } else {
       this.setError('Please add your translation !');
@@ -119,7 +127,7 @@ class DonateModal extends Component {
 
   showTab = () => {
     const {
-      text, audio, video, error,
+      text, audio, video, error, loaded,
     } = this.state;
     if (text) {
       return (
@@ -138,6 +146,7 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
+          loaded={loaded}
         />
       );
     }
@@ -148,6 +157,7 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
+          loaded={loaded}
         />
       );
     }
