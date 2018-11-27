@@ -20,7 +20,7 @@ class AudioTranslation extends Component {
 
   render() {
     const {
-      error, onChange, generateFormData, loaded,
+      error, onChange, generateFormData,
     } = this.props;
     const { selectedFile } = this.state;
     return (
