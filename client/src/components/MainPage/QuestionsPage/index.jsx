@@ -47,12 +47,6 @@ class QuesionsPage extends Component {
     }, 1000);
   }
 
-  sortDate = () => {
-    const { items } = this.state;
-    const sorteListByDate = items.sort((a, b) => a.date > b.date);
-    this.setState({ items: sorteListByDate, found: true });
-  };
-
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
