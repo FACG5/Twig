@@ -68,7 +68,7 @@ class StageOne extends Component {
           <div className="modal__details">
             <div className="modalHead">
               <h4 className="title">
-              Choose your language
+               Choose your language
               </h4>
               <FontAwesomeIcon
                 icon="times-circle"
