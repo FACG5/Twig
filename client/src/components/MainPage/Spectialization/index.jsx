@@ -92,7 +92,7 @@ class Specialization extends Component {
           </h1>
         )}
         <SpecializationCard values={items} />
-        {found && <p className="specialization__showmore">Show All </p>}
+        {found && <p className="specialization__showmore" />}
       </div>
     );
   }
