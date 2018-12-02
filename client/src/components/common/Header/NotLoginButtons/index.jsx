@@ -35,7 +35,7 @@ class LoginHeader extends Component {
               id="joinModel"
             />
             <Button
-              value="login"
+              value="Login"
               className="login"
               onClick={showModel}
               id="loginModel"
