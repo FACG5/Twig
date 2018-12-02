@@ -93,7 +93,7 @@ class Login extends Component {
                 />
               </div>
               <hr />
-              <h3>Don&apos;t Have an account ?</h3>
+              <h3>Don&apos;t Have an account?</h3>
               <Button
                 className="joinButton"
                 value="Join"
