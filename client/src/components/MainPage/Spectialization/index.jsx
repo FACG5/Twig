@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import SpecializationCard from './SpecializationCard';
 import SearchBar from '../../common/SearchBar';
 import './style.css';
@@ -96,5 +97,10 @@ class Specialization extends Component {
     );
   }
 }
+
+Specialization.propTypes = {
+  history: PropTypes.isRequired,
+};
+
 
 export default Specialization;
