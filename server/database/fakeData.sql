@@ -25,7 +25,9 @@ values
 ('midwife, or specialist in Family Medicine'),
 ('Academic: Porfessor, Lecturer, etc.'),
 ('I am a cultural mediator or proffessional traslator'),
-('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.');
+('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.'),
+('Ohter');
+
 
 
 insert into languages (name) 
