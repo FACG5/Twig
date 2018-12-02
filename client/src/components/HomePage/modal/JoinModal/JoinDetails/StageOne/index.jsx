@@ -68,7 +68,7 @@ class StageOne extends Component {
           <div className="modal__details">
             <div className="modalHead">
               <h4 className="title">
-                Tell us some details about your language skills
+              Choose your language
               </h4>
               <FontAwesomeIcon
                 icon="times-circle"
@@ -77,15 +77,21 @@ class StageOne extends Component {
               />
             </div>
             <hr />
+            <div className="select__container">
+              <Select
+                data={languages}
+                name="language"
+                getDialects={this.getDialects}
+              />
+              <Select data={dialects} name="dialect" />
+            </div>
+            <div>
+              <hr />
+              <h4 className="title">
+              Tell us some details about your English language skills
+              </h4>
+            </div>
             <div className="checkbox__container">
-              <div className="select__container">
-                <Select
-                  data={languages}
-                  name="language"
-                  getDialects={this.getDialects}
-                />
-                <Select data={dialects} name="dialect" />
-              </div>
               <CheckBoxes skills={skills} onChange={context.storeValue} />
               <Inputs
                 className="input__other"
