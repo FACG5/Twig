@@ -39,7 +39,7 @@ class Join extends Component {
               <div className="modal__content">
                 {signingUp ? <LoadingModal /> : null}
                 <div className="modalHead">
-                  <h1>Join TWIG</h1>
+                  <h1>Join Twig</h1>
                   <FontAwesomeIcon
                     icon="times-circle"
                     className="closeButton"
