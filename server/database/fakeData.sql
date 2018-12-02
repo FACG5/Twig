@@ -17,15 +17,15 @@ values
 
 insert into jobs (title)
 values
-('Doctor (or medical student'),
+('Doctor (or medical student)'),
 ('Nurse (or nursing student)'),
 ('Psychologist'),
 ('Medical Administrator'),
-('Dentist (or dental student'),
-('midwife, or specialist in Family Medicine'),
-('Academic: Porfessor, Lecturer, etc.'),
-('I am a cultural mediator or proffessional traslator'),
-('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.');
+('Dentist (or dental student)'),
+('Midwife, or specialist in Family Medicine'),
+('Academic: Professor, Lecturer, etc.'),
+('I am a cultural mediator or professional traslator'),
+('Medical paraprofessional (or student examples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.)');
 
 
 insert into languages (name) 
