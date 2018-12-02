@@ -99,7 +99,7 @@ class Specialization extends Component {
 }
 
 Specialization.propTypes = {
-  history: PropTypes.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 
