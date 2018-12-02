@@ -23,10 +23,10 @@ values
 ('Psychologist'),
 ('Medical Administrator'),
 ('Dentist (or dental student)'),
-('midwife, or specialist in Family Medicine'),
-('Academic: Porfessor, Lecturer, etc.'),
-('I am a cultural mediator or proffessional traslator'),
-('Medical paraprofessional (or studentexamples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.)'),
+('Midwife, or specialist in Family Medicine'),
+('Academic: Professor, Lecturer, etc.'),
+('I am a cultural mediator or professional translator'),
+('Medical paraprofessional (or student examples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.)'),
 ('Ohter');
 
 

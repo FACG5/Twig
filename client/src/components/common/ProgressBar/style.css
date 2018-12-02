@@ -25,7 +25,7 @@
 .progress__text {
   margin-bottom: 0.5rem;
   text-align: center;
-  color: #287fb8;
+  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.1rem;
   cursor: pointer;

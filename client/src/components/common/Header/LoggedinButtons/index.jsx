@@ -8,7 +8,7 @@ export default function LoggedinButtons(props) {
   return (
     <Fragment>
       <Link to="/main">
-        <Button value="Specializations" className="specializations__button" />
+        <Button value="Translation Categories" className="specializations__button" />
       </Link>
       <Link to="/profile">
         <Button value="My profile" className="profile__button" />

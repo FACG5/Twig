@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import SpecializationCard from './SpecializationCard';
 import SearchBar from '../../common/SearchBar';
 import './style.css';
@@ -91,10 +92,15 @@ class Specialization extends Component {
           </h1>
         )}
         <SpecializationCard values={items} />
-        {found && <p className="specialization__showmore">Show All </p>}
+        {found && <p className="specialization__showmore" />}
       </div>
     );
   }
 }
+
+Specialization.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
+
 
 export default Specialization;

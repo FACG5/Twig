@@ -48,7 +48,7 @@ exports.post = async (request, response) => {
               employeeSkillsData = snakeCase(employeeSkillsData);
               await employeeSkills.create(employeeSkillsData);
             });
-            response.status(200).send('Successfule signup, you can login now');
+            response.status(200).send('Successful Signup, You Can Login Now !');
           } catch (error) {
             response.status(500).send('Internal Server Error !');
           }

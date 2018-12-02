@@ -55,7 +55,7 @@ class Login extends Component {
           <div className="modal">
             <div className="modal__content">
               <div className="modalHead">
-                <h1>Login To TWIG</h1>
+                <h1>Login to Twig</h1>
                 <FontAwesomeIcon
                   icon="times-circle"
                   className="closeButton"
@@ -93,7 +93,7 @@ class Login extends Component {
                 />
               </div>
               <hr />
-              <h3>Don&apos;t Have an accout ?</h3>
+              <h3>Don&apos;t Have an account?</h3>
               <Button
                 className="joinButton"
                 value="Join"

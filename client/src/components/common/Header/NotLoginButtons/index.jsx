@@ -29,13 +29,13 @@ class LoginHeader extends Component {
               onClick={() => this.goToMain(history, context)}
             />
             <Button
-              value="join"
+              value="Join"
               className="join"
               onClick={showModel}
               id="joinModel"
             />
             <Button
-              value="login"
+              value="Login"
               className="login"
               onClick={showModel}
               id="loginModel"
