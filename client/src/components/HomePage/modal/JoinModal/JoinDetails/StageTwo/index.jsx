@@ -32,7 +32,7 @@ class StageTwo extends Component {
           <div className="modal__details">
             <div className="modalHead">
               <h4 className="title">
-              What do you do
+               What do you do
               </h4>
               <FontAwesomeIcon
                 icon="times-circle"
