@@ -43,8 +43,8 @@ const Card = (props) => {
                   ) : null}
                   {typeId === 3 ? (
                     <video width="420" height="240" controls>
-                      <source src={`/api/v1/files/${link}`} type="audio/mp3" />
-                      <source src={`/api/v1/files/${link}`} type="audio/ogg" />
+                      <source src={`/api/v1/files/${link}`} type="video/mp4" />
+                      <source src={`/api/v1/files/${link}`} type="video/ogg" />
                       <p>Your browser doesnt support HTML5 audio.</p>
                     </video>
                   ) : null}
