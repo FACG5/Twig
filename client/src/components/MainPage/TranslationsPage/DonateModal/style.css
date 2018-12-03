@@ -101,6 +101,21 @@
   animation-delay: -1s;
 }
 
+
+.no__record{
+  display: none;
+}
+
+@keyframes recording {
+from {
+  color: #26922dc7;
+}
+
+to{
+color: #36bc41b6;
+}
+}
+
 @-webkit-keyframes sk-bounce {
   0%,
   100% {
