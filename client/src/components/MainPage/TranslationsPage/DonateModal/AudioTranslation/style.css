@@ -2,7 +2,7 @@
   box-shadow: 0 0 2px #00000075;
   outline: none;
 }
-.donate__audio {
+.donate-audio {
   -webkit-animation: fadeInOpacity 0.4s 1;
   animation: fadeInOpacity 0.4s 1;
   margin-top: 20px;
@@ -13,7 +13,7 @@
   font-weight: bold;
 }
 
-.file__label {
+.audio__file-label {
   width: 277px;
   border-radius: 3px;
   border: none;
@@ -25,6 +25,6 @@
   cursor: pointer;
   transition-duration: 0.4s;
 }
-.file__label:hover {
+.audio__file-label:hover {
   background: #bc363631;
 }

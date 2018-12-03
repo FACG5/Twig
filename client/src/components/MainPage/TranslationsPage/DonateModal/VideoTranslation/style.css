@@ -13,7 +13,12 @@
   font-weight: bold;
 }
 
-.file__label {
+.video__view {
+  width: 400px;
+  height: 150px;
+}
+
+.audio__file-label {
   width: 277px;
   border-radius: 3px;
   border: none;
@@ -25,6 +30,6 @@
   cursor: pointer;
   transition-duration: 0.4s;
 }
-.file__label:hover {
+.audio__file-label:hover {
   background: #bc363631;
 }

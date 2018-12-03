@@ -60,8 +60,8 @@ class AudioTranslation extends Component {
     const { error, onChange, generateFormData } = this.props;
     const { selectedFile, recording } = this.state;
     return (
-      <div className="donate__audio">
-        <label className="file__label">
+      <div className="donate-audio">
+        <label className="audio__file-label">
           Click to Choose File
           <Input
             type="file"
@@ -76,7 +76,7 @@ class AudioTranslation extends Component {
         <h4>Or record audio</h4>
         <FontAwesomeIcon
           icon={faMicrophone}
-          className={`record__button ${recording ? 'recording' : null}`}
+          className={`record-button ${recording ? 'recording' : null}`}
           onClick={this.startRecord}
         />
         <FontAwesomeIcon

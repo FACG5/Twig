@@ -65,7 +65,7 @@ class VideoTranslation extends Component {
     const { selectedFile, recording } = this.state;
     return (
       <div className="donate__video">
-        <label className="file__label">
+        <label className="audio__file-label">
           Click to Choose File
           <Input
             type="file"
@@ -80,7 +80,7 @@ class VideoTranslation extends Component {
         <h4>Or record video</h4>
         <FontAwesomeIcon
           icon={faVideo}
-          className={`record__button ${recording ? 'recording' : null}`}
+          className={`record-button ${recording ? 'recording' : null}`}
           onClick={this.startRecord}
         />
         <FontAwesomeIcon

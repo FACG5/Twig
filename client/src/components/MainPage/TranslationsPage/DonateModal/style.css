@@ -61,14 +61,14 @@
   animation: sk-bounce 2s infinite ease-in-out;
 }
 
-.record__button {
+.record-button {
   cursor: pointer;
   color: #26922dc7;
   width: 30px !important;
   height: 30px;
 }
 
-.record__button:hover {
+.record-button:hover {
   color: #36bc41b6;
 }
 
