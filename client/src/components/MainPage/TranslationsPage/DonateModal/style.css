@@ -61,6 +61,41 @@
   animation: sk-bounce 2s infinite ease-in-out;
 }
 
+.record__button {
+  cursor: pointer;
+  color: #26922dc7;
+  width: 30px !important;
+  height: 30px;
+}
+
+.record__button:hover {
+  color: #36bc41b6;
+}
+
+.recording {
+  animation: recording 0.8s infinite;
+}
+
+.stop__button {
+  width: 30px !important;
+  height: 30px;
+  color: red;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.stop__button:hover {
+  color: rgba(255, 0, 0, 0.521);
+}
+
+.stop__button--disabled {
+  color: rgb(105, 102, 102);
+  cursor: default;
+}
+.stop__button--disabled:hover {
+  color: rgb(105, 102, 102);
+}
+
 .double-bounce2 {
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
