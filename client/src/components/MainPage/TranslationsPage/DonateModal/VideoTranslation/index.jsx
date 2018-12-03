@@ -76,7 +76,8 @@ class VideoTranslation extends Component {
         <h3 className="file__name" ref="fileName">
           No file Choosen
         </h3>
-        <h3 className="textarea__titel"> Describe Your video </h3>
+        <hr />
+        <h4>Or record video</h4>
         <FontAwesomeIcon
           icon={faVideo}
           className={`record__button ${recording ? 'recording' : null}`}
@@ -90,6 +91,7 @@ class VideoTranslation extends Component {
           onClick={this.stop}
         />
         <video autoPlay loop id="player" className="no__record video__view" ref="player" />
+        <h3 className="textarea__titel"> Describe Your video </h3>
         <textarea
           className="textarea__box"
           name="translation"
