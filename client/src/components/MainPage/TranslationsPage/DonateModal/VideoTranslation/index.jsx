@@ -1,11 +1,53 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVideo, faStop } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../../common/Button';
 import Input from '../../../../common/Inputs';
 
 class VideoTranslation extends Component {
   state = { selectedFile: null };
+
+  startRecord = () => {
+    const { player } = this.refs;
+    this.setState({ recording: true });
+    const { recording } = this.state;
+    if (!recording) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
+          this.mediaRecorder = new MediaRecorder(stream);
+          this.chunks = [];
+          player.srcObject = stream;
+          player.classList.remove('no__record');
+          this.chunks = [];
+          this.mediaRecorder.start(10);
+          this.mediaRecorder.addEventListener('dataavailable', (event) => {
+            this.chunks.push(event.data);
+          });
+        });
+    }
+  };
+
+  stop = () => {
+    const { player } = this.refs;
+    const { recording } = this.state;
+    if (recording) {
+      this.setState({ recording: false });
+      this.mediaRecorder.stop();
+      const videoBlob = new Blob(this.chunks);
+      const video = new File(this.chunks, 'record.mp4', {
+        type: 'video',
+        lastModified: Date.now(),
+      });
+      const videoUrl = URL.createObjectURL(videoBlob);
+      player.srcObject = null;
+      player.pause();
+      player.src = videoUrl;
+      this.setState({ selectedFile: video });
+    }
+  };
 
   chooseFile = (e) => {
     const { setError } = this.props;
@@ -19,10 +61,8 @@ class VideoTranslation extends Component {
   };
 
   render() {
-    const {
-      error, onChange, generateFormData,
-    } = this.props;
-    const { selectedFile } = this.state;
+    const { error, onChange, generateFormData } = this.props;
+    const { selectedFile, recording } = this.state;
     return (
       <div className="donate__video">
         <label className="file__label">
@@ -37,6 +77,19 @@ class VideoTranslation extends Component {
           No file Choosen
         </h3>
         <h3 className="textarea__titel"> Describe Your video </h3>
+        <FontAwesomeIcon
+          icon={faVideo}
+          className={`record__button ${recording ? 'recording' : null}`}
+          onClick={this.startRecord}
+        />
+        <FontAwesomeIcon
+          icon={faStop}
+          className={`stop__button ${
+            !recording ? 'stop__button--disabled' : null
+          }`}
+          onClick={this.stop}
+        />
+        <video autoPlay loop id="player" className="no__record video__view" ref="player" />
         <textarea
           className="textarea__box"
           name="translation"
