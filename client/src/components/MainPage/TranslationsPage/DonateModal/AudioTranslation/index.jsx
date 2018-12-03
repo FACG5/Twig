@@ -1,11 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMicrophone, faStop } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 import Button from '../../../../common/Button';
 import Input from '../../../../common/Inputs';
 
 class AudioTranslation extends Component {
-   state = { selectedFile: null }
+  state = { selectedFile: null };
+
+  componentDidMount() {
+
+  }
+
+  startRecord = () => {
+    const { player } = this.refs;
+    this.setState({ recording: true });
+    const { recording } = this.state;
+    if (!recording) {
+      player.classList.add('no__record');
+      navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+        this.mediaRecorder = new MediaRecorder(stream);
+        this.chunks = [];
+        this.mediaRecorder.start(10);
+        this.mediaRecorder.addEventListener('dataavailable', (event) => {
+          this.chunks.push(event.data);
+        });
+      });
+    }
+  };
 
   chooseFile = (e) => {
     const { setError } = this.props;
@@ -18,11 +41,24 @@ class AudioTranslation extends Component {
     this.setState({ selectedFile: files[0] });
   };
 
+  stop = () => {
+    const { recording } = this.state;
+    if (recording) {
+      const { player } = this.refs;
+      this.setState({ recording: false });
+      this.mediaRecorder.stop();
+      const audioBlob = new Blob(this.chunks);
+      const audio = new File(this.chunks, 'record.mp3', { type: 'audio', lastModified: Date.now() });
+      const audioUrl = URL.createObjectURL(audioBlob);
+      player.src = audioUrl;
+      player.classList.remove('no__record');
+      this.setState({ selectedFile: audio });
+    }
+  }
+
   render() {
-    const {
-      error, onChange, generateFormData,
-    } = this.props;
-    const { selectedFile } = this.state;
+    const { error, onChange, generateFormData } = this.props;
+    const { selectedFile, recording } = this.state;
     return (
       <div className="donate__audio">
         <label className="file__label">
@@ -36,6 +72,19 @@ class AudioTranslation extends Component {
         <h3 className="file__name" ref="fileName">
           No file Choosen
         </h3>
+        <hr />
+        <h4>Or record audio</h4>
+        <FontAwesomeIcon
+          icon={faMicrophone}
+          className={`record__button ${recording ? 'recording' : null}`}
+          onClick={this.startRecord}
+        />
+        <FontAwesomeIcon
+          icon={faStop}
+          className={`stop__button ${!recording ? 'stop__button--disabled' : null}`}
+          onClick={this.stop}
+        />
+        <audio id="player" controls className="no__record" ref="player" />
         <h3 className="textarea__titel"> Describe Your Translation </h3>
         <textarea
           className="textarea__box"
