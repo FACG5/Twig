@@ -1,31 +1,35 @@
 .textarea__box {
-    box-shadow: 0 0 2px #00000075;
-    outline: none;
-  }
-  .donate__video {
-    -webkit-animation: fadeInOpacity 0.4s 1;
-    animation: fadeInOpacity 0.4s 1;
-    margin-top: 20px;
-  }
-  
-  .textarea__titel {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .file__label {
-    width: 277px;
-    border-radius: 3px;
-    border: none;
-    outline-style: none;
-    box-shadow: 0 0 2px #00000075;
-    padding: 5px 10px;
-    height: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition-duration: 0.4s;
-  }
-  .file__label:hover {
-    background: #bc363631;
-  }
-  
+  box-shadow: 0 0 2px #00000075;
+  outline: none;
+}
+.donate__video {
+  -webkit-animation: fadeInOpacity 0.4s 1;
+  animation: fadeInOpacity 0.4s 1;
+  margin-top: 20px;
+}
+
+.textarea__titel {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.video__view {
+  width: 400px;
+  height: 150px;
+}
+
+.audio__file-label {
+  width: 277px;
+  border-radius: 3px;
+  border: none;
+  outline-style: none;
+  box-shadow: 0 0 2px #00000075;
+  padding: 5px 10px;
+  height: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.audio__file-label:hover {
+  background: #bc363631;
+}
