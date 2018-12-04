@@ -9,7 +9,6 @@ export default function TextTranslation(props) {
 
   return (
     <div className="donate__text">
-      <h3 className="textarea__titel"> Write here your translation </h3>
       <textarea
         className="textarea__box"
         name="translation"
@@ -17,6 +16,7 @@ export default function TextTranslation(props) {
         cols="50"
         rows="4"
         onChange={onChange}
+        placeholder="Enter your translation here..."
       />
       {error ? <h1 className="donate__validation">{error}</h1> : null}
       <Button onClick={() => onClick(typeId)} value="Submit Translation" className="donate__submit" />
