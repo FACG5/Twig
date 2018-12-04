@@ -17,6 +17,7 @@ values
 
 insert into jobs (title)
 values
+('Pre-medical student'),
 ('Doctor (or medical student)'),
 ('Nurse (or nursing student)'),
 ('Psychologist'),
