@@ -24,7 +24,7 @@ color: rgba(0, 0, 0, 0.445);
 
 .specialization__showmore {
   text-align: center;
-  color: #287fb8;
+  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.1rem;
   padding-top: 10px;
@@ -37,7 +37,7 @@ color: rgba(0, 0, 0, 0.445);
 
 .specialization__notFound {
   text-align: center;
-  color: #287fb8;
+  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   font-size: 1.3rem;
   padding-top: 10px;
