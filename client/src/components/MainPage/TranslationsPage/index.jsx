@@ -25,6 +25,7 @@ class TranslationsPage extends Component {
         .then((data) => {
           const results = data.data;
           const { resultquestions, resulttranslation } = results;
+          // console.log(resultquestions[0].question);
           this.setState({
             question: resultquestions[0],
             values: resulttranslation,
@@ -100,12 +101,13 @@ class TranslationsPage extends Component {
     if (!question && !error) {
       return <Loading />;
     }
+    const questionText = question.question;
     if (question) {
       return (
         <div className="translation__box">
           <div>
             <div className="translation__question">
-              <h4>{question.question}</h4>
+              <h4>{questionText}</h4>
               <div className="translation__user">
                 <div>{question.username}</div>
                 <div>{question.date && question.date.slice(0, 10)}</div>
@@ -134,6 +136,7 @@ class TranslationsPage extends Component {
               <DonateModal
                 showModal={this.showModal}
                 updateValues={this.updateValues}
+                questionText={questionText}
               />
             ) : null}
           </div>
