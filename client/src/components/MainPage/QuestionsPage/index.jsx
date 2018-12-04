@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import SearchBar from '../../common/SearchBar';
@@ -109,12 +110,13 @@ class QuesionsPage extends Component {
                 Sorry, no result was found!
               </h1>
             )}
-            <Button
-              value="Back to Categories"
-              className="button__back-categories"
-              onClick=""
-              id="back-categories"
-            />
+            <Link to="/main/">
+              <Button
+                value="Back to Categories"
+                className="button__back-categories"
+                id="back-categories"
+              />
+            </Link>
             <Button
               value="Add Question"
               className="button__add-question"
