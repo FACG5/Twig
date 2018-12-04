@@ -91,14 +91,14 @@ class VideoTranslation extends Component {
           onClick={this.stop}
         />
         <video autoPlay loop id="player" className="no__record video__view" ref="player" />
-        <h3 className="textarea__titel"> Describe Your video </h3>
         <textarea
           className="textarea__box"
           name="translation"
           id=""
           cols="50"
-          rows="2"
+          rows="5"
           onChange={onChange}
+          placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
         />
         {error ? <h4 className="donate__validation">{error}</h4> : null}
         <Button

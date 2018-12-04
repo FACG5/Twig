@@ -18,6 +18,7 @@ values
 
 insert into jobs (title)
 values
+('Pre-medical student'),
 ('Doctor (or medical student)'),
 ('Nurse (or nursing student)'),
 ('Psychologist'),
@@ -177,8 +178,12 @@ insert into users(first_name,last_name,email,password,other_skills,job_descripti
 
   insert into questions(question,date,owner,speclalization_id)
   values
-  ('Have you ever been in a hospital  ?','2018-10-8','1','1'),
-  ('Where is the pain exactly  ?','2018-3-8','1','5');
+  ('Where is the pain exactly  ?','2018-3-8','1','1'),
+  ('Where is the pain exactly  ?','2018-3-8','1','2'),
+  ('Where is the pain exactly  ?','2018-3-8','1','3'),
+  ('Where is the pain exactly  ?','2018-3-8','1','4'),
+  ('Where is the pain exactly  ?','2018-3-8','1','5'),
+  ('Where is the pain exactly  ?','2018-3-8','1','6');
 
   insert into "typesOfTranslations"  (type) values ('text'),('video'),('audio');
 
