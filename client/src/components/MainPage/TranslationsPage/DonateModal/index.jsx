@@ -209,5 +209,6 @@ DonateModal.propTypes = {
   showModal: PropTypes.func.isRequired,
   updateValues: PropTypes.func.isRequired,
   match: PropTypes.isRequired,
+  questionText: PropTypes.string.isRequired,
 };
 export default withRouter(DonateModal);
