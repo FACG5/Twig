@@ -27,6 +27,7 @@ values
 ('Academic: Professor, Lecturer, etc.'),
 ('I am a cultural mediator or professional translator'),
 ('Medical paraprofessional (or student examples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.)'),
+('Pre-medical student'),
 ('Ohter');
 
 
