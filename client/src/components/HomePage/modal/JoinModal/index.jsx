@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import validator from 'validator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
@@ -17,8 +18,22 @@ class Join extends Component {
         firstName, lastName, email, password,
       } = context.data;
       if (firstName && lastName && email && password) {
-        this.setState({ signingUp: false });
-        context.updateState({ completeJoin: true });
+        if (!validator.isEmail(email)) {
+          this.setState({ signingUp: false });
+          context.setPopUpMessage({
+            message: 'please Enter valid email adress !',
+            title: ' Error !',
+          });
+        } else if (!validator.isAlpha(firstName) || !validator.isAlpha(lastName)) {
+          this.setState({ signingUp: false });
+          context.setPopUpMessage({
+            message: 'First and Last name must be only letters !',
+            title: ' Error !',
+          });
+        } else {
+          this.setState({ signingUp: false });
+          context.updateState({ completeJoin: true });
+        }
       } else {
         this.setState({ signingUp: false });
         context.setPopUpMessage({
