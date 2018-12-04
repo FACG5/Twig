@@ -92,10 +92,10 @@ class VideoTranslation extends Component {
         />
         <video autoPlay loop id="player" className="no__record video__view" ref="player" />
         <textarea
-          className="textarea__box"
+          className="textarea__box-video"
           name="translation"
           id=""
-          cols="50"
+          cols="55"
           rows="5"
           onChange={onChange}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
