@@ -43,3 +43,8 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.translation__question-text {
+  color: #d11c1c;
+  font-size: 1.3rem;
+}
