@@ -8,27 +8,22 @@ const Card = (props) => {
   return (
     <ul className="box">
       {values
-        && values.map((element) => {
-          const {
-            question, id, username, translations, date,
-          } = element;
-          return (
-            <li key={id} className="box__card">
-              <div className="box__card--question">{question}</div>
-              <div className="box__card--content">
-                <div className="box__card--details">
-                  <div>
-                    {username}
-                  </div>
-                  <div>{date.slice(0, 10)}</div>
-                </div>
-                <Link to={`/main/${section}/questions/${id}`}>
-                  <div>{`Show ${translations} translations`}</div>
-                </Link>
+        && values.map(({
+          question, id, username, translations, date,
+        }) => (
+          <li key={id} className="box__card">
+            <div className="box__card--question">{question}</div>
+            <div className="box__card--content">
+              <div className="box__card--details">
+                <div>{username}</div>
+                <div>{date.slice(0, 10)}</div>
               </div>
-            </li>
-          );
-        })}
+              <Link to={`/main/${section}/questions/${id}`}>
+                <div className="box__card--translations">{`Show ${translations} translations`}</div>
+              </Link>
+            </div>
+          </li>
+        ))}
     </ul>
   );
 };

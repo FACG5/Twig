@@ -36,12 +36,12 @@ a {
   color: rgba(0, 0, 0, 0.38);
 }
 
-.box__card--content > :nth-child(2) {
-  color: red;
+.box__card--translations {
+  color: rgb(0, 0, 0, 0.5);
   transition-duration: 0.3s;
   font-weight: bold;
 }
 
-.box__card--content > :nth-child(2):hover {
-  color: rgba(255, 0, 0, 0.8);
+.box__card--translations:hover {
+  color: #f59036;
 }
