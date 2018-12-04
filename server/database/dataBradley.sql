@@ -18,6 +18,7 @@ values
 
 insert into jobs (title)
 values
+('Pre-medical student'),
 ('Doctor (or medical student)'),
 ('Nurse (or nursing student)'),
 ('Psychologist'),
@@ -27,7 +28,6 @@ values
 ('Academic: Professor, Lecturer, etc.'),
 ('I am a cultural mediator or professional translator'),
 ('Medical paraprofessional (or student examples include paramedics, physical therapists, nursing, assistants, radiology technicians, etc.)'),
-('Pre-medical student'),
 ('Ohter');
 
 
