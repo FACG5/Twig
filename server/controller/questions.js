@@ -2,9 +2,10 @@ const getQuestions = require('../database/query/questions');
 const { questions } = require('../database/models');
 
 exports.get = async (request, response) => {
+  const userId = request.id;
   try {
     const { section } = request.params;
-    const result = await getQuestions(section);
+    const result = await getQuestions(section, userId);
     if (result[0][0]) {
       response.status(200).send(result[0]);
     } else {
