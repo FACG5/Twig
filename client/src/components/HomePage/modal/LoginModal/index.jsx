@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import validator from 'validator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -22,6 +23,11 @@ class Login extends Component {
     if (!loginEmail || !loginPassword) {
       context.setPopUpMessage({
         message: 'Please fill all of the fields !',
+        title: 'Error !',
+      });
+    } else if (!validator.isEmail(loginEmail)) {
+      context.setPopUpMessage({
+        message: 'Invalid email adress !',
         title: 'Error !',
       });
     } else {
