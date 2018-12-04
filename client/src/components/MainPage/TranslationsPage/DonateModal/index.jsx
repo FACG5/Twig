@@ -156,7 +156,7 @@ class DonateModal extends Component {
   };
 
   render() {
-    const { showModal } = this.props;
+    const { showModal, questionText } = this.props;
     const {
       text, audio, video, uploading,
     } = this.state;
@@ -197,6 +197,7 @@ class DonateModal extends Component {
             />
           </div>
           <hr />
+          <h1 className="translation__question-view">{questionText}</h1>
           <div className="translation__box">{this.showTab()}</div>
         </div>
       </div>
