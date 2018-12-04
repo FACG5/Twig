@@ -15,9 +15,9 @@ class AudioTranslation extends Component {
 
   startRecord = () => {
     const { player } = this.refs;
-    this.setState({ recording: true });
     const { recording } = this.state;
     if (!recording) {
+      this.setState({ recording: true });
       player.classList.add('no__record');
       navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
         this.mediaRecorder = new MediaRecorder(stream);

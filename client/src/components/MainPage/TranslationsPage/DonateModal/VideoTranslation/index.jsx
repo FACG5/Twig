@@ -11,9 +11,9 @@ class VideoTranslation extends Component {
 
   startRecord = () => {
     const { player } = this.refs;
-    this.setState({ recording: true });
     const { recording } = this.state;
     if (!recording) {
+      this.setState({ recording: true });
       navigator.mediaDevices
         .getUserMedia({ video: true })
         .then((stream) => {
