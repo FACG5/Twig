@@ -7,6 +7,9 @@ exports.get = async (request, response) => {
     const dialectsResult = await dialect.findAll({
       raw: true,
       where: { language_id: languageId },
+      order: [
+        ['name', 'ASC'],
+      ],
     });
     response.status(200).send(dialectsResult);
   } catch (error) {
