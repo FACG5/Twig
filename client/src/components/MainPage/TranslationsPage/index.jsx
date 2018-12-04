@@ -25,7 +25,6 @@ class TranslationsPage extends Component {
         .then((data) => {
           const results = data.data;
           const { resultquestions, resulttranslation } = results;
-          // console.log(resultquestions[0].question);
           this.setState({
             question: resultquestions[0],
             values: resulttranslation,
