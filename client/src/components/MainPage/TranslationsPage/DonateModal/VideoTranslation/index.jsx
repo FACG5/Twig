@@ -61,7 +61,9 @@ class VideoTranslation extends Component {
   };
 
   render() {
-    const { error, onChange, generateFormData } = this.props;
+    const {
+      error, onChange, generateFormData, videoTranslation,
+    } = this.props;
     const { selectedFile, recording } = this.state;
     return (
       <div className="donate__video">
@@ -93,10 +95,11 @@ class VideoTranslation extends Component {
         <video autoPlay loop id="player" className="no__record video__view" ref="player" />
         <textarea
           className="textarea__box-video"
-          name="translation"
+          name="videoTranslation"
           id=""
           cols="55"
           rows="5"
+          value={videoTranslation}
           onChange={onChange}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
         />
@@ -114,6 +117,7 @@ class VideoTranslation extends Component {
 VideoTranslation.propTypes = {
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
+  videoTranslation: PropTypes.string,
   generateFormData: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
 };
