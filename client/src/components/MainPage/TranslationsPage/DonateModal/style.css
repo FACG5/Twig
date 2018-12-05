@@ -28,7 +28,7 @@
   align-items: center;
 }
 .donate__tabs {
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 .donate__title {
@@ -108,7 +108,6 @@
 
 .translation__question-view {
   color: rgba(165, 9, 9, 0.781);
-  padding: 0.5rem;
   font-weight: bold;
   font-size: 1.2rem;
 }
