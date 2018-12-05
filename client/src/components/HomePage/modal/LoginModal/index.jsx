@@ -17,19 +17,19 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
+  setPopUp = (message, title, context) => {
+    context.setPopUpMessage({
+      message, title,
+    });
+  }
+
   onClick = async (context) => {
     const { history } = this.props;
     const { loginEmail, loginPassword } = this.state;
     if (!loginEmail || !loginPassword) {
-      context.setPopUpMessage({
-        message: 'Please fill all of the fields !',
-        title: 'Error !',
-      });
+      this.setPopUp('Please fill all of the fields !', 'Error !', context);
     } else if (!validator.isEmail(loginEmail)) {
-      context.setPopUpMessage({
-        message: 'Invalid email adress !',
-        title: 'Error !',
-      });
+      this.setPopUp('Invalid email adress !', 'Error !', context);
     } else {
       this.setState({ loggingIn: true });
       const loginData = { loginEmail, loginPassword };

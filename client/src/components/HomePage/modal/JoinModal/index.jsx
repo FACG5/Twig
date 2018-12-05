@@ -11,6 +11,13 @@ import LoadingModal from '../LoadingModal';
 class Join extends Component {
   state = {};
 
+
+  setPopUp = (message, title, context) => {
+    context.setPopUpMessage({
+      message, title,
+    });
+  }
+
   joinCheck = (context) => {
     this.setState({ signingUp: true });
     setTimeout(() => {
@@ -20,26 +27,17 @@ class Join extends Component {
       if (firstName && lastName && email && password) {
         if (!validator.isEmail(email)) {
           this.setState({ signingUp: false });
-          context.setPopUpMessage({
-            message: 'please Enter valid email adress !',
-            title: ' Error !',
-          });
+          this.setPopUp('please Enter valid email adress !', 'Error !', context);
         } else if (!validator.isAlpha(firstName) || !validator.isAlpha(lastName)) {
           this.setState({ signingUp: false });
-          context.setPopUpMessage({
-            message: 'First and Last name must be only letters !',
-            title: ' Error !',
-          });
+          this.setPopUp('First and Last name must be only letters !', 'Error !', context);
         } else {
           this.setState({ signingUp: false });
           context.updateState({ completeJoin: true });
         }
       } else {
         this.setState({ signingUp: false });
-        context.setPopUpMessage({
-          message: 'please fill all of the fileds !',
-          title: ' Error !',
-        });
+        this.setPopUp('please fill all of the fileds !', 'Error !', context);
       }
     }, 1000);
   };
