@@ -28,8 +28,6 @@ class Join extends Component {
       if (firstName && lastName && email && password) {
         if (!validator.isEmail(email)) {
           this.setPopUp('please Enter valid email adress !', 'Error !', context);
-        } else if (!validator.isAlpha(firstName) || !validator.isAlpha(lastName)) {
-          this.setPopUp('First and Last name must be only letters !', 'Error !', context);
         } else {
           this.setState({ signingUp: false });
           context.updateState({ completeJoin: true });
