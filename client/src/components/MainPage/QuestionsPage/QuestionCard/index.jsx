@@ -7,31 +7,23 @@ const Card = (props) => {
   const { values, section } = props;
   return (
     <ul className="box">
-      {values && values.map((element) => {
-        const {
+      {values
+        && values.map(({
           question, id, username, translations, date,
-        } = element;
-        return (
+        }) => (
           <li key={id} className="box__card">
-            <Link to={`/main/${section}/questions/${id}`}>
-              <div>{question}</div>
-              <div className="box__card--content">
-                <div>
-                  {username}
-                </div>
-                <div className="box__card--content--box">
-                  <div>
-                    { `${translations} translations`}
-                  </div>
-                  <div>
-                    {date.slice(0, 10)}
-                  </div>
-                </div>
+            <div className="box__card--question">{question}</div>
+            <div className="box__card--content">
+              <div className="box__card--details">
+                <div>{username}</div>
+                <div>{date.slice(0, 10)}</div>
               </div>
-            </Link>
+              <Link to={`/main/${section}/questions/${id}`}>
+                <div className="box__card--translations">{`Show ${translations} translations`}</div>
+              </Link>
+            </div>
           </li>
-        );
-      })}
+        ))}
     </ul>
   );
 };
@@ -39,7 +31,6 @@ const Card = (props) => {
 Card.propTypes = {
   values: PropTypes.instanceOf(Array).isRequired,
   section: PropTypes.string.isRequired,
-
 };
 
 export default Card;

@@ -6,17 +6,25 @@ a {
   list-style-type: none;
 }
 
+.box__card--question {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
 .box__card {
-  color: black;
+  color: rgb(255, 1, 1);
   width: auto;
   height: 1.5rem;
-  margin-right: 0.7rem;
+  margin-right: 0.2rem;
   margin-bottom: 1rem;
   background-color: white;
-  padding: 2rem 2rem 3rem 2rem;
+  padding: 2rem 2rem 3rem 1rem;
   box-shadow: 0px 3px 3px #ccc;
 }
 
+.box__card--details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .box li a {
   color: black;
   text-decoration: none;
@@ -28,8 +36,12 @@ a {
   color: rgba(0, 0, 0, 0.38);
 }
 
-.box__card--content--box {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+.box__card--translations {
+  color: rgb(0, 0, 0, 0.5);
+  transition-duration: 0.3s;
+  font-weight: bold;
+}
+
+.box__card--translations:hover {
+  color: #f59036;
 }
