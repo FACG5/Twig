@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import validator from 'validator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
@@ -10,6 +11,14 @@ import LoadingModal from '../LoadingModal';
 class Join extends Component {
   state = {};
 
+
+  setPopUp = (message, title, context) => {
+    context.setPopUpMessage({
+      message, title,
+    });
+    this.setState({ signingUp: false });
+  }
+
   joinCheck = (context) => {
     this.setState({ signingUp: true });
     setTimeout(() => {
@@ -17,14 +26,14 @@ class Join extends Component {
         firstName, lastName, email, password,
       } = context.data;
       if (firstName && lastName && email && password) {
-        this.setState({ signingUp: false });
-        context.updateState({ completeJoin: true });
+        if (!validator.isEmail(email)) {
+          this.setPopUp('please Enter valid email adress !', 'Error !', context);
+        } else {
+          this.setState({ signingUp: false });
+          context.updateState({ completeJoin: true });
+        }
       } else {
-        this.setState({ signingUp: false });
-        context.setPopUpMessage({
-          message: 'please fill all of the fileds !',
-          title: ' Error !',
-        });
+        this.setPopUp('please fill all of the fileds !', 'Error !', context);
       }
     }, 1000);
   };
