@@ -327,3 +327,23 @@ button__login {
 .button__back-categories:hover {
   background: #a52f2f;
 }
+
+.button__back-questions {
+  background-color: #bc3636;
+  color: white;
+  border: 1px solid #bc3636;
+  padding: 3px;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  width: 10rem;
+  font-family: cairo;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0.5rem;
+  float: left;
+}
+
+.button__back-questions:hover {
+  background: #a52f2f;
+}
