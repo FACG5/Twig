@@ -7,8 +7,10 @@ a {
 }
 
 .box__card--question {
+  padding-bottom: 1rem;
   font-size: 20px;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0, 0.8);
+  font-family: bold;
 }
 .box__card {
   color: rgb(255, 1, 1);
