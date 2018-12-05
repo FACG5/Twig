@@ -12,13 +12,11 @@ class Join extends Component {
   state = {};
 
 
-  setPopUp = (message, title, context, signUp) => {
+  setPopUp = (message, title, context) => {
     context.setPopUpMessage({
       message, title,
     });
-    if (!signUp) {
-      this.setState({ signingUp: false });
-    }
+    this.setState({ signingUp: false });
   }
 
   joinCheck = (context) => {
@@ -29,15 +27,15 @@ class Join extends Component {
       } = context.data;
       if (firstName && lastName && email && password) {
         if (!validator.isEmail(email)) {
-          this.setPopUp('please Enter valid email adress !', 'Error !', context, false);
+          this.setPopUp('please Enter valid email adress !', 'Error !', context);
         } else if (!validator.isAlpha(firstName) || !validator.isAlpha(lastName)) {
-          this.setPopUp('First and Last name must be only letters !', 'Error !', context, false);
+          this.setPopUp('First and Last name must be only letters !', 'Error !', context);
         } else {
           this.setState({ signingUp: false });
           context.updateState({ completeJoin: true });
         }
       } else {
-        this.setPopUp('please fill all of the fileds !', 'Error !', context, false);
+        this.setPopUp('please fill all of the fileds !', 'Error !', context);
       }
     }, 1000);
   };
