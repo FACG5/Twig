@@ -88,7 +88,7 @@ class AudioTranslation extends Component {
           name="audioTranslation"
           id=""
           cols="55"
-          rows="5"
+          rows="2"
           onChange={onChange}
           value={audioTranslation}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
