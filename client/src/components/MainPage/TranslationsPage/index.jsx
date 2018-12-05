@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import Card from './TranslationCard';
@@ -94,6 +95,8 @@ class TranslationsPage extends Component {
   };
 
   render() {
+    const { match } = this.props;
+    const { name } = match.params;
     const {
       values, question, showModal, error,
     } = this.state;
@@ -112,6 +115,13 @@ class TranslationsPage extends Component {
                 <div>{question.date && question.date.slice(0, 10)}</div>
               </div>
             </div>
+            <Link to={`/main/${name}`}>
+              <Button
+                value="Back to Questions"
+                className="button__back-questions"
+                id="back-questions"
+              />
+            </Link>
             <div className="translation__button">
               <Button
                 value="Donate Translations"
