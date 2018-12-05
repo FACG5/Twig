@@ -10,10 +10,10 @@ export default function TextTranslation(props) {
   return (
     <div className="donate__text">
       <textarea
-        className="textarea__box"
+        className="textarea__box-text"
         name="translation"
         id=""
-        cols="50"
+        cols="55"
         rows="4"
         onChange={onChange}
         placeholder="Enter your translation here..."

@@ -86,10 +86,10 @@ class AudioTranslation extends Component {
         />
         <audio id="player" controls className="no__record" ref="player" />
         <textarea
-          className="textarea__box"
+          className="textarea__box-audio"
           name="translation"
           id=""
-          cols="50"
+          cols="55"
           rows="5"
           onChange={onChange}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."

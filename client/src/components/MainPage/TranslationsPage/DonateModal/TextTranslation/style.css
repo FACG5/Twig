@@ -1,5 +1,10 @@
-.textarea__box {
-  box-shadow: 0 0 2px #00000075;
+.textarea__box-text {
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+  box-shadow: 0 0 2px rgba(0,0,0,.46);
   outline: none;
 }
 .donate__text {

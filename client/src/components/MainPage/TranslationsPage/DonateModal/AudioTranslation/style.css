@@ -1,7 +1,10 @@
-.textarea__box {
-  margin: 1rem;
+.textarea__box-audio {
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   padding: 0.3rem;
-  box-shadow: 0 0 2px #00000075;
+  box-shadow: 0 0 2px rgba(0,0,0,.46);
   outline: none;
 }
 .donate-audio {
