@@ -9,10 +9,6 @@ import Input from '../../../../common/Inputs';
 class AudioTranslation extends Component {
   state = { selectedFile: null };
 
-  componentDidMount() {
-
-  }
-
   startRecord = () => {
     const { player } = this.refs;
     const { recording } = this.state;
@@ -57,7 +53,9 @@ class AudioTranslation extends Component {
   }
 
   render() {
-    const { error, onChange, generateFormData } = this.props;
+    const {
+      error, onChange, generateFormData, audioTranslation,
+    } = this.props;
     const { selectedFile, recording } = this.state;
     return (
       <div className="donate-audio">
@@ -87,11 +85,12 @@ class AudioTranslation extends Component {
         <audio id="player" controls className="no__record" ref="player" />
         <textarea
           className="textarea__box-audio"
-          name="translation"
+          name="audioTranslation"
           id=""
           cols="55"
           rows="5"
           onChange={onChange}
+          value={audioTranslation}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
         />
         {error ? <h4 className="donate__validation">{error}</h4> : null}
@@ -108,6 +107,7 @@ class AudioTranslation extends Component {
 AudioTranslation.propTypes = {
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
+  audioTranslation: PropTypes.string,
   generateFormData: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
 };
