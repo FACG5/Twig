@@ -34,7 +34,7 @@ class Join extends Component {
           );
         } else if (!validator.equals(password, confirmPassword)) {
           this.setPopUp(
-            'Password not match',
+            'Passwords do not match',
             'Error !',
             context,
           );
