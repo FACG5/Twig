@@ -11,23 +11,33 @@ import LoadingModal from '../LoadingModal';
 class Join extends Component {
   state = {};
 
-
   setPopUp = (message, title, context) => {
     context.setPopUpMessage({
-      message, title,
+      message,
+      title,
     });
     this.setState({ signingUp: false });
-  }
+  };
 
   joinCheck = (context) => {
     this.setState({ signingUp: true });
     setTimeout(() => {
       const {
-        firstName, lastName, email, password,
+        firstName, lastName, email, password, confirmPassword,
       } = context.data;
       if (firstName && lastName && email && password) {
         if (!validator.isEmail(email)) {
-          this.setPopUp('please Enter valid email adress !', 'Error !', context);
+          this.setPopUp(
+            'please Enter valid email adress !',
+            'Error !',
+            context,
+          );
+        } else if (!validator.equals(password, confirmPassword)) {
+          this.setPopUp(
+            'Passwords do not match',
+            'Error !',
+            context,
+          );
         } else {
           this.setState({ signingUp: false });
           context.updateState({ completeJoin: true });
@@ -86,15 +96,26 @@ class Join extends Component {
                     onBlur={context.validation}
                     value={context.data.email}
                   />
-                  <Input
-                    name="password"
-                    type="password"
-                    className="input__password"
-                    placeholder="Enter your password"
-                    onChange={context.storeValue}
-                    onBlur={context.validation}
-                    value={context.data.password}
-                  />
+                  <div>
+                    <Input
+                      name="password"
+                      type="password"
+                      className="input__password"
+                      placeholder="Password"
+                      onChange={context.storeValue}
+                      onBlur={context.validation}
+                      value={context.data.password}
+                    />
+                    <Input
+                      name="confirmPassword"
+                      type="password"
+                      className="input__password"
+                      placeholder="Confirm password"
+                      onChange={context.storeValue}
+                      onBlur={context.validation}
+                      value={context.data.confirmPassword}
+                    />
+                  </div>
                   <Button
                     className="button__join"
                     value="Join"
