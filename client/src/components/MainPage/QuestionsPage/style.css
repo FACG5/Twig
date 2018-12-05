@@ -36,3 +36,7 @@
 .questions__search {
   margin: 10px 20px;
 }
+
+.question__cards {
+  margin-top: 4rem;
+}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import SearchBar from '../../common/SearchBar';
 import Card from './QuestionCard';
-import Select from './Select';
 import './style.css';
 import Loading from '../../common/Loading';
 import Button from '../../common/Button';
@@ -105,19 +105,27 @@ class QuesionsPage extends Component {
                 value={input}
               />
             </div>
-            <Select onChange={this.sortDate} />
             {!found && (
               <h1 className="questions__notFound">
                 Sorry, no result was found!
               </h1>
             )}
+            <Link to="/main/">
+              <Button
+                value="Back to Categories"
+                className="button__back-categories"
+                id="back-categories"
+              />
+            </Link>
             <Button
               value="Add Question"
               className="button__add-question"
               onClick={this.showModal}
               id="add-question"
             />
-            <Card values={items} section={section} />
+            <div className="question__cards">
+              <Card values={items} section={section} />
+            </div>
             {found && (
               <p className="questions__showmore" />
             )}

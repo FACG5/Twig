@@ -40,7 +40,7 @@ class Header extends Component {
         {context => (
           <React.Fragment>
             <div className="header">
-              <Link to="/main">
+              <Link to="/">
                 <img src={Logo} alt="logo" className="header__logo" />
               </Link>
               <div className="header__buttons">
