@@ -98,7 +98,7 @@ class VideoTranslation extends Component {
           name="videoTranslation"
           id=""
           cols="55"
-          rows="5"
+          rows="2"
           value={videoTranslation}
           onChange={onChange}
           placeholder="Please let us know if this translation is literal, or if there are some changes you've made, and why these changes make sense if so."
