@@ -66,7 +66,7 @@ class DonateModal extends Component {
 
   onChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value, translations: value, error: null });
+    this.setState({ [name]: value, error: null });
   };
 
   sendTranslation = (translationData) => {
@@ -92,29 +92,39 @@ class DonateModal extends Component {
     const { match } = this.props;
     const { params } = match;
     const { questionId } = params;
-    const { translation } = this.state;
-    let translationData;
-    if (translation && translation.trim()) {
+    const { textTranslation, audioTranslation, videoTranslation } = this.state;
+    try {
+      let translationData;
       if (typeId === 1) {
-        translationData = { typeId, translation, questionId };
-        this.sendTranslation(translationData);
+        if (textTranslation && textTranslation.trim()) {
+          translationData = { typeId, translation: textTranslation, questionId };
+          this.sendTranslation(translationData);
+        } else {
+          throw new Error('Please add your translation !');
+        }
       }
       if (typeId === 2 || typeId === 3) {
-        this.setState({ uploading: true });
-        axios.post('/api/v1/upload', file).then((result) => {
-          this.setState({ uploading: false });
-          const { data: fileName } = result;
-          translationData = {
-            fileName,
-            typeId,
-            translation,
-            questionId,
-          };
-          this.sendTranslation(translationData);
-        });
+        if ((audioTranslation && audioTranslation.trim())
+         || (videoTranslation && videoTranslation.trim())) {
+          this.setState({ uploading: true });
+          axios.post('/api/v1/upload', file).then((result) => {
+            this.setState({ uploading: false });
+            const { data: fileName } = result;
+            const translation = typeId === 2 ? audioTranslation : videoTranslation;
+            translationData = {
+              fileName,
+              typeId,
+              translation,
+              questionId,
+            };
+            this.sendTranslation(translationData);
+          });
+        } else {
+          throw new Error('Please add your translation !');
+        }
       }
-    } else {
-      this.setError('Please add your translation !');
+    } catch (err) {
+      this.setError(err.message);
     }
   };
 
@@ -129,6 +139,7 @@ class DonateModal extends Component {
           onClick={this.onClick}
           setError={this.setError}
           error={error}
+          {...this.state}
         />
       );
     }
@@ -139,6 +150,7 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
+          {...this.state}
         />
       );
     }
@@ -149,6 +161,7 @@ class DonateModal extends Component {
           generateFormData={this.generateFormData}
           setError={this.setError}
           error={error}
+          {...this.state}
         />
       );
     }
