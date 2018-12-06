@@ -29,6 +29,7 @@ router.use(checkToken);
 router.get('/specialization', specialization.get);
 router.get('/specialization/:section', questions.get);
 router.post('/specialization/question/:speclalizationsId', questions.post);
+router.put('/specialization/question/:speclalizationsId', questions.put);
 router.get('/questions/:questionId', translation.get);
 router.post('/questions/:questionId', translation.post);
 router.post('/questions/:questionId/voteDown', voteDown.post);
