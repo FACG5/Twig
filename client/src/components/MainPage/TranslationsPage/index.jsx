@@ -118,8 +118,7 @@ class TranslationsPage extends Component {
             <Link to={`/main/${name}`}>
               <Button
                 value="Back to Questions"
-                className="button__back-questions"
-                id="back-questions"
+                className="button__back-button"
               />
             </Link>
             <div className="translation__button">

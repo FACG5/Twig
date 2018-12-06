@@ -64,7 +64,7 @@ class Card extends Component {
                 question,
                 id,
                 username,
-                translations,
+                countTranslation,
                 date,
                 owner,
                 speclalizationsId,
@@ -113,7 +113,7 @@ class Card extends Component {
                       </div>
                     </div>
                     <Link to={`/main/${section}/questions/${id}`}>
-                      <div className="box__card--translations">{`Show ${translations} translations`}</div>
+                      <div className="box__card--translations">{`Show ${countTranslation} translations`}</div>
                     </Link>
 
                   </div>
