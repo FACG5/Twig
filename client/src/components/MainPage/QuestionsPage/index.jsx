@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+import jsCookie from 'js-cookie';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import SearchBar from '../../common/SearchBar';
@@ -20,6 +22,9 @@ class QuesionsPage extends Component {
   };
 
   componentWillMount() {
+    const token = jsCookie.get('jwt');
+    const { id } = jwt_decode(token);
+    this.setState({ userId: id });
     const { match, history } = this.props;
     const { params } = match;
     const { name } = params;
@@ -84,7 +89,7 @@ class QuesionsPage extends Component {
 
   render() {
     const {
-      items, section, avatarUrl, found, input, error, values, showModal,
+      items, section, avatarUrl, found, input, error, values, showModal, userId,
     } = this.state;
     if (!values.length && !error) {
       return <Loading />;
@@ -124,7 +129,7 @@ class QuesionsPage extends Component {
               id="add-question"
             />
             <div className="question__cards">
-              <Card values={items} section={section} />
+              <Card values={items} section={section} userId={userId} />
             </div>
             {found && (
               <p className="questions__showmore" />
