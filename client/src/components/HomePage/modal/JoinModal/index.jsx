@@ -122,7 +122,7 @@ class Join extends Component {
                     onClick={() => this.joinCheck(context)}
                     id="completeJoin"
                   />
-                  <h3>Or</h3>
+                  <h3 className="or">Or</h3>
                   <Button
                     className="button__linkedin"
                     value="Join with LinkedIn"

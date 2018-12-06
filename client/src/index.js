@@ -15,6 +15,8 @@ import {
   faBirthdayCake,
   faStop,
   faVideo,
+  faEdit,
+  faSave,
 } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -32,6 +34,8 @@ library.add(
   faLanguage,
   faBirthdayCake,
   faMicrophone,
+  faEdit,
+  faSave,
 );
 /* eslint-disable */
 ReactDOM.render(<App />, document.getElementById("root"));
