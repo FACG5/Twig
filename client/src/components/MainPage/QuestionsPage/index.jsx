@@ -113,8 +113,7 @@ class QuesionsPage extends Component {
             <Link to="/main/">
               <Button
                 value="Back to Categories"
-                className="button__back-categories"
-                id="back-categories"
+                className="button__back-button"
               />
             </Link>
             <Button
