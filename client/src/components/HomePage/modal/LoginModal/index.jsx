@@ -91,7 +91,7 @@ class Login extends Component {
                   value="Login"
                   onClick={() => this.onClick(context)}
                 />
-                <h3>Or</h3>
+                <h3 className="or">Or</h3>
                 <Button
                   className="button__linkedin"
                   value="Continue with LinkedIn"
