@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class Card extends Component {
-  state = {
-    edit: false,
-  };
+  state = {};
 
   componentWillMount() {
     const { values } = this.props;
@@ -45,10 +43,8 @@ class Card extends Component {
         this.setState(values);
       })
       .catch((error) => {
-        const { data: message, status } = error.response;
-        if (status === 500) {
-          this.setState({ message });
-        }
+        const { data: message } = error.response;
+        values[index].message = message;
       });
   };
 
