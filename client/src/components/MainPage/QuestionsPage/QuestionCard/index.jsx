@@ -5,11 +5,12 @@ import './style.css';
 
 const Card = (props) => {
   const { values, section } = props;
+
   return (
     <ul className="box">
       {values
         && values.map(({
-          question, id, username, translations, date,
+          question, id, username, date, countTranslation,
         }) => (
           <li key={id} className="box__card">
             <div className="box__card--question">{question}</div>
@@ -19,7 +20,7 @@ const Card = (props) => {
                 <div>{date.slice(0, 10)}</div>
               </div>
               <Link to={`/main/${section}/questions/${id}`}>
-                <div className="box__card--translations">{`Show ${translations} translations`}</div>
+                <div className="box__card--translations">{`Show ${countTranslation} translations`}</div>
               </Link>
             </div>
           </li>
