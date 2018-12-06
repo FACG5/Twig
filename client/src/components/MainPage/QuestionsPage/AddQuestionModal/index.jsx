@@ -56,6 +56,11 @@ class AddQuestionModal extends Component {
             />
           </div>
           <hr />
+          <h3 className="question__question--description">
+            Please, enter question only in
+            {' '}
+            <strong>English</strong>
+          </h3>
           <textarea
             className="question__textarea"
             name="add-question"
