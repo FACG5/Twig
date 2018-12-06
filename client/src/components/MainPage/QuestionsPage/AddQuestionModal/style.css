@@ -46,3 +46,10 @@
 .question__validation {
   color: #bc3636;
 }
+
+.question__question--description {
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  color: rgba(165, 9, 9, 0.781);
+  font-size: 1rem;
+}
