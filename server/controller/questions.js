@@ -28,3 +28,28 @@ exports.post = async (request, response) => {
     response.status(500).send('Server Error');
   }
 };
+
+exports.put = async (request, response) => {
+  try {
+    const { id: loggedUserId } = request;
+    const data = request.body;
+    const { userId, question, questionId: id } = data;
+    if (loggedUserId === userId) {
+      const updateResult = await questions.update(
+        { question },
+        { where: { id } },
+      );
+      if (updateResult.length) {
+        response
+          .status(200)
+          .send('Your question has been successfully modified');
+      } else {
+        throw new Error();
+      }
+    } else {
+      response.status(401).send('unAutorized');
+    }
+  } catch (error) {
+    response.status(500).send('Internal Server Error');
+  }
+};
