@@ -8,6 +8,7 @@
 }
 
 .cards__box {
+  min-height: 18rem;
   background: lightgrey;
   color: rgba(0, 0, 0, 0.62);
   text-align: justify;
