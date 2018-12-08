@@ -1,0 +1,24 @@
+.cards__boxes {
+  /* background: white; */
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards__box {
+  background: white;
+  color: rgba(0, 0, 0, 0.62);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+.cards__tittel {
+  color: #bc3636;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+}
+
