@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import AboutUs from './AboutUs';
 import Statistic from './Statistic';
 import Goals from './Goals';
+import Cards from './Cards';
 import homeImg from './volunteer.jpg';
 import './style.css';
 
@@ -15,6 +16,7 @@ const HomePage = () => (
     <div className="home__main">
       <div className="home__main--background">
         <div className="contents">
+          <Cards />
           <AboutUs />
           <hr className="content-line" />
           <Goals />
