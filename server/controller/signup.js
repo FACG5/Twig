@@ -2,6 +2,20 @@ const bcryptjs = require('bcryptjs');
 const snakeCase = require('snakecase-keys');
 const { users, employeeSkills } = require('../database/models');
 
+exports.checkEmail = async (request, response) => {
+  try {
+    const { email } = request.headers;
+    const emailResult = await users.findOne({ where: { email }, raw: true });
+    if (emailResult) {
+      response.status(400).send('email already exists!');
+    } else {
+      response.status(200).send('valid Email');
+    }
+  } catch (error) {
+    response.status(500).send('Internal Server Error !');
+  }
+};
+
 exports.post = async (request, response) => {
   try {
     const {
