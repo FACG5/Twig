@@ -81,7 +81,7 @@ class Login extends Component {
                 <Input
                   name="loginPassword"
                   type="password"
-                  className="input__password"
+                  className="input__password--login"
                   placeholder="Enter your password"
                   onChange={this.onChange}
                   value={context.loginPassword}
