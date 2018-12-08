@@ -38,7 +38,7 @@ class Join extends Component {
             context,
           );
         } else if (!validator.equals(password, confirmPassword)) {
-          this.setPopUp('Passwords do not match', 'Error !', context);
+          this.setPopUp('Passwords do not match', 'Error!', context);
         } else {
           axios
             .get('/api/v1/signup', { headers: { email } })
@@ -48,11 +48,11 @@ class Join extends Component {
             })
             .catch((error) => {
               const { data: message } = error.response;
-              this.setPopUp(message, 'Error !', context);
+              this.setPopUp(message, 'Error!', context);
             });
         }
       } else {
-        this.setPopUp('please fill all of the fileds !', 'Error !', context);
+        this.setPopUp('please fill all of the fileds !', 'Error!', context);
       }
     }, 1000);
   };
