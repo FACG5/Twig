@@ -16,6 +16,7 @@
     "react/no-string-refs": 0,
     "react/require-default-props": 0,
     "react/no-unused-state": 0,
-    "jsx-a11y/media-has-caption": 0
+    "jsx-a11y/media-has-caption": 0,
+    "max-len":0
  }
 }
