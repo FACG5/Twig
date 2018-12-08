@@ -10,15 +10,13 @@ class Card extends Component {
     values: [],
   };
 
-
-  componentWillMount() {
-    const { values } = this.props;
-    this.setState({ values });
-  }
-
-  componentWillReceiveProps(props) {
-    const { values } = props;
-    this.setState({ values });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.values !== prevState.values) {
+      return {
+        values: nextProps.values,
+      };
+    }
+    return null;
   }
 
   editQuestion = (index) => {
@@ -107,11 +105,11 @@ class Card extends Component {
                         <FontAwesomeIcon
                           icon="save"
                           onClick={() => this.savaQuestion(
-                            id,
-                            speclalizationsId,
-                            userId,
-                            index,
-                          )
+                              id,
+                              speclalizationsId,
+                              userId,
+                              index,
+                            )
                           }
                         />
                       </div>
@@ -119,7 +117,6 @@ class Card extends Component {
                     <Link to={`/main/${section}/questions/${id}`}>
                       <div className="box__card--translations">{`Show ${countTranslation} translations`}</div>
                     </Link>
-
                   </div>
                 </div>
               </li>
