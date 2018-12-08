@@ -4,6 +4,7 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .cards__box {
@@ -23,4 +24,5 @@
 
 .cards__box-title {
   text-align: center;
+  padding-bottom: 1rem;
 }
