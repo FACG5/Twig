@@ -7,7 +7,7 @@ exports.checkEmail = async (request, response) => {
     const { email } = request.headers;
     const emailResult = await users.findOne({ where: { email }, raw: true });
     if (emailResult) {
-      response.status(400).send('email is already exist !');
+      response.status(400).send('email already exists!');
     } else {
       response.status(200).send('valid Email');
     }
