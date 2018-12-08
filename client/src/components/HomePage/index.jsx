@@ -17,6 +17,7 @@ const HomePage = () => (
       <div className="home__main--background">
         <div className="contents">
           <Cards />
+          <hr className="content-line" />
           <AboutUs />
           <hr className="content-line" />
           <Goals />
