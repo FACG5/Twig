@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import axios from 'axios';
 import validator from 'validator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../../common/Inputs';
@@ -23,7 +24,11 @@ class Join extends Component {
     this.setState({ signingUp: true });
     setTimeout(() => {
       const {
-        firstName, lastName, email, password, confirmPassword,
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
       } = context.data;
       if (firstName && lastName && email && password) {
         if (!validator.isEmail(email)) {
@@ -33,17 +38,21 @@ class Join extends Component {
             context,
           );
         } else if (!validator.equals(password, confirmPassword)) {
-          this.setPopUp(
-            'Passwords do not match',
-            'Error !',
-            context,
-          );
+          this.setPopUp('Passwords do not match', 'Error!', context);
         } else {
-          this.setState({ signingUp: false });
-          context.updateState({ completeJoin: true });
+          axios
+            .get('/api/v1/signup', { headers: { email } })
+            .then(() => {
+              this.setState({ signingUp: false });
+              context.updateState({ completeJoin: true });
+            })
+            .catch((error) => {
+              const { data: message } = error.response;
+              this.setPopUp(message, 'Error!', context);
+            });
         }
       } else {
-        this.setPopUp('please fill all of the fileds !', 'Error !', context);
+        this.setPopUp('please fill all of the fileds !', 'Error!', context);
       }
     }, 1000);
   };
