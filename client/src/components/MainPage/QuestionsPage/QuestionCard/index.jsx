@@ -6,10 +6,18 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class Card extends Component {
-  state = {};
+  state = {
+    values: [],
+  };
+
 
   componentWillMount() {
     const { values } = this.props;
+    this.setState({ values });
+  }
+
+  componentWillReceiveProps(props) {
+    const { values } = props;
     this.setState({ values });
   }
 
