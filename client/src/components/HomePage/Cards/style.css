@@ -9,15 +9,18 @@
 .cards__box {
   background: lightgrey;
   color: rgba(0, 0, 0, 0.62);
-  text-align: center;
+  text-align: justify;
   padding: 1.5rem 2rem;
   box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-.cards__tittel {
+.cards__title {
   color: #bc3636;
   text-align: center;
   font-size: 30px;
   margin-bottom: 1.5rem;
 }
 
+.cards__box-title {
+  text-align: center;
+}
