@@ -1,4 +1,4 @@
-.input__email {
+.input__email, .input__password--login {
   width: 277px;
   border-radius: 3px;
   border: none;
