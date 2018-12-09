@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Fade from 'react-reveal';
 import './style.css';
 import satistic from './satistic.jpeg';
 
@@ -7,7 +8,7 @@ class Statistic extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Fade bottom>
         <h1 className="satistic__tittel">We Have</h1>
         <hr className="satistic_line" />
         <div className="satistic">
@@ -27,7 +28,7 @@ class Statistic extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
+      </Fade>
     );
   }
 }
