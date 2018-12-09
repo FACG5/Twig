@@ -1,15 +1,18 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import Fade from 'react-reveal';
 import './style.css';
 import satistic from './satistic.jpeg';
 
 class Statistic extends Component {
-  state = { }
+  state = {};
 
   render() {
     return (
-      <Fragment>
-        <h1 className="satistic__tittel">We Have</h1>
-        <hr className="satistic_line" />
+      <Fade left>
+        <div>
+          <h1 className="satistic__tittel">We Have</h1>
+          <hr className="satistic_line" />
+        </div>
         <div className="satistic">
           <img className="satistic__image" src={satistic} alt="satistic" />
           <div>
@@ -27,7 +30,7 @@ class Statistic extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
+      </Fade>
     );
   }
 }

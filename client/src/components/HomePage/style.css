@@ -3,13 +3,18 @@
 .home__image-container {
   position: relative;
 }
-
+.homepage {
+  background-color: white;
+}
 .home__image {
   width: 100%;
   height: 550px;
   opacity: 1;
 }
 
+.react-reveal{
+  animation-duration: 1500ms !important;
+}
 .home__paragraph {
   position: absolute;
   top: 50%;
@@ -51,7 +56,6 @@
   width: 80%;
   margin: 0 auto;
 }
-
 
 @media (max-width: 767px) {
   .home__image {
