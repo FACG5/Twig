@@ -1,51 +1,48 @@
 @import "https://fonts.googleapis.com/css?family=Cairo";
+
+.home__image-container {
+  position: relative;
+}
+
 .home__image {
   width: 100%;
-  height: 500px;
-  position: relative;
-  opacity: 0.6;
-  background-image: linear-gradient(
-      rgba(188, 54, 54, 0.24),
-      rgba(255, 255, 255, 0)
-    ),
-    url("home.jpeg");
-  background-size: cover;
-  background-image: no-repeat;
+  height: 550px;
+  opacity: 1;
+}
+
+.home__paragraph {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 60px;
+  padding: 10rem 0rem;
+  color: rgba(0, 0, 0, 0.62);
 }
 
 .home__text {
   font-family: "Cairo";
+  position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 30px;
-  padding: 0.2rem;
-  color: white;
-  position: absolute;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  padding: 0.2rem 0rem;
+  color: rgba(0, 0, 0, 0.62);
 }
 
 .home__main {
   display: block;
   width: 100%;
-  z-index: -1;
-  min-height: 900px;
-  max-height: 900px;
-  background-image: linear-gradient(
-      rgba(188, 54, 54, 0.2),
-      rgba(255, 255, 255, 0.1633)
-    ),
-    url("background.jpeg");
-  background-size: cover;
-}
-
-.home__main--background {
-  background: rgba(255, 255, 255, 0.78);
-  width: 100%;
-  min-height: 900px;
-  max-height: 900px;
 }
 
 .contents {
-  padding-top: 5%;
+  padding-top: 1.5rem;
   z-index: 1000;
 }
 
@@ -54,6 +51,7 @@
   width: 80%;
   margin: 0 auto;
 }
+
 
 @media (max-width: 767px) {
   .home__image {

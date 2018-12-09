@@ -1,0 +1,41 @@
+.cards__boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}
+
+.cards__box {
+  min-height: 23rem;
+  color: rgba(0, 0, 0, 0.62);
+  text-align: justify;
+  background-color: white;
+  padding: 2rem 2rem 3rem 2rem;
+  box-shadow: 0px 3px 3px #ccc;
+}
+
+.cards__title {
+  color: #bc3636;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.cards__box-title {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.cards__icon {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cards__line {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  color: #000;
+  width: 80%;
+}

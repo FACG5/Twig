@@ -17,6 +17,8 @@ import {
   faVideo,
   faEdit,
   faSave,
+  faQuestionCircle,
+  faNotesMedical,
 } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -36,6 +38,8 @@ library.add(
   faMicrophone,
   faEdit,
   faSave,
+  faQuestionCircle,
+  faNotesMedical,
 );
 /* eslint-disable */
 ReactDOM.render(<App />, document.getElementById("root"));
