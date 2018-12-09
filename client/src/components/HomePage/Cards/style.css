@@ -9,11 +9,12 @@
 
 .cards__box {
   min-height: 23rem;
-  background: lightgrey;
   color: rgba(0, 0, 0, 0.62);
   text-align: justify;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  background-color: white;
+  padding: 2rem 2rem 3rem 2rem;
+  box-shadow: 0px 3px 3px #ccc;
+  cursor: pointer;
 }
 
 .cards__title {
