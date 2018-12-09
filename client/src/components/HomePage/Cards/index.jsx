@@ -11,7 +11,7 @@ const Cards = () => (
       <Link to="/main/">
         <div className="cards__box">
           <div className="cards__icon">
-            <FontAwesomeIcon icon="notes-medical" size="4x" />
+            <FontAwesomeIcon icon="notes-medical" size="4x" color="#bc3636" />
           </div>
           <h3 className="cards__box-title">Translation Categories</h3>
           <hr className="cards__line" />
@@ -21,7 +21,7 @@ const Cards = () => (
       <Link to="/main/">
         <div className="cards__box">
           <div className="cards__icon">
-            <FontAwesomeIcon icon="question-circle" size="4x" />
+            <FontAwesomeIcon icon="question-circle" size="4x" color="#bc3636" />
           </div>
           <h3 className="cards__box-title">Questions</h3>
           <hr className="cards__line" />
@@ -31,7 +31,7 @@ const Cards = () => (
       <Link to="/main/">
         <div className="cards__box">
           <div className="cards__icon">
-            <FontAwesomeIcon icon="language" size="4x" />
+            <FontAwesomeIcon icon="language" size="4x" color="#bc3636" />
           </div>
           <h3 className="cards__box-title">Translations & Verifications</h3>
           <hr className="cards__line" />
