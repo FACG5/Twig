@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import AboutUs from './AboutUs';
 import Statistic from './Statistic';
 import Goals from './Goals';
@@ -7,7 +7,7 @@ import homeImg from './volunteer.png';
 import './style.css';
 
 const HomePage = () => (
-  <Fragment>
+  <div className="homepage">
     <div className="home__image-container">
       <img className="home__image" src={homeImg} alt="home" />
     </div>
@@ -15,16 +15,13 @@ const HomePage = () => (
       <div className="home__main--background">
         <div className="contents">
           <Cards />
-          <hr className="content-line" />
           <AboutUs />
-          <hr className="content-line" />
           <Goals />
-          <hr className="content-line" />
           <Statistic />
         </div>
       </div>
     </div>
-  </Fragment>
+  </div>
 );
 
 export default HomePage;
