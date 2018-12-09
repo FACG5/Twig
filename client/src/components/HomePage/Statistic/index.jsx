@@ -4,13 +4,15 @@ import './style.css';
 import satistic from './satistic.jpeg';
 
 class Statistic extends Component {
-  state = { }
+  state = {};
 
   render() {
     return (
-      <Fade bottom>
-        <h1 className="satistic__tittel">We Have</h1>
-        <hr className="satistic_line" />
+      <Fade left>
+        <div>
+          <h1 className="satistic__tittel">We Have</h1>
+          <hr className="satistic_line" />
+        </div>
         <div className="satistic">
           <img className="satistic__image" src={satistic} alt="satistic" />
           <div>

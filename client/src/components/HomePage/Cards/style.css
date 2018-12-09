@@ -11,9 +11,9 @@
   min-height: 23rem;
   color: rgba(0, 0, 0, 0.62);
   text-align: justify;
-  background-color: white;
-  padding: 2rem 2rem 3rem 2rem;
-  box-shadow: 0px 3px 3px #ccc;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem 2rem 2rem 2rem;
+  box-shadow: 2px 2px 2px 2px rgb(223, 220, 220);
 }
 
 .cards__title {
