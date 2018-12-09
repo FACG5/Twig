@@ -8,7 +8,7 @@
 }
 
 .cards__box {
-  min-height: 18rem;
+  min-height: 23rem;
   background: lightgrey;
   color: rgba(0, 0, 0, 0.62);
   text-align: justify;
@@ -26,4 +26,9 @@
 .cards__box-title {
   text-align: center;
   padding-bottom: 1rem;
+}
+
+.cards__icon {
+  text-align: center;
+  margin-bottom: 1rem;
 }
