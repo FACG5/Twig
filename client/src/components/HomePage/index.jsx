@@ -10,7 +10,6 @@ const HomePage = () => (
   <Fragment>
     <div className="home__image-container">
       <img className="home__image" src={homeImg} alt="home" />
-      <h1 className="home__text">Twig The Medical Database</h1>
     </div>
     <div className="home__main">
       <div className="home__main--background">
