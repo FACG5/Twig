@@ -32,3 +32,10 @@
   text-align: center;
   margin-bottom: 1rem;
 }
+
+.cards__line {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  color: #000;
+  width: 80%;
+}
