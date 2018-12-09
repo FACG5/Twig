@@ -1,5 +1,5 @@
 .modal {
-  position: absolute;
+  position: fixed;
   z-index: 99;
   animation: fadeInOpacity 0.4s 1;
   text-align: center;
