@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Fade from 'react-reveal';
 import './style.css';
 import satistic from './satistic.jpeg';
