@@ -43,18 +43,24 @@ class Statistic extends Component {
         <div className="satistic">
           <img className="satistic__image" src={satistic} alt="satistic" />
           <div>
+            { usersCount && (
             <div className="satistic__Volunteers">
               <h1 className="number">{users}</h1>
               <h2 className="satistic__text">Volunteers</h2>
             </div>
-            <div className="satistic__Questions">
-              <h1 className="number">{questions}</h1>
-              <h2 className="satistic__text">Questions</h2>
-            </div>
-            <div className="satistic__Translations">
-              <h1 className="number">{translations}</h1>
-              <h2 className="satistic__text">Translations</h2>
-            </div>
+            )}
+            { questionsCount && (
+              <div className="satistic__Questions">
+                <h1 className="number">{questions}</h1>
+                <h2 className="satistic__text">Questions</h2>
+              </div>
+            )}
+            { translationsCount && (
+              <div className="satistic__Translations">
+                <h1 className="number">{translations}</h1>
+                <h2 className="satistic__text">Translations</h2>
+              </div>
+            )}
           </div>
         </div>
       </Fade>
