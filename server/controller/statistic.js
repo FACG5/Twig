@@ -4,15 +4,12 @@ const { questions, users, translations } = require('../database/models');
 exports.get = async (request, response) => {
   try {
     const getUsersCount = await users.findAll({
-      logging:console.log,
       attributes: [[sequelize.fn('COUNT', sequelize.col('id')), 'usersCount']],
     });
     const getQuestionsCount = await questions.findAll({
-      logging:console.log,
       attributes: [[sequelize.fn('COUNT', sequelize.col('id')), 'questionsCount']],
     });
     const getTranslationsCount = await translations.findAll({
-      logging:console.log,
       attributes: [[sequelize.fn('COUNT', sequelize.col('id')), 'translationsCount']],
     });
 
