@@ -15,6 +15,7 @@ const logout = require('./logout');
 const upload = require('./upload');
 const voteUp = require('./voteUp');
 const files = require('./files');
+const statistic = require('./statistic');
 
 const router = express.Router();
 
@@ -40,6 +41,6 @@ router.get('/profile', userDetails.getProfile);
 router.post('/upload', upload.post);
 router.get('/logout', logout.get);
 router.get('/files/:fileName', files.get);
-router.get('/statistic');
+router.get('/statistic', statistic.get);
 
 module.exports = router;
