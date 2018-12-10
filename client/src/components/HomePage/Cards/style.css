@@ -1,10 +1,14 @@
+.cards__container{
+  text-align: center;
+}
+
 .cards__boxes {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 .cards__box {
