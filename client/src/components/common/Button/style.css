@@ -340,4 +340,5 @@ button__login {
   width: 10rem;
   cursor: pointer;
   text-align: center;
+  font-weight: bold;
 }
