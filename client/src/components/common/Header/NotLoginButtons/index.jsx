@@ -49,6 +49,7 @@ class LoginHeader extends Component {
 
 LoginHeader.propTypes = {
   showModel: PropTypes.func,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default withRouter(LoginHeader);
