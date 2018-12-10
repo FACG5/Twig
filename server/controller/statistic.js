@@ -19,7 +19,7 @@ exports.get = async (request, response) => {
 
     Promise.all([usersCount, questionsCount, translationsCount]).then((res) => {
       if (!res.length) {
-        response.status(404).send('Oops! No data ! ');
+        response.status(404).send('Oops! No data! ');
       } else {
         response.status(200).send(res);
       }
