@@ -327,3 +327,17 @@ button__login {
   background: #a52f2f;
 }
 
+.button__hompage-try {
+  font-family: cairo;
+  margin-bottom: 1.5rem;
+  background-color: #bc3636;
+  color: white;
+  border: 1px solid #bc3636;
+  padding: 3px;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  width: 10rem;
+  cursor: pointer;
+  text-align: center;
+}
