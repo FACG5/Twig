@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Fade from 'react-reveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../../common/Button';
 import './style.css';
 
 const Cards = () => (
   <Fade bottom>
-    <div>
+    <div className="cards__container">
       <h1 className="cards__title">What Can You Do On Twig</h1>
       <div className="cards__boxes">
         <div className="cards__box">
@@ -45,6 +47,12 @@ const Cards = () => (
           </p>
         </div>
       </div>
+      <Link to="/main/">
+        <Button
+          value="TRY it out here "
+          className="button__hompage-try"
+        />
+      </Link>
       <hr className="content-line" />
     </div>
   </Fade>
