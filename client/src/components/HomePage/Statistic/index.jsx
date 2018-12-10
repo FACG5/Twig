@@ -14,7 +14,6 @@ class Statistic extends Component {
       .get('/api/v1/statistic')
       .then((data) => {
         const results = data.data;
-        // console.log(results);
         this.setState({
           values: results,
         });
