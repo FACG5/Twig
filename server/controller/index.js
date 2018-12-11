@@ -42,5 +42,7 @@ router.post('/upload', upload.post);
 router.get('/logout', logout.get);
 router.get('/files/:fileName', files.get);
 router.get('/statistic', statistic.get);
+router.post('/languages', languages.post);
+router.post('/dialects', dialects.post);
 
 module.exports = router;
