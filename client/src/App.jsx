@@ -9,6 +9,7 @@ import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
 import TranslationsPage from './components/MainPage/TranslationsPage';
 import ErrorPage from './components/ErrorPage';
+import LangaugePage from './components/MainPage/LangaugePage';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
               component={TranslationsPage}
             />
             <MainLayout exact path="/main/:name" component={QuestionsPage} />
+            <MainLayout exact path="/vguFh6JyG" component={LangaugePage} />
             <DefaultLayout exact path="/" component={HomePage} />
             <Route to="*" component={ErrorPage} />
           </Switch>
