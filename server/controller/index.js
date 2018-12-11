@@ -26,6 +26,7 @@ router.get('/get-languages', languages.get);
 router.get('/get-skills', skills.get);
 router.get('/get-dialcets/:languageId', dialects.get);
 router.get('/get-jobs', jobs.get);
+router.get('/statistic', statistic.get);
 
 router.use(checkToken);
 router.get('/specialization', specialization.get);
@@ -41,7 +42,6 @@ router.get('/profile', userDetails.getProfile);
 router.post('/upload', upload.post);
 router.get('/logout', logout.get);
 router.get('/files/:fileName', files.get);
-router.get('/statistic', statistic.get);
 router.post('/languages', languages.post);
 router.post('/dialects', dialects.post);
 
