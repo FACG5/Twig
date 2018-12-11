@@ -1,4 +1,3 @@
-const snakeCase = require('snakecase-keys');
 const { dialect } = require('../database/models');
 
 exports.get = async (request, response) => {
@@ -21,11 +20,8 @@ exports.get = async (request, response) => {
 
 exports.post = async (request, response) => {
   try {
-    console.log(request.body);
     const { dialects, languageId } = request.body;
     const data = { name: dialects, language_id: languageId };
-    console.log(data);
-    
     await dialect.create(data);
     response.status(200).send('Successful !');
   } catch (error) {
