@@ -14,3 +14,14 @@ exports.get = async (request, response) => {
     response.status(500).send('Internal Server Error !');
   }
 };
+
+exports.post = async (request, response) => {
+  try {
+    const { name } = request.body;
+    const data = { name };
+    await languages.create(data);
+    response.status(200).send('Successful !');
+  } catch (error) {
+    response.status(500).send('Internal Server Error !');
+  }
+};
