@@ -18,11 +18,9 @@ exports.get = async (request, response) => {
 exports.post = async (request, response) => {
   try {
     const { name } = request.body;
-    await languages.create({logging:true,name});
+    await languages.create(name);
     response.status(200).send('Successful !');
   } catch (error) {
-    console.log(error);
- 
     response.status(500).send('Internal Server Error !');
   }
 };
