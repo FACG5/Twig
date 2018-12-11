@@ -21,9 +21,11 @@ exports.get = async (request, response) => {
 
 exports.post = async (request, response) => {
   try {
-    const { name, language_id: languageId } = request.body;
-    let data = { name, languageId };
-    data = snakeCase(data);
+    console.log(request.body);
+    const { dialects, languageId } = request.body;
+    const data = { name: dialects, language_id: languageId };
+    console.log(data);
+    
     await dialect.create(data);
     response.status(200).send('Successful !');
   } catch (error) {
