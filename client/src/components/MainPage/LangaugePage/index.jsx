@@ -23,7 +23,7 @@ class Provider extends Component {
         axios.post('/api/v1/languages', data).then((res) => {
           if (res.status === 200) {
             const { languagesResult } = res.data;
-            this.setState({ messageLanguage: 'Successful add language ', validationLangauge: false, languages: languagesResult });
+            this.setState({ messageLanguage: 'Successfully added ', validationLangauge: false, languages: languagesResult });
           }
         }).catch((error) => {
           const { status } = error.response;
@@ -47,7 +47,7 @@ class Provider extends Component {
       if (dialects && dialects.trim() && languageId) {
         axios.post('/api/v1/dialects', data).then((res) => {
           if (res.status === 200) {
-            this.setState({ messageDialect: 'Successful add dialect', validationDilactes: false });
+            this.setState({ messageDialect: 'Successfully added ', validationDilactes: false });
           }
         }).catch((error) => {
           const { status } = error.response;
