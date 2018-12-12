@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '../common/Button';
 import './style.css';
 import About from './About';
-import Translations from './Translations';
+import Location from './Location';
 import ProfileCard from './ProfileCard';
 import Loading from '../common/Loading';
 
@@ -72,11 +72,11 @@ class Profile extends Component {
                   className={`tab__button ${
                     translations ? 'tab__button--clicked' : null
                   }`}
-                  value="Translations"
+                  value="Location"
                 />
               </div>
               {translations ? (
-                <Translations />
+                <Location />
               ) : (
                 <About values={values} languageResult={languageResult} />
               )}
