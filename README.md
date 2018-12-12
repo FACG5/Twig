@@ -1,4 +1,7 @@
+
 # Twig: The Medical Database
+
+[![Build Status](https://travis-ci.com/FACG5/Twig.svg?branch=master)](https://travis-ci.com/FACG5/Twig)
 
 ## Problem Statement
 
