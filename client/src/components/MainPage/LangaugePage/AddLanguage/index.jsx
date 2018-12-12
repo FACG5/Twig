@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Input from '../../../common/Inputs';
 import Button from '../../../common/Button';
 import { LanguageConsumer, LanguageProvider } from '../index';
