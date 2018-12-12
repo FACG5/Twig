@@ -62,8 +62,9 @@ As a user I can submit translation and/or verify existing translations of existi
 
 1- Farah Zaqout (Team Manager)
 
-2- Ibrahem AlShaikh Ali
+2- Lubna Abd Al Jawwad
 
-3- Ali Haj Ahmed
+3- Ibrahem AlShaikh Ali
 
-4- Lubna Abd
+4- Ali Haj Ahmed
+
