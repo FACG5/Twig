@@ -34,9 +34,19 @@ As a user I can submit translation and/or verify existing translations of existi
 
 9- As a user I can verify an existing translation of a question (by vote).
 
-
 ------
-## Team 
+### Website live Heroku [Here ](https://twig-project.herokuapp.com)
+------
+### How to run website locally 
+- Clone this repository
+- ```cd Twig``` then run ```npm i```
+- ```cd client``` then run ```npm```
+- Create a ```config.env``` file in the root of twig.
+- Add ```dbUser, dbPassword, dbName and SECRET``` in it.
+- run ```npm run dev``` to run the project
+
+ ---------------------------
+### Team 
 
 1- Farah Zaqout (Team Manager)
 
