@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './style.css';
 
-class Translations extends Component {
+class Location extends Component {
   state = {}
 
   render() {
     return (
-      <div className="translations__box">
-        <h3 className="translations__title">Translation</h3>
+      <div className="location__box">
+        <h3 className="location__title">Location</h3>
         <hr />
-        <div className="translations__content">
+        <div className="location__content">
           <p>
             <h4>Under development</h4>
           </p>
@@ -19,4 +19,4 @@ class Translations extends Component {
   }
 }
 
-export default Translations;
+export default Location;
