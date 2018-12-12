@@ -1,4 +1,4 @@
-.input__email, .input__password--login, .input__langauge {
+.input__email, .input__password--login, .input__langauge ,.input__dialect{
   width: 277px;
   border-radius: 3px;
   border: none;

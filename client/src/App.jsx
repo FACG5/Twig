@@ -9,7 +9,7 @@ import Specialization from './components/MainPage/Spectialization';
 import QuestionsPage from './components/MainPage/QuestionsPage';
 import TranslationsPage from './components/MainPage/TranslationsPage';
 import ErrorPage from './components/ErrorPage';
-import LangaugePage from './components/MainPage/LangaugePage';
+import LangaugePage from './components/MainPage/LangaugePage/AddLanguage';
 
 export default function App() {
   return (

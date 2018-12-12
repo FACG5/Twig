@@ -6,3 +6,11 @@
 .langauge__select {
   margin-bottom: 0.5rem;
 }
+
+.langauge__error,.dialect__error{
+  color:red;
+}
+
+.langauge__message,.dialect__message{
+  color:green;
+}

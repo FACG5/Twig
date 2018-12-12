@@ -343,7 +343,7 @@ button__login {
   font-weight: bold;
 }
 
-.button__add-language {
+.button__add-language,.button__add-dialect {
   font-family: cairo;
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
