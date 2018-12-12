@@ -1,0 +1,16 @@
+.langauge__title {
+  margin-left: 0;
+  font-size: 1.2rem;
+}
+
+.langauge__select {
+  margin-bottom: 0.5rem;
+}
+
+.langauge__error,.dialect__error{
+  color:red;
+}
+
+.langauge__message,.dialect__message{
+  color:green;
+}
