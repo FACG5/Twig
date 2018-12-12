@@ -24,15 +24,15 @@ As a user I can submit translation and/or verify existing translations of existi
 
 5- As a user I can view groups of question based on speciality.
 
-5- As a user I can view translations for a spacific question.
+6- As a user I can view translations for a spacific question.
 
-6- As a user I can submit text translation of a question.
+7- As a user I can submit text translation of a question.
 
-7- As a user I can submit audio translation of a question.
+8- As a user I can submit audio translation of a question.
 
-8- As a user I can submit sign language video translation of a question.
+9- As a user I can submit sign language video translation of a question.
 
-9- As a user I can verify an existing translation of a question (by vote).
+10- As a user I can verify an existing translation of a question (by vote).
 
 ------
 ### Website live Heroku [Here ](https://twig-project.herokuapp.com)
