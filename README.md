@@ -46,6 +46,15 @@ As a user I can submit translation and/or verify existing translations of existi
 - run ```npm run dev``` to run the project
 
  ---------------------------
+ ### Tech stack
+- Express JS
+- React JS
+- PostgreSQL
+- Sequelize 
+- HTML5
+- CSS3
+- Javascript
+---------
 ### Team 
 
 1- Farah Zaqout (Team Manager)
