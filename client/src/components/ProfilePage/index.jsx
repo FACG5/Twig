@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Button from '../common/Button';
 import './style.css';
 import About from './About';
@@ -86,5 +87,9 @@ class Profile extends Component {
     );
   }
 }
+
+Profile.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default Profile;
