@@ -18,8 +18,8 @@ class Location extends Component {
   onClick=() => {
     const { City, State } = this.state;
     if (City && City.trim() && State && State.trim()) {
-      const apiKey = '219fa7fc98c345d1b38193fa9201a96e';
-      axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${State},${City}&key=${apiKey}`).then((res) => {
+      const API_KEY = process.env.REACT_APP_API_KEY;
+      axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${State},${City}&key=${API_KEY}`).then((res) => {
         if (res.data.total_results !== 0) {
           const locationValues = res.data.results[0].geometry;
           const { lat, lng } = locationValues;
