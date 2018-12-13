@@ -24,7 +24,6 @@ class Profile extends Component {
           const { profileResult, languageResult } = results;
 
           this.setState({ values: profileResult, languageResult });
-          // console.log(results);
         })
         .catch((error) => {
           const { status, data } = error.response;
