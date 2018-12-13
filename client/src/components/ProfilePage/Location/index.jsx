@@ -20,6 +20,7 @@ class Location extends Component {
     if (City && City.trim() && State && State.trim()) {
       const API_KEY = process.env.REACT_APP_API_KEY;
       axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${State},${City}&key=${API_KEY}`).then((res) => {
+        // check the api results
         if (res.data.total_results !== 0) {
           const locationValues = res.data.results[0].geometry;
           const { lat, lng } = locationValues;
@@ -29,13 +30,15 @@ class Location extends Component {
           ).catch((error) => {
             const { status } = error.response;
             if (status === 404) {
-              this.setState({ message: 'Page Not Found' });
+              this.setState({ message: 'Route Not Found' });
             }
           });
         } else {
+          // when the result of api is 0 then show a message to user of Not Found
           this.setState({ messageNotFound: ' Not Found', found: true });
         }
       }).catch((error) => {
+        // when api not found
         const { status } = error.response;
         if (status === 404) {
           this.setState({ message: ' Not Found' });
