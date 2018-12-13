@@ -66,6 +66,7 @@ class Location extends Component {
         <h3 className="location__title">Location</h3>
         <hr />
         <div className="location__content">
+          <h1 className="location__lable">Country</h1>
           <Inputs
             name="State"
             className="input__location"
@@ -73,6 +74,7 @@ class Location extends Component {
             type="text"
             placeholder="Enter your Country"
           />
+          <h1 className="location__lable">City</h1>
           <Inputs
             name="City"
             className="input__location"
