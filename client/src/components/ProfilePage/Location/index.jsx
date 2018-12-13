@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Inputs from '../../common/Inputs';
 import Button from '../../common/Button';
 import './style.css';
@@ -17,6 +18,7 @@ class Location extends Component {
 
   onClick=() => {
     const { City, State } = this.state;
+    const { updateValues } = this.props;
     if (City && City.trim() && State && State.trim()) {
       const API_KEY = process.env.REACT_APP_API_KEY;
       axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${State},${City}&key=${API_KEY}`).then((res) => {
@@ -25,9 +27,15 @@ class Location extends Component {
           const locationValues = res.data.results[0].geometry;
           const { lat, lng } = locationValues;
           const data = { State, lat, lng };
-          axios.post('api/v1/geo-code', data).then(
-            this.setState({ message: 'Successfully added ', validation: false, found: false }),
-          ).catch((error) => {
+          axios.post('api/v1/geo-code', data).then(() => {
+            const newData = {
+              location: State,
+              latitude: lat,
+              longitude: lng,
+            };
+            updateValues(newData);
+            this.setState({ message: 'Successfully added ', validation: false, found: false });
+          }).catch((error) => {
             const { status } = error.response;
             if (status === 404) {
               this.setState({ message: 'Route Not Found' });
@@ -58,13 +66,15 @@ class Location extends Component {
         <h3 className="location__title">Location</h3>
         <hr />
         <div className="location__content">
+          <h1 className="location__lable">Country</h1>
           <Inputs
             name="State"
             className="input__location"
             onChange={this.onChange}
             type="text"
-            placeholder="Enter your State"
+            placeholder="Enter your Country"
           />
+          <h1 className="location__lable">City</h1>
           <Inputs
             name="City"
             className="input__location"
@@ -74,7 +84,7 @@ class Location extends Component {
           />
           {validation ? (
             <h1 className="dialect__error">
-                  Please Enter Your State and City!
+                  Please Enter Your Country and City!
             </h1>
           ) : (
             <h1 className="dialect__message">{message}</h1>
@@ -90,5 +100,9 @@ class Location extends Component {
     );
   }
 }
+
+Location.propTypes = {
+  updateValues: PropTypes.func.isRequired,
+};
 
 export default Location;
