@@ -22,7 +22,9 @@ class Profile extends Component {
         .then((res) => {
           const results = res.data;
           const { profileResult, languageResult } = results;
+
           this.setState({ values: profileResult, languageResult });
+          // console.log(results);
         })
         .catch((error) => {
           const { status, data } = error.response;
@@ -41,6 +43,16 @@ class Profile extends Component {
       translations: !prev.translations,
     }));
   };
+
+  updateValues = (newValues) => {
+    const { values } = this.state;
+    const newValuse = Object.assign(values, newValues);
+    if (values) {
+      this.setState({
+        values: newValuse,
+      });
+    }
+  }
 
   render() {
     const {
@@ -76,7 +88,7 @@ class Profile extends Component {
                 />
               </div>
               {translations ? (
-                <Location />
+                <Location updateValues={this.updateValues} />
               ) : (
                 <About values={values} languageResult={languageResult} />
               )}
