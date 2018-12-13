@@ -42,6 +42,7 @@ class VideoTranslation extends Component {
         lastModified: Date.now(),
       });
       const videoUrl = URL.createObjectURL(videoBlob);
+      player.srcObject.getVideoTracks().forEach(track => track.stop());
       player.srcObject = null;
       player.pause();
       player.src = videoUrl;
