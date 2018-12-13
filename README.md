@@ -60,11 +60,8 @@ As a user I can submit translation and/or verify existing translations of existi
 ---------
 ### Team 
 
-1- Farah Zaqout (Team Manager)
-
-2- Lubna Abd Al Jawwad
-
-3- Ibrahem AlShaikh Ali
-
-4- Ali Haj Ahmed
+- [Farah Zaqout (Team Manager)](https://github.com/FarahZaqout)
+- [Lubna Abd Al Jawwad](https://github.com/lubnaabd)
+- [Ibrahem AlShaikh Ali](https://github.com/HemaSAli)
+- [Ali Haj Ahmed](https://github.com/ali-7)
 
