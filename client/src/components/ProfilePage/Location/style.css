@@ -54,3 +54,8 @@ hr {
   text-align: center;
   font-weight: bold;
 }
+
+.location__lable {
+  margin-left: 10px;
+  
+}
