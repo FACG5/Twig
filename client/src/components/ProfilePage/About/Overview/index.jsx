@@ -5,6 +5,8 @@ import './style.css';
 
 const Overview = (props) => {
   const { values } = props;
+  console.log(values);
+  
   const {
     location,
     gender,
@@ -13,6 +15,8 @@ const Overview = (props) => {
     dialectName,
     languageName,
     jobTitle,
+    latitude,
+    longitude,
   } = values;
 
   return (
@@ -40,6 +44,8 @@ const Overview = (props) => {
           text={registerDate && registerDate.slice(0, 7)}
         />
         <OverviewInformation icon="id-card" text="Profile 10% complete" />
+        <OverviewInformation icon="id-card" join="Latitude : " text={latitude} />
+        <OverviewInformation icon="id-card" join="Longitude : " text={longitude} />
       </div>
     </div>
   );
