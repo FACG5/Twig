@@ -17,6 +17,7 @@ class Location extends Component {
 
   onClick=() => {
     const { City, State } = this.state;
+    const { updateValues } = this.props;
     if (City && City.trim() && State && State.trim()) {
       const API_KEY = process.env.REACT_APP_API_KEY;
       axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${State},${City}&key=${API_KEY}`).then((res) => {
@@ -25,9 +26,16 @@ class Location extends Component {
           const locationValues = res.data.results[0].geometry;
           const { lat, lng } = locationValues;
           const data = { State, lat, lng };
-          axios.post('api/v1/geo-code', data).then(
-            this.setState({ message: 'Successfully added ', validation: false, found: false }),
-          ).catch((error) => {
+          axios.post('api/v1/geo-code', data).then(() => {
+            console.log(data);
+            const newData = {
+              location: State,
+              latitude: lat,
+              longitude: lng,
+            };
+            updateValues(newData);
+            this.setState({ message: 'Successfully added ', validation: false, found: false });
+          }).catch((error) => {
             const { status } = error.response;
             if (status === 404) {
               this.setState({ message: 'Route Not Found' });
