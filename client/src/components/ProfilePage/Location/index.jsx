@@ -27,7 +27,6 @@ class Location extends Component {
           const { lat, lng } = locationValues;
           const data = { State, lat, lng };
           axios.post('api/v1/geo-code', data).then(() => {
-            console.log(data);
             const newData = {
               location: State,
               latitude: lat,
