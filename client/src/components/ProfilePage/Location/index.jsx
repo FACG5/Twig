@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Inputs from '../../common/Inputs';
 import Button from '../../common/Button';
 import './style.css';
@@ -97,5 +98,9 @@ class Location extends Component {
     );
   }
 }
+
+Location.propTypes = {
+  updateValues: PropTypes.func.isRequired,
+};
 
 export default Location;
