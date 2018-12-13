@@ -5,8 +5,6 @@ import './style.css';
 
 const Overview = (props) => {
   const { values } = props;
-  console.log(values);
-  
   const {
     location,
     gender,
