@@ -42,8 +42,8 @@ const Overview = (props) => {
           text={registerDate && registerDate.slice(0, 7)}
         />
         <OverviewInformation icon="id-card" text="Profile 10% complete" />
-        <OverviewInformation icon="id-card" join="Latitude : " text={latitude} />
-        <OverviewInformation icon="id-card" join="Longitude : " text={longitude} />
+        <OverviewInformation icon="map-marker-alt" join="Latitude : " text={latitude} />
+        <OverviewInformation icon="map-marker-alt" join="Longitude : " text={longitude} />
       </div>
     </div>
   );
