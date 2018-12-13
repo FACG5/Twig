@@ -71,7 +71,7 @@ class Location extends Component {
             className="input__location"
             onChange={this.onChange}
             type="text"
-            placeholder="Enter your State"
+            placeholder="Enter your Country"
           />
           <Inputs
             name="City"
@@ -82,7 +82,7 @@ class Location extends Component {
           />
           {validation ? (
             <h1 className="dialect__error">
-                  Please Enter Your State and City!
+                  Please Enter Your Country and City!
             </h1>
           ) : (
             <h1 className="dialect__message">{message}</h1>
