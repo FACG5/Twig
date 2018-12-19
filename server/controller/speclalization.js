@@ -18,7 +18,7 @@ exports.get = async (request, response) => {
 exports.post = async (request, response) => {
   try {
     const { category: name, avatarUrl } = request.body;
-    const data = { name, avatar_url: avatarUrl };     
+    const data = { name, avatar_url: avatarUrl };   
     await speclalizations.create(data);
     response.status(200).send({ message: 'Successful !' });
   } catch (error) {
