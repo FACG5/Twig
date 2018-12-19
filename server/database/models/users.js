@@ -55,6 +55,14 @@ const users = connection.define('user', {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
+  lat: {
+    type: Sequelize.DOUBLE,
+    defaultValue: 0,
+  },
+  lng: {
+    type: Sequelize.DOUBLE,
+    defaultValue: 0,
+  },
 });
 
 module.exports = users;

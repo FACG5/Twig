@@ -13,6 +13,8 @@ const Overview = (props) => {
     dialectName,
     languageName,
     jobTitle,
+    latitude,
+    longitude,
   } = values;
 
   return (
@@ -40,6 +42,8 @@ const Overview = (props) => {
           text={registerDate && registerDate.slice(0, 7)}
         />
         <OverviewInformation icon="id-card" text="Profile 10% complete" />
+        <OverviewInformation icon="map-marker-alt" join="Latitude : " text={latitude} />
+        <OverviewInformation icon="map-marker-alt" join="Longitude : " text={longitude} />
       </div>
     </div>
   );
