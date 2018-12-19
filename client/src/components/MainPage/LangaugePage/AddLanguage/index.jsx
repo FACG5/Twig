@@ -38,7 +38,7 @@ class LangaugePage extends Component {
                   onClick={context.addCategory}
                 />
                 {context.validationCategory ? (
-                  <h1 className="Category__error">Please Enter Category / Image Category Url</h1>
+                  <h1 className="Category__error">{context.messageCategoryError}</h1>
                 ) : (
                   <h1 className="Category__message">{context.messageCategory}</h1>
                 )}
