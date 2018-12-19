@@ -35,10 +35,11 @@ class QuesionsPage extends Component {
         .then((data) => {
           const results = data.data;
           this.setState({
-            values: results,
-            items: results,
+            result: results.speclalizationsDataResult[0],
+            values: results.finalResult,
+            items: results.finalResult,
             section: name,
-            avatarUrl: results[0].avatar_url,
+            avatarUrl: results.speclalizationsDataResult[0].avatar_url,
           });
         })
         .catch((error) => {
@@ -89,18 +90,18 @@ class QuesionsPage extends Component {
 
   render() {
     const {
-      items, section, avatarUrl, found, input, error, values, showModal, userId,
+      result, items, section, avatarUrl, found, input, error, values, showModal, userId,
     } = this.state;
-    if (!values.length && !error) {
+    if (!result && !error) {
       return <Loading />;
     }
-    if (values.length) {
+    if (result) {
       return (
         <div className="questions__box">
           <div>
             <div className="questions__header">
               <div className="questions__header__logo">
-                <img src={avatarUrl} alt="img" />
+                <img src={avatarUrl} alt="img" className="questions__header__logo-image" />
                 <h2 className="questions__title">{section}</h2>
               </div>
               <SearchBar
@@ -128,7 +129,7 @@ class QuesionsPage extends Component {
               id="add-question"
             />
             <div className="question__cards">
-              <Card values={items} section={section} userId={userId} />
+              {values.length ? <Card values={items} section={section} userId={userId} /> : <h1>No Questions</h1>}
             </div>
             {found && (
               <p className="questions__showmore" />
@@ -136,7 +137,7 @@ class QuesionsPage extends Component {
             {showModal ? (
               <AddQuestionModal
                 showModal={this.showModal}
-                speclalizationsId={values[0].speclalizationsId}
+                speclalizationsId={result.speclalizationsId}
                 updateValues={this.updateValues}
                 section={section}
               />
