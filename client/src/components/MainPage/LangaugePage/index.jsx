@@ -9,13 +9,32 @@ class Provider extends Component {
     languages: [],
     validationLangauge: false,
     validationDilactes: false,
-
+    validationCategory: false,
     onChange: (event) => {
       const { name, value } = event.target;
-      this.setState({ [name]: value, validationLangauge: false, validationDilactes: false });
+      this.setState({
+        [name]: value, validationCategory: false, validationLangauge: false, validationDilactes: false,
+      });
     },
 
-
+    addCategory: () => {
+      const { category, avatarUrl } = this.state;
+      const data = { category, avatarUrl };
+      if (avatarUrl && avatarUrl.trim() && category && category.trim()) {
+        axios.post('/api/v1/category', data).then((res) => {
+          if (res.status === 200) {
+            this.setState({ messageCategory: 'Successfully added ', validationCategory: false });
+          }
+        }).catch((error) => {
+          const { status } = error.response;
+          if (status === 404) {
+            this.setState({ messageCategory: 'Page Not Found' });
+          }
+        });
+      } else {
+        this.setState({ validationCategory: true });
+      }
+    },
     addLangauge: () => {
       const { name } = this.state;
       const data = { name };
@@ -23,7 +42,7 @@ class Provider extends Component {
         axios.post('/api/v1/languages', data).then((res) => {
           if (res.status === 200) {
             const { languagesResult } = res.data;
-            this.setState({ messageLanguage: 'Successful add language ', validationLangauge: false, languages: languagesResult });
+            this.setState({ messageLanguage: 'Successfully added ', validationLangauge: false, languages: languagesResult });
           }
         }).catch((error) => {
           const { status } = error.response;
@@ -47,7 +66,7 @@ class Provider extends Component {
       if (dialects && dialects.trim() && languageId) {
         axios.post('/api/v1/dialects', data).then((res) => {
           if (res.status === 200) {
-            this.setState({ messageDialect: 'Successful add dialect', validationDilactes: false });
+            this.setState({ messageDialect: 'Successfully added ', validationDilactes: false });
           }
         }).catch((error) => {
           const { status } = error.response;
