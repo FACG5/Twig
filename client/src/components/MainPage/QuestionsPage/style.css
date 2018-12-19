@@ -1,4 +1,3 @@
-
 .questions__box {
   animation: fadeInOpacity 0.4s 1;
 }
@@ -11,7 +10,10 @@
   padding-top: 10px;
   cursor: pointer;
 }
-
+.questions__header__img {
+  width: 40%;
+  height: 100%;
+}
 .questions__notFound {
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
@@ -24,7 +26,8 @@
   color: #f59036;
 }
 
-.questions__header, .questions__header__logo {
+.questions__header,
+.questions__header__logo {
   display: flex;
   justify-content: space-between;
 }
@@ -39,4 +42,10 @@
 
 .question__cards {
   margin-top: 4rem;
+}
+
+.questions__header__logo-image {
+  margin-right: 0.5rem;
+  width: 64px;
+  height: 86px;
 }
