@@ -15,6 +15,33 @@ class LangaugePage extends Component {
           {context => (
             <div>
               <div>
+                <h1 className="category__title">Enter category</h1>
+                <div>
+                  <Input
+                    className="input__category"
+                    placeholder="Enter category here..."
+                    onChange={context.onChange}
+                    type="text"
+                    name="category"
+                  />
+                </div>
+                <Input
+                  className="input__category"
+                  placeholder="Enter Image Category Url here..."
+                  onChange={context.onChange}
+                  type="text"
+                  name="avatarUrl"
+                />
+                <Button
+                  value="Add"
+                  className="button__add-category"
+                  onClick={context.addCategory}
+                />
+                {context.validationCategory ? (
+                  <h1 className="Category__error">{context.messageCategoryError}</h1>
+                ) : (
+                  <h1 className="Category__message">{context.messageCategory}</h1>
+                )}
                 <h1 className="langauge__title">Enter Language</h1>
                 <Input
                   className="input__langauge"

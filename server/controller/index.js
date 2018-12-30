@@ -44,6 +44,7 @@ router.get('/logout', logout.get);
 router.get('/files/:fileName', files.get);
 router.post('/languages', languages.post);
 router.post('/dialects', dialects.post);
+router.post('/category', specialization.post);
 router.post('/geo-code', userDetails.updateLocation);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-.langauge__title {
+.langauge__title ,.category__title{
   margin-left: 0;
   font-size: 1.2rem;
 }
@@ -7,10 +7,10 @@
   margin-bottom: 0.5rem;
 }
 
-.langauge__error,.dialect__error{
+.langauge__error,.dialect__error,.Category__error{
   color:red;
 }
 
-.langauge__message,.dialect__message{
+.langauge__message,.dialect__message,.Category__message{
   color:green;
 }

@@ -26,7 +26,7 @@ class AddQuestionModal extends Component {
         .post(`/api/v1/specialization/question/${speclalizationsId}`, data)
         .then((results) => {
           showModal();
-          updateValues(results.data);
+          updateValues(results.data.finalResult);
         })
         .catch((error) => {
           const { data: message, status } = error.response;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import validator from 'validator';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
@@ -9,13 +10,37 @@ class Provider extends Component {
     languages: [],
     validationLangauge: false,
     validationDilactes: false,
-
+    validationCategory: false,
     onChange: (event) => {
       const { name, value } = event.target;
-      this.setState({ [name]: value, validationLangauge: false, validationDilactes: false });
+      this.setState({
+        [name]: value, validationCategory: false, validationLangauge: false, validationDilactes: false,
+      });
     },
 
+    addCategory: () => {
+      const { category, avatarUrl } = this.state;
 
+      const data = { category, avatarUrl };
+      if (avatarUrl && avatarUrl.trim() && category && category.trim()) {
+        if (!validator.isURL(avatarUrl, { protocols: ['http', 'https', 'ftp'] })) {
+          this.setState({ messageCategoryError: 'Please add Image URL valid ', validationCategory: true });
+        } else {
+          axios.post('/api/v1/category', data).then((res) => {
+            if (res.status === 200) {
+              this.setState({ messageCategory: 'Successfully added ', validationCategory: false });
+            }
+          }).catch((error) => {
+            const { status } = error.response;
+            if (status === 404) {
+              this.setState({ messageCategory: 'Page Not Found' });
+            }
+          });
+        }
+      } else {
+        this.setState({ validationCategory: true, messageCategoryError: 'Please Enter Category / Image Category Url' });
+      }
+    },
     addLangauge: () => {
       const { name } = this.state;
       const data = { name };

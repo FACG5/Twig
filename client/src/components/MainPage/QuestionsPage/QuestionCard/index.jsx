@@ -87,7 +87,7 @@ class Card extends Component {
                 <div className="box__card--content">
                   <div className="box__card--details">
                     <div>{username}</div>
-                    <div>{date.slice(0, 10)}</div>
+                    <div>{date && date.slice(0, 10)}</div>
                   </div>
                   {message ? (
                     <h3 className="edited--message">{message}</h3>
@@ -105,11 +105,11 @@ class Card extends Component {
                         <FontAwesomeIcon
                           icon="save"
                           onClick={() => this.savaQuestion(
-                              id,
-                              speclalizationsId,
-                              userId,
-                              index,
-                            )
+                            id,
+                            speclalizationsId,
+                            userId,
+                            index,
+                          )
                           }
                         />
                       </div>
@@ -128,7 +128,6 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  values: PropTypes.instanceOf(Array).isRequired,
   section: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
 };
